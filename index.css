@@ -934,4 +934,25 @@ img {
         grid-template-columns: 1fr !important;
         gap: 30px !important;
     }
+
+    /* Missing sections from previous updates */
+    .spotlight-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    .journey-track {
+        grid-template-columns: 1fr !important;
+    }
+
+    .science-layer {
+        grid-template-columns: 1fr !important;
+    }
+
+    .science-illus img {
+        height: 250px !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        transform: none !important;
+        object-position: center !important;
+    }
 }

@@ -1,0 +1,2576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Again Labs | Instant Lift Complex</title>
+    <link rel="stylesheet" href="index.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-kit.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Section 1: Announcement Bar -->
+    <div class="announcement-bar">
+        SAVE UP TO 36% — SUBSCRIBE & NEVER RUN OUT
+    </div>
+
+    <!-- Section 2: Navigation Header -->
+    <header class="header" style="padding: 22px 0;">
+        <div class="container nav-container">
+            <div class="nav-left" style="display: flex; align-items: center;">
+                <a href="#" class="logo"
+                    style="font-size: 17px; font-weight: 400; color: var(--text-main); letter-spacing: 0.3px;">
+                    Glow Again Labs
+                </a>
+            </div>
+            <div class="nav-right" style="display: flex; justify-content: flex-end; align-items: center;">
+                <button class="icon-btn" id="cart-toggle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1.5"></circle>
+                        <circle cx="20" cy="21" r="1.5"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span id="cart-count" style="display: none;">(0)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Drawer -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="flex justify-between items-center mb-8">
+            <h3 class="serif" style="font-size: 24px;">Your Cart</h3>
+            <button id="close-cart">✕</button>
+        </div>
+        <div id="cart-empty-state" class="text-center" style="margin-top: 60px;">
+            <div style="font-size: 64px; margin-bottom: 24px;">🏺</div>
+            <p style="color: var(--text-muted); margin-bottom: 32px;">Your cart is empty. A 10 years younger you is one
+                click away.</p>
+            <a href="#purchase" class="btn btn-primary" id="shop-now-empty">SHOP NOW</a>
+        </div>
+        <div id="cart-full-state" style="display: none; margin-top: 40px;">
+            <div class="flex gap-4 items-center"
+                style="border-bottom: 1px solid var(--border-color); padding-bottom: 24px; margin-bottom: 24px;">
+                <img src="public/images/product_jar.png" id="cart-item-image"
+                    style="width: 80px; height: 80px; object-fit: contain; background: #F9F9F9;">
+                <div>
+                    <p style="font-weight: 700; font-size: 16px;">Instant Lift Complex</p>
+                    <p id="cart-item-desc" style="font-size: 12px; color: var(--text-muted);">1-Month Supply (Plan:
+                        Subscribe)</p>
+                    <p id="cart-item-price" style="font-weight: 600; margin-top: 8px;">$62.00</p>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mb-8">
+                <span style="font-weight: 600;">Total</span>
+                <span id="cart-total" style="font-weight: 700; font-size: 20px;">$62.00</span>
+            </div>
+            <button class="btn btn-primary w-full" style="width: 100%;">CHECKOUT</button>
+            <p style="font-size: 11px; text-align: center; color: var(--text-muted); margin-top: 16px;">✓ Free shipping
+                included</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 3: Hero Section -->
+        <style>
+            .hero-slider-wrapper {
+                width: 100%;
+                margin: 0;
+            }
+
+            .hero-slide-container {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                height: 30rem;
+                background-image: url('https://images.pexels.com/photos/9774611/pexels-photo-9774611.jpeg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                display: flex;
+                flex-direction: column;
+            }
+
+            @media (min-width: 768px) {
+                .hero-slide-container {
+                    height: calc(100vh - 106px);
+                }
+            }
+
+            .hero-slide-content {
+                margin-top: auto;
+                width: 90%;
+                padding-left: 1.25rem;
+                padding-bottom: 2rem;
+            }
+
+            @media (min-width: 768px) {
+                .hero-slide-content {
+                    max-width: 48rem;
+                    padding-left: 5%;
+                    padding-bottom: 4rem;
+                }
+            }
+        </style>
+
+        <section class="hero-slider-wrapper">
+            <div class="hero-slide-container">
+                <div
+                    style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%); pointer-events: none;">
+                </div>
+                <div class="hero-slide-content" style="position: relative; z-index: 10;">
+                    <div class="review-badge"
+                        style="background: rgba(255,255,255,0.85); box-shadow: var(--shadow-soft); backdrop-filter: blur(10px); border: none; margin-bottom: 2rem; color: #1D1D1B; padding: 10px 20px; border-radius: 100px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">
+                        <span style="color: var(--accent-gold);">★</span> 2,100+ 5-star reviews
+                    </div>
+                    <h1 class="hero-title serif"
+                        style="color: white; margin-bottom: 1.25rem; font-size: clamp(48px, 6vw, 76px); line-height: 1.05; letter-spacing: -0.02em;">
+                        See Firmer Skin <br /><span style="font-style: italic; color: #F4EDE8;">in 15 Minutes</span>
+                    </h1>
+                    <p class="hero-subtitle"
+                        style="color: rgba(255,255,255,0.85); font-size: 1.125rem; font-weight: 300; margin-bottom: 2.5rem; max-width: 500px; line-height: 1.6;">
+                        A multi-level tightening cream that visibly lifts fine lines on contact, hydrates beneath the
+                        surface for plumper skin all day, and supports collagen for lasting firmness.
+                    </p>
+                    <div class="mt-5">
+                        <a href="#purchase"
+                            style="padding: 18px 36px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 13px; font-weight: 700; border-radius: 0.75rem; background: white; color: #1D1D1B; text-transform: uppercase; letter-spacing: 0.05em; transition: opacity 0.3s ease; text-decoration: none;"
+                            onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                            SHOP & SAVE NOW
+                        </a>
+                    </div>
+                    <p style="margin-top: 1.5rem; font-weight: 500; font-size: 13px; color: rgba(255,255,255,0.8);">
+                        Results in 60 days or YOUR money back</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Credibility Bar -->
+        <style>
+            .credibility-section {
+                padding: 6rem 0 7rem;
+                background: var(--grad-subtle);
+                position: relative;
+            }
+
+            .credibility-section::before {
+                content: 'RESEARCH';
+                position: absolute;
+                top: 3rem;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 10px;
+                font-weight: 800;
+                letter-spacing: 0.35em;
+                color: var(--color-rose);
+                opacity: 0.7;
+                text-transform: uppercase;
+                font-family: 'Inter', sans-serif;
+            }
+
+            .credibility-title {
+                text-align: center;
+                font-size: clamp(28px, 4vw, 42px);
+                margin-bottom: 4rem;
+                color: var(--text-dark);
+                margin-top: 1.25rem;
+            }
+
+            .credibility-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .credibility-card {
+                background: rgba(255, 255, 255, 0.72);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 107, 157, 0.15);
+                border-radius: 20px;
+                padding: 28px 28px 24px;
+                width: 100%;
+                max-width: 320px;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .credibility-card::before {
+                content: '\201C';
+                position: absolute;
+                top: -12px;
+                right: 20px;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 100px;
+                line-height: 1;
+                background: var(--grad-glow);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                opacity: 0.18;
+                pointer-events: none;
+            }
+
+            .credibility-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 8px 32px rgba(255, 107, 157, 0.18), 0 0 0 1px rgba(255, 107, 157, 0.2) inset;
+                border-color: rgba(255, 107, 157, 0.3);
+            }
+
+            .journal-header {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 18px;
+            }
+
+            .journal-logo-circle {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background: var(--grad-glow);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                box-shadow: 0 4px 14px rgba(255, 107, 157, 0.35);
+            }
+
+            .journal-logo-circle svg {
+                width: 20px;
+                height: 20px;
+                stroke: white;
+                fill: none;
+            }
+
+            .journal-name {
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 1.4;
+                color: var(--text-dark);
+                font-family: 'Inter', sans-serif;
+            }
+
+            .journal-text {
+                font-size: 14.5px;
+                color: var(--text-body);
+                line-height: 1.7;
+                font-style: italic;
+                margin-bottom: 16px;
+                flex-grow: 1;
+            }
+
+            .journal-source {
+                font-size: 11px;
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                color: var(--color-rose);
+                opacity: 0.7;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .journal-source::before {
+                content: '↳';
+                font-style: normal;
+            }
+        </style>
+
+        <section class="credibility-section">
+            <div class="container container-wide">
+                <h2 class="serif credibility-title">"The Science Behind Smoother, Firmer Skin"</h2>
+
+                <div class="credibility-grid">
+                    <!-- Card 1 -->
+                    <div class="credibility-card">
+                        <div class="journal-header">
+                            <div class="journal-logo-circle">
+                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                </svg>
+                            </div>
+                            <div class="journal-name">Journal of Cosmetic Dermatology</div>
+                        </div>
+                        <p class="journal-text">Low molecular weight HA delivers superior hydration to the upper skin
+                            layers, visibly plumping fine lines.</p>
+                        <span class="journal-source">Peer-reviewed · 2021</span>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="credibility-card">
+                        <div class="journal-header">
+                            <div class="journal-logo-circle">
+                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                </svg>
+                            </div>
+                            <div class="journal-name">International Journal of Cosmetic Science</div>
+                        </div>
+                        <p class="journal-text">Palmitoyl Tripeptide-5 supports measurable collagen synthesis when
+                            applied topically over time.</p>
+                        <span class="journal-source">Clinical Study · 2019</span>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="credibility-card">
+                        <div class="journal-header">
+                            <div class="journal-logo-circle">
+                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                </svg>
+                            </div>
+                            <div class="journal-name">Dermatologic Surgery</div>
+                        </div>
+                        <p class="journal-text">Topical peptide complexes showed visible improvement in fine lines
+                            within just 8 weeks of daily use.</p>
+                        <span class="journal-source">Double-blind trial · 2020</span>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="credibility-card">
+                        <div class="journal-header">
+                            <div class="journal-logo-circle">
+                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                </svg>
+                            </div>
+                            <div class="journal-name">Clinical, Cosmetic & Investigational Dermatology</div>
+                        </div>
+                        <p class="journal-text">Film-forming polymers create immediate visible tightening while letting
+                            skin breathe naturally.</p>
+                        <span class="journal-source">Observational · 2022</span>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="credibility-card">
+                        <div class="journal-header">
+                            <div class="journal-logo-circle">
+                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                </svg>
+                            </div>
+                            <div class="journal-name">Journal of Drugs in Dermatology</div>
+                        </div>
+                        <p class="journal-text">Multi-action formulations consistently outperform single-mechanism
+                            products in firming outcomes.</p>
+                        <span class="journal-source">Meta-analysis · 2023</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Story-Driven Testimonial Spotlight -->
+        <style>
+            .testimonials-section {
+                padding: 7rem 0 6rem;
+                background: linear-gradient(180deg, #fff 0%, var(--bg-tinted) 100%);
+            }
+
+            .testimonials-eyebrow {
+                text-align: center;
+                font-size: 10.5px;
+                font-weight: 800;
+                letter-spacing: 0.3em;
+                color: var(--color-rose);
+                text-transform: uppercase;
+                font-family: 'Inter', sans-serif;
+                margin-bottom: 1.25rem;
+            }
+
+            .testimonials-title {
+                text-align: center;
+                font-size: clamp(32px, 5vw, 48px);
+                margin-bottom: 1rem;
+                color: var(--text-dark);
+                letter-spacing: -0.02em;
+            }
+
+            .testimonials-meta {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-bottom: 4rem;
+                flex-wrap: wrap;
+            }
+
+            .testimonials-meta-item {
+                font-family: 'Inter', sans-serif;
+                font-size: 12.5px;
+                font-weight: 600;
+                color: var(--text-muted);
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .testimonials-meta-item::before {
+                content: '✓';
+                background: var(--grad-glow);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: 900;
+            }
+
+            /* ── Spotlight layout ── */
+            .spotlight-layout {
+                display: grid;
+                grid-template-columns: 1fr 1.6fr 1fr;
+                gap: 20px;
+                align-items: center;
+            }
+
+            /* ── FEATURED CENTER CARD ── */
+            .story-spotlight {
+                background: #fff;
+                border-radius: 24px;
+                padding: 3rem 2.5rem;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 20px 60px rgba(255, 107, 157, 0.18), 0 4px 20px rgba(0, 0, 0, 0.06);
+                border: 1px solid rgba(255, 107, 157, 0.2);
+                animation: glowPulse 3.5s ease-in-out infinite;
+                z-index: 2;
+            }
+
+            @keyframes glowPulse {
+
+                0%,
+                100% {
+                    box-shadow: 0 20px 60px rgba(255, 107, 157, 0.18), 0 4px 20px rgba(0, 0, 0, 0.06);
+                }
+
+                50% {
+                    box-shadow: 0 20px 72px rgba(255, 107, 157, 0.32), 0 4px 20px rgba(0, 0, 0, 0.08);
+                }
+            }
+
+            .story-spotlight::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(ellipse at 80% 0%, rgba(255, 107, 157, 0.07) 0%, transparent 65%),
+                    radial-gradient(ellipse at 20% 100%, rgba(255, 154, 92, 0.05) 0%, transparent 60%);
+                pointer-events: none;
+            }
+
+            .spotlight-header {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 2rem;
+            }
+
+            .spotlight-avatar {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background: var(--grad-glow);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 22px;
+                font-weight: 700;
+                color: white;
+                flex-shrink: 0;
+                box-shadow: 0 4px 16px rgba(255, 107, 157, 0.4);
+                transition: transform 0.3s ease;
+                cursor: default;
+            }
+
+            .spotlight-avatar:hover {
+                transform: scale(1.08);
+            }
+
+            .spotlight-meta {
+                flex: 1;
+            }
+
+            .spotlight-name {
+                font-family: 'Inter', sans-serif;
+                font-weight: 800;
+                font-size: 17px;
+                color: var(--text-dark);
+                margin-bottom: 4px;
+            }
+
+            .spotlight-verified {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                font-family: 'Inter', sans-serif;
+                font-size: 11px;
+                font-weight: 700;
+                color: #fff;
+                background: var(--grad-glow);
+                padding: 3px 10px;
+                border-radius: 100px;
+                letter-spacing: 0.04em;
+            }
+
+            .spotlight-stars {
+                font-size: 20px;
+                letter-spacing: 2px;
+                margin-bottom: 1.75rem;
+                background: var(--grad-gold);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .spotlight-quote {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 26px;
+                font-style: italic;
+                line-height: 1.45;
+                color: var(--text-dark);
+                margin-bottom: 1.5rem;
+                position: relative;
+            }
+
+            .spotlight-quote::before {
+                content: '\201C';
+                position: absolute;
+                top: -28px;
+                left: -8px;
+                font-size: 80px;
+                line-height: 1;
+                background: var(--grad-glow);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                opacity: 0.25;
+                font-style: normal;
+            }
+
+            .highlight-word {
+                background: var(--grad-glow);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-style: italic;
+            }
+
+            .spotlight-tags {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                margin-bottom: 2rem;
+            }
+
+            .spotlight-tag {
+                font-family: 'Inter', sans-serif;
+                font-size: 11px;
+                font-weight: 600;
+                letter-spacing: 0.08em;
+                background: var(--bg-tinted);
+                color: var(--color-rose);
+                border: 1px solid rgba(255, 107, 157, 0.2);
+                padding: 5px 12px;
+                border-radius: 100px;
+                text-transform: uppercase;
+            }
+
+            .spotlight-story-context {
+                font-family: 'Inter', sans-serif;
+                font-size: 13px;
+                color: var(--text-muted);
+                border-top: 1px solid rgba(255, 107, 157, 0.12);
+                padding-top: 1.5rem;
+                margin-top: 0.5rem;
+            }
+
+            .spotlight-story-context strong {
+                color: var(--text-body);
+            }
+
+            /* ── SIDE (supporting) cards ── */
+            .story-side {
+                background: rgba(255, 255, 255, 0.65);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 107, 157, 0.1);
+                border-radius: 18px;
+                padding: 2rem;
+                transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+                cursor: default;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .story-side:hover {
+                transform: scale(1.03) translateY(-4px);
+                box-shadow: 0 12px 32px rgba(255, 107, 157, 0.14);
+                border-color: rgba(255, 107, 157, 0.25);
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .side-stars {
+                font-size: 14px;
+                letter-spacing: 1px;
+                background: var(--grad-gold);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 1rem;
+            }
+
+            .side-name {
+                font-family: 'Inter', sans-serif;
+                font-weight: 700;
+                font-size: 14px;
+                color: var(--text-dark);
+                margin-bottom: 0.35rem;
+            }
+
+            .side-tags {
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--color-rose);
+                font-weight: 700;
+                margin-bottom: 1rem;
+                font-family: 'Inter', sans-serif;
+            }
+
+            .side-quote {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 16px;
+                font-style: italic;
+                line-height: 1.6;
+                color: var(--text-body);
+                margin-bottom: 1.25rem;
+            }
+
+            .side-product {
+                font-family: 'Inter', sans-serif;
+                font-size: 11px;
+                color: var(--text-muted);
+                padding-top: 1rem;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            /* ── Section CTA ── */
+            .testimonials-section-cta {
+                text-align: center;
+                margin-top: 4rem;
+            }
+
+            .testimonials-section-cta p {
+                font-size: 14px;
+                color: var(--text-muted);
+                margin-top: 1rem;
+                font-family: 'Inter', sans-serif;
+            }
+        </style>
+
+        <section class="testimonials-section">
+            <div class="container container-wide">
+                <p class="testimonials-eyebrow">Real Women · Real Results</p>
+                <h2 class="serif testimonials-title">2,100+ Women Transformed Their Skin</h2>
+                <div class="testimonials-meta">
+                    <span class="testimonials-meta-item">2,100+ verified customers</span>
+                    <span class="testimonials-meta-item">4.8 average rating</span>
+                    <span class="testimonials-meta-item">Visible results in 4–8 weeks</span>
+                </div>
+
+                <div class="spotlight-layout">
+
+                    <!-- LEFT supporting card: Joan -->
+                    <div class="story-side">
+                        <div class="side-stars">★★★★★</div>
+                        <div class="side-name">Joan, 64</div>
+                        <div class="side-tags">Visible Tightening · Smoother Skin</div>
+                        <p class="side-quote">"I could see the difference in my <span
+                                style="font-style:normal;font-weight:700;color:var(--color-rose);">jawline</span> after
+                            the first week. My daughter asked what I was doing differently."</p>
+                        <p class="side-product">Used: <strong>Instant Lift Complex</strong> · 4 weeks</p>
+                    </div>
+
+                    <!-- CENTER spotlight: Patricia -->
+                    <div class="story-spotlight">
+                        <div class="spotlight-header">
+                            <div class="spotlight-avatar">P</div>
+                            <div class="spotlight-meta">
+                                <div class="spotlight-name">Patricia, 55</div>
+                                <div class="spotlight-verified">✓ Verified Buyer</div>
+                            </div>
+                        </div>
+                        <div class="spotlight-stars">★★★★★</div>
+                        <blockquote class="spotlight-quote">
+                            "I stopped wearing heavy <span class="highlight-word">foundation</span>.<br>I don't need it
+                            anymore."
+                        </blockquote>
+                        <div class="spotlight-tags">
+                            <span class="spotlight-tag">Fine Lines</span>
+                            <span class="spotlight-tag">Hydration</span>
+                            <span class="spotlight-tag">Confidence</span>
+                        </div>
+                        <div class="spotlight-story-context">
+                            — Used <strong>Instant Lift Complex</strong> for 6 weeks
+                        </div>
+                    </div>
+
+                    <!-- RIGHT supporting card: Karen -->
+                    <div class="story-side">
+                        <div class="side-stars">★★★★★</div>
+                        <div class="side-name">Karen, 48</div>
+                        <div class="side-tags">Firmer Skin · Confidence</div>
+                        <p class="side-quote">"My husband noticed before I did. 'Your skin looks amazing,' he said. That
+                            was all the <span
+                                style="font-style:normal;font-weight:700;color:var(--color-rose);">confidence</span> I
+                            needed."</p>
+                        <p class="side-product">Used: <strong>Instant Lift Complex</strong> · 8 weeks</p>
+                    </div>
+
+                </div>
+
+                <!-- Section CTA -->
+                <div class="testimonials-section-cta">
+                    <a href="#purchase" class="btn btn-primary" style="display:inline-flex;">See Real Results</a>
+                    <p>Join 2,100+ women who already made the switch</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 6: Visual Results Timeline -->
+        <style>
+            .journey-section {
+                padding: 8rem 0 6rem;
+                background: var(--grad-subtle);
+                overflow: hidden;
+            }
+
+            .journey-eyebrow {
+                text-align: center;
+                font-size: 10.5px;
+                font-weight: 800;
+                letter-spacing: 0.3em;
+                color: var(--color-rose);
+                text-transform: uppercase;
+                font-family: 'Inter', sans-serif;
+                margin-bottom: 1.25rem;
+            }
+
+            .journey-title {
+                text-align: center;
+                font-size: clamp(32px, 5vw, 48px);
+                margin-bottom: 0.75rem;
+                color: var(--text-dark);
+                letter-spacing: -0.02em;
+            }
+
+            .journey-subtitle {
+                text-align: center;
+                font-size: 15px;
+                color: var(--text-muted);
+                font-family: 'Inter', sans-serif;
+                margin-bottom: 5rem;
+                max-width: 520px;
+                margin-left: auto;
+                margin-right: auto;
+                line-height: 1.65;
+            }
+
+            /* ── Timeline track ── */
+            .journey-track {
+                position: relative;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+                align-items: start;
+            }
+
+            /* Connecting line — removed (conflicts with card images) */
+            .journey-track::before {
+                display: none;
+            }
+
+            /* ── Each stage card ── */
+            .journey-card {
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 107, 157, 0.12);
+                border-radius: 22px;
+                overflow: hidden;
+                box-shadow: var(--shadow-sm);
+                position: relative;
+                transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+                opacity: 0;
+                transform: translateY(32px);
+            }
+
+            .journey-card.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .journey-card:hover {
+                box-shadow: 0 16px 40px rgba(255, 107, 157, 0.18);
+                border-color: rgba(255, 107, 157, 0.28);
+                transform: translateY(-6px);
+            }
+
+            /* Final card glow pulse */
+            .journey-card.is-final {
+                animation: cardGlow 3s ease-in-out infinite;
+            }
+
+            @keyframes cardGlow {
+
+                0%,
+                100% {
+                    box-shadow: var(--shadow-sm);
+                }
+
+                50% {
+                    box-shadow: 0 12px 48px rgba(200, 80, 192, 0.22);
+                }
+            }
+
+            /* ── Image wrapper ── */
+            .journey-img {
+                position: relative;
+                height: 220px;
+                /* overflow: hidden removed to allow badge to overflow */
+            }
+
+            .journey-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+                border-radius: 22px 22px 0 0;
+            }
+
+            .journey-card:hover .journey-img img {
+                transform: scale(1.06);
+            }
+
+            /* Floating time badge */
+            .journey-badge {
+                position: absolute;
+                bottom: -14px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--grad-glow);
+                color: #fff;
+                font-family: 'Inter', sans-serif;
+                font-size: 10.5px;
+                font-weight: 800;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                padding: 6px 18px;
+                border-radius: 100px;
+                white-space: nowrap;
+                box-shadow: 0 4px 16px rgba(255, 107, 157, 0.4);
+                z-index: 3;
+            }
+
+            /* Dot on the connecting line */
+            .journey-img::after {
+                content: '';
+                position: absolute;
+                bottom: -6px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 12px;
+                height: 12px;
+                background: var(--grad-glow);
+                border-radius: 50%;
+                box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2);
+                z-index: 2;
+            }
+
+            /* ── Card body ── */
+            .journey-body {
+                padding: 28px 24px 24px;
+                padding-top: 24px;
+            }
+
+            .journey-card-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 24px;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 10px;
+                line-height: 1.25;
+            }
+
+            /* Ingredient pill */
+            .journey-ingredient {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                font-family: 'Inter', sans-serif;
+                font-size: 10.5px;
+                font-weight: 700;
+                letter-spacing: 0.06em;
+                color: var(--text-muted);
+                background: rgba(255, 107, 157, 0.07);
+                border: 1px solid rgba(255, 107, 157, 0.15);
+                padding: 4px 12px;
+                border-radius: 100px;
+                margin-bottom: 18px;
+                text-transform: uppercase;
+            }
+
+            /* Benefit list */
+            .journey-benefits {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 9px;
+            }
+
+            .journey-benefits li {
+                font-family: 'Inter', sans-serif;
+                font-size: 13.5px;
+                color: var(--text-body);
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                line-height: 1.45;
+            }
+
+            .journey-benefits li::before {
+                content: '✓';
+                flex-shrink: 0;
+                width: 18px;
+                height: 18px;
+                background: var(--grad-glow);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-size: 13px;
+                font-weight: 900;
+                margin-top: 1px;
+            }
+
+            /* Scroll animation */
+            .journey-card {
+                transition-delay: 0s;
+            }
+
+            .journey-card:nth-child(2) {
+                transition-delay: 0.15s;
+            }
+
+            .journey-card:nth-child(3) {
+                transition-delay: 0.3s;
+            }
+        </style>
+
+        <section class="journey-section">
+            <div class="container">
+                <p class="journey-eyebrow">Your Transformation Journey</p>
+                <h2 class="serif journey-title">What You Should Expect</h2>
+                <p class="journey-subtitle">Visible improvements start within minutes and build steadily over 30 days.
+                    Here's exactly what happens.</p>
+
+                <div class="journey-track">
+
+                    <!-- Stage 1: 15 Minutes -->
+                    <div class="journey-card">
+                        <div class="journey-img">
+                            <img src="https://images.pexels.com/photos/3764013/pexels-photo-3764013.jpeg?auto=compress&w=600"
+                                alt="Applying cream — instant surface tightening">
+                            <span class="journey-badge">15 Minutes</span>
+                        </div>
+                        <div class="journey-body">
+                            <h3 class="journey-card-title">Instant Surface Tightening</h3>
+                            <span class="journey-ingredient">Tightening Polymers</span>
+                            <ul class="journey-benefits">
+                                <li>Fine lines appear visibly softened</li>
+                                <li>Jawline looks immediately tighter</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2: 7–14 Days -->
+                    <div class="journey-card">
+                        <div class="journey-img">
+                            <img src="https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&w=600"
+                                alt="Hydrated glowing skin">
+                            <span class="journey-badge">7–14 Days</span>
+                        </div>
+                        <div class="journey-body">
+                            <h3 class="journey-card-title">Deep Hydration Kicks In</h3>
+                            <span class="journey-ingredient">Low MW Hyaluronic Acid</span>
+                            <ul class="journey-benefits">
+                                <li>Skin feels plumper all day long</li>
+                                <li>Natural, healthy glow returns</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3: 30 Days → glow pulse -->
+                    <div class="journey-card is-final">
+                        <div class="journey-img">
+                            <img src="https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg?auto=compress&w=600"
+                                alt="Firm confident radiant skin">
+                            <span class="journey-badge" style="background: var(--grad-peach);">30 Days</span>
+                        </div>
+                        <div class="journey-body">
+                            <h3 class="journey-card-title">Collagen Support Becomes Visible</h3>
+                            <span class="journey-ingredient"
+                                style="background:rgba(200,80,192,0.07); border-color:rgba(200,80,192,0.2); color: var(--color-lavender);">Collagen-Boosting
+                                Peptides</span>
+                            <ul class="journey-benefits">
+                                <li>Skin feels noticeably firmer</li>
+                                <li>Transformation starts showing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center" style="margin-top: 60px;">
+                    <a href="#purchase" class="btn btn-primary">Start Your Journey — Save Up To 36%</a>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Scroll-triggered reveal for journey cards
+            const journeyCards = document.querySelectorAll('.journey-card');
+            const journeyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+            journeyCards.forEach(card => journeyObserver.observe(card));
+        </script>
+
+        <!-- Section 7: 3-Layer Skin Science Visual System -->
+        <style>
+            .science-section {
+                padding: 8rem 0 6rem;
+                background: #fff;
+            }
+
+            .science-eyebrow {
+                text-align: center;
+                font-size: 10.5px;
+                font-weight: 800;
+                letter-spacing: 0.3em;
+                color: var(--color-rose);
+                text-transform: uppercase;
+                font-family: 'Inter', sans-serif;
+                margin-bottom: 1.25rem;
+            }
+
+            .science-title {
+                text-align: center;
+                font-size: clamp(30px, 5vw, 48px);
+                margin-bottom: 1rem;
+                color: var(--text-dark);
+                letter-spacing: -0.02em;
+            }
+
+            .science-subtitle {
+                text-align: center;
+                font-size: 16px;
+                color: var(--text-muted);
+                font-family: 'Inter', sans-serif;
+                margin-bottom: 5rem;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+                line-height: 1.7;
+            }
+
+            /* Stacked layer cards */
+            .science-layers {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            .science-layer {
+                display: grid;
+                grid-template-columns: 260px 1fr;
+                border-radius: 0;
+                overflow: hidden;
+                position: relative;
+                opacity: 0;
+                transform: translateY(28px);
+                transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+                margin-bottom: -1px;
+                /* overlap borders */
+                border: 1px solid rgba(255, 107, 157, 0.12);
+            }
+
+            .science-layer:first-child {
+                border-radius: 20px 20px 0 0;
+            }
+
+            .science-layer:last-child {
+                border-radius: 0 0 20px 20px;
+                margin-bottom: 0;
+            }
+
+            .science-layer.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .science-layer:nth-child(1) {
+                transition-delay: 0s;
+            }
+
+            .science-layer:nth-child(2) {
+                transition-delay: 0.15s;
+            }
+
+            .science-layer:nth-child(3) {
+                transition-delay: 0.28s;
+            }
+
+            /* Layer 1: Surface — lightest */
+            .science-layer:nth-child(1) {
+                background: #fff;
+            }
+
+            /* Layer 2: Hydration — mid tone */
+            .science-layer:nth-child(2) {
+                background: #FFF8F5;
+            }
+
+            /* Layer 3: Structural — richest */
+            .science-layer:nth-child(3) {
+                background: #FFF4FB;
+                animation: scienceGlow 3.5s ease-in-out infinite;
+            }
+
+            @keyframes scienceGlow {
+
+                0%,
+                100% {
+                    box-shadow: none;
+                }
+
+                50% {
+                    box-shadow: 0 8px 40px rgba(200, 80, 192, 0.14);
+                }
+            }
+
+            /* Hover lift + depth */
+            .science-layer:hover {
+                transform: scale(1.012) translateY(-2px);
+                z-index: 2;
+                box-shadow: 0 12px 36px rgba(255, 107, 157, 0.14);
+            }
+
+            /* Left illustration panel */
+            .science-illus {
+                position: relative;
+                background: rgba(255, 255, 255, 0.4);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                border-right: 1px solid rgba(255, 107, 157, 0.1);
+            }
+
+            .science-illus img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                transition: transform 0.5s ease;
+                filter: saturate(0.7);
+            }
+
+            .science-layer:hover .science-illus img {
+                transform: scale(1.07);
+            }
+
+            /* Emoji layer icon fallback */
+            .science-illus-icon {
+                font-size: 72px;
+                line-height: 1;
+                filter: none;
+            }
+
+            /* Right content */
+            .science-content {
+                padding: 2.5rem 2.25rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            /* Layer badge */
+            .science-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-family: 'Inter', sans-serif;
+                font-size: 10px;
+                font-weight: 800;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                padding: 4px 12px;
+                border-radius: 100px;
+                margin-bottom: 14px;
+                width: fit-content;
+            }
+
+            .science-badge.surface {
+                background: rgba(255, 107, 157, 0.1);
+                color: var(--color-rose);
+                border: 1px solid rgba(255, 107, 157, 0.2);
+            }
+
+            .science-badge.hydration {
+                background: rgba(255, 154, 92, 0.1);
+                color: var(--color-peach);
+                border: 1px solid rgba(255, 154, 92, 0.25);
+            }
+
+            .science-badge.structural {
+                background: rgba(200, 80, 192, 0.08);
+                color: var(--color-violet);
+                border: 1px solid rgba(200, 80, 192, 0.2);
+            }
+
+            .science-layer-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 26px;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 8px;
+                line-height: 1.2;
+            }
+
+            .science-ingredient-tag {
+                font-family: 'Inter', sans-serif;
+                font-size: 11px;
+                font-weight: 600;
+                color: var(--text-muted);
+                letter-spacing: 0.04em;
+                margin-bottom: 16px;
+                text-decoration: underline;
+                text-decoration-color: rgba(0, 0, 0, 0.15);
+                text-underline-offset: 3px;
+            }
+
+            .science-bullets {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .science-bullets li {
+                font-family: 'Inter', sans-serif;
+                font-size: 13.5px;
+                color: var(--text-body);
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                line-height: 1.4;
+            }
+
+            .science-bullets li::before {
+                content: '✓';
+                flex-shrink: 0;
+                font-weight: 900;
+                font-size: 12px;
+                margin-top: 1px;
+            }
+
+            .science-layer:nth-child(1) .science-bullets li::before {
+                color: var(--color-rose);
+            }
+
+            .science-layer:nth-child(2) .science-bullets li::before {
+                color: var(--color-peach);
+            }
+
+            .science-layer:nth-child(3) .science-bullets li::before {
+                color: var(--color-violet);
+            }
+
+            /* Layer depth indicator (right edge) */
+            .science-layer::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 4px;
+            }
+
+            .science-layer:nth-child(1)::after {
+                background: var(--color-rose);
+                opacity: 0.3;
+            }
+
+            .science-layer:nth-child(2)::after {
+                background: var(--color-peach);
+                opacity: 0.4;
+            }
+
+            .science-layer:nth-child(3)::after {
+                background: var(--color-violet);
+                opacity: 0.5;
+            }
+
+            /* Trust badges */
+            .science-trust {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-top: 4rem;
+                padding-top: 3rem;
+                border-top: 1px solid rgba(255, 107, 157, 0.1);
+            }
+
+            .trust-pill {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                background: rgba(255, 107, 157, 0.06);
+                border: 1px solid rgba(255, 107, 157, 0.12);
+                padding: 8px 18px;
+                border-radius: 100px;
+                font-family: 'Inter', sans-serif;
+                font-size: 12.5px;
+                font-weight: 600;
+                color: var(--text-body);
+            }
+        </style>
+
+        <section class="science-section">
+            <div class="container">
+                <p class="science-eyebrow">The Science</p>
+                <h2 class="serif science-title">Ingredients That Transform Your Skin in Days</h2>
+                <p class="science-subtitle">Instead of one temporary fix, Instant Lift Complex works at three distinct
+                    skin depths — the surface, hydration layer, and structural layer beneath.</p>
+
+                <div class="science-layers">
+
+                    <!-- Layer 1: Surface -->
+                    <div class="science-layer">
+                        <div class="science-illus">
+                            <img src="public/images/botanicals.png"
+                                style="object-position: 10% 20%; transform: scale(1.4);"
+                                alt="Tightening Polymer illustration">
+                        </div>
+                        <div class="science-content">
+                            <span class="science-badge surface">● Surface Effect</span>
+                            <h3 class="science-layer-title">Instant Visible Results</h3>
+                            <p class="science-ingredient-tag">Tightening Polymers · Film-forming complex</p>
+                            <ul class="science-bullets">
+                                <li>Micro-veil tightening within 15 minutes</li>
+                                <li>Instant smoothing & breathable lift</li>
+                                <li>Visual improvement you feel immediately</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Layer 2: Hydration -->
+                    <div class="science-layer">
+                        <div class="science-illus">
+                            <img src="public/images/botanicals.png"
+                                style="object-position: 80% 30%; transform: scale(1.4);"
+                                alt="Hyaluronic acid illustration">
+                        </div>
+                        <div class="science-content">
+                            <span class="science-badge hydration">● Hydration Layer</span>
+                            <h3 class="science-layer-title">Deep, Lasting Hydration</h3>
+                            <p class="science-ingredient-tag">Low MW Hyaluronic Acid · 1,000× water binding</p>
+                            <ul class="science-bullets">
+                                <li>Penetrates below the surface, not just coating</li>
+                                <li>Skin stays plumper all day long</li>
+                                <li>Rough patches begin smoothing within days</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Layer 3: Structural — glow pulse -->
+                    <div class="science-layer">
+                        <div class="science-illus">
+                            <img src="public/images/botanicals.png"
+                                style="object-position: 20% 80%; transform: scale(1.4);"
+                                alt="Collagen peptide illustration">
+                        </div>
+                        <div class="science-content">
+                            <span class="science-badge structural">● Structural Support</span>
+                            <h3 class="science-layer-title">Structural Firmness Over Time</h3>
+                            <p class="science-ingredient-tag">Palmitoyl Tripeptide-5 · Collagen signal peptides</p>
+                            <ul class="science-bullets">
+                                <li>Supports natural collagen production</li>
+                                <li>Real, lasting firmness — not a temporary mask</li>
+                                <li>Visible transformation from within</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Upgraded trust badges -->
+                <div class="science-trust">
+                    <span class="trust-pill">🌿 Paraben-free</span>
+                    <span class="trust-pill">🐰 Cruelty-free</span>
+                    <span class="trust-pill">✨ All skin types</span>
+                    <span class="trust-pill">🛡️ Sensitive skin safe</span>
+                    <span class="trust-pill">🚫 No harsh chemicals</span>
+                    <span class="trust-pill">🇺🇸 Made in USA</span>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Scroll-triggered reveal for science layers
+            const scienceLayers = document.querySelectorAll('.science-layer');
+            const scienceObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            scienceLayers.forEach(l => scienceObserver.observe(l));
+        </script>
+
+        <!-- Section 8: Risk-Free Guarantee Spotlight -->
+        <style>
+            .guarantee-section {
+                padding: 5rem 0;
+                background: linear-gradient(160deg, #FFF0F6 0%, #FFF8F0 50%, #F8F0FF 100%);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .guarantee-section::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background:
+                    radial-gradient(ellipse at 15% 50%, rgba(255, 107, 157, 0.1) 0%, transparent 55%),
+                    radial-gradient(ellipse at 85% 50%, rgba(200, 80, 192, 0.07) 0%, transparent 55%);
+                pointer-events: none;
+            }
+
+            .guarantee-card {
+                max-width: 680px;
+                margin: 0 auto;
+                background: rgba(255, 255, 255, 0.82);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 107, 157, 0.18);
+                border-radius: 28px;
+                padding: 4rem 3.5rem;
+                text-align: center;
+                box-shadow: 0 24px 64px rgba(255, 107, 157, 0.12), 0 4px 20px rgba(0, 0, 0, 0.04);
+                position: relative;
+                opacity: 0;
+                transform: translateY(24px);
+                transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+
+            .guarantee-card.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Pulsing shield badge */
+            .guarantee-badge {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                width: 90px;
+                height: 90px;
+                background: var(--grad-glow);
+                border-radius: 50%;
+                margin: 0 auto 2rem;
+                box-shadow: 0 8px 28px rgba(255, 107, 157, 0.45);
+                animation: badgePulse 2.5s ease-in-out infinite;
+                position: relative;
+            }
+
+            @keyframes badgePulse {
+
+                0%,
+                100% {
+                    box-shadow: 0 8px 28px rgba(255, 107, 157, 0.45);
+                }
+
+                50% {
+                    box-shadow: 0 8px 44px rgba(255, 107, 157, 0.7), 0 0 0 10px rgba(255, 107, 157, 0.12);
+                }
+            }
+
+            .guarantee-badge-text {
+                color: #fff;
+                font-family: 'Inter', sans-serif;
+                font-size: 9px;
+                font-weight: 900;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                line-height: 1.2;
+                text-align: center;
+            }
+
+            .guarantee-badge-days {
+                font-size: 20px;
+                font-weight: 900;
+                display: block;
+                line-height: 1;
+            }
+
+            .guarantee-heading {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(28px, 4vw, 40px);
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 1.25rem;
+                line-height: 1.2;
+            }
+
+            .guarantee-body {
+                font-family: 'Inter', sans-serif;
+                font-size: 15px;
+                color: var(--text-muted);
+                line-height: 1.7;
+                margin-bottom: 2rem;
+                max-width: 460px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .guarantee-bullets {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 2.5rem;
+            }
+
+            .guarantee-bullet {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                background: rgba(255, 107, 157, 0.07);
+                border: 1px solid rgba(255, 107, 157, 0.15);
+                padding: 7px 16px;
+                border-radius: 100px;
+                font-family: 'Inter', sans-serif;
+                font-size: 12.5px;
+                font-weight: 700;
+                color: var(--text-body);
+            }
+
+            .guarantee-bullet::before {
+                content: '✔';
+                color: var(--color-rose);
+                font-size: 11px;
+            }
+
+            .guarantee-cta-wrap {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .guarantee-microcopy {
+                font-family: 'Inter', sans-serif;
+                font-size: 12px;
+                color: var(--text-muted);
+                opacity: 0.7;
+            }
+
+            .guarantee-proof {
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+                margin-top: 2rem;
+                flex-wrap: wrap;
+                padding-top: 2rem;
+                border-top: 1px solid rgba(255, 107, 157, 0.1);
+            }
+
+            .guarantee-proof-item {
+                font-family: 'Inter', sans-serif;
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--text-muted);
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+        </style>
+
+        <section class="guarantee-section">
+            <div class="container">
+                <div class="guarantee-card" id="guaranteeCard">
+
+                    <!-- Pulsing shield badge -->
+                    <div class="guarantee-badge">
+                        <span class="guarantee-badge-days">60</span>
+                        <span class="guarantee-badge-text">Day<br>Guarantee</span>
+                    </div>
+
+                    <h2 class="guarantee-heading">Firmer Skin in 60 Days<br>or Your Money Back</h2>
+
+                    <p class="guarantee-body">
+                        Use Instant Lift Complex daily for 60 days.<br>
+                        No visible results? Get your money back — no questions asked.
+                    </p>
+
+                    <div class="guarantee-bullets">
+                        <span class="guarantee-bullet">Risk-free trial</span>
+                        <span class="guarantee-bullet">No questions asked</span>
+                        <span class="guarantee-bullet">Easy refunds</span>
+                        <span class="guarantee-bullet">Your satisfaction guaranteed</span>
+                    </div>
+
+                    <div class="guarantee-cta-wrap">
+                        <a href="#purchase" class="btn btn-primary">Try It Risk-Free Today</a>
+                        <span class="guarantee-microcopy">60-day money-back guarantee · Cancel anytime</span>
+                    </div>
+
+                    <div class="guarantee-proof">
+                        <span class="guarantee-proof-item">⭐ 4.8 average rating</span>
+                        <span class="guarantee-proof-item">🧪 Clinically backed</span>
+                        <span class="guarantee-proof-item">💬 2,100+ happy customers</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const guaranteeCard = document.getElementById('guaranteeCard');
+            const guaranteeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.2 });
+            if (guaranteeCard) guaranteeObserver.observe(guaranteeCard);
+        </script>
+
+        <!-- Section 9: Stats -->
+        <section class="section-padding" style="background-color: var(--accent-light);">
+            <div class="container text-center">
+                <h2 class="section-title serif">Life-Changing Results <span
+                        style="font-style: italic; color: var(--accent-primary);">in Days</span></h2>
+                <div class="journal-grid" style="margin-top: 80px; gap: 60px;">
+                    <div>
+                        <p class="serif"
+                            style="font-size: 72px; font-weight: 500; color: var(--text-main); line-height: 1; margin-bottom: 16px;">
+                            94<span style="color: var(--accent-primary);">%</span></p>
+                        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">reported visibly firmer,
+                            tighter-looking
+                            skin within 30 days of consistent use</p>
+                    </div>
+                    <div>
+                        <p class="serif"
+                            style="font-size: 72px; font-weight: 500; color: var(--text-main); line-height: 1; margin-bottom: 16px;">
+                            89<span style="color: var(--accent-primary);">%</span></p>
+                        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">experienced improved
+                            skin hydration and a
+                            plumper, smoother feel within 2 weeks</p>
+                    </div>
+                    <div>
+                        <p class="serif"
+                            style="font-size: 72px; font-weight: 500; color: var(--text-main); line-height: 1; margin-bottom: 16px;">
+                            91<span style="color: var(--accent-primary);">%</span></p>
+                        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">said Instant Lift
+                            Complex outperformed
+                            their previous anti-aging products</p>
+                    </div>
+                </div>
+                <p
+                    style="font-size: 11px; color: var(--text-muted); opacity: 0.6; margin-top: 80px; max-width: 700px; margin-left: auto; margin-right: auto; text-transform: uppercase; letter-spacing: 0.05em;">
+                    *Based on ingredient research and user satisfaction tracking. Individual results may vary. Returns
+                    accepted within 60 days.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 10: Purchase Module -->
+        <section class="purchase-module" id="purchase">
+            <div class="container">
+                <div class="purchase-header text-center">
+                    <p class="purchase-tagline">The Cream That Transformed 2,100+ Women’s Skin</p>
+                    <h2 class="section-title">Instant Lift Complex</h2>
+                    <p style="color: var(--accent-gold); font-weight: 600; font-size: 14px;">⭐ 4.8 from 2,100+ Reviews |
+                        Visible Results in 15 Minutes</p>
+                </div>
+
+                <div class="purchase-grid">
+                    <div class="product-visual">
+                        <img src="public/images/product_jar.png" alt="Instant Lift Complex Jar">
+                    </div>
+                    <div class="purchase-info">
+                        <div class="selection-step">
+                            <p class="step-label">Step 1 — Choose Your Plan</p>
+                            <div class="plan-toggle">
+                                <button class="toggle-btn active" data-plan="subscribe">Subscribe & Save 10%</button>
+                                <button class="toggle-btn" data-plan="one-time">One-Time Purchase</button>
+                            </div>
+                        </div>
+
+                        <div class="selection-step">
+                            <p class="step-label">Step 2 — Select Your Supply</p>
+                            <div class="supply-grid">
+                                <div class="supply-option selected" data-jars="1">
+                                    <p style="font-weight: 700;">1 Jar</p>
+                                    <p style="font-size: 12px; color: var(--text-muted);">1-Month Supply</p>
+                                    <p class="price" style="margin-top: 12px; font-weight: 600;">$62/jar</p>
+                                </div>
+                                <div class="supply-option" data-jars="3" style="position: relative;">
+                                    <div
+                                        style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--grad-glow); color: #fff; font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; white-space: nowrap; box-shadow: 0 4px 12px rgba(255,107,157,0.4);">
+                                        ⭐ MOST POPULAR</div>
+                                    <p style="font-weight: 700;">3 Jars</p>
+                                    <p style="font-size: 12px; color: var(--text-muted);">3-Month Supply</p>
+                                    <p class="price" style="margin-top: 12px; font-weight: 600;">$53/jar</p>
+                                </div>
+                                <div class="supply-option" data-jars="6">
+                                    <p style="font-weight: 700;">6 Jars</p>
+                                    <p class="font-size: 12px; color: var(--text-muted);">6-Month Supply</p>
+                                    <p class="price" style="margin-top: 12px; font-weight: 600;">$44/jar</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="add-to-cart" class="btn btn-primary w-full"
+                            style="width: 100%; font-size: 16px;">ADD TO CART — <span
+                                id="display-price">$44</span>/jar</button>
+
+                        <div class="text-center mt-4">
+                            <p style="font-size: 12px; color: var(--text-muted); margin-top: 16px;">
+                                🛡️ 60-Day 100% Money-Back Guarantee
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Beautifully Simple (How to Use) -->
+        <style>
+            .how-to-section {
+                padding: 7rem 0;
+                background: #fff;
+                position: relative;
+            }
+
+            .how-to-header {
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+
+            .how-to-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .step-card {
+                background: linear-gradient(180deg, #fff 0%, #FAFAFA 100%);
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                border-radius: 20px;
+                padding: 3rem 2rem;
+                text-align: center;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+                transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
+                position: relative;
+            }
+
+            .step-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 16px 40px rgba(255, 107, 157, 0.1);
+            }
+
+            .step-icon-wrap {
+                width: 64px;
+                height: 64px;
+                background: rgba(255, 107, 157, 0.08);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 1.5rem;
+                color: var(--color-rose);
+                font-size: 24px;
+            }
+
+            .step-number {
+                font-family: 'Inter', sans-serif;
+                font-size: 10px;
+                font-weight: 800;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: var(--color-rose);
+                margin-bottom: 0.5rem;
+                display: block;
+            }
+
+            .step-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 28px;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 1rem;
+            }
+
+            .step-desc {
+                font-family: 'Inter', sans-serif;
+                font-size: 14.5px;
+                color: var(--text-muted);
+                line-height: 1.6;
+            }
+
+            .pro-tip-pill {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                background: linear-gradient(90deg, #FFF0F6 0%, #FFF8F5 100%);
+                border: 1px solid rgba(255, 107, 157, 0.15);
+                padding: 12px 24px;
+                border-radius: 100px;
+                width: fit-content;
+                margin: 3.5rem auto 0;
+                box-shadow: 0 8px 24px rgba(255, 107, 157, 0.08);
+            }
+
+            .pro-tip-badge {
+                background: var(--grad-glow);
+                color: #fff;
+                font-family: 'Inter', sans-serif;
+                font-size: 9px;
+                font-weight: 800;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                padding: 4px 10px;
+                border-radius: 100px;
+            }
+
+            .pro-tip-text {
+                font-family: 'Inter', sans-serif;
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--text-dark);
+                font-style: italic;
+            }
+        </style>
+
+        <section class="how-to-section">
+            <div class="container">
+                <div class="how-to-header">
+                    <h2 class="serif section-title" style="margin-bottom: 0;">Beautifully Simple</h2>
+                </div>
+
+                <div class="how-to-grid">
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="step-icon-wrap">🫧</div>
+                        <span class="step-number">Step 01</span>
+                        <h3 class="step-title">Cleanse</h3>
+                        <p class="step-desc">Start with a fresh canvas. Cleanse your face thoroughly and pat completely
+                            dry.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card">
+                        <div class="step-icon-wrap">✨</div>
+                        <span class="step-number">Step 02</span>
+                        <h3 class="step-title">Apply</h3>
+                        <p class="step-desc">Apply a thin, even layer to desired areas — forehead, around eyes, cheeks,
+                            jawline, and neck.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card">
+                        <div class="step-icon-wrap">⏱️</div>
+                        <span class="step-number">Step 03</span>
+                        <h3 class="step-title">Lift</h3>
+                        <p class="step-desc">Remain expressionless and allow 15 minutes for the tightening micro-veil to
+                            fully set.</p>
+                    </div>
+                </div>
+
+                <!-- Pro Tip Pill -->
+                <div class="pro-tip-pill">
+                    <span class="pro-tip-badge">Pro Tip</span>
+                    <span class="pro-tip-text">Take a 'before' photo on Day 1. You'll want it when people start
+                        asking.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 12: Why Women Are Switching (Timeline) -->
+        <style>
+            .why-switch-section {
+                padding: 7rem 0 8rem;
+                background: #FDFCF0;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .why-switch-header {
+                text-align: center;
+                margin-bottom: 5rem;
+            }
+
+            .why-switch-header p {
+                max-width: 700px;
+                margin: 0 auto;
+                color: var(--text-muted);
+                font-size: 17px;
+                line-height: 1.6;
+            }
+
+            .tier-timeline {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+                position: relative;
+                max-width: 1050px;
+                margin: 0 auto;
+            }
+
+            /* The connecting line */
+            .tier-timeline::before {
+                content: '';
+                position: absolute;
+                top: 48px;
+                /* aligns with icon centers */
+                left: 17%;
+                right: 17%;
+                height: 2px;
+                background: linear-gradient(90deg, rgba(255, 107, 157, 0.2) 0%, rgba(255, 154, 92, 0.5) 50%, rgba(200, 80, 192, 0.2) 100%);
+                z-index: 1;
+            }
+
+            .tier-card {
+                background: #fff;
+                border-radius: 20px;
+                padding: 3rem 2.5rem 2.5rem;
+                position: relative;
+                z-index: 2;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+                border: 1px solid rgba(255, 107, 157, 0.08);
+                transition: transform 0.4s;
+            }
+
+            .tier-card:hover {
+                transform: translateY(-6px);
+            }
+
+            .tier-icon {
+                width: 96px;
+                height: 96px;
+                background: #fff;
+                border: 2px solid transparent;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: -5.5rem auto 2rem;
+                font-size: 32px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+                position: relative;
+            }
+
+            /* Tier Progressive Styling */
+            .tier-card:nth-child(1) .tier-icon {
+                background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #fff, var(--color-rose)) border-box;
+                color: var(--color-rose);
+            }
+
+            .tier-card:nth-child(2) .tier-icon {
+                background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #fff, var(--color-peach)) border-box;
+                color: var(--color-peach);
+            }
+
+            .tier-card:nth-child(3) .tier-icon {
+                background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #fff, var(--color-violet)) border-box;
+                color: var(--color-violet);
+            }
+
+            .tier-label {
+                font-family: 'Inter', sans-serif;
+                font-size: 10px;
+                font-weight: 800;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                margin-bottom: 0.5rem;
+                display: block;
+                text-align: center;
+            }
+
+            .tier-card:nth-child(1) .tier-label {
+                color: var(--color-rose);
+            }
+
+            .tier-card:nth-child(2) .tier-label {
+                color: var(--color-peach);
+            }
+
+            .tier-card:nth-child(3) .tier-label {
+                color: var(--color-violet);
+            }
+
+            .tier-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 26px;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+
+            .tier-desc {
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                color: var(--text-muted);
+                line-height: 1.6;
+                text-align: center;
+            }
+        </style>
+
+        <section class="why-switch-section">
+            <div class="container">
+                <div class="why-switch-header">
+                    <h2 class="serif section-title">Why Women Are Switching</h2>
+                    <p>Most creams just add temporary moisture. It evaporates, and fine lines return. Instant Lift
+                        Complex is scientifically designed to work on three distinct levels of your skin simultaneously.
+                    </p>
+                </div>
+
+                <div class="tier-timeline">
+                    <!-- Tier 1 -->
+                    <div class="tier-card">
+                        <div class="tier-icon">✨</div>
+                        <span class="tier-label">Tier 1</span>
+                        <h3 class="tier-title">Surface</h3>
+                        <p class="tier-desc">Tightening polymers visibly smooth and lift within 15 minutes. This isn't
+                            just a feeling — it's a visible, measurable change you see immediately.</p>
+                    </div>
+
+                    <!-- Tier 2 -->
+                    <div class="tier-card">
+                        <div class="tier-icon">💧</div>
+                        <span class="tier-label">Tier 2</span>
+                        <h3 class="tier-title">Hydration</h3>
+                        <p class="tier-desc">Low molecular weight hyaluronic acid penetrates where standard HA cannot,
+                            pulling moisture deep beneath the surface to plump from within.</p>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="tier-card">
+                        <div class="tier-icon">🧬</div>
+                        <span class="tier-label">Tier 3</span>
+                        <h3 class="tier-title">Structure</h3>
+                        <p class="tier-desc">Collagen-supporting peptides reinforce the structural layer of your skin,
+                            promoting real firmness that actually improves week after week.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 13: Why These Ingredients Are So Powerful (Detailed) -->
+        <!-- Section 13: Featured Ingredients Hierarchy -->
+        <style>
+            .ingredients-section {
+                padding: 7rem 0;
+                background: #fff;
+            }
+
+            .ing-hero {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background: linear-gradient(135deg, #FFF4FB 0%, #FFF0F6 100%);
+                border-radius: 24px;
+                overflow: hidden;
+                margin-top: 4rem;
+                margin-bottom: 2rem;
+                box-shadow: 0 12px 40px rgba(255, 107, 157, 0.1);
+                border: 1px solid rgba(255, 107, 157, 0.15);
+            }
+
+            .ing-hero-img {
+                background: rgba(255, 255, 255, 0.4);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 3rem;
+            }
+
+            .ing-hero-img img {
+                width: 100%;
+                max-width: 380px;
+                object-fit: contain;
+                transform: scale(1.1);
+                filter: saturate(0.85);
+            }
+
+            .ing-hero-content {
+                padding: 4rem 3.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .ing-pill {
+                display: inline-block;
+                background: var(--grad-glow);
+                color: #fff;
+                font-family: 'Inter', sans-serif;
+                font-size: 10px;
+                font-weight: 800;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                padding: 6px 16px;
+                border-radius: 100px;
+                margin-bottom: 1.5rem;
+                width: fit-content;
+                box-shadow: 0 4px 16px rgba(255, 107, 157, 0.3);
+            }
+
+            .ing-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 34px;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 0.5rem;
+                line-height: 1.1;
+            }
+
+            .ing-scientific {
+                font-family: 'Inter', sans-serif;
+                font-size: 13px;
+                color: var(--color-rose);
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+
+            .ing-bullets {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .ing-bullets li {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                font-family: 'Inter', sans-serif;
+                font-size: 15px;
+                color: var(--text-body);
+                line-height: 1.5;
+            }
+
+            .ing-bullets li::before {
+                content: '✨';
+                font-size: 14px;
+                margin-top: 1px;
+            }
+
+            .ing-secondary-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+
+            .ing-secondary-card {
+                background: #fff;
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                border-radius: 16px;
+                padding: 2.5rem 2rem;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+            .ing-secondary-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+                border-color: rgba(255, 107, 157, 0.2);
+            }
+
+            .ing-secondary-icon {
+                font-size: 28px;
+                margin-bottom: 1rem;
+            }
+
+            .ing-secondary-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 4px;
+            }
+
+            .ing-secondary-scientific {
+                font-family: 'Inter', sans-serif;
+                font-size: 11px;
+                color: var(--text-muted);
+                margin-bottom: 1rem;
+            }
+
+            .ing-secondary-desc {
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                color: var(--text-body);
+                line-height: 1.6;
+            }
+
+            @media (max-width: 900px) {
+                .ing-hero {
+                    grid-template-columns: 1fr;
+                }
+
+                .ing-hero-img {
+                    padding: 2rem;
+                }
+
+                .ing-secondary-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+
+        <section class="ingredients-section bg-white">
+            <div class="container">
+                <h2 class="section-title text-center">Why These Ingredients Are So Powerful</h2>
+
+                <!-- Hero Ingredient -->
+                <div class="ing-hero">
+                    <div class="ing-hero-img">
+                        <img src="public/images/botanicals.png" alt="Tightening Polymers Botanical">
+                    </div>
+                    <div class="ing-hero-content">
+                        <span class="ing-pill">Hero Ingredient</span>
+                        <h3 class="ing-title">Tightening Polymers</h3>
+                        <p class="ing-scientific">Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer</p>
+                        <ul class="ing-bullets">
+                            <li>Creates an invisible, breathable micro-veil over the skin</li>
+                            <li>Contracts slightly as it sets to visibly smooth fine lines</li>
+                            <li>Delivers dramatic lifting results within 15 minutes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Secondary Ingredients Grid -->
+                <div class="ing-secondary-grid">
+                    <div class="ing-secondary-card">
+                        <div class="ing-secondary-icon">💧</div>
+                        <h4 class="ing-secondary-title">Low MW Hyaluronic Acid</h4>
+                        <p class="ing-secondary-scientific">Sodium Hyaluronate (Low MW)</p>
+                        <p class="ing-secondary-desc">Penetrates deeply to attract and retain up to 1,000x its weight in
+                            water, plumping skin from within.</p>
+                    </div>
+
+                    <div class="ing-secondary-card">
+                        <div class="ing-secondary-icon">🧬</div>
+                        <h4 class="ing-secondary-title">Collagen-Boosting Peptides</h4>
+                        <p class="ing-secondary-scientific">Palmitoyl Tripeptide-5 + Acetyl Tetrapeptide-5</p>
+                        <p class="ing-secondary-desc">Signal peptides that support your skin’s natural collagen
+                            processes, responsible for lasting firmness.</p>
+                    </div>
+
+                    <div class="ing-secondary-card">
+                        <div class="ing-secondary-icon">🌿</div>
+                        <h4 class="ing-secondary-title">Butcher's Broom & Ginger</h4>
+                        <p class="ing-secondary-scientific">Ruscus Aculeatus + Zingiber Officinale</p>
+                        <p class="ing-secondary-desc">Supports microcirculation to reduce puffiness, while ginger
+                            soothes and promotes an even-toned complexion.</p>
+                    </div>
+                </div>
+
+                <!-- Full Ingredients Toggle -->
+                <div class="text-center mt-12">
+                    <button id="toggle-ingredients"
+                        style="text-decoration: underline; font-weight: 600; font-size: 14px;">[View Full Ingredients
+                        List]</button>
+                    <div id="full-ingredients-list"
+                        style="display: none; margin-top: 32px; font-size: 12px; color: var(--text-muted); line-height: 1.8; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        Water, Dimethyl Sulfone, Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer, Cetyl
+                        Alcohol, Glycol Stearate, Glyceryl Stearate, Caprylic/Capric Triglyceride, Citrus Aurantifolia
+                        (Lime) Fruit Extract, Ruscus Aculeatus Root Extract, Zingiber Officinale (Ginger) Root Extract,
+                        Hibiscus Sabdariffa Flower Extract, Sodium Hyaluronate, Dimethicone, Bis-Vinyl
+                        Dimethicone/Dimethicone Copolymer, Aloe Barbadensis Leaf Juice, Phenoxyethanol, Sodium Ascorbyl
+                        Phosphate, Polyacrylamide, C13-14 Isoparaffin, Laureth-7, Tocopheryl Acetate, Glycerin,
+                        Tetradecyl Aminobutyroylvalylaminobutyric Urea Trifluoroacetate, Palmitoyl Tripeptide-5,
+                        Palmitoyl Dipeptide-5 Diaminobutyroyl Hydroxythreonine, Acetyl Tetrapeptide-5, Panthenol,
+                        Butylene Glycol.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background: var(--text-dark); padding: 5rem 0 3rem; color: #fff;">
+        <div class="container">
+
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 4rem;">
+                <!-- Brand Pillar -->
+                <div>
+                    <h3 class="serif" style="font-size: 24px; margin-bottom: 16px; color: #fff;">Glow Again Labs</h3>
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 24px; max-width: 250px;">
+                        Scientifically-backed skincare designed to deliver visible, lasting transformation.
+                    </p>
+                    <div style="display: flex; gap: 12px;">
+                        <!-- Social Icons (Placeholder bubbles for now) -->
+                        <a href="#"
+                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px; transition: background 0.3s;">FB</a>
+                        <a href="#"
+                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px; transition: background 0.3s;">IG</a>
+                        <a href="#"
+                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px; transition: background 0.3s;">TT</a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 12px;">
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 8px;">
+                        Navigation</p>
+                    <a href="#"
+                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">Home</a>
+                    <a href="#"
+                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">Shop</a>
+                    <a href="#"
+                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">FAQ</a>
+                    <a href="#"
+                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">Contact</a>
+                    <a href="#"
+                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">Guarantee</a>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 12px;">
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 8px;">
+                        Contact</p>
+                    <a href="mailto:support@glowagainlabs.com"
+                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">support@glowagainlabs.com</a>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <p
+                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 16px;">
+                        Stay Connected</p>
+                    <style>
+                        .footer-newsletter {
+                            display: flex;
+                            background: rgba(255, 255, 255, 0.06);
+                            border: 1px solid rgba(255, 255, 255, 0.1);
+                            border-radius: 12px;
+                            overflow: hidden;
+                            transition: border-color 0.3s;
+                        }
+
+                        .footer-newsletter:focus-within {
+                            border-color: rgba(255, 255, 255, 0.3);
+                        }
+                    </style>
+                    <div class="footer-newsletter">
+                        <input type="email" placeholder="Enter your email"
+                            style="padding: 14px 16px; background: transparent; border: none; width: 100%; color: #fff; font-size: 13px; outline: none; font-family: 'Inter', sans-serif;">
+                        <button
+                            style="padding: 0 20px; background: var(--grad-glow); border: none; color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;">
+                <p style="color: rgba(255,255,255,0.4); font-size: 12px;">© 2026 Glow Again Labs. All rights reserved.
+                </p>
+                <p style="color: rgba(255,255,255,0.3); font-size: 10px; line-height: 1.6; max-width: 800px;">
+                    Disclaimer: Customer experience reports the appearance of smoother, firmer-looking skin. Individual
+                    results may vary. Results described reflect the experience of individual users and are not
+                    guaranteed. This product is not intended to diagnose, treat, cure, or prevent any disease.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cart Logic
+        const cartToggle = document.getElementById('cart-toggle');
+        const closeCart = document.getElementById('close-cart');
+        const cartDrawer = document.getElementById('cart-drawer');
+        const overlay = document.getElementById('overlay');
+        const shopNowEmpty = document.getElementById('shop-now-empty');
+
+        const toggleCart = () => {
+            cartDrawer.classList.toggle('open');
+            overlay.classList.toggle('visible');
+            document.body.style.overflow = cartDrawer.classList.contains('open') ? 'hidden' : 'auto';
+        };
+
+        cartToggle.addEventListener('click', toggleCart);
+        closeCart.addEventListener('click', toggleCart);
+        overlay.addEventListener('click', toggleCart);
+        shopNowEmpty.addEventListener('click', toggleCart);
+
+        // Pricing Logic
+        const planBtns = document.querySelectorAll('.toggle-btn');
+        const supplyOptions = document.querySelectorAll('.supply-option');
+        const displayPrice = document.getElementById('display-price');
+
+        const prices = {
+            subscribe: { 1: 62, 3: 53, 6: 44 },
+            "one-time": { 1: 69, 3: 59, 6: 49 }
+        };
+
+        let currentPlan = "subscribe";
+        let currentJars = 1;
+
+        const updatePricing = () => {
+            // Update options UI
+            supplyOptions.forEach(opt => {
+                const jars = opt.dataset.jars;
+                const p = opt.querySelector('.price');
+                p.textContent = `$${prices[currentPlan][jars]}/jar`;
+            });
+
+            // Update main button price
+            displayPrice.textContent = `$${prices[currentPlan][currentJars]}`;
+        };
+
+        planBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                planBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentPlan = btn.dataset.plan;
+                updatePricing();
+            });
+        });
+
+        supplyOptions.forEach(opt => {
+            opt.addEventListener('click', () => {
+                supplyOptions.forEach(o => o.classList.remove('selected'));
+                opt.classList.add('selected');
+                currentJars = opt.dataset.jars;
+                updatePricing();
+            });
+        });
+
+        // Initialize pricing
+        updatePricing();
+
+        // Add to Cart
+        const addToCartBtn = document.getElementById('add-to-cart');
+        const cartEmptyState = document.getElementById('cart-empty-state');
+        const cartFullState = document.getElementById('cart-full-state');
+        const cartItemDesc = document.getElementById('cart-item-desc');
+        const cartItemPrice = document.getElementById('cart-item-price');
+        const cartTotal = document.getElementById('cart-total');
+
+        addToCartBtn.addEventListener('click', () => {
+            document.getElementById('cart-count').textContent = `(1)`;
+
+            // Update drawer UI
+            cartEmptyState.style.display = 'none';
+            cartFullState.style.display = 'block';
+
+            const planText = currentPlan === 'subscribe' ? 'Subscribe & Save' : 'One-Time Purchase';
+            cartItemDesc.textContent = `${currentJars}-Jar Supply (Plan: ${planText})`;
+
+            const price = prices[currentPlan][currentJars];
+            const total = price * currentJars;
+            cartItemPrice.textContent = `$${price}.00 / jar`;
+            cartTotal.textContent = `$${total}.00`;
+
+            toggleCart();
+        });
+
+        // Testimonial Read More
+        document.querySelectorAll('.read-more-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const extra = btn.previousElementSibling;
+                if (extra.style.display === 'none') {
+                    extra.style.display = 'block';
+                    btn.textContent = '[Read less]';
+                } else {
+                    extra.style.display = 'none';
+                    btn.textContent = '[Read more]';
+                }
+            });
+        });
+
+        // Toggle Ingredients
+        const toggleIng = document.getElementById('toggle-ingredients');
+        const ingList = document.getElementById('full-ingredients-list');
+        toggleIng.addEventListener('click', () => {
+            if (ingList.style.display === 'none') {
+                ingList.style.display = 'block';
+                toggleIng.textContent = '[Hide Full Ingredients List]';
+            } else {
+                ingList.style.display = 'none';
+                toggleIng.textContent = '[View Full Ingredients List]';
+            }
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Global Scroll Reveal Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

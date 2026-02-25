@@ -1,37 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
     /* ============================
        Glow Again Labs - Vibrant Palette
        ============================ */
 
-    /* Brand Gradients */
-    --grad-rose: linear-gradient(135deg, #FF6B9D 0%, #C850C0 50%, #7B2FF7 100%);
-    --grad-peach: linear-gradient(135deg, #FF9A5C 0%, #FF6B6B 50%, #C850C0 100%);
-    --grad-gold: linear-gradient(135deg, #F7D794 0%, #E8A45A 50%, #FF6B6B 100%);
-    --grad-glow: linear-gradient(135deg, #FF6B9D 0%, #FF9A5C 100%);
-    --grad-subtle: linear-gradient(135deg, #FFF0F6 0%, #FFF8F0 50%, #FBF0FF 100%);
+    /* Brand Gradients - Enhanced Neon Energy */
+    --grad-rose: linear-gradient(135deg, #ff3377 0%, #d426b8 50%, #8920fa 100%);
+    --grad-peach: linear-gradient(135deg, #ff7b33 0%, #ff4d4d 50%, #d426b8 100%);
+    --grad-gold: linear-gradient(135deg, #ffe270 0%, #ffa833 50%, #ff4d4d 100%);
+    --grad-glow: linear-gradient(135deg, #ff3377 0%, #ff7b33 100%);
+    --grad-subtle: linear-gradient(135deg, #fff0f6 0%, #fff4ed 50%, #f8e8ff 100%);
 
-    /* Primary Brand Colors */
-    --color-rose: #FF6B9D;
-    --color-coral: #FF6B6B;
-    --color-peach: #FF9A5C;
-    --color-gold: #E8A45A;
-    --color-lavender: #C850C0;
-    --color-violet: #7B2FF7;
+    /* Premium Spacing System - Luxury Defaults */
+    --space-section: 130px;
+    --space-section-dark: 100px;
+    --space-card-padding: 32px;
+    --space-grid-gap: 28px;
+    --space-cta-above: 36px;
+    --space-micro: 10px;
 
-    /* Base Colors */
-    --bg-page: #FDFAF8;
-    --bg-surface: #FFFFFF;
-    --bg-tinted: #FFF5F9;
-    --bg-dark: #1A0A2E;
-    /* Rich deep purple */
+    /* Primary Brand Colors - Max Saturation */
+    --color-rose: #ff3377;
+    --color-coral: #ff4d4d;
+    --color-peach: #ff7b33;
+    --color-gold: #ffa833;
+    --color-lavender: #d426b8;
+    --color-violet: #8920fa;
+    --color-plum: #1a0a2e;
+
+    /* Base Colors - Storytelling Washes */
+    --bg-page: #fff9f7;
+    --bg-beige: #fefbf6;
+    --bg-pink-wash: #fff5f9;
+    --bg-peach-wash: #fff8f5;
+    --bg-violet-wash: #fdfa8ff;
+    /* will fix this typo immediately -> #fdf8ff */
+    --bg-violet-wash: #fdf8ff;
+    --bg-plum: var(--color-plum);
+    --bg-surface: #ffffff;
+    --bg-tinted: #fff0f6;
+    --bg-dark: #1a0a2e;
 
     /* Text Colors */
-    --text-dark: #1A0A2E;
-    --text-body: #3D2B4A;
-    --text-muted: #7A6685;
-    --text-light: #FFFFFF;
+    --text-dark: #1a0a2e;
+    --text-body: #3d2b4a;
+    --text-muted: #7a6685;
+    --text-light: #ffffff;
 
     /* Borders */
     --border-light: rgba(255, 107, 157, 0.2);
@@ -39,8 +54,10 @@
 
     /* Shadows — color-matched */
     --shadow-rose: 0 8px 32px -4px rgba(255, 107, 157, 0.35);
-    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+    --shadow-sm:
+        0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md:
+        0 4px 16px -2px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
     --shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.12);
 
     /* Radii */
@@ -82,7 +99,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     color: var(--text-body);
     background-color: var(--bg-page);
     line-height: 1.6;
@@ -97,7 +114,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-weight: 700;
     line-height: 1.15;
     color: var(--text-dark);
@@ -136,7 +153,7 @@ img {
 }
 
 .section-padding {
-    padding: 72px 0;
+    padding: var(--space-section) 0;
 }
 
 .text-center {
@@ -203,6 +220,62 @@ img {
     gap: 32px;
 }
 
+/* Motion & Interactivity Framework */
+.hover-lift {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(255, 51, 119, 0.12);
+}
+
+.hover-glow:hover {
+    box-shadow: var(--shadow-rose);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slowGlowPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        filter: blur(80px);
+    }
+
+    50% {
+        opacity: 1;
+        filter: blur(100px);
+    }
+}
+
+@keyframes badgeBreather {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(255, 51, 119, 0.4);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 12px 40px rgba(255, 51, 119, 0.7);
+        transform: scale(1.05);
+    }
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -227,18 +300,21 @@ img {
     color: #fff;
     border: none;
     z-index: 1;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     letter-spacing: 0.1em;
 }
 
 .btn-primary::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent);
     transition: all 0.6s ease;
     z-index: 0;
 }
@@ -272,16 +348,46 @@ img {
     letter-spacing: -0.02em;
 }
 
-/* Announcement Bar */
+/* Announcement Bar Marquee */
 .announcement-bar {
     background: var(--grad-rose);
     color: #fff;
-    padding: 13px 0;
-    font-size: 11.5px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-align: center;
+    padding: 10px 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.announcement-marquee {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite;
+}
+
+.announcement-marquee-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.announcement-bar:hover .announcement-marquee {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
 }
 
 /* Nav Header */
@@ -385,7 +491,7 @@ img {
 }
 
 .review-badge {
-    background: #F4F4F4;
+    background: #f4f4f4;
     padding: 12px 20px;
     border: 1px solid var(--border-color);
     display: inline-flex;
@@ -687,11 +793,16 @@ img {
 }
 
 .purchase-module::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(255, 107, 157, 0.15) 0%, transparent 70%),
-        radial-gradient(ellipse at 80% 30%, rgba(123, 47, 247, 0.1) 0%, transparent 60%);
+    background:
+        radial-gradient(ellipse at 30% 50%,
+            rgba(255, 107, 157, 0.15) 0%,
+            transparent 70%),
+        radial-gradient(ellipse at 80% 30%,
+            rgba(123, 47, 247, 0.1) 0%,
+            transparent 60%);
     pointer-events: none;
 }
 
@@ -791,7 +902,7 @@ img {
 
 /* Footer */
 .footer {
-    background: linear-gradient(160deg, #1A0A2E 0%, #2D0B3E 40%, #1A0A2E 100%);
+    background: linear-gradient(160deg, #1a0a2e 0%, #2d0b3e 40%, #1a0a2e 100%);
     color: rgba(255, 255, 255, 0.85);
     padding: 100px 0 48px;
     font-size: 14px;
@@ -800,7 +911,7 @@ img {
 }
 
 .footer::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -810,13 +921,61 @@ img {
 }
 
 .footer::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at 10% 0%, rgba(255, 107, 157, 0.12) 0%, transparent 60%),
-        radial-gradient(ellipse at 90% 80%, rgba(123, 47, 247, 0.08) 0%, transparent 50%);
+        radial-gradient(ellipse at 10% 0%,
+            rgba(255, 107, 157, 0.12) 0%,
+            transparent 60%),
+        radial-gradient(ellipse at 90% 80%,
+            rgba(123, 47, 247, 0.08) 0%,
+            transparent 50%);
     pointer-events: none;
+}
+
+/* ============================
+   Glow Tokens (Premium System)
+   ============================ */
+.glow-pink {
+    position: absolute;
+    background: radial-gradient(circle at center,
+            rgba(255, 51, 119, 0.35) 0%,
+            transparent 70%);
+    filter: blur(85px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glow-peach {
+    position: absolute;
+    background: radial-gradient(circle at center,
+            rgba(255, 123, 51, 0.4) 0%,
+            transparent 70%);
+    filter: blur(95px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glow-violet {
+    position: absolute;
+    background: radial-gradient(circle at center,
+            rgba(137, 32, 250, 0.3) 0%,
+            transparent 70%);
+    filter: blur(105px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glow-highlight {
+    position: absolute;
+    background: radial-gradient(circle at center,
+            rgba(255, 51, 119, 0.35) 0%,
+            rgba(255, 123, 51, 0.25) 40%,
+            transparent 75%);
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .footer-logo {

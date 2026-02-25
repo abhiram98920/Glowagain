@@ -14,9 +14,29 @@
 
 <body>
 
-    <!-- Section 1: Announcement Bar -->
+    <!-- Section 1: Announcement Bar (Marquee) -->
     <div class="announcement-bar">
-        SAVE UP TO 36% — SUBSCRIBE & NEVER RUN OUT
+        <div class="announcement-marquee">
+            <div class="announcement-marquee-content">
+                <span>SAVE UP TO 36% — SUBSCRIBE & NEVER RUN OUT</span>
+                <span>✦</span>
+                <span>FREE SHIPPING</span>
+                <span>✦</span>
+                <span>60-DAY GUARANTEE</span>
+                <span>✦</span>
+                <span>4.8★ FROM 2,100+ REVIEWS</span>
+
+                <!-- Duplicate for seamless loop -->
+                <span>✦</span>
+                <span>SAVE UP TO 36% — SUBSCRIBE & NEVER RUN OUT</span>
+                <span>✦</span>
+                <span>FREE SHIPPING</span>
+                <span>✦</span>
+                <span>60-DAY GUARANTEE</span>
+                <span>✦</span>
+                <span>4.8★ FROM 2,100+ REVIEWS</span>
+            </div>
+        </div>
     </div>
 
     <!-- Section 2: Navigation Header -->
@@ -82,75 +102,259 @@
         <style>
             .hero-slider-wrapper {
                 width: 100%;
-                margin: 0;
-            }
-
-            .hero-slide-container {
+                background: var(--bg-beige);
                 position: relative;
                 overflow: hidden;
-                width: 100%;
-                min-height: 600px;
-                min-height: 85vh;
-                /* Enough room for content on mobile */
-                background-image: url('https://images.pexels.com/photos/9774611/pexels-photo-9774611.jpeg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
+            }
+
+            /* Vignette overlay */
+            .hero-slider-wrapper::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.05);
+                /* very subtle vignette */
+                pointer-events: none;
+                z-index: 5;
+            }
+
+            /* Warm glow backdrops */
+            .hero-glow-1 {
+                position: absolute;
+                top: -20%;
+                right: -10%;
+                width: 700px;
+                height: 700px;
+                background: radial-gradient(circle, rgba(255, 123, 51, 0.15) 0%, transparent 60%);
+                filter: blur(80px);
+                z-index: 0;
+            }
+
+            .hero-glow-2 {
+                position: absolute;
+                bottom: -20%;
+                left: -10%;
+                width: 600px;
+                height: 600px;
+                background: radial-gradient(circle, rgba(255, 51, 119, 0.1) 0%, transparent 60%);
+                filter: blur(80px);
+                z-index: 0;
+            }
+
+            .hero-container {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
+                min-height: 85vh;
+                position: relative;
+                z-index: 10;
+                padding-top: 6rem;
+                padding-bottom: 4rem;
             }
 
             @media (min-width: 768px) {
-                .hero-slide-container {
+                .hero-container {
+                    flex-direction: row;
                     min-height: calc(100vh - 106px);
+                    padding-top: 4rem;
                 }
             }
 
-            .hero-slide-content {
-                margin-top: auto;
-                width: 90%;
-                padding-left: 1.25rem;
-                padding-bottom: 2.5rem;
-                /* Give a bit more room at the bottom */
+            .hero-content {
+                flex: 1;
+                max-width: 600px;
+                text-align: center;
+                z-index: 2;
+                margin-bottom: 3rem;
             }
 
             @media (min-width: 768px) {
-                .hero-slide-content {
-                    max-width: 48rem;
-                    padding-left: 5%;
-                    padding-bottom: 4rem;
+                .hero-content {
+                    text-align: left;
+                    margin-bottom: 0;
+                }
+            }
+
+            .hero-visual {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 2;
+            }
+
+            .hero-jar-wrap {
+                width: 100%;
+                max-width: 500px;
+                animation: float 6s ease-in-out infinite;
+                position: relative;
+            }
+
+            .hero-jar-wrap::after {
+                content: '';
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 70%;
+                height: 20px;
+                background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, transparent 70%);
+                filter: blur(5px);
+                animation: floatShadow 6s ease-in-out infinite;
+            }
+
+            @keyframes floatShadow {
+
+                0%,
+                100% {
+                    transform: translateX(-50%) scale(1);
+                    opacity: 0.8;
+                }
+
+                50% {
+                    transform: translateX(-50%) scale(0.85);
+                    opacity: 0.4;
+                }
+            }
+
+            .review-badge {
+                background: white;
+                box-shadow: var(--shadow-sm);
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                color: var(--text-dark);
+                padding: 10px 20px;
+                border-radius: 100px;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                margin-bottom: 2rem;
+                animation: fadeDown 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                opacity: 0;
+            }
+
+            .hero-title {
+                color: var(--text-dark);
+                margin-bottom: 1.25rem;
+                font-size: clamp(48px, 6vw, 76px);
+                line-height: 1.05;
+                letter-spacing: -0.02em;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+            }
+
+            .hero-subtitle {
+                color: var(--text-muted);
+                font-size: 18px;
+                font-weight: 400;
+                margin-bottom: 2.5rem;
+                max-width: 500px;
+                line-height: 1.6;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+            }
+
+            @media (max-width: 768px) {
+                .hero-subtitle {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+
+            .hero-cta {
+                padding: 18px 40px;
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 13.5px;
+                font-weight: 700;
+                border-radius: 100px;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                text-decoration: none;
+                animation: slowGlowPulse 3s infinite alternate;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .trust-microcopy {
+                margin-top: 1.5rem;
+                font-weight: 600;
+                font-size: 12.5px;
+                color: var(--text-muted);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                opacity: 0;
+                animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
+            }
+
+            @media (max-width: 768px) {
+                .trust-microcopy {
+                    justify-content: center;
+                }
+            }
+
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
                 }
             }
         </style>
 
         <section class="hero-slider-wrapper">
-            <div class="hero-slide-container">
-                <div
-                    style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%); pointer-events: none;">
-                </div>
-                <div class="hero-slide-content" style="position: relative; z-index: 10;">
-                    <div class="review-badge"
-                        style="background: rgba(255,255,255,0.85); box-shadow: var(--shadow-soft); backdrop-filter: blur(10px); border: none; margin-bottom: 2rem; color: #1D1D1B; padding: 10px 20px; border-radius: 100px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">
+            <div class="hero-glow-1"></div>
+            <div class="hero-glow-2"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="review-badge">
                         <span style="color: var(--accent-gold);">★</span> 2,100+ 5-star reviews
                     </div>
-                    <h1 class="hero-title serif"
-                        style="color: white; margin-bottom: 1.25rem; font-size: clamp(48px, 6vw, 76px); line-height: 1.05; letter-spacing: -0.02em;">
-                        See Firmer Skin <br /><span style="font-style: italic; color: #F4EDE8;">in 15 Minutes</span>
+                    <h1 class="hero-title serif">
+                        See Firmer Skin <br /><span style="font-style: italic; color: var(--color-rose);">in 15
+                            Minutes</span>
                     </h1>
-                    <p class="hero-subtitle"
-                        style="color: rgba(255,255,255,0.85); font-size: 1.125rem; font-weight: 300; margin-bottom: 2.5rem; max-width: 500px; line-height: 1.6;">
+                    <p class="hero-subtitle">
                         A multi-level tightening cream that visibly lifts fine lines on contact, hydrates beneath the
                         surface for plumper skin all day, and supports collagen for lasting firmness.
                     </p>
-                    <div class="mt-5">
-                        <a href="#purchase"
-                            style="padding: 18px 36px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 13px; font-weight: 700; border-radius: 0.75rem; background: white; color: #1D1D1B; text-transform: uppercase; letter-spacing: 0.05em; transition: opacity 0.3s ease; text-decoration: none;"
-                            onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                    <div style="opacity: 0; animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;">
+                        <a href="#purchase" class="btn btn-primary hero-cta hover-lift">
                             SHOP & SAVE NOW
                         </a>
                     </div>
-                    <p style="margin-top: 1.5rem; font-weight: 500; font-size: 13px; color: rgba(255,255,255,0.8);">
-                        Results in 60 days or YOUR money back</p>
+                    <p class="trust-microcopy">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        Secure Checkout & 60-Day Guarantee
+                    </p>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-jar-wrap">
+                        <img src="public/images/product_jar.png" alt="Instant Lift Complex"
+                            style="width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.1));" />
+                    </div>
                 </div>
             </div>
         </section>
@@ -159,8 +363,21 @@
         <style>
             .credibility-section {
                 padding: 6rem 0 7rem;
-                background: var(--grad-subtle);
+                background: var(--bg-pink-wash);
                 position: relative;
+                overflow: hidden;
+            }
+
+            /* Molecule fading background */
+            .credibility-section::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-image: radial-gradient(var(--border-light) 1px, transparent 1px);
+                background-size: 40px 40px;
+                opacity: 0.3;
+                pointer-events: none;
+                z-index: 0;
             }
 
             .credibility-section::before {
@@ -176,6 +393,7 @@
                 opacity: 0.7;
                 text-transform: uppercase;
                 font-family: 'Inter', sans-serif;
+                z-index: 1;
             }
 
             .credibility-title {
@@ -184,13 +402,25 @@
                 margin-bottom: 4rem;
                 color: var(--text-dark);
                 margin-top: 1.25rem;
+                position: relative;
+                z-index: 1;
             }
 
             .credibility-grid {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 24px;
+                position: relative;
+                z-index: 1;
+            }
+
+            @media (min-width: 992px) {
+                .credibility-grid {
+                    grid-template-columns: 1fr 1.2fr 1fr;
+                    grid-template-rows: auto auto;
+                    gap: 32px;
+                    align-items: center;
+                }
             }
 
             .credibility-card {
@@ -201,36 +431,89 @@
                 border-radius: 20px;
                 padding: 28px 28px 24px;
                 width: 100%;
-                max-width: 320px;
                 display: flex;
                 flex-direction: column;
                 gap: 0;
-                transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+                transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
                 box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
                 position: relative;
                 overflow: hidden;
             }
 
+            .credibility-card.featured {
+                background: white;
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 107, 157, 0.3) inset;
+                transform: scale(1);
+                z-index: 2;
+                padding: 40px 32px;
+            }
+
+            @media (min-width: 992px) {
+                .credibility-card.featured {
+                    grid-column: 2;
+                    grid-row: 1 / 3;
+                    transform: scale(1.05);
+                }
+
+                .credibility-card:nth-child(1) {
+                    grid-column: 1;
+                    grid-row: 1;
+                    transform: translateY(20px);
+                }
+
+                .credibility-card:nth-child(2) {
+                    grid-column: 1;
+                    grid-row: 2;
+                    transform: translateY(-20px);
+                }
+
+                .credibility-card:nth-child(4) {
+                    grid-column: 3;
+                    grid-row: 1;
+                    transform: translateY(20px);
+                }
+
+                .credibility-card:nth-child(5) {
+                    grid-column: 3;
+                    grid-row: 2;
+                    transform: translateY(-20px);
+                }
+            }
+
             .credibility-card::before {
                 content: '\201C';
                 position: absolute;
-                top: -12px;
+                top: 0px;
                 right: 20px;
                 font-family: 'Cormorant Garamond', serif;
-                font-size: 100px;
+                font-size: 140px;
                 line-height: 1;
-                background: var(--grad-glow);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                opacity: 0.18;
+                color: var(--color-rose);
+                opacity: 0.08;
+                filter: blur(2px);
+                /* quote blur */
                 pointer-events: none;
+                transition: all 0.4s ease;
             }
 
             .credibility-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 8px 32px rgba(255, 107, 157, 0.18), 0 0 0 1px rgba(255, 107, 157, 0.2) inset;
-                border-color: rgba(255, 107, 157, 0.3);
+                box-shadow: 0 12px 32px rgba(255, 107, 157, 0.15), 0 0 0 1px rgba(255, 107, 157, 0.3) inset;
+                border-color: rgba(255, 107, 157, 0.4);
+            }
+
+            .credibility-card:not(.featured):hover {
+                transform: translateY(-8px) scale(1.02);
+            }
+
+            .credibility-card.featured:hover {
+                transform: scale(1.08);
+                /* larger center card */
+                box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2), 0 0 0 1px rgba(255, 107, 157, 0.4) inset;
+            }
+
+            .credibility-card:hover::before {
+                filter: blur(0px);
+                opacity: 0.15;
             }
 
             .journal-header {
@@ -250,6 +533,26 @@
                 justify-content: center;
                 flex-shrink: 0;
                 box-shadow: 0 4px 14px rgba(255, 107, 157, 0.35);
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* Icon shimmer */
+            .credibility-card:hover .journal-logo-circle::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+                animation: shimmer 1s forwards;
+            }
+
+            @keyframes shimmer {
+                100% {
+                    left: 200%;
+                }
             }
 
             .journal-logo-circle svg {
@@ -299,7 +602,7 @@
                 <h2 class="serif credibility-title">"The Science Behind Smoother, Firmer Skin"</h2>
 
                 <div class="credibility-grid">
-                    <!-- Card 1 -->
+                    <!-- Left Column: Card 1 -->
                     <div class="credibility-card">
                         <div class="journal-header">
                             <div class="journal-logo-circle">
@@ -315,7 +618,7 @@
                         <span class="journal-source">Peer-reviewed · 2021</span>
                     </div>
 
-                    <!-- Card 2 -->
+                    <!-- Left Column: Card 2 -->
                     <div class="credibility-card">
                         <div class="journal-header">
                             <div class="journal-logo-circle">
@@ -331,23 +634,24 @@
                         <span class="journal-source">Clinical Study · 2019</span>
                     </div>
 
-                    <!-- Card 3 -->
-                    <div class="credibility-card">
+                    <!-- Center Featured: Card 3 -->
+                    <div class="credibility-card featured">
                         <div class="journal-header">
-                            <div class="journal-logo-circle">
-                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                            <div class="journal-logo-circle" style="width: 56px; height: 56px;">
+                                <svg viewBox="0 0 24 24" style="width: 28px; height: 28px;" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
                                 </svg>
                             </div>
-                            <div class="journal-name">Dermatologic Surgery</div>
+                            <div class="journal-name" style="font-size: 16px;">Dermatologic Surgery</div>
                         </div>
-                        <p class="journal-text">Topical peptide complexes showed visible improvement in fine lines
-                            within just 8 weeks of daily use.</p>
+                        <p class="journal-text" style="font-size: 18px;">Topical peptide complexes showed visible
+                            improvement in fine lines within just 8 weeks of daily use, offering a powerful non-invasive
+                            alternative.</p>
                         <span class="journal-source">Double-blind trial · 2020</span>
                     </div>
 
-                    <!-- Card 4 -->
+                    <!-- Right Column: Card 4 -->
                     <div class="credibility-card">
                         <div class="journal-header">
                             <div class="journal-logo-circle">
@@ -356,14 +660,14 @@
                                     <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
                                 </svg>
                             </div>
-                            <div class="journal-name">Clinical, Cosmetic & Investigational Dermatology</div>
+                            <div class="journal-name">Clinical, Cosmetic & Investigational</div>
                         </div>
                         <p class="journal-text">Film-forming polymers create immediate visible tightening while letting
                             skin breathe naturally.</p>
                         <span class="journal-source">Observational · 2022</span>
                     </div>
 
-                    <!-- Card 5 -->
+                    <!-- Right Column: Card 5 -->
                     <div class="credibility-card">
                         <div class="journal-header">
                             <div class="journal-logo-circle">
@@ -386,7 +690,7 @@
         <style>
             .testimonials-section {
                 padding: 7rem 0 6rem;
-                background: linear-gradient(180deg, #fff 0%, var(--bg-tinted) 100%);
+                background: var(--bg-pink-wash);
             }
 
             .testimonials-eyebrow {
@@ -450,8 +754,8 @@
                 padding: 3rem 2.5rem;
                 position: relative;
                 overflow: hidden;
-                box-shadow: 0 20px 60px rgba(255, 107, 157, 0.18), 0 4px 20px rgba(0, 0, 0, 0.06);
-                border: 1px solid rgba(255, 107, 157, 0.2);
+                box-shadow: 0 20px 60px rgba(255, 107, 157, 0.25), 0 4px 20px rgba(0, 0, 0, 0.08);
+                border: 1px solid rgba(255, 107, 157, 0.3);
                 animation: glowPulse 3.5s ease-in-out infinite;
                 z-index: 2;
             }
@@ -460,11 +764,11 @@
 
                 0%,
                 100% {
-                    box-shadow: 0 20px 60px rgba(255, 107, 157, 0.18), 0 4px 20px rgba(0, 0, 0, 0.06);
+                    box-shadow: 0 20px 60px rgba(255, 107, 157, 0.25), 0 4px 20px rgba(0, 0, 0, 0.08);
                 }
 
                 50% {
-                    box-shadow: 0 20px 72px rgba(255, 107, 157, 0.32), 0 4px 20px rgba(0, 0, 0, 0.08);
+                    box-shadow: 0 20px 80px rgba(255, 107, 157, 0.45), 0 4px 20px rgba(0, 0, 0, 0.12);
                 }
             }
 
@@ -610,22 +914,43 @@
 
             /* ── SIDE (supporting) cards ── */
             .story-side {
-                background: rgba(255, 255, 255, 0.65);
+                background: rgba(255, 255, 255, 0.5);
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
                 border: 1px solid rgba(255, 107, 157, 0.1);
                 border-radius: 18px;
                 padding: 2rem;
-                transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+                transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
                 cursor: default;
                 box-shadow: var(--shadow-sm);
+                filter: blur(2px);
+                opacity: 0.7;
+                transform: scale(0.95);
             }
 
             .story-side:hover {
-                transform: scale(1.03) translateY(-4px);
-                box-shadow: 0 12px 32px rgba(255, 107, 157, 0.14);
-                border-color: rgba(255, 107, 157, 0.25);
-                background: rgba(255, 255, 255, 0.9);
+                transform: scale(1.02) translateY(-4px);
+                box-shadow: 0 12px 32px rgba(255, 107, 157, 0.2);
+                border-color: rgba(255, 107, 157, 0.3);
+                background: rgba(255, 255, 255, 0.95);
+                filter: blur(0px);
+                opacity: 1;
+            }
+
+            .side-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 12px;
+            }
+
+            .side-avatar {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 2px solid white;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             }
 
             .side-stars {
@@ -701,11 +1026,19 @@
 
                     <!-- LEFT supporting card: Joan -->
                     <div class="story-side">
-                        <div class="side-stars">★★★★★</div>
-                        <div class="side-name">Joan, 64</div>
+                        <div class="side-header">
+                            <div class="side-avatar">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop"
+                                    alt="Joan">
+                            </div>
+                            <div>
+                                <div class="side-stars" style="margin-bottom: 2px;">★★★★★</div>
+                                <div class="side-name">Joan, 64</div>
+                            </div>
+                        </div>
                         <div class="side-tags">Visible Tightening · Smoother Skin</div>
                         <p class="side-quote">"I could see the difference in my <span
-                                style="font-style:normal;font-weight:700;color:var(--color-rose);">jawline</span> after
+                                class="highlight-word">jawline</span> after
                             the first week. My daughter asked what I was doing differently."</p>
                         <p class="side-product">Used: <strong>Instant Lift Complex</strong> · 4 weeks</p>
                     </div>
@@ -713,7 +1046,10 @@
                     <!-- CENTER spotlight: Patricia -->
                     <div class="story-spotlight">
                         <div class="spotlight-header">
-                            <div class="spotlight-avatar">P</div>
+                            <div class="spotlight-avatar" style="overflow: hidden; padding: 0;">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop"
+                                    style="width: 100%; height: 100%; object-fit: cover;" alt="Patricia">
+                            </div>
                             <div class="spotlight-meta">
                                 <div class="spotlight-name">Patricia, 55</div>
                                 <div class="spotlight-verified">✓ Verified Buyer</div>
@@ -736,13 +1072,19 @@
 
                     <!-- RIGHT supporting card: Karen -->
                     <div class="story-side">
-                        <div class="side-stars">★★★★★</div>
-                        <div class="side-name">Karen, 48</div>
+                        <div class="side-header">
+                            <div class="side-avatar">
+                                <img src="https://images.unsplash.com/photo-1548142813-c348350df52b?w=100&h=100&fit=crop"
+                                    alt="Karen">
+                            </div>
+                            <div>
+                                <div class="side-stars" style="margin-bottom: 2px;">★★★★★</div>
+                                <div class="side-name">Karen, 48</div>
+                            </div>
+                        </div>
                         <div class="side-tags">Firmer Skin · Confidence</div>
                         <p class="side-quote">"My husband noticed before I did. 'Your skin looks amazing,' he said. That
-                            was all the <span
-                                style="font-style:normal;font-weight:700;color:var(--color-rose);">confidence</span> I
-                            needed."</p>
+                            was all the <span class="highlight-word">confidence</span> I needed."</p>
                         <p class="side-product">Used: <strong>Instant Lift Complex</strong> · 8 weeks</p>
                     </div>
 
@@ -761,7 +1103,7 @@
         <style>
             .journey-section {
                 padding: 8rem 0 6rem;
-                background: var(--grad-subtle);
+                background: var(--bg-peach-wash);
                 overflow: hidden;
             }
 
@@ -803,14 +1145,24 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 28px;
                 align-items: start;
+                padding-top: 20px;
             }
 
-            /* Connecting line — removed (conflicts with card images) */
+            /* Connecting line */
             .journey-track::before {
-                display: none;
+                content: '';
+                position: absolute;
+                top: 240px;
+                /* just below the images */
+                left: 10%;
+                right: 10%;
+                height: 3px;
+                background: var(--grad-peach);
+                z-index: 1;
+                border-radius: 4px;
+                opacity: 0.5;
             }
 
-            /* ── Each stage card ── */
             .journey-card {
                 background: rgba(255, 255, 255, 0.8);
                 backdrop-filter: blur(12px);
@@ -823,6 +1175,12 @@
                 transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
                 opacity: 0;
                 transform: translateY(32px);
+                z-index: 2;
+            }
+
+            /* Elevate middle card */
+            .journey-card:nth-child(2) {
+                margin-top: -30px;
             }
 
             .journey-card.visible {
@@ -830,10 +1188,18 @@
                 transform: translateY(0);
             }
 
+            .journey-card.visible:nth-child(2) {
+                transform: translateY(-30px);
+            }
+
             .journey-card:hover {
                 box-shadow: 0 16px 40px rgba(255, 107, 157, 0.18);
                 border-color: rgba(255, 107, 157, 0.28);
                 transform: translateY(-6px);
+            }
+
+            .journey-card:nth-child(2):hover {
+                transform: translateY(-36px);
             }
 
             /* Final card glow pulse */
@@ -890,6 +1256,7 @@
                 white-space: nowrap;
                 box-shadow: 0 4px 16px rgba(255, 107, 157, 0.4);
                 z-index: 3;
+                animation: badgeBreather 3s infinite;
             }
 
             /* Dot on the connecting line */
@@ -1050,8 +1417,8 @@
 
                 </div>
 
-                <div class="text-center" style="margin-top: 60px;">
-                    <a href="#purchase" class="btn btn-primary">Start Your Journey — Save Up To 36%</a>
+                <div class="text-center" style="margin-top: 20px;">
+                    <a href="#purchase" class="btn btn-primary hover-lift">Start Your Journey — Save Up To 36%</a>
                 </div>
             </div>
         </section>
@@ -1158,17 +1525,17 @@
 
             /* Layer 1: Surface — lightest */
             .science-layer:nth-child(1) {
-                background: #fff;
+                background: var(--bg-pink-wash);
             }
 
             /* Layer 2: Hydration — mid tone */
             .science-layer:nth-child(2) {
-                background: #FFF8F5;
+                background: var(--bg-peach-wash);
             }
 
             /* Layer 3: Structural — richest */
             .science-layer:nth-child(3) {
-                background: #FFF4FB;
+                background: var(--bg-violet-wash);
                 animation: scienceGlow 3.5s ease-in-out infinite;
             }
 
@@ -1220,6 +1587,41 @@
                 font-size: 72px;
                 line-height: 1;
                 filter: none;
+            }
+
+            /* Molecule Accents */
+            .molecule {
+                position: absolute;
+                border-radius: 50%;
+                border: 1px solid rgba(255, 107, 157, 0.4);
+                background: rgba(255, 255, 255, 0.6);
+                backdrop-filter: blur(2px);
+                animation: float 5s ease-in-out infinite alternate;
+                z-index: 2;
+            }
+
+            .molecule-1 {
+                width: 35px;
+                height: 35px;
+                top: 15%;
+                left: 15%;
+                animation-delay: 0s;
+            }
+
+            .molecule-2 {
+                width: 22px;
+                height: 22px;
+                bottom: 15%;
+                right: 20%;
+                animation-delay: 1.5s;
+            }
+
+            .molecule-3 {
+                width: 28px;
+                height: 28px;
+                top: 50%;
+                left: 75%;
+                animation-delay: 2.5s;
             }
 
             /* Right content */
@@ -1385,6 +1787,8 @@
                     <!-- Layer 1: Surface -->
                     <div class="science-layer">
                         <div class="science-illus">
+                            <div class="molecule molecule-1"></div>
+                            <div class="molecule molecule-2"></div>
                             <img src="public/images/botanicals.png"
                                 style="object-position: 10% 20%; transform: scale(1.4);"
                                 alt="Tightening Polymer illustration">
@@ -1404,6 +1808,8 @@
                     <!-- Layer 2: Hydration -->
                     <div class="science-layer">
                         <div class="science-illus">
+                            <div class="molecule molecule-3"></div>
+                            <div class="molecule molecule-2"></div>
                             <img src="public/images/botanicals.png"
                                 style="object-position: 80% 30%; transform: scale(1.4);"
                                 alt="Hyaluronic acid illustration">
@@ -1423,6 +1829,8 @@
                     <!-- Layer 3: Structural — glow pulse -->
                     <div class="science-layer">
                         <div class="science-illus">
+                            <div class="molecule molecule-1"></div>
+                            <div class="molecule molecule-3"></div>
                             <img src="public/images/botanicals.png"
                                 style="object-position: 20% 80%; transform: scale(1.4);"
                                 alt="Collagen peptide illustration">
@@ -1467,8 +1875,8 @@
         <!-- Section 8: Risk-Free Guarantee Spotlight -->
         <style>
             .guarantee-section {
-                padding: 5rem 0;
-                background: linear-gradient(160deg, #FFF0F6 0%, #FFF8F0 50%, #F8F0FF 100%);
+                padding: 6rem 0;
+                background: var(--bg-pink-wash);
                 position: relative;
                 overflow: hidden;
             }
@@ -1484,20 +1892,49 @@
             }
 
             .guarantee-card {
-                max-width: 680px;
+                max-width: 580px;
                 margin: 0 auto;
-                background: rgba(255, 255, 255, 0.82);
+                background: rgba(255, 255, 255, 0.85);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 107, 157, 0.18);
+                border: 1px solid rgba(255, 107, 157, 0.2);
                 border-radius: 28px;
                 padding: 4rem 3.5rem;
                 text-align: center;
-                box-shadow: 0 24px 64px rgba(255, 107, 157, 0.12), 0 4px 20px rgba(0, 0, 0, 0.04);
+                box-shadow: 0 24px 64px rgba(255, 107, 157, 0.15), 0 4px 20px rgba(0, 0, 0, 0.04);
                 position: relative;
                 opacity: 0;
                 transform: translateY(24px);
                 transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                overflow: hidden;
+            }
+
+            .guarantee-card::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -150%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8), transparent);
+                transform: skewX(-20deg);
+                animation: shineSweep 6s infinite;
+                z-index: 1;
+                pointer-events: none;
+            }
+
+            @keyframes shineSweep {
+                0% {
+                    left: -150%;
+                }
+
+                20% {
+                    left: 200%;
+                }
+
+                100% {
+                    left: 200%;
+                }
             }
 
             .guarantee-card.visible {
@@ -1517,8 +1954,9 @@
                 border-radius: 50%;
                 margin: 0 auto 2rem;
                 box-shadow: 0 8px 28px rgba(255, 107, 157, 0.45);
-                animation: badgePulse 2.5s ease-in-out infinite;
+                animation: badgeBreather 3.5s ease-in-out infinite;
                 position: relative;
+                z-index: 2;
             }
 
             @keyframes badgePulse {
@@ -1553,22 +1991,26 @@
 
             .guarantee-heading {
                 font-family: 'Cormorant Garamond', serif;
-                font-size: clamp(28px, 4vw, 40px);
+                font-size: clamp(32px, 5vw, 44px);
                 font-weight: 700;
                 color: var(--text-dark);
                 margin-bottom: 1.25rem;
-                line-height: 1.2;
+                line-height: 1.15;
+                position: relative;
+                z-index: 2;
             }
 
             .guarantee-body {
                 font-family: 'Inter', sans-serif;
-                font-size: 15px;
+                font-size: 15.5px;
                 color: var(--text-muted);
                 line-height: 1.7;
-                margin-bottom: 2rem;
-                max-width: 460px;
+                margin-bottom: 2.25rem;
+                max-width: 440px;
                 margin-left: auto;
                 margin-right: auto;
+                position: relative;
+                z-index: 2;
             }
 
             .guarantee-bullets {
@@ -1577,6 +2019,8 @@
                 flex-wrap: wrap;
                 gap: 10px;
                 margin-bottom: 2.5rem;
+                position: relative;
+                z-index: 2;
             }
 
             .guarantee-bullet {
@@ -1604,6 +2048,8 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 0.75rem;
+                position: relative;
+                z-index: 2;
             }
 
             .guarantee-microcopy {
@@ -1617,10 +2063,12 @@
                 display: flex;
                 justify-content: center;
                 gap: 1.5rem;
-                margin-top: 2rem;
+                margin-top: 2.5rem;
                 flex-wrap: wrap;
                 padding-top: 2rem;
-                border-top: 1px solid rgba(255, 107, 157, 0.1);
+                border-top: 1px solid rgba(255, 107, 157, 0.15);
+                position: relative;
+                z-index: 2;
             }
 
             .guarantee-proof-item {
@@ -1682,52 +2130,230 @@
         </script>
 
         <!-- Section 9: Stats -->
-        <section class="section-padding" style="background-color: var(--accent-light);">
-            <div class="container text-center">
-                <h2 class="section-title serif">Life-Changing Results <span
-                        style="font-style: italic; color: var(--accent-primary);">in Days</span></h2>
-                <div class="journal-grid" style="margin-top: 80px; gap: 60px;">
-                    <div>
-                        <p class="serif"
-                            style="font-size: 72px; font-weight: 500; color: var(--text-main); line-height: 1; margin-bottom: 16px;">
-                            94<span style="color: var(--accent-primary);">%</span></p>
-                        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">reported visibly firmer,
-                            tighter-looking
-                            skin within 30 days of consistent use</p>
+        <style>
+            .stats-section {
+                padding: 7rem 0;
+                background: var(--bg-beige);
+            }
+
+            .stats-title {
+                text-align: center;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(32px, 5vw, 48px);
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: 4.5rem;
+                line-height: 1.15;
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: 1fr 1px 1fr 1px 1fr;
+                gap: 40px;
+                align-items: start;
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
+            @media (max-width: 768px) {
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+
+                .stats-divider {
+                    width: 100%;
+                    height: 1px;
+                    background: linear-gradient(to right, transparent, rgba(200, 80, 192, 0.15), transparent) !important;
+                }
+            }
+
+            .stats-divider {
+                width: 1px;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent, rgba(200, 80, 192, 0.15), transparent);
+            }
+
+            .stat-card {
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .stat-number {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 80px;
+                font-weight: 600;
+                color: var(--text-dark);
+                line-height: 1;
+                margin-bottom: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .stat-percent {
+                color: var(--color-rose);
+                font-size: 44px;
+                margin-left: 2px;
+            }
+
+            .stat-text {
+                font-family: 'Inter', sans-serif;
+                font-size: 15.5px;
+                color: var(--text-muted);
+                line-height: 1.6;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .stat-icon {
+                font-size: 28px;
+                margin-bottom: 20px;
+                opacity: 0.9;
+                filter: drop-shadow(0 4px 12px rgba(255, 107, 157, 0.3));
+            }
+        </style>
+
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="stats-title">Life-Changing Results <span
+                        style="font-style: italic; color: var(--color-rose);">in Days</span></h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">✨</div>
+                        <div class="stat-number"><span class="count-up" data-target="94">0</span><span
+                                class="stat-percent">%</span></div>
+                        <p class="stat-text">reported visibly firmer, tighter-looking skin within 30 days</p>
                     </div>
-                    <div>
-                        <p class="serif"
-                            style="font-size: 72px; font-weight: 500; color: var(--text-main); line-height: 1; margin-bottom: 16px;">
-                            89<span style="color: var(--accent-primary);">%</span></p>
-                        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">experienced improved
-                            skin hydration and a
-                            plumper, smoother feel within 2 weeks</p>
+                    <div class="stats-divider"></div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💧</div>
+                        <div class="stat-number"><span class="count-up" data-target="89">0</span><span
+                                class="stat-percent">%</span></div>
+                        <p class="stat-text">experienced improved skin hydration and a plumper, smoother feel</p>
                     </div>
-                    <div>
-                        <p class="serif"
-                            style="font-size: 72px; font-weight: 500; color: var(--text-main); line-height: 1; margin-bottom: 16px;">
-                            91<span style="color: var(--accent-primary);">%</span></p>
-                        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">said Instant Lift
-                            Complex outperformed
-                            their previous anti-aging products</p>
+                    <div class="stats-divider"></div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-number"><span class="count-up" data-target="91">0</span><span
+                                class="stat-percent">%</span></div>
+                        <p class="stat-text">said it outperformed their previous anti-aging products</p>
                     </div>
                 </div>
                 <p
-                    style="font-size: 11px; color: var(--text-muted); opacity: 0.6; margin-top: 80px; max-width: 700px; margin-left: auto; margin-right: auto; text-transform: uppercase; letter-spacing: 0.05em;">
-                    *Based on ingredient research and user satisfaction tracking. Individual results may vary. Returns
-                    accepted within 60 days.
+                    style="font-size: 11px; color: var(--text-muted); opacity: 0.6; margin-top: 4rem; text-align: center; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Inter', sans-serif;">
+                    *Based on ingredient research and 30-day user satisfaction tracking. Individual results may vary.
                 </p>
             </div>
         </section>
 
+        <script>
+            // Count-up animation for stats
+            const countObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = +entry.target.getAttribute('data-target');
+                        let count = 0;
+                        const updateCount = () => {
+                            const speed = 30; // lower is faster
+                            const inc = target / speed;
+                            if (count < target) {
+                                count += inc;
+                                entry.target.innerText = Math.ceil(count);
+                                setTimeout(updateCount, 40);
+                            } else {
+                                entry.target.innerText = target;
+                            }
+                        };
+                        updateCount();
+                        countObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.count-up').forEach(counter => countObserver.observe(counter));
+        </script>
+
         <!-- Section 10: Purchase Module -->
+        <style>
+            .product-visual img {
+                transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+
+            .purchase-module:hover .product-visual img {
+                transform: rotate(-6deg) scale(1.06);
+            }
+
+            .supply-option.popular-tier {
+                animation: popularGlow 3.5s ease-in-out infinite;
+                transform: scale(1.02);
+                border-color: rgba(255, 107, 157, 0.4);
+                background: rgba(255, 107, 157, 0.05);
+            }
+
+            @keyframes popularGlow {
+
+                0%,
+                100% {
+                    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.15);
+                }
+
+                50% {
+                    box-shadow: 0 12px 35px rgba(255, 107, 157, 0.45), 0 0 0 1px rgba(255, 107, 157, 0.3) inset;
+                }
+            }
+
+            .urgency-badge {
+                display: inline-block;
+                background: rgba(255, 107, 157, 0.15);
+                color: #ffb8d2;
+                font-family: 'Inter', sans-serif;
+                font-size: 11px;
+                font-weight: 700;
+                padding: 6px 14px;
+                border-radius: 100px;
+                margin-top: 1rem;
+                letter-spacing: 0.04em;
+                border: 1px solid rgba(255, 107, 157, 0.3);
+            }
+
+            .payment-trust-strip {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                margin-top: 1.5rem;
+                opacity: 0.6;
+            }
+
+            .payment-icon {
+                font-size: 24px;
+                background: rgba(255, 255, 255, 0.1);
+                padding: 4px 10px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+            }
+
+            .checkout-secure-txt {
+                font-family: 'Inter', sans-serif;
+                font-size: 11.5px;
+                color: rgba(255, 255, 255, 0.7);
+                margin-top: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+            }
+        </style>
         <section class="purchase-module" id="purchase">
             <div class="container">
                 <div class="purchase-header text-center">
                     <p class="purchase-tagline">The Cream That Transformed 2,100+ Women’s Skin</p>
                     <h2 class="section-title">Instant Lift Complex</h2>
-                    <p style="color: var(--accent-gold); font-weight: 600; font-size: 14px;">⭐ 4.8 from 2,100+ Reviews |
+                    <p style="color: var(--accent-gold); font-weight: 600; font-size: 14px; margin-top: 8px;">⭐ 4.8 from
+                        2,100+ Reviews |
                         Visible Results in 15 Minutes</p>
+                    <div class="urgency-badge">🔥 High Demand: Only 42 sets left at this price today</div>
                 </div>
 
                 <div class="purchase-grid">
@@ -1751,7 +2377,7 @@
                                     <p style="font-size: 12px; color: var(--text-muted);">1-Month Supply</p>
                                     <p class="price" style="margin-top: 12px; font-weight: 600;">$62/jar</p>
                                 </div>
-                                <div class="supply-option" data-jars="3" style="position: relative;">
+                                <div class="supply-option popular-tier" data-jars="3" style="position: relative;">
                                     <div
                                         style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--grad-glow); color: #fff; font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; white-space: nowrap; box-shadow: 0 4px 12px rgba(255,107,157,0.4);">
                                         ⭐ MOST POPULAR</div>
@@ -1772,7 +2398,15 @@
                                 id="display-price">$44</span>/jar</button>
 
                         <div class="text-center mt-4">
-                            <p style="font-size: 12px; color: var(--text-muted); margin-top: 16px;">
+                            <div class="payment-trust-strip">
+                                <span class="payment-icon">💳</span>
+                                <span class="payment-icon">🍎</span>
+                                <span class="payment-icon">🅿️</span>
+                            </div>
+                            <div class="checkout-secure-txt">
+                                🔒 Bank-Grade 256-Bit Encrypted Checkout
+                            </div>
+                            <p style="font-size: 12px; color: var(--text-muted); margin-top: 20px;">
                                 🛡️ 60-Day 100% Money-Back Guarantee
                             </p>
                         </div>
@@ -1784,8 +2418,8 @@
         <!-- Section 11: Beautifully Simple (How to Use) -->
         <style>
             .how-to-section {
-                padding: 7rem 0;
-                background: #fff;
+                padding: 7rem 0 8rem;
+                background: var(--bg-beige);
                 position: relative;
             }
 
@@ -1800,6 +2434,20 @@
                 gap: 24px;
                 max-width: 1000px;
                 margin: 0 auto;
+                position: relative;
+            }
+
+            .how-to-grid::before {
+                content: '';
+                position: absolute;
+                top: 80px;
+                /* aligns roughly behind icons */
+                left: 15%;
+                right: 15%;
+                height: 2px;
+                background-image: linear-gradient(to right, rgba(255, 107, 157, 0.3) 50%, transparent 50%);
+                background-size: 12px 2px;
+                z-index: 1;
             }
 
             .step-card {
@@ -1811,6 +2459,22 @@
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
                 transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
                 position: relative;
+                z-index: 2;
+                overflow: hidden;
+            }
+
+            .step-card::after {
+                content: attr(data-step);
+                position: absolute;
+                bottom: -25px;
+                right: -10px;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 180px;
+                font-weight: 700;
+                color: rgba(255, 107, 157, 0.035);
+                line-height: 1;
+                pointer-events: none;
+                z-index: 0;
             }
 
             .step-card:hover {
@@ -1818,17 +2482,41 @@
                 box-shadow: 0 16px 40px rgba(255, 107, 157, 0.1);
             }
 
+            .step-content {
+                position: relative;
+                z-index: 2;
+            }
+
             .step-icon-wrap {
-                width: 64px;
-                height: 64px;
-                background: rgba(255, 107, 157, 0.08);
+                width: 72px;
+                height: 72px;
+                background: #fff;
+                border: 2px solid rgba(255, 107, 157, 0.15);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 margin: 0 auto 1.5rem;
                 color: var(--color-rose);
-                font-size: 24px;
+                font-size: 28px;
+                position: relative;
+                z-index: 2;
+                box-shadow: 0 4px 12px rgba(255, 107, 157, 0.1);
+                animation: stepIconPulse 3.5s ease-in-out infinite;
+            }
+
+            @keyframes stepIconPulse {
+
+                0%,
+                100% {
+                    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.1);
+                    transform: scale(1);
+                }
+
+                50% {
+                    box-shadow: 0 8px 24px rgba(255, 107, 157, 0.3);
+                    transform: scale(1.05);
+                }
             }
 
             .step-number {
@@ -1899,30 +2587,39 @@
 
                 <div class="how-to-grid">
                     <!-- Step 1 -->
-                    <div class="step-card">
+                    <div class="step-card" data-step="01">
                         <div class="step-icon-wrap">🫧</div>
-                        <span class="step-number">Step 01</span>
-                        <h3 class="step-title">Cleanse</h3>
-                        <p class="step-desc">Start with a fresh canvas. Cleanse your face thoroughly and pat completely
-                            dry.</p>
+                        <div class="step-content">
+                            <span class="step-number">Step 01</span>
+                            <h3 class="step-title">Cleanse</h3>
+                            <p class="step-desc">Start with a fresh canvas. Cleanse your face thoroughly and pat
+                                completely
+                                dry.</p>
+                        </div>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="step-card">
+                    <div class="step-card" data-step="02">
                         <div class="step-icon-wrap">✨</div>
-                        <span class="step-number">Step 02</span>
-                        <h3 class="step-title">Apply</h3>
-                        <p class="step-desc">Apply a thin, even layer to desired areas — forehead, around eyes, cheeks,
-                            jawline, and neck.</p>
+                        <div class="step-content">
+                            <span class="step-number">Step 02</span>
+                            <h3 class="step-title">Apply</h3>
+                            <p class="step-desc">Apply a thin, even layer to desired areas — forehead, around eyes,
+                                cheeks,
+                                jawline, and neck.</p>
+                        </div>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="step-card">
+                    <div class="step-card" data-step="03">
                         <div class="step-icon-wrap">⏱️</div>
-                        <span class="step-number">Step 03</span>
-                        <h3 class="step-title">Lift</h3>
-                        <p class="step-desc">Remain expressionless and allow 15 minutes for the tightening micro-veil to
-                            fully set.</p>
+                        <div class="step-content">
+                            <span class="step-number">Step 03</span>
+                            <h3 class="step-title">Lift</h3>
+                            <p class="step-desc">Remain expressionless and allow 15 minutes for the tightening
+                                micro-veil to
+                                fully set.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -1939,9 +2636,18 @@
         <style>
             .why-switch-section {
                 padding: 7rem 0 8rem;
-                background: #FDFCF0;
+                background: var(--bg-beige);
                 position: relative;
                 overflow: hidden;
+            }
+
+            .why-switch-section::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at center, rgba(255, 107, 157, 0.05) 0%, transparent 60%);
+                pointer-events: none;
+                z-index: 0;
             }
 
             .why-switch-header {
@@ -1975,7 +2681,7 @@
                 left: 17%;
                 right: 17%;
                 height: 2px;
-                background: linear-gradient(90deg, rgba(255, 107, 157, 0.2) 0%, rgba(255, 154, 92, 0.5) 50%, rgba(200, 80, 192, 0.2) 100%);
+                background: linear-gradient(90deg, rgba(255, 107, 157, 0.4) 0%, rgba(255, 154, 92, 0.6) 50%, rgba(200, 80, 192, 0.4) 100%);
                 z-index: 1;
             }
 
@@ -1987,11 +2693,27 @@
                 z-index: 2;
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
                 border: 1px solid rgba(255, 107, 157, 0.08);
-                transition: transform 0.4s;
+                transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+
+            @media(min-width: 900px) {
+                .tier-card:nth-child(2) {
+                    margin-top: 30px;
+                }
+
+                .tier-card:nth-child(3) {
+                    margin-top: 60px;
+                }
+
+                .tier-timeline::before {
+                    transform-origin: left center;
+                    transform: rotate(4.2deg);
+                }
             }
 
             .tier-card:hover {
-                transform: translateY(-6px);
+                transform: translateY(-8px);
+                box-shadow: 0 16px 40px rgba(255, 107, 157, 0.1);
             }
 
             .tier-icon {
@@ -2013,16 +2735,19 @@
             .tier-card:nth-child(1) .tier-icon {
                 background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #fff, var(--color-rose)) border-box;
                 color: var(--color-rose);
+                box-shadow: 0 0 0 8px rgba(255, 107, 157, 0.1), 0 8px 24px rgba(255, 107, 157, 0.25);
             }
 
             .tier-card:nth-child(2) .tier-icon {
                 background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #fff, var(--color-peach)) border-box;
                 color: var(--color-peach);
+                box-shadow: 0 0 0 8px rgba(255, 154, 92, 0.1), 0 8px 24px rgba(255, 154, 92, 0.25);
             }
 
             .tier-card:nth-child(3) .tier-icon {
                 background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #fff, var(--color-violet)) border-box;
                 color: var(--color-violet);
+                box-shadow: 0 0 0 8px rgba(200, 80, 192, 0.1), 0 8px 24px rgba(200, 80, 192, 0.25);
             }
 
             .tier-label {
@@ -2110,20 +2835,38 @@
         <!-- Section 13: Featured Ingredients Hierarchy -->
         <style>
             .ingredients-section {
-                padding: 7rem 0;
-                background: #fff;
+                padding: 7rem 0 8rem;
+                background: var(--bg-violet-wash);
+                position: relative;
+                overflow: hidden;
             }
 
             .ing-hero {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                background: linear-gradient(135deg, #FFF4FB 0%, #FFF0F6 100%);
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 244, 251, 0.8) 100%);
+                backdrop-filter: blur(10px);
                 border-radius: 24px;
                 overflow: hidden;
                 margin-top: 4rem;
                 margin-bottom: 2rem;
-                box-shadow: 0 12px 40px rgba(255, 107, 157, 0.1);
-                border: 1px solid rgba(255, 107, 157, 0.15);
+                box-shadow: 0 12px 40px rgba(200, 80, 192, 0.1), 0 0 0 1px rgba(200, 80, 192, 0.2) inset;
+                border: none;
+                animation: heroBorderGlow 4s ease-in-out infinite;
+                position: relative;
+                z-index: 2;
+            }
+
+            @keyframes heroBorderGlow {
+
+                0%,
+                100% {
+                    box-shadow: 0 12px 40px rgba(200, 80, 192, 0.1), 0 0 0 1px rgba(200, 80, 192, 0.2) inset;
+                }
+
+                50% {
+                    box-shadow: 0 20px 60px rgba(200, 80, 192, 0.2), 0 0 0 2px rgba(200, 80, 192, 0.4) inset;
+                }
             }
 
             .ing-hero-img {
@@ -2132,6 +2875,8 @@
                 align-items: center;
                 justify-content: center;
                 padding: 3rem;
+                position: relative;
+                overflow: hidden;
             }
 
             .ing-hero-img img {
@@ -2213,16 +2958,33 @@
 
             .ing-secondary-card {
                 background: #fff;
-                border: 1px solid rgba(0, 0, 0, 0.06);
+                border: 1px solid rgba(0, 0, 0, 0.08);
                 border-radius: 16px;
                 padding: 2.5rem 2rem;
-                transition: transform 0.3s, box-shadow 0.3s;
+                transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
+                position: relative;
+                z-index: 1;
+            }
+
+            .ing-secondary-card::before {
+                content: '';
+                position: absolute;
+                inset: -2px;
+                background: linear-gradient(135deg, var(--color-rose), var(--color-violet));
+                border-radius: 18px;
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s;
             }
 
             .ing-secondary-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
-                border-color: rgba(255, 107, 157, 0.2);
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 16px 40px rgba(200, 80, 192, 0.15);
+                border-color: transparent;
+            }
+
+            .ing-secondary-card:hover::before {
+                opacity: 1;
             }
 
             .ing-secondary-icon {
@@ -2267,14 +3029,18 @@
             }
         </style>
 
-        <section class="ingredients-section bg-white">
-            <div class="container">
+        <section class="ingredients-section">
+            <div class="container relative z-10">
                 <h2 class="section-title text-center">Why These Ingredients Are So Powerful</h2>
 
                 <!-- Hero Ingredient -->
                 <div class="ing-hero">
                     <div class="ing-hero-img">
-                        <img src="public/images/botanicals.png" alt="Tightening Polymers Botanical">
+                        <div class="molecule molecule-1" style="border-color: rgba(200,80,192,0.3);"></div>
+                        <div class="molecule molecule-2" style="border-color: rgba(200,80,192,0.4);"></div>
+                        <div class="molecule molecule-3" style="border-color: rgba(200,80,192,0.3);"></div>
+                        <img src="public/images/botanicals.png" alt="Tightening Polymers Botanical"
+                            style="position: relative; z-index: 2;">
                     </div>
                     <div class="ing-hero-content">
                         <span class="ing-pill">Hero Ingredient</span>
@@ -2317,9 +3083,10 @@
 
                 <!-- Full Ingredients Toggle -->
                 <div class="text-center mt-12">
-                    <button id="toggle-ingredients"
-                        style="text-decoration: underline; font-weight: 600; font-size: 14px;">[View Full Ingredients
-                        List]</button>
+                    <button id="toggle-ingredients" class="btn btn-outline"
+                        style="font-weight: 600; font-size: 14px; margin-top: 1rem; padding: 10px 24px; border-color: rgba(200,80,192,0.3); color: var(--color-violet);">View
+                        Full Ingredients
+                        List</button>
                     <div id="full-ingredients-list"
                         style="display: none; margin-top: 32px; font-size: 12px; color: var(--text-muted); line-height: 1.8; max-width: 800px; margin-left: auto; margin-right: auto;">
                         Water, Dimethyl Sulfone, Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer, Cetyl
@@ -2337,7 +3104,12 @@
         </section>
     </main>
 
-    <footer class="footer" style="background: var(--text-dark); padding: 5rem 0 3rem; color: #fff;">
+    <footer class="footer"
+        style="background: linear-gradient(180deg, var(--bg-dark) 0%, #1a0f2e 100%); padding: 5rem 0 3rem; color: #fff; position: relative;">
+        <!-- Glowing top line -->
+        <div
+            style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,107,157,0.5), transparent); box-shadow: 0 0 15px rgba(255,107,157,0.4);">
+        </div>
         <div class="container">
 
             <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 4rem;">
@@ -2348,14 +3120,25 @@
                         style="font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 24px; max-width: 250px;">
                         Scientifically-backed skincare designed to deliver visible, lasting transformation.
                     </p>
-                    <div style="display: flex; gap: 12px;">
-                        <!-- Social Icons (Placeholder bubbles for now) -->
+                    <div class="social-links" style="display: flex; gap: 12px;">
+                        <style>
+                            .social-links a {
+                                transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, box-shadow 0.3s !important;
+                            }
+
+                            .social-links a:hover {
+                                transform: translateY(-4px) scale(1.1);
+                                background: var(--grad-glow) !important;
+                                box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+                            }
+                        </style>
+                        <!-- Social Icons -->
                         <a href="#"
-                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px; transition: background 0.3s;">FB</a>
+                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px;">FB</a>
                         <a href="#"
-                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px; transition: background 0.3s;">IG</a>
+                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px;">IG</a>
                         <a href="#"
-                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px; transition: background 0.3s;">TT</a>
+                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px;">TT</a>
                     </div>
                 </div>
 
@@ -2401,7 +3184,8 @@
                         }
 
                         .footer-newsletter:focus-within {
-                            border-color: rgba(255, 255, 255, 0.3);
+                            border-color: rgba(255, 107, 157, 0.6);
+                            box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.15);
                         }
                     </style>
                     <div class="footer-newsletter">

@@ -818,7 +818,24 @@
         }
 
         /* ===== MOBILE RESPONSIVE ===== */
+
+        /* Prevent horizontal overflow on all devices */
+        html,
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        @media (max-width: 500px) {
+
+            .container,
+            .container-wide {
+                padding: 0 16px;
+            }
+        }
+
         @media (max-width: 959px) {
+
 
             /* Hero: stack gallery on top, purchase below */
             .pdp-hero {
@@ -1002,8 +1019,39 @@
             .faq-item:nth-child(odd) {
                 border-right: none;
             }
+
+            /* Testi cards: fit iPhone viewport */
+            .testi-card {
+                min-width: calc(100vw - 56px);
+                max-width: calc(100vw - 32px);
+                padding: 20px;
+            }
+
+            .testi-track {
+                padding-left: 16px;
+                padding-right: 16px;
+                gap: 16px;
+            }
+
+            /* Science marquee: smaller cards */
+            .sci-card {
+                min-width: 240px;
+                padding: 24px 20px;
+            }
+
+            /* Results stat borders */
+            .result-stat {
+                border-left: 2px solid var(--color-black) !important;
+                border-right: 2px solid var(--color-black) !important;
+                border-bottom: none !important;
+            }
+
+            .results-grid .result-stat:last-child {
+                border-bottom: 2px solid var(--color-black) !important;
+            }
         }
     </style>
+
 
 </head>
 

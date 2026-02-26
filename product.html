@@ -229,15 +229,23 @@
         }
 
         .gallery-main {
-            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 48px;
-            min-height: 480px;
+            padding: 32px;
+            min-height: 350px;
             position: relative;
             border-bottom: 2px solid var(--color-black);
             overflow: hidden;
+            background: #fff;
+        }
+
+        @media (min-width: 960px) {
+            .gallery-main {
+                flex: 1;
+                min-height: 480px;
+                padding: 48px;
+            }
         }
 
         .gallery-main img {
@@ -1328,45 +1336,39 @@
             </div>
 
             <!-- PURCHASE MODULE -->
-            <!-- Step 1: Plan -->
             <div class="step-label-pdp"><span class="step-num">1</span> Choose Your Plan</div>
-            <div class="plan-toggle">
-                <button class="plan-btn active" id="sub-btn" onclick="selectPlan('sub')">
-                    Subscribe &amp; Save 10% <span class="plan-badge"
-                        style="color: var(--color-white);">Recommended</span>
+            <div class="supply-grid">
+                <!-- Tier 1: Subscribe -->
+                <button class="supply-btn active" id="s1" onclick="selectTier(this, 1, 62, 'subscribe')">
+                    <div class="plan-badge"
+                        style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-black); color: #fff; font-size: 8px; padding: 4px 10px; border: 1px solid var(--border-main); white-space: nowrap;">
+                        RECOMMENDED</div>
+                    <span class="supply-qty">1 Month</span>
+                    <span class="supply-label">Subscribe & Save 36%</span>
+                    <span class="supply-price">$62.00</span>
                 </button>
-                <button class="plan-btn" id="ot-btn" onclick="selectPlan('ot')">
-                    One-Time Purchase
+                <!-- Tier 2: Bundle -->
+                <button class="supply-btn" id="s3" onclick="selectTier(this, 3, 186, 'one-time')">
+                    <div class="plan-badge"
+                        style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-black); color: #fff; font-size: 8px; padding: 4px 10px; border: 1px solid var(--border-main); white-space: nowrap;">
+                        BEST VALUE</div>
+                    <span class="supply-qty">3 Month</span>
+                    <span class="supply-label">Bundle & Save 36%</span>
+                    <span class="supply-price">$186.00</span>
+                    <span style="font-size: 10px; opacity: 0.7;">$62/jar</span>
+                </button>
+                <!-- Tier 3: Single Jar -->
+                <button class="supply-btn" id="s-trial" onclick="selectTier(this, 1, 97, 'one-time')">
+                    <span class="supply-qty">Single Jar</span>
+                    <span class="supply-label">One-Time Trial</span>
+                    <span class="supply-price">$97.00</span>
                 </button>
             </div>
+
             <div class="sub-perks" id="sub-perks">
                 <span>✓</span>Free shipping on every order<br>
                 <span>✓</span>Cancel or change anytime<br>
-                <span>✓</span>Automatic delivery so you never run out
-            </div>
-
-            <!-- Step 2: Supply -->
-            <div class="step-label-pdp" style="margin-top:24px;"><span class="step-num">2</span> Select Your Supply
-            </div>
-            <div class="supply-grid">
-                <button class="supply-btn" id="s1" onclick="selectSupply(1)">
-                    <span class="supply-qty">1</span>
-                    <span class="supply-label">1-Month Supply</span>
-                    <span class="supply-price" id="price-1">$62/jar</span>
-                    <span class="supply-save">Save 10%</span>
-                </button>
-                <button class="supply-btn active" id="s3" onclick="selectSupply(3)">
-                    <span class="supply-qty">3</span>
-                    <span class="supply-label">3-Month Supply</span>
-                    <span class="supply-price" id="price-3">$53/jar ($159)</span>
-                    <span class="supply-save">Save 23%</span>
-                </button>
-                <button class="supply-btn" id="s6" onclick="selectSupply(6)">
-                    <span class="supply-qty">6 ⭐</span>
-                    <span class="supply-label">6-Month — Best Value</span>
-                    <span class="supply-price" id="price-6">$44/jar ($264)</span>
-                    <span class="supply-save">Save 36%</span>
-                </button>
+                <span>✓</span>60-Day Money-Back Guarantee
             </div>
 
             <!-- Price reference table -->
@@ -2007,18 +2009,19 @@
         <div class="testi-track">
             <div class="testi-card">
                 <div class="testi-stars">★★★★★</div>
-                <div class="testi-name">Joan, 64</div>
+                <div class="testi-name">Joan, 68</div>
                 <div class="testi-tags">Visible Tightening · Smoother Skin</div>
                 <p class="testi-quote">"I could see the difference in my jawline after the first week. My daughter asked
                     what I was doing differently."</p><button class="testi-read">Read More</button>
             </div>
             <div class="testi-card">
                 <div class="testi-stars">★★★★★</div>
-                <div class="testi-name">Patricia, 55</div>
+                <div class="testi-name">Patricia, 54</div>
                 <div class="testi-tags">Fine Lines · Hydration</div>
                 <p class="testi-quote">"I stopped wearing heavy foundation. I don't need it anymore."</p><button
                     class="testi-read">Read More</button>
             </div>
+
             <div class="testi-card">
                 <div class="testi-stars">★★★★★</div>
                 <div class="testi-name">Karen, 48</div>
@@ -2767,57 +2770,53 @@
             <p class="ing-eyebrow">The Formula</p>
             <h2 class="ing-title">How Does Instant Lift Complex Work?</h2>
             <div class="ing-grid6">
-                <div class="ing-card6">
-                    <div class="ing-emoji">⚡</div>
-                    <div class="ing-category">Instant Visible Tightening</div>
-                    <div class="ing-name">Tightening Polymers</div>
-                    <div class="ing-scientific">Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer + Bis-Vinyl
-                        Dimethicone</div>
-                    <p class="ing-desc6">Advanced film-forming polymers create an invisible, breathable micro-veil. As
-                        it sets, it contracts slightly — visibly smoothing and tightening fine lines, often within 15
-                        minutes.</p>
-                </div>
-                <div class="ing-card6">
-                    <div class="ing-emoji">💧</div>
-                    <div class="ing-category">Deep Hydration & Plumping</div>
-                    <div class="ing-name">Low MW Hyaluronic Acid</div>
-                    <div class="ing-scientific">Sodium Hyaluronate (Low Molecular Weight)</div>
-                    <p class="ing-desc6">Unlike standard HA that sits on the surface, low MW hyaluronic acid penetrates
-                        into the upper skin layers, attracting and retaining up to 1,000× its weight in water.</p>
-                </div>
+                <!-- Card 1: Peptides -->
                 <div class="ing-card6">
                     <div class="ing-emoji">🧬</div>
-                    <div class="ing-category">Collagen & Firmness Support</div>
-                    <div class="ing-name">Collagen-Boosting Peptides</div>
-                    <div class="ing-scientific">Palmitoyl Tripeptide-5 + Acetyl Tetrapeptide-5 + Palmitoyl Dipeptide-5
-                    </div>
-                    <p class="ing-desc6">Signal peptides that support your skin's natural collagen processes — the
-                        protein responsible for structure and firmness. Visible improvements with consistent use over
-                        4–8 weeks.</p>
+                    <div class="ing-category">Structural Support</div>
+                    <div class="ing-name">Palmitoyl Tripeptide-5</div>
+                    <p class="ing-desc6">A key signal peptide that works deep within the skin's layers to support
+                        natural collagen processes and promote long-term firmness.</p>
                 </div>
+                <!-- Card 2: HA -->
+                <div class="ing-card6">
+                    <div class="ing-emoji">💧</div>
+                    <div class="ing-category">Deep Hydration</div>
+                    <div class="ing-name">Low MW Hyaluronic Acid</div>
+                    <p class="ing-desc6">Standard HA sits on top. Our low-molecular-weight version is specifically
+                        designed to penetrate deeper, plumping from within.</p>
+                </div>
+                <!-- Card 3: Polymers -->
+                <div class="ing-card6">
+                    <div class="ing-emoji">✨</div>
+                    <div class="ing-category">Instant Lift</div>
+                    <div class="ing-name">Tightening Polymer Complex</div>
+                    <p class="ing-desc6">Creates an invisible, breathable micro-veil that produces a visible lifting
+                        effect within 15 minutes of application.</p>
+                </div>
+                <!-- Card 4: Ceramides -->
+                <div class="ing-card6">
+                    <div class="ing-emoji">🛡️</div>
+                    <div class="ing-category">Barrier Recovery</div>
+                    <div class="ing-name">Ceramides NP, AP, EOP</div>
+                    <p class="ing-desc6">Essential lipids that restore the skin's protective barrier, locking in
+                        moisture and protecting against environmental stressors.</p>
+                </div>
+                <!-- Card 5: Squalane -->
                 <div class="ing-card6">
                     <div class="ing-emoji">🌿</div>
-                    <div class="ing-category">Soothing & Circulation</div>
-                    <div class="ing-name">Butcher's Broom & Ginger</div>
-                    <div class="ing-scientific">Ruscus Aculeatus Root Extract + Zingiber Officinale Root Extract</div>
-                    <p class="ing-desc6">Butcher's Broom supports microcirculation and reduces puffiness. Ginger soothes
-                        and promotes a healthy, even-toned complexion.</p>
+                    <div class="ing-category">Botanical Emollient</div>
+                    <div class="ing-name">Squalane (Olive-Derived)</div>
+                    <p class="ing-desc6">A highly stable hydrocarbon that mimics your skin's natural sebum, providing
+                        silky smoothness without any greasy residue.</p>
                 </div>
+                <!-- Card 6: Niacinamide -->
                 <div class="ing-card6">
-                    <div class="ing-emoji">☀️</div>
-                    <div class="ing-category">Brightening & Antioxidant</div>
-                    <div class="ing-name">Vitamin C & Vitamin E</div>
-                    <div class="ing-scientific">Sodium Ascorbyl Phosphate + Tocopheryl Acetate</div>
-                    <p class="ing-desc6">A stable Vitamin C derivative that brightens and evens skin tone, paired with
-                        Vitamin E for antioxidant protection against environmental aging.</p>
-                </div>
-                <div class="ing-card6">
-                    <div class="ing-emoji">🌺</div>
-                    <div class="ing-category">Moisture Lock & Repair</div>
-                    <div class="ing-name">Aloe, Panthenol & Hibiscus</div>
-                    <div class="ing-scientific">Aloe Barbadensis + Panthenol + Hibiscus Sabdariffa Flower Extract</div>
-                    <p class="ing-desc6">Aloe soothes and repairs. Panthenol strengthens the skin barrier. Hibiscus —
-                        the "botox plant" — is rich in natural AHAs that support cell turnover and elasticity.</p>
+                    <div class="ing-emoji">💎</div>
+                    <div class="ing-category">Tone & Texture</div>
+                    <div class="ing-name">Niacinamide (Vitamin B3)</div>
+                    <p class="ing-desc6">Universally loved for its ability to refine the appearance of pores, brighten
+                        uneven tone, and support a healthy skin barrier.</p>
                 </div>
             </div>
             <div class="ing-full-toggle">
@@ -3311,13 +3310,13 @@
                     <a href="index.html">Home</a>
                     <a href="product.html">Shop</a>
                     <a href="#faq">FAQ</a>
+                    <a href="mailto:support@glowagainlabs.com">Contact</a>
                     <a href="#guarantee">Guarantee</a>
-                </div>
-                <div class="footer-col">
-                    <div class="footer-col-title">Support</div>
-                    <a href="mailto:support@glowagainlabs.com">Contact Us</a>
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-title">Social</div>
                     <a href="#">Instagram</a>
                     <a href="#">Facebook</a>
                 </div>
@@ -3369,25 +3368,23 @@
         // ── Add to Cart ──
         const atcBtn = document.getElementById('atc-btn');
         atcBtn && atcBtn.addEventListener('click', function () {
-            // Read current selection
-            const planLabel = document.getElementById('sub-btn').classList.contains('active') ? 'Subscribe' : 'One-Time';
-            const supplyQty = [1, 3, 6].find(q => document.getElementById('s' + q).classList.contains('active')) || 3;
-            const supplyLabel = supplyQty === 1 ? '1-Month' : supplyQty === 3 ? '3-Month' : '6-Month';
-            const priceMap = { sub: { 1: '$62', 3: '$159', 6: '$264' }, ot: { 1: '$69', 3: '$177', 6: '$294' } };
-            const plan = document.getElementById('sub-btn').classList.contains('active') ? 'sub' : 'ot';
-            const total = priceMap[plan][supplyQty];
+            // Updated for new 3-tier structure
+            const activeBtn = document.querySelector('.supply-btn.active');
+            const qty = activeBtn.querySelector('.supply-qty').textContent;
+            const plan = activeBtn.querySelector('.supply-label').textContent;
+            const price = activeBtn.querySelector('.supply-price').textContent;
 
             // Update cart drawer content
             const desc = document.getElementById('cart-item-desc');
-            const price = document.getElementById('cart-item-price');
+            const cartPrice = document.getElementById('cart-item-price');
             const cartTotal = document.getElementById('cart-total');
             const empty = document.getElementById('cart-empty-state');
             const full = document.getElementById('cart-full-state');
             const count = document.getElementById('cart-count');
 
-            if (desc) desc.textContent = supplyLabel + ' Supply (Plan: ' + planLabel + ')';
-            if (price) price.textContent = total;
-            if (cartTotal) cartTotal.textContent = total;
+            if (desc) desc.textContent = qty + " (" + plan + ")";
+            if (cartPrice) cartPrice.textContent = price;
+            if (cartTotal) cartTotal.textContent = price;
             if (empty) empty.style.display = 'none';
             if (full) full.style.display = 'block';
             if (count) { count.textContent = '(1)'; count.style.display = 'inline'; }
@@ -3421,28 +3418,23 @@
         }
 
 
-        // Purchase plan toggle
-        const prices = {
-            sub: { 1: '$62/JAR', 3: '$53/JAR ($159)', 6: '$44/JAR ($264)' },
-            ot: { 1: '$69/JAR', 3: '$59/JAR ($177)', 6: '$49/JAR ($294)' }
-        };
-        let curPlan = 'sub', curSupply = 3;
-        function selectPlan(plan) {
-            curPlan = plan;
-            document.getElementById('sub-btn').classList.toggle('active', plan === 'sub');
-            document.getElementById('ot-btn').classList.toggle('active', plan === 'ot');
+        // Purchase tier toggle
+        function selectTier(btn, qty, price, plan) {
+            // Update active state
+            document.querySelectorAll('.supply-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update ATC button text
+            const atcBtn = document.getElementById('atc-btn');
+            if (atcBtn) {
+                atcBtn.textContent = 'ADD TO CART — $' + price.toFixed(2);
+            }
+
+            // Sync with perks display if needed
             const perks = document.getElementById('sub-perks');
-            if (perks) perks.style.display = plan === 'sub' ? 'block' : 'none';
-            updateATC();
-        }
-        function selectSupply(qty) {
-            curSupply = qty;
-            [1, 3, 6].forEach(q => document.getElementById('s' + q).classList.toggle('active', q === qty));
-            updateATC();
-        }
-        function updateATC() {
-            const btn = document.getElementById('atc-btn');
-            if (btn) btn.textContent = 'ADD TO CART — ' + prices[curPlan][curSupply];
+            if (perks) {
+                perks.style.display = (plan === 'subscribe' || qty > 1) ? 'block' : 'none';
+            }
         }
 
         // Accordion (product details)

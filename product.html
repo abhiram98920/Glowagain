@@ -1637,131 +1637,121 @@
             margin-top: 3px;
         }
 
-        /* Video Modal Styles */
-        .video-modal {
-            position: fixed;
+        /* Inline Video Player Styles */
+        .inline-video {
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 10000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .video-modal.active {
-            opacity: 1;
-            display: flex;
-        }
-
-        .video-modal-content {
-            position: relative;
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            object-fit: cover;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
-        .video-modal video {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            outline: none;
+        .video-card.is-playing .inline-video {
+            opacity: 1;
         }
 
-        .close-video-modal {
+        .video-card.is-playing .video-card-img {
+            opacity: 0;
+        }
+
+        .video-card.is-playing .video-play {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        .video-card.is-paused .video-play {
+            opacity: 1;
+            pointer-events: none;
+            /* Let clicks pass through to the card */
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Ensure card info stays above video */
+        .video-card-info {
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Mute Button */
+        .vc-mute-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.1);
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.4);
             color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 44px;
-            height: 44px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            font-size: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 10001;
-            transition: all 0.2s;
+            z-index: 4;
+            opacity: 0;
+            transition: opacity 0.3s, background 0.3s;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
         }
 
-        .close-video-modal:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
+        .vc-mute-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .video-card.is-playing .vc-mute-btn,
+        .video-card.is-paused .vc-mute-btn {
+            opacity: 1;
+            pointer-events: auto;
         }
     </style>
 
-    <!-- Video Modal -->
-    <div class="video-modal" id="video-modal">
-        <button class="close-video-modal" id="close-video-modal">✕</button>
-        <div class="video-modal-content">
-            <video id="modal-video-player" playsinline controls preload="metadata">
-                <source src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const videoModal = document.getElementById('video-modal');
-            const videoPlayer = document.getElementById('modal-video-player');
-            const sourceEl = videoPlayer.querySelector('source');
-            const closeBtn = document.getElementById('close-video-modal');
             const videoCards = document.querySelectorAll('.video-card');
 
-            function openVideo(src) {
-                sourceEl.src = src;
-                videoPlayer.load();
-                videoModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                videoPlayer.play().catch(e => console.log("Auto-play prevented", e));
-            }
-
-            function closeVideo() {
-                videoModal.classList.remove('active');
-                document.body.style.overflow = '';
-                videoPlayer.pause();
-                setTimeout(() => {
-                    videoModal.style.display = 'none';
-                    // Reset display property changed by standard fadeout
-                    videoModal.style.display = '';
-                }, 300);
-            }
-
             videoCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    const videoSrc = card.getAttribute('data-video-src');
-                    if (videoSrc) openVideo(videoSrc);
+                const video = card.querySelector('.inline-video');
+                const playBtn = card.querySelector('.video-play');
+                const muteBtn = card.querySelector('.vc-mute-btn');
+                const muteIcon = muteBtn.querySelector('.vc-icon-mute');
+                const unmuteIcon = muteBtn.querySelector('.vc-icon-unmute');
+
+                let isPlaying = false;
+
+                // Toggle Play/Pause when clicking card (except mute button)
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.vc-mute-btn')) return;
+
+                    if (video.paused) {
+                        video.play();
+                        card.classList.add('is-playing');
+                        card.classList.remove('is-paused');
+                        isPlaying = true;
+                    } else {
+                        video.pause();
+                        card.classList.add('is-paused');
+                        isPlaying = false;
+                    }
                 });
-            });
 
-            closeBtn.addEventListener('click', closeVideo);
-
-            // Close on background click
-            videoModal.addEventListener('click', (e) => {
-                if (e.target === videoModal || e.target.classList.contains('video-modal-content')) {
-                    closeVideo();
-                }
-            });
-
-            // Close on escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-                    closeVideo();
-                }
+                // Toggle Mute
+                muteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // prevent card click
+                    video.muted = !video.muted;
+                    if (video.muted) {
+                        muteIcon.style.display = 'block';
+                        unmuteIcon.style.display = 'none';
+                    } else {
+                        muteIcon.style.display = 'none';
+                        unmuteIcon.style.display = 'block';
+                    }
+                });
             });
         });
     </script>
@@ -1771,49 +1761,113 @@
             <p class="video-section-eyebrow">Hear It From Them</p>
             <h2 class="video-section-title">See It In Action</h2>
             <div class="video-grid">
-                <div class="video-card" data-video-src="public/videos/317227_tiny.mp4">
+                <div class="video-card">
+                    <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted
+                        preload="metadata"></video>
                     <img class="video-card-img"
                         src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=700&fit=crop&q=80"
                         alt="Linda">
                     <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
                             <polygon points="5,3 19,12 5,21" />
                         </svg></div>
+                    <button class="vc-mute-btn" aria-label="Toggle Mute">
+                        <svg class="vc-icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <svg class="vc-icon-unmute" style="display:none;" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                    </button>
                     <div class="video-card-info">
                         <div class="video-card-name">Linda, 58</div>
                         <div class="video-card-tag">Jawline Transformation</div>
                     </div>
                 </div>
-                <div class="video-card" data-video-src="public/videos/317227_tiny.mp4">
+                <div class="video-card">
+                    <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted
+                        preload="metadata"></video>
                     <img class="video-card-img"
                         src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=700&fit=crop&q=80"
                         alt="Diane">
                     <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
                             <polygon points="5,3 19,12 5,21" />
                         </svg></div>
+                    <button class="vc-mute-btn" aria-label="Toggle Mute">
+                        <svg class="vc-icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <svg class="vc-icon-unmute" style="display:none;" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                    </button>
                     <div class="video-card-info">
                         <div class="video-card-name">Diane, 63</div>
                         <div class="video-card-tag">Application Routine</div>
                     </div>
                 </div>
-                <div class="video-card" data-video-src="public/videos/317227_tiny.mp4">
+                <div class="video-card">
+                    <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted
+                        preload="metadata"></video>
                     <img class="video-card-img"
                         src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=700&fit=crop&q=80"
                         alt="Barbara">
                     <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
                             <polygon points="5,3 19,12 5,21" />
                         </svg></div>
+                    <button class="vc-mute-btn" aria-label="Toggle Mute">
+                        <svg class="vc-icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <svg class="vc-icon-unmute" style="display:none;" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                    </button>
                     <div class="video-card-info">
                         <div class="video-card-name">Barbara, 52</div>
                         <div class="video-card-tag">Before / After Reveal</div>
                     </div>
                 </div>
-                <div class="video-card" data-video-src="public/videos/317227_tiny.mp4">
+                <div class="video-card">
+                    <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted
+                        preload="metadata"></video>
                     <img class="video-card-img"
                         src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=700&fit=crop&q=80"
                         alt="Sandra">
                     <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
                             <polygon points="5,3 19,12 5,21" />
                         </svg></div>
+                    <button class="vc-mute-btn" aria-label="Toggle Mute">
+                        <svg class="vc-icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <svg class="vc-icon-unmute" style="display:none;" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                    </button>
                     <div class="video-card-info">
                         <div class="video-card-name">Sandra, 67</div>
                         <div class="video-card-tag">Smooth Forehead Results</div>

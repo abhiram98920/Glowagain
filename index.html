@@ -786,7 +786,7 @@
                 font-family: 'Outfit', sans-serif;
                 font-size: 11px;
                 font-weight: 800;
-                color: var(--color-black);
+                color: var(--color-white);
                 background: var(--color-secondary);
                 padding: 4px 12px;
                 letter-spacing: 0.1em;
@@ -1036,7 +1036,7 @@
 
                 <!-- Section CTA -->
                 <div class="testimonials-section-cta">
-                    <a href="product.html" class="btn btn-primary" style="display:inline-flex;">See Real Results</a>
+                    <a href="product.html" class="btn btn-white" style="display:inline-flex;">See Real Results</a>
                     <p>Join 2,100+ women who already made the switch</p>
                 </div>
 
@@ -2925,7 +2925,7 @@
 
         .footer-newsletter button {
             padding: 0 24px;
-            background: var(--color-secondary);
+            background: var(--color-white);
             border: none;
             border-left: 2px solid var(--border-main);
             color: var(--color-black);
@@ -2938,8 +2938,14 @@
             transition: var(--transition-base);
         }
 
+        .footer-newsletter input::placeholder {
+            color: #fff;
+            opacity: 0.8;
+        }
+
         .footer-newsletter button:hover {
-            background: var(--color-white);
+            background: var(--color-black);
+            color: var(--color-white);
         }
 
         .footer-email {
@@ -3017,24 +3023,41 @@
                     <!-- Contact -->
                     <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
                         <p
-                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 8px;">
+                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 12px;">
                             Contact</p>
                         <a href="mailto:support@glowagainlabs.com" class="footer-email">support@glowagainlabs.com</a>
 
                         <div class="social-links" style="display: flex; gap: 16px; margin-top: 1rem;">
                             <a href="#"
-                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase; transition: var(--transition-base);">FB</a>
+                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; transition: var(--transition-base);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </a>
                             <a href="#"
-                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase; transition: var(--transition-base);">IG</a>
+                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; transition: var(--transition-base);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
                             <a href="#"
-                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase; transition: var(--transition-base);">TT</a>
+                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; transition: var(--transition-base);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                                </svg>
+                            </a>
                         </div>
                     </div>
 
                     <!-- Newsletter -->
                     <div>
                         <p
-                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 24px;">
+                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 12px;">
                             Stay Connected</p>
                         <div class="footer-newsletter">
                             <input type="email" placeholder="ENTER YOUR EMAIL">

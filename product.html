@@ -1124,8 +1124,45 @@
         </div>
     </div>
 
-    <!-- ===== S2: NAVIGATION ===== -->
+    <!-- ===== S2: NAVIGATION (matches index.html exactly) ===== -->
     <div class="overlay" id="overlay"></div>
+    <!-- Cart Drawer (same as index.html) -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+            <h3 style="font-family:'Outfit',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;">Your
+                Cart</h3>
+            <button id="close-cart" style="background:none;border:none;font-size:22px;cursor:pointer;">✕</button>
+        </div>
+        <div id="cart-empty-state" style="text-align:center;margin-top:60px;">
+            <div style="font-size:64px;margin-bottom:24px;">🏺</div>
+            <p style="color:var(--text-muted);margin-bottom:32px;">Your cart is empty. A 10 years younger you is one
+                click away.</p>
+            <a href="product.html" class="btn btn-primary">SHOP NOW</a>
+        </div>
+        <div id="cart-full-state" style="display:none;margin-top:24px;">
+            <div
+                style="display:flex;gap:16px;align-items:center;border-bottom:1px solid #eee;padding-bottom:24px;margin-bottom:24px;">
+                <img src="public/images/product_hero_jar.png"
+                    style="width:80px;height:80px;object-fit:contain;background:#f9f9f9;">
+                <div>
+                    <p style="font-weight:700;font-size:16px;">Instant Lift Complex</p>
+                    <p id="cart-item-desc" style="font-size:12px;color:var(--text-muted);">3-Month Supply (Subscribe)
+                    </p>
+                    <p id="cart-item-price" style="font-weight:600;margin-top:8px;">$53/jar ($159)</p>
+                </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+                <span style="font-weight:600;">Total</span>
+                <span id="cart-total"
+                    style="font-weight:900;font-size:22px;font-family:'Outfit',sans-serif;">$159</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;" onclick="alert('Checkout coming soon!')">CHECKOUT
+                →</button>
+            <p style="font-size:11px;text-align:center;color:var(--text-muted);margin-top:12px;">✓ Free shipping
+                included</p>
+        </div>
+    </div>
+    <!-- Mobile Nav Drawer -->
     <nav class="nav-drawer" id="nav-drawer">
         <button class="drawer-close" id="drawer-close">✕</button>
         <a href="index.html">Home</a>
@@ -1134,20 +1171,33 @@
         <a href="#guarantee">Guarantee</a>
     </nav>
 
-    <header class="pdp-header">
-        <div class="container pdp-nav">
-            <button class="hamburger-btn" id="hamburger">
-                <span></span><span></span><span></span>
+    <!-- Header — EXACT MATCH to index.html -->
+    <header class="header"
+        style="padding:24px 0;border-bottom:2px solid var(--color-black);background:var(--bg-page);position:sticky;top:0;z-index:200;">
+        <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+            <!-- Left: Hamburger -->
+            <button class="hamburger-btn" id="hamburger"
+                style="display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;">
+                <span style="display:block;width:24px;height:2px;background:var(--color-black);"></span>
+                <span style="display:block;width:24px;height:2px;background:var(--color-black);"></span>
+                <span style="display:block;width:24px;height:2px;background:var(--color-black);"></span>
             </button>
-            <a href="index.html" class="pdp-logo">Glow Again Labs<span>.</span></a>
-            <button class="pdp-nav-icon cart-btn" id="cart-trigger-pdp">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <path d="M16 10a4 4 0 0 1-8 0" />
+            <!-- Center: Logo (same as index.html) -->
+            <a href="index.html" class="logo"
+                style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;color:var(--color-black);letter-spacing:-1px;text-transform:uppercase;text-decoration:none;">
+                GLOW AGAIN LABS<span style="color:var(--color-accent);">.</span>
+            </a>
+            <!-- Right: Cart (same SVG as index.html) -->
+            <button class="icon-btn" id="cart-toggle"
+                style="color:var(--color-black);position:relative;background:none;border:none;cursor:pointer;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="square" stroke-linejoin="miter">
+                    <circle cx="9" cy="21" r="1.5"></circle>
+                    <circle cx="20" cy="21" r="1.5"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                 </svg>
-                <div class="cart-count-badge">0</div>
+                <span id="cart-count"
+                    style="display:none;font-family:'Outfit',sans-serif;font-weight:900;font-size:12px;"></span>
             </button>
         </div>
     </header>
@@ -2962,16 +3012,66 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Nav drawer
+        // ── Nav & Drawer ──
         const hamburger = document.getElementById('hamburger');
         const navDrawer = document.getElementById('nav-drawer');
         const overlay = document.getElementById('overlay');
         const drawerClose = document.getElementById('drawer-close');
-        function openDrawer() { navDrawer.classList.add('open'); overlay.classList.add('visible'); }
-        function closeDrawer() { navDrawer.classList.remove('open'); overlay.classList.remove('visible'); }
-        hamburger && hamburger.addEventListener('click', openDrawer);
-        drawerClose && drawerClose.addEventListener('click', closeDrawer);
-        overlay && overlay.addEventListener('click', closeDrawer);
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartDrawer = document.getElementById('cart-drawer');
+        const closeCart = document.getElementById('close-cart');
+
+        function openNavDrawer() {
+            navDrawer.classList.add('open');
+            overlay.classList.add('visible');
+        }
+        function closeNavDrawer() {
+            navDrawer.classList.remove('open');
+            overlay.classList.remove('visible');
+        }
+        function openCartDrawer() {
+            if (cartDrawer) cartDrawer.classList.add('open');
+            overlay.classList.add('visible');
+        }
+        function closeCartDrawer() {
+            if (cartDrawer) cartDrawer.classList.remove('open');
+            overlay.classList.remove('visible');
+        }
+
+        hamburger && hamburger.addEventListener('click', openNavDrawer);
+        drawerClose && drawerClose.addEventListener('click', closeNavDrawer);
+        cartToggle && cartToggle.addEventListener('click', openCartDrawer);
+        closeCart && closeCart.addEventListener('click', closeCartDrawer);
+        overlay && overlay.addEventListener('click', () => { closeNavDrawer(); closeCartDrawer(); });
+
+        // ── Add to Cart ──
+        const atcBtn = document.getElementById('atc-btn');
+        atcBtn && atcBtn.addEventListener('click', function () {
+            // Read current selection
+            const planLabel = document.getElementById('sub-btn').classList.contains('active') ? 'Subscribe' : 'One-Time';
+            const supplyQty = [1, 3, 6].find(q => document.getElementById('s' + q).classList.contains('active')) || 3;
+            const supplyLabel = supplyQty === 1 ? '1-Month' : supplyQty === 3 ? '3-Month' : '6-Month';
+            const priceMap = { sub: { 1: '$62', 3: '$159', 6: '$264' }, ot: { 1: '$69', 3: '$177', 6: '$294' } };
+            const plan = document.getElementById('sub-btn').classList.contains('active') ? 'sub' : 'ot';
+            const total = priceMap[plan][supplyQty];
+
+            // Update cart drawer content
+            const desc = document.getElementById('cart-item-desc');
+            const price = document.getElementById('cart-item-price');
+            const cartTotal = document.getElementById('cart-total');
+            const empty = document.getElementById('cart-empty-state');
+            const full = document.getElementById('cart-full-state');
+            const count = document.getElementById('cart-count');
+
+            if (desc) desc.textContent = supplyLabel + ' Supply (Plan: ' + planLabel + ')';
+            if (price) price.textContent = total;
+            if (cartTotal) cartTotal.textContent = total;
+            if (empty) empty.style.display = 'none';
+            if (full) full.style.display = 'block';
+            if (count) { count.textContent = '(1)'; count.style.display = 'inline'; }
+
+            openCartDrawer();
+        });
 
         // Gallery thumb switcher
         function switchThumb(el, type, value, counter) {

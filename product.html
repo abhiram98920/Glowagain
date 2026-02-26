@@ -1,0 +1,2714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Lift Complex — Glow Again Labs</title>
+    <meta name="description"
+        content="A multi-action anti-aging cream that visibly tightens, deeply hydrates, and supports collagen. See firmer skin in 15 minutes. 60-Day Money-Back Guarantee.">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ===== PRODUCT PAGE GLOBAL ===== */
+        .container-wide {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ===== S1: ANNOUNCEMENT BAR ===== */
+        .ann-bar {
+            background: var(--color-accent);
+            color: #fff;
+            padding: 11px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .ann-track {
+            display: inline-flex;
+            gap: 48px;
+            animation: marquee 24s linear infinite;
+        }
+
+        .ann-bar:hover .ann-track {
+            animation-play-state: paused;
+        }
+
+        .ann-sep {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== S2: NAVIGATION ===== */
+        .pdp-header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 2px solid var(--color-black);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .pdp-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .pdp-logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            color: var(--color-black);
+            text-decoration: none;
+        }
+
+        .pdp-logo span {
+            color: var(--color-accent);
+        }
+
+        .pdp-nav-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .pdp-nav-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .hamburger-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-black);
+        }
+
+        .cart-btn {
+            position: relative;
+        }
+
+        .cart-count-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--color-accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 900;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Mobile Nav Drawer */
+        .nav-drawer {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 300px;
+            height: 100%;
+            background: #fff;
+            z-index: 999;
+            padding: 40px 32px;
+            border-right: 2px solid var(--color-black);
+            transition: left 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .nav-drawer.open {
+            left: 0;
+        }
+
+        .nav-drawer a {
+            display: block;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--color-black);
+            text-decoration: none;
+            margin-bottom: 24px;
+            transition: color 0.2s;
+        }
+
+        .nav-drawer a:hover {
+            color: var(--color-accent);
+        }
+
+        .drawer-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        /* ===== S3: HERO PRODUCT SECTION ===== */
+        .pdp-hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            min-height: 80vh;
+        }
+
+        @media (min-width: 960px) {
+            .pdp-hero {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* LEFT: Gallery */
+        .gallery-col {
+            background: #f8f7f5;
+            border-right: 2px solid var(--color-black);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+
+        .gallery-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+            min-height: 480px;
+            position: relative;
+            border-bottom: 2px solid var(--color-black);
+            overflow: hidden;
+        }
+
+        .gallery-main img {
+            max-height: 420px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-main:hover img {
+            transform: scale(1.03);
+        }
+
+        .gallery-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--color-accent);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border: 2px solid var(--color-black);
+            box-shadow: 3px 3px 0 var(--color-black);
+        }
+
+        .gallery-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--color-black);
+            letter-spacing: 0.08em;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px 12px;
+            border: 1px solid var(--color-black);
+        }
+
+        .gallery-thumbnails {
+            display: flex;
+            overflow-x: auto;
+            gap: 0;
+            scrollbar-width: none;
+            padding: 0;
+        }
+
+        .gallery-thumbnails::-webkit-scrollbar {
+            display: none;
+        }
+
+        .thumb-item {
+            min-width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            border-right: 1px solid var(--color-black);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0eeeb;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.2s;
+        }
+
+        .thumb-item:hover,
+        .thumb-item.active {
+            background: #fff;
+        }
+
+        .thumb-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--color-accent);
+        }
+
+        .thumb-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .thumb-item.thumb-icon {
+            font-size: 24px;
+            color: var(--color-black);
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .thumb-item.thumb-icon span {
+            font-family: 'Outfit', sans-serif;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        /* RIGHT: Purchase Col */
+        .purchase-col {
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            overflow-y: auto;
+        }
+
+        @media (min-width: 960px) {
+            .purchase-col {
+                position: sticky;
+                top: 74px;
+                max-height: calc(100vh - 74px);
+                overflow-y: auto;
+            }
+        }
+
+        .social-proof-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .social-proof-bar .stars {
+            color: var(--color-accent);
+            font-size: 14px;
+        }
+
+        .social-proof-bar strong {
+            color: var(--color-black);
+        }
+
+        .social-proof-sep {
+            width: 4px;
+            height: 4px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .pdp-product-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(26px, 3.5vw, 38px);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            color: var(--color-black);
+            margin-bottom: 20px;
+        }
+
+        .pdp-product-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.65;
+            color: #444;
+            margin-bottom: 28px;
+        }
+
+        /* Benefit pills */
+        .benefit-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .benefit-pill {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: #f2f0ed;
+            border: 1.5px solid var(--color-black);
+            padding: 7px 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition: all 0.2s;
+        }
+
+        .benefit-pill:hover {
+            background: var(--color-black);
+            color: #fff;
+        }
+
+        .benefit-pill .pill-icon {
+            font-size: 15px;
+        }
+
+        /* Purchase module */
+        .purchase-module-inner {
+            background: #f8f7f5;
+            border: 2px solid var(--color-black);
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .step-label-pdp {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-label-pdp .step-num {
+            background: var(--color-black);
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Plan toggle */
+        .plan-toggle {
+            display: flex;
+            gap: 0;
+            border: 2px solid var(--color-black);
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .plan-btn {
+            flex: 1;
+            padding: 14px 12px;
+            background: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            position: relative;
+            color: var(--color-black);
+        }
+
+        .plan-btn:first-child {
+            border-right: 2px solid var(--color-black);
+        }
+
+        .plan-btn.active {
+            background: var(--color-black);
+            color: #fff;
+        }
+
+        .plan-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: #fff;
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            padding: 2px 6px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .sub-perks {
+            background: rgba(255, 69, 0, 0.06);
+            border-top: 1px solid var(--color-accent);
+            padding: 12px 16px;
+            margin-top: 0;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.8;
+            color: var(--color-black);
+        }
+
+        .sub-perks span {
+            color: var(--color-accent);
+            margin-right: 6px;
+        }
+
+        /* Supply selector */
+        .supply-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+            border: 2px solid var(--color-black);
+            overflow: hidden;
+        }
+
+        .supply-btn {
+            padding: 16px 8px;
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            border-right: 1px solid var(--color-black);
+            transition: all 0.2s;
+            color: var(--color-black);
+        }
+
+        .supply-btn:last-child {
+            border-right: none;
+        }
+
+        .supply-btn.active {
+            background: var(--color-black);
+            color: #fff;
+        }
+
+        .supply-btn .supply-qty {
+            font-size: 20px;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .supply-btn .supply-label {
+            font-size: 9px;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .supply-btn .supply-price {
+            font-size: 14px;
+            display: block;
+            margin-top: 6px;
+            color: var(--color-accent);
+        }
+
+        .supply-btn.active .supply-price {
+            color: #FF8C5A;
+        }
+
+        .supply-btn .supply-save {
+            font-size: 9px;
+            background: var(--color-accent);
+            color: #fff;
+            display: inline-block;
+            padding: 1px 6px;
+            margin-top: 4px;
+        }
+
+        .supply-btn.active .supply-save {
+            background: var(--color-accent);
+        }
+
+        /* Price table */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-top: 16px;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 8px 10px;
+            text-align: center;
+            border: 1px solid var(--color-black);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        .price-table th {
+            background: var(--color-black);
+            color: #fff;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        .price-table tr:nth-child(even) td {
+            background: #f8f7f5;
+        }
+
+        .price-highlight {
+            color: var(--color-accent);
+            font-weight: 900;
+        }
+
+        /* ATC button */
+        .atc-btn {
+            width: 100%;
+            padding: 20px;
+            background: var(--color-accent);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 2px solid var(--color-black);
+            box-shadow: 5px 5px 0 var(--color-black);
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-bottom: 20px;
+        }
+
+        .atc-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0 var(--color-black);
+        }
+
+        .atc-btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 var(--color-black);
+        }
+
+        .atc-sub {
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* Guarantee */
+        .guarantee-strip {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border: 2px solid var(--color-black);
+            padding: 16px 18px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+
+        .guarantee-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .guarantee-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .guarantee-text small {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: 0;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Payment methods */
+        .payment-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .pay-badge {
+            background: #f2f0ed;
+            border: 1px solid #ddd;
+            padding: 5px 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: var(--color-black);
+        }
+
+        /* Trust badges */
+        .trust-badges {
+            display: flex;
+            gap: 0;
+            border: 2px solid var(--color-black);
+            overflow: hidden;
+        }
+
+        .trust-badge {
+            flex: 1;
+            padding: 14px 10px;
+            text-align: center;
+            border-right: 1px solid var(--color-black);
+            font-family: 'Outfit', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .trust-badge:last-child {
+            border-right: none;
+        }
+
+        .trust-badge .trust-icon {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .trust-badge .trust-label {
+            display: block;
+        }
+
+        /* Accordion */
+        .accordion {
+            border-top: 2px solid var(--color-black);
+            margin-top: 28px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            text-align: left;
+            padding: 18px 0;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-trigger .acc-icon {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .accordion-trigger.open .acc-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), padding 0.3s;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .accordion-body.open {
+            max-height: 600px;
+            padding-bottom: 20px;
+        }
+
+        .accordion-body ol,
+        .accordion-body ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .accordion-body li {
+            margin-bottom: 6px;
+        }
+
+        .acc-result {
+            font-weight: 600;
+            color: var(--color-black);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== S1: ANNOUNCEMENT BAR ===== -->
+    <div class="ann-bar">
+        <div class="ann-track">
+            <span>SAVE UP TO 36% — SUBSCRIBE &amp; NEVER RUN OUT</span>
+            <span class="ann-sep">✦</span>
+            <span>FREE SHIPPING ON ALL SUBSCRIPTIONS</span>
+            <span class="ann-sep">✦</span>
+            <span>60-DAY 100% MONEY-BACK GUARANTEE</span>
+            <span class="ann-sep">✦</span>
+            <span>4.8★ FROM 2,100+ REVIEWS</span>
+            <span class="ann-sep">✦</span>
+            <span>VISIBLE RESULTS IN 15 MINUTES</span>
+            <span class="ann-sep">✦</span>
+            <span>SAVE UP TO 36% — SUBSCRIBE &amp; NEVER RUN OUT</span>
+            <span class="ann-sep">✦</span>
+            <span>FREE SHIPPING ON ALL SUBSCRIPTIONS</span>
+            <span class="ann-sep">✦</span>
+            <span>60-DAY 100% MONEY-BACK GUARANTEE</span>
+            <span class="ann-sep">✦</span>
+            <span>4.8★ FROM 2,100+ REVIEWS</span>
+            <span class="ann-sep">✦</span>
+            <span>VISIBLE RESULTS IN 15 MINUTES</span>
+        </div>
+    </div>
+
+    <!-- ===== S2: NAVIGATION ===== -->
+    <div class="overlay" id="overlay"></div>
+    <nav class="nav-drawer" id="nav-drawer">
+        <button class="drawer-close" id="drawer-close">✕</button>
+        <a href="index.html">Home</a>
+        <a href="product.html">Shop</a>
+        <a href="#faq">FAQ</a>
+        <a href="#guarantee">Guarantee</a>
+    </nav>
+
+    <header class="pdp-header">
+        <div class="container pdp-nav">
+            <button class="hamburger-btn" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="index.html" class="pdp-logo">Glow Again Labs<span>.</span></a>
+            <button class="pdp-nav-icon cart-btn" id="cart-trigger-pdp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+                <div class="cart-count-badge">0</div>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== S3: HERO PRODUCT ===== -->
+    <section class="pdp-hero" id="purchase">
+        <!-- LEFT: Gallery -->
+        <div class="gallery-col">
+            <div class="gallery-main" id="gallery-main">
+                <div class="gallery-badge">New Formula</div>
+                <img src="public/images/product_hero_jar.png" alt="Instant Lift Complex Jar" id="main-img">
+                <div class="gallery-counter">1 / 5</div>
+            </div>
+            <div class="gallery-thumbnails">
+                <div class="thumb-item active"
+                    onclick="switchThumb(this,'public/images/product_hero_jar.png','Front View')">
+                    <img src="public/images/product_hero_jar.png" alt="Front">
+                </div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','Texture')">🫧<span>Texture</span></div>
+                <div class="thumb-item thumb-icon"
+                    onclick="switchThumb(this,'public/images/step2_apply.png','Applying')">
+                    <img src="public/images/step2_apply.png" alt="Applying"
+                        style="width:60px;height:60px;object-fit:cover;">
+                </div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','Results')">📈<span>Results</span></div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','3-Step')">📋<span>How To</span></div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','Ingredients')">🧪<span>Formula</span>
+                </div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','Guarantee')">🛡️<span>Guarantee</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Purchase -->
+        <div class="purchase-col">
+            <!-- Social proof bar -->
+            <div class="social-proof-bar">
+                <span class="stars">★★★★★</span>
+                <strong>4.8</strong> from <a href="#reviews"
+                    style="color:var(--color-black);text-decoration:underline;font-weight:900;">2,100+ Reviews</a>
+                <span class="social-proof-sep"></span>
+                <span>Visible Results in 15 Min</span>
+                <span class="social-proof-sep"></span>
+                <span>Women 40–75 Love It</span>
+            </div>
+
+            <h1 class="pdp-product-title">See Firmer Skin in 15 Minutes With Instant Lift Complex</h1>
+            <p class="pdp-product-desc">A multi-level tightening cream that smooths fine lines for an immediate visible
+                lift, locks moisture beneath the surface for all-day hydration, and supports your skin's own collagen
+                for lasting firmness. One product. Three layers of visible improvement.</p>
+
+            <!-- Benefit pills -->
+            <div class="benefit-pills">
+                <div class="benefit-pill"><span class="pill-icon">⚡</span> Visibly Tighten &amp; Lift</div>
+                <div class="benefit-pill"><span class="pill-icon">💧</span> Deep Hydration</div>
+                <div class="benefit-pill"><span class="pill-icon">🧬</span> Support Collagen</div>
+                <div class="benefit-pill"><span class="pill-icon">✨</span> Smooth Fine Lines</div>
+                <div class="benefit-pill"><span class="pill-icon">🌸</span> Plump &amp; Firm</div>
+                <div class="benefit-pill"><span class="pill-icon">☀️</span> Restore Natural Glow</div>
+            </div>
+
+            <!-- PURCHASE MODULE -->
+            <div class="purchase-module-inner">
+                <!-- Step 1: Plan -->
+                <div class="step-label-pdp"><span class="step-num">1</span> Choose Your Plan</div>
+                <div class="plan-toggle">
+                    <button class="plan-btn active" id="sub-btn" onclick="selectPlan('sub')">
+                        Subscribe &amp; Save 10% <span class="plan-badge">Recommended</span>
+                    </button>
+                    <button class="plan-btn" id="ot-btn" onclick="selectPlan('ot')">
+                        One-Time Purchase
+                    </button>
+                </div>
+                <div class="sub-perks" id="sub-perks">
+                    <span>✓</span>Free shipping on every order<br>
+                    <span>✓</span>Cancel or change anytime<br>
+                    <span>✓</span>Automatic delivery so you never run out
+                </div>
+
+                <!-- Step 2: Supply -->
+                <div class="step-label-pdp" style="margin-top:24px;"><span class="step-num">2</span> Select Your Supply
+                </div>
+                <div class="supply-grid">
+                    <button class="supply-btn" id="s1" onclick="selectSupply(1)">
+                        <span class="supply-qty">1</span>
+                        <span class="supply-label">1-Month Supply</span>
+                        <span class="supply-price" id="price-1">$62/jar</span>
+                        <span class="supply-save">Save 10%</span>
+                    </button>
+                    <button class="supply-btn active" id="s3" onclick="selectSupply(3)">
+                        <span class="supply-qty">3</span>
+                        <span class="supply-label">3-Month Supply</span>
+                        <span class="supply-price" id="price-3">$53/jar ($159)</span>
+                        <span class="supply-save">Save 23%</span>
+                    </button>
+                    <button class="supply-btn" id="s6" onclick="selectSupply(6)">
+                        <span class="supply-qty">6 ⭐</span>
+                        <span class="supply-label">6-Month — Best Value</span>
+                        <span class="supply-price" id="price-6">$44/jar ($264)</span>
+                        <span class="supply-save">Save 36%</span>
+                    </button>
+                </div>
+
+                <!-- Price reference table -->
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>1 Jar</th>
+                            <th>3 Jars</th>
+                            <th>6 Jars</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Subscribe &amp; Save</td>
+                            <td>$62/jar</td>
+                            <td>$53/jar ($159)</td>
+                            <td class="price-highlight">$44/jar ($264)</td>
+                        </tr>
+                        <tr>
+                            <td>One-Time</td>
+                            <td>$69/jar</td>
+                            <td>$59/jar ($177)</td>
+                            <td>$49/jar ($294)</td>
+                        </tr>
+                        <tr>
+                            <td>You Save</td>
+                            <td>Up to 10%</td>
+                            <td>Up to 23%</td>
+                            <td class="price-highlight">Up to 36%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Step 3: ATC -->
+            <div class="step-label-pdp"><span class="step-num">3</span> Add to Cart</div>
+            <button class="atc-btn" id="atc-btn">ADD TO CART — $44/JAR</button>
+            <div class="atc-sub">Price updates based on plan &amp; supply selection</div>
+
+            <!-- Guarantee strip -->
+            <div class="guarantee-strip">
+                <div class="guarantee-icon">🛡️</div>
+                <div class="guarantee-text">
+                    60-Day 100% Money-Back Guarantee
+                    <small>If you don't see a visible difference, we'll refund every penny. No questions. No
+                        hassle.</small>
+                </div>
+            </div>
+
+            <!-- Payment methods -->
+            <div class="payment-row">
+                <div class="pay-badge">VISA</div>
+                <div class="pay-badge">MASTERCARD</div>
+                <div class="pay-badge">AMEX</div>
+                <div class="pay-badge">PAYPAL</div>
+                <div class="pay-badge">APPLE PAY</div>
+                <div class="pay-badge">GPay</div>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="trust-badges">
+                <div class="trust-badge"><span class="trust-icon">🌿</span><span class="trust-label">Gentle
+                        Formula<br>All Skin Types</span></div>
+                <div class="trust-badge"><span class="trust-icon">🛡️</span><span
+                        class="trust-label">60-Day<br>Guarantee</span></div>
+                <div class="trust-badge"><span class="trust-icon">🚚</span><span class="trust-label">Free Shipping<br>on
+                        Subscriptions</span></div>
+            </div>
+
+            <!-- Accordion details -->
+            <div class="accordion" id="accordion">
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAcc(this)">How to Use <span
+                            class="acc-icon">+</span></button>
+                    <div class="accordion-body">
+                        <p>Instant Lift Complex is highly concentrated — a little goes a long way.</p>
+                        <ol>
+                            <li>Cleanse and pat skin dry.</li>
+                            <li>Apply a thin layer to desired areas — face, neck, jawline, around eyes, forehead.</li>
+                            <li>Gently massage until absorbed.</li>
+                            <li>Allow 15 minutes for the tightening effect to fully set.</li>
+                            <li>Apply 2–3 times daily for best results. Can be worn under makeup.</li>
+                        </ol>
+                        <p style="margin-top:12px;">For optimal long-term results, use consistently for 60+ days.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAcc(this)">What Results Can I Expect? <span
+                            class="acc-icon">+</span></button>
+                    <div class="accordion-body">
+                        <p><span class="acc-result">Within 15 minutes:</span> Visible tightening and smoothing as
+                            tightening polymers form a breathable micro-veil.</p>
+                        <p style="margin-top:8px;"><span class="acc-result">Within 7–14 days:</span> Improved hydration
+                            and a plumper, more supple feel.</p>
+                        <p style="margin-top:8px;"><span class="acc-result">Within 30–60 days:</span> Firmer-looking
+                            skin and continued improvement in the appearance of fine lines.</p>
+                        <p style="margin-top:12px;color:var(--color-accent);font-weight:700;">94% of users reported
+                            visible improvement in skin firmness within 30 days.*</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAcc(this)">What Skin Types Does It Work On? <span
+                            class="acc-icon">+</span></button>
+                    <div class="accordion-body">
+                        <p>Instant Lift Complex is formulated for all skin types: oily, dry, normal, combination, and
+                            sensitive. It is free of parabens and works on all skin tones.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAcc(this)">Shipping <span
+                            class="acc-icon">+</span></button>
+                    <div class="accordion-body">
+                        <p><strong>United States:</strong> Free shipping on all subscription orders. Standard shipping
+                            (3–5 business days) for one-time purchases. Orders are processed and shipped within 1–2
+                            business days.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAcc(this)">Returns &amp; Money-Back Guarantee <span
+                            class="acc-icon">+</span></button>
+                    <div class="accordion-body">
+                        <p>We offer a 60-day, 100% money-back guarantee. Use Instant Lift Complex daily for up to 60
+                            days. If you don't see a visible difference, contact us for a full refund — no questions
+                            asked.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAcc(this)">Full Ingredients List <span
+                            class="acc-icon">+</span></button>
+                    <div class="accordion-body">
+                        <p style="font-size:13px;line-height:1.8;">Water, Dimethyl Sulfone, Sodium Acrylate/Sodium
+                            Acrylol Dimethyl Taurate Copolymer, Cetyl Alcohol, Glycol Stearate, Glyceryl Stearate,
+                            Caprylic/Capric Triglyceride, Citrus Aurantifolia (Lime) Fruit Extract, Ruscus Aculeatus
+                            Root Extract, Zingiber Officinale (Ginger) Root Extract, Hibiscus Sabdariffa Flower Extract,
+                            Sodium Hyaluronate, Dimethicone, Bis-Vinyl Dimethicone/Dimethicone Copolymer, Aloe
+                            Barbadensis Leaf Juice, Phenoxyethanol, Sodium Ascorbyl Phosphate, Polyacrylamide, C13-14
+                            Isoparaffin, Laureth-7, Tocopheryl Acetate, Glycerin, Tetradecyl
+                            Aminobutyroylvalylaminobutyric Urea Trifluoroacetate, Palmitoyl Tripeptide-5, Palmitoyl
+                            Dipeptide-5 Diaminobutyroyl Hydroxythreonine, Acetyl Tetrapeptide-5, Panthenol, Butylene
+                            Glycol.</p>
+                    </div>
+                </div>
+
+            </div><!-- /accordion -->
+        </div><!-- /purchase-col -->
+    </section>
+
+    <!-- ===== S4: SEE IT IN ACTION ===== -->
+    <style>
+        .video-section {
+            padding: 100px 0;
+            background: var(--color-black);
+            border-top: 2px solid var(--color-black);
+        }
+
+        .video-section-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .video-section-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 44px);
+            color: #fff;
+            text-align: center;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 56px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+        }
+
+        @media(min-width:768px) {
+            .video-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .video-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            background: #111;
+            border: 2px solid #222;
+        }
+
+        .video-card-img {
+            width: 100%;
+            aspect-ratio: 9/16;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.7) grayscale(0.2);
+            transition: filter 0.4s, transform 0.4s;
+        }
+
+        .video-card:hover .video-card-img {
+            filter: brightness(0.5);
+            transform: scale(1.04);
+        }
+
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 69, 0, 0.9);
+            border: 3px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover .video-play {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-play svg {
+            margin-left: 4px;
+        }
+
+        .video-card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 16px 16px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+        }
+
+        .video-card-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .video-card-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 3px;
+        }
+    </style>
+    <section class="video-section">
+        <div class="container">
+            <p class="video-section-eyebrow">Hear It From Them</p>
+            <h2 class="video-section-title">See It In Action</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <img class="video-card-img"
+                        src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=700&fit=crop&q=80"
+                        alt="Linda">
+                    <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg></div>
+                    <div class="video-card-info">
+                        <div class="video-card-name">Linda, 58</div>
+                        <div class="video-card-tag">Jawline Transformation</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <img class="video-card-img"
+                        src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=700&fit=crop&q=80"
+                        alt="Diane">
+                    <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg></div>
+                    <div class="video-card-info">
+                        <div class="video-card-name">Diane, 63</div>
+                        <div class="video-card-tag">Application Routine</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <img class="video-card-img"
+                        src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=700&fit=crop&q=80"
+                        alt="Barbara">
+                    <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg></div>
+                    <div class="video-card-info">
+                        <div class="video-card-name">Barbara, 52</div>
+                        <div class="video-card-tag">Before / After Reveal</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <img class="video-card-img"
+                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=700&fit=crop&q=80"
+                        alt="Sandra">
+                    <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg></div>
+                    <div class="video-card-info">
+                        <div class="video-card-name">Sandra, 67</div>
+                        <div class="video-card-tag">Smooth Forehead Results</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== S5: TESTIMONIAL CAROUSEL ===== -->
+    <style>
+        .testi-section {
+            padding: 100px 0;
+            background: #fff;
+            border-top: 2px solid var(--color-black);
+            overflow: hidden;
+        }
+
+        .testi-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .testi-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 44px);
+            text-align: center;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 56px;
+            color: var(--color-black);
+        }
+
+        .testi-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 24px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+
+        .testi-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testi-card {
+            min-width: 320px;
+            max-width: 340px;
+            flex-shrink: 0;
+            background: #fff;
+            border: 2px solid var(--color-black);
+            padding: 28px;
+            scroll-snap-align: start;
+            box-shadow: 4px 4px 0 var(--color-black);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .testi-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 7px 7px 0 var(--color-black);
+        }
+
+        .testi-stars {
+            color: var(--color-accent);
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testi-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .testi-tags {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-accent);
+        }
+
+        .testi-quote {
+            font-size: 15px;
+            line-height: 1.65;
+            color: #333;
+            font-weight: 500;
+            flex-grow: 1;
+        }
+
+        .testi-read {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-black);
+            border-bottom: 2px solid var(--color-accent);
+            display: inline-block;
+            padding-bottom: 2px;
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            cursor: pointer;
+        }
+    </style>
+    <section class="testi-section">
+        <p class="testi-eyebrow">Real Women · Real Results</p>
+        <h2 class="testi-title">What Our Customers Say</h2>
+        <div class="testi-track">
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Joan, 64</div>
+                <div class="testi-tags">Visible Tightening · Smoother Skin</div>
+                <p class="testi-quote">"I could see the difference in my jawline after the first week. My daughter asked
+                    what I was doing differently."</p><button class="testi-read">Read More</button>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Patricia, 55</div>
+                <div class="testi-tags">Fine Lines · Hydration</div>
+                <p class="testi-quote">"I stopped wearing heavy foundation. I don't need it anymore."</p><button
+                    class="testi-read">Read More</button>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Karen, 48</div>
+                <div class="testi-tags">Firmer Skin · Confidence</div>
+                <p class="testi-quote">"My husband noticed before I did. 'Your skin looks amazing,' he said."</p><button
+                    class="testi-read">Read More</button>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Margaret, 61</div>
+                <div class="testi-tags">Deep Hydration · Smooth Texture</div>
+                <p class="testi-quote">"The 'crinkly' texture on my cheeks is actually smoothing out. I ordered the
+                    6-jar supply this time."</p><button class="testi-read">Read More</button>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Susan, 57</div>
+                <div class="testi-tags">Visible Lift · Quick Results</div>
+                <p class="testi-quote">"I put it on before my reunion and three people said I looked ten years younger."
+                </p><button class="testi-read">Read More</button>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Linda R., 66</div>
+                <div class="testi-tags">Neck · Jawline</div>
+                <p class="testi-quote">"I'm a retired nurse. I don't fall for gimmicks. This is not a gimmick."</p>
+                <button class="testi-read">Read More</button>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Nancy, 53</div>
+                <div class="testi-tags">Forehead Lines · Glow</div>
+                <p class="testi-quote">"My forehead lines are softer and my skin has this glow I haven't seen in years."
+                </p><button class="testi-read">Read More</button>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Deborah, 70</div>
+                <div class="testi-tags">Sensitive Skin · Gentle</div>
+                <p class="testi-quote">"I have very sensitive skin and this is one of the only products that doesn't
+                    irritate it."</p><button class="testi-read">Read More</button>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Carol, 59</div>
+                <div class="testi-tags">Value · One Product</div>
+                <p class="testi-quote">"I replaced 4 products with this one. My bathroom counter thanks me."</p><button
+                    class="testi-read">Read More</button>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-name">Jennifer, 46</div>
+                <div class="testi-tags">Under Eye · Plumping</div>
+                <p class="testi-quote">"The hollows under my eyes look fuller. I cancelled the filler consultation.
+                    That's $800 saved."</p><button class="testi-read">Read More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== S6: SCIENTIFIC VALIDATION ===== -->
+    <style>
+        .science-val-section {
+            background: var(--color-black);
+            color: #fff;
+            padding: 100px 0;
+            border-top: 2px solid var(--color-black);
+            overflow: hidden;
+        }
+
+        .science-val-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .science-val-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(24px, 3.5vw, 38px);
+            color: #fff;
+            text-align: center;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            line-height: 1.1;
+        }
+
+        .sci-marquee-wrap {
+            overflow: hidden;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .sci-marquee {
+            display: flex;
+            gap: 0;
+            animation: marquee 40s linear infinite;
+        }
+
+        .sci-marquee-wrap:hover .sci-marquee {
+            animation-play-state: paused;
+        }
+
+        .sci-card {
+            min-width: 340px;
+            padding: 32px 36px;
+            border-right: 1px solid #222;
+            flex-shrink: 0;
+        }
+
+        .sci-journal {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sci-journal::before {
+            content: '📖';
+            font-size: 16px;
+        }
+
+        .sci-quote {
+            font-size: 15px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+    </style>
+    <section class="science-val-section">
+        <p class="science-val-eyebrow">Peer-Reviewed Research</p>
+        <h2 class="science-val-title">Backed by Ingredient Science.<br>Not Marketing Hype.</h2>
+        <div class="sci-marquee-wrap">
+            <div class="sci-marquee">
+                <div class="sci-card">
+                    <div class="sci-journal">Journal of Cosmetic Dermatology</div>
+                    <p class="sci-quote">"Low molecular weight hyaluronic acid penetrates the upper skin layers more
+                        effectively, delivering superior hydration."</p>
+                </div>
+                <div class="sci-card">
+                    <div class="sci-journal">International Journal of Cosmetic Science</div>
+                    <p class="sci-quote">"Palmitoyl Tripeptide-5 demonstrated measurable support for collagen synthesis
+                        in clinical evaluation."</p>
+                </div>
+                <div class="sci-card">
+                    <div class="sci-journal">Dermatologic Surgery</div>
+                    <p class="sci-quote">"Topical peptide complexes showed visible improvement in fine lines and skin
+                        firmness within 8 weeks of consistent use."</p>
+                </div>
+                <div class="sci-card">
+                    <div class="sci-journal">Clinical, Cosmetic &amp; Investigational Dermatology</div>
+                    <p class="sci-quote">"Film-forming polymers create an immediate visible tightening effect while
+                        allowing the skin to breathe normally."</p>
+                </div>
+                <div class="sci-card">
+                    <div class="sci-journal">Journal of Drugs in Dermatology</div>
+                    <p class="sci-quote">"Multi-action topical formulations addressing both surface and sub-surface
+                        aging outperform single-mechanism products."</p>
+                </div>
+                <!-- Duplicate for loop -->
+                <div class="sci-card">
+                    <div class="sci-journal">Journal of Cosmetic Dermatology</div>
+                    <p class="sci-quote">"Low molecular weight hyaluronic acid penetrates the upper skin layers more
+                        effectively, delivering superior hydration."</p>
+                </div>
+                <div class="sci-card">
+                    <div class="sci-journal">International Journal of Cosmetic Science</div>
+                    <p class="sci-quote">"Palmitoyl Tripeptide-5 demonstrated measurable support for collagen synthesis
+                        in clinical evaluation."</p>
+                </div>
+                <div class="sci-card">
+                    <div class="sci-journal">Dermatologic Surgery</div>
+                    <p class="sci-quote">"Topical peptide complexes showed visible improvement in fine lines and skin
+                        firmness within 8 weeks of consistent use."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== S7: RESULTS STATS ===== -->
+    <style>
+        .results-section {
+            padding: 100px 0;
+            background: #fff;
+            border-top: 2px solid var(--color-black);
+        }
+
+        .results-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .results-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 44px);
+            text-align: center;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 64px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2px;
+        }
+
+        @media(min-width:768px) {
+            .results-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .result-stat {
+            padding: 48px 40px;
+            border: 2px solid var(--color-black);
+            text-align: center;
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        .result-stat:hover {
+            background: var(--color-black);
+            color: #fff;
+        }
+
+        .result-stat:hover .stat-num {
+            -webkit-text-fill-color: #fff;
+        }
+
+        .stat-num {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(64px, 8vw, 96px);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, var(--color-accent), #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .stat-text {
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 500;
+            color: inherit;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+    </style>
+    <section class="results-section">
+        <div class="container">
+            <p class="results-eyebrow">Clinical-Level Results</p>
+            <h2 class="results-title">Results You Can Expect</h2>
+            <div class="results-grid">
+                <div class="result-stat"><span class="stat-num">94%</span>
+                    <p class="stat-text">reported visibly firmer, tighter-looking skin within 30 days of consistent use
+                    </p>
+                </div>
+                <div class="result-stat" style="border-left:none;border-right:none;"><span class="stat-num">89%</span>
+                    <p class="stat-text">experienced improved skin hydration and a plumper, smoother feel within 2 weeks
+                    </p>
+                </div>
+                <div class="result-stat"><span class="stat-num">91%</span>
+                    <p class="stat-text">said Instant Lift Complex outperformed their previous anti-aging products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== S8: HOW TO USE ===== -->
+    <style>
+        .how-section {
+            padding: 100px 0;
+            background: #f8f7f5;
+            border-top: 2px solid var(--color-black);
+        }
+
+        .how-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .how-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 44px);
+            text-align: center;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .how-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 56px;
+            text-transform: none;
+            letter-spacing: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2px;
+        }
+
+        @media(min-width:768px) {
+            .how-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .how-card {
+            background: #fff;
+            border: 2px solid var(--color-black);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .how-card:hover {
+            box-shadow: 6px 6px 0 var(--color-black);
+            transform: translate(-3px, -3px);
+        }
+
+        .how-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .how-img-placeholder {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, #f0eeeb 0%, #e8e4de 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        .how-card-body {
+            padding: 28px;
+        }
+
+        .how-step-label {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .how-step-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .how-step-desc {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .how-tip {
+            background: var(--color-black);
+            color: #fff;
+            border: 2px solid var(--color-black);
+            padding: 20px 28px;
+            margin-top: 40px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        .how-tip strong {
+            color: var(--color-accent);
+        }
+    </style>
+    <section class="how-section">
+        <div class="container">
+            <p class="how-eyebrow">Application Guide</p>
+            <h2 class="how-title">Beautifully Simple</h2>
+            <p class="how-subtitle">How to Use Instant Lift Complex</p>
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-img-placeholder">🚿</div>
+                    <div class="how-card-body">
+                        <div class="how-step-label">Step 1</div>
+                        <div class="how-step-title">Cleanse</div>
+                        <p class="how-step-desc">Cleanse your face and pat dry. Start with clean, dry skin for best
+                            absorption.</p>
+                    </div>
+                </div>
+                <div class="how-card">
+                    <img class="how-img" src="public/images/step2_apply.png" alt="Applying Instant Lift Complex">
+                    <div class="how-card-body">
+                        <div class="how-step-label">Step 2</div>
+                        <div class="how-step-title">Apply</div>
+                        <p class="how-step-desc">Apply a thin layer to desired areas — forehead, around eyes, cheeks,
+                            jawline, neck. Gently massage until absorbed.</p>
+                    </div>
+                </div>
+                <div class="how-card">
+                    <div class="how-img-placeholder">✨</div>
+                    <div class="how-card-body">
+                        <div class="how-step-label">Step 3</div>
+                        <div class="how-step-title">Lift</div>
+                        <p class="how-step-desc">Allow 15 minutes for the tightening effect to fully set. Can be worn
+                            under makeup. For long-term results, continue for 60+ days.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="how-tip">💡 <strong>Pro tip:</strong> Take a "before" photo on Day 1. You'll want it when people
+                start asking what you're doing differently.</div>
+        </div>
+    </section>
+
+    <!-- ===== S9: WHAT MAKES IT DIFFERENT ===== -->
+    <style>
+        .diff-section {
+            padding: 100px 0;
+            background: #fff;
+            border-top: 2px solid var(--color-black);
+        }
+
+        .diff-inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media(min-width:900px) {
+            .diff-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .diff-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .diff-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 40px);
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            line-height: 1.05;
+        }
+
+        .diff-intro {
+            font-size: 16px;
+            line-height: 1.75;
+            color: #444;
+            margin-bottom: 32px;
+        }
+
+        .diff-tier {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .diff-tier-num {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            color: #fff;
+            background: var(--color-accent);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .diff-tier-body strong {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .diff-tier-body p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .diff-visual {
+            background: #f8f7f5;
+            border: 2px solid var(--color-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diff-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 40px;
+        }
+
+        .diff-visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.05) 0%, transparent 60%);
+        }
+    </style>
+    <section class="diff-section">
+        <div class="container">
+            <div class="diff-inner">
+                <div>
+                    <p class="diff-eyebrow">The Difference</p>
+                    <h2 class="diff-title">What Makes Instant Lift Complex Different</h2>
+                    <p class="diff-intro">Most anti-aging creams do one thing: add a thin layer of moisture to the
+                        surface of your skin. That moisture evaporates within hours. The fine lines return. The sagging
+                        continues. Instant Lift Complex works at three levels — simultaneously:</p>
+                    <div class="diff-tier">
+                        <div class="diff-tier-num">1</div>
+                        <div class="diff-tier-body"><strong>Immediate Tightening</strong>
+                            <p>Advanced polymers form a breathable micro-veil that visibly smooths and lifts within 15
+                                minutes.</p>
+                        </div>
+                    </div>
+                    <div class="diff-tier">
+                        <div class="diff-tier-num">2</div>
+                        <div class="diff-tier-body"><strong>Deep Hydration</strong>
+                            <p>Low molecular weight hyaluronic acid penetrates below the surface to attract and retain
+                                moisture where it matters.</p>
+                        </div>
+                    </div>
+                    <div class="diff-tier">
+                        <div class="diff-tier-num">3</div>
+                        <div class="diff-tier-body"><strong>Long-Term Collagen Support</strong>
+                            <p>Signal peptides like Palmitoyl Tripeptide-5 support the skin's natural collagen processes
+                                for firmer structure over time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="diff-visual">
+                    <div class="diff-visual-overlay"></div>
+                    <img src="public/images/product_hero_jar.png" alt="Instant Lift Complex — Three Tier Formula">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== S10: HOW IT WORKS / INGREDIENTS ===== -->
+    <style>
+        .ing-section {
+            padding: 100px 0;
+            background: #f8f7f5;
+            border-top: 2px solid var(--color-black);
+        }
+
+        .ing-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .ing-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 44px);
+            text-align: center;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 56px;
+        }
+
+        .ing-grid6 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media(min-width:640px) {
+            .ing-grid6 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(min-width:960px) {
+            .ing-grid6 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .ing-card6 {
+            background: #fff;
+            border: 2px solid var(--color-black);
+            padding: 32px 28px;
+            transition: all 0.3s;
+        }
+
+        .ing-card6:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 6px 6px 0 var(--color-black);
+        }
+
+        .ing-emoji {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .ing-category {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        .ing-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 6px;
+        }
+
+        .ing-scientific {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .ing-desc6 {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .ing-full-toggle {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .ing-full-btn {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: none;
+            border: 2px solid var(--color-black);
+            padding: 14px 32px;
+            cursor: pointer;
+            box-shadow: 4px 4px 0 var(--color-black);
+            transition: all 0.2s;
+        }
+
+        .ing-full-btn:hover {
+            background: var(--color-black);
+            color: #fff;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--color-black);
+        }
+
+        .ing-full-list {
+            display: none;
+            margin-top: 28px;
+            background: #fff;
+            border: 2px solid var(--color-black);
+            padding: 28px;
+            font-size: 13px;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .ing-full-list.open {
+            display: block;
+        }
+    </style>
+    <section class="ing-section">
+        <div class="container">
+            <p class="ing-eyebrow">The Formula</p>
+            <h2 class="ing-title">How Does Instant Lift Complex Work?</h2>
+            <div class="ing-grid6">
+                <div class="ing-card6">
+                    <div class="ing-emoji">⚡</div>
+                    <div class="ing-category">Instant Visible Tightening</div>
+                    <div class="ing-name">Tightening Polymers</div>
+                    <div class="ing-scientific">Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer + Bis-Vinyl
+                        Dimethicone</div>
+                    <p class="ing-desc6">Advanced film-forming polymers create an invisible, breathable micro-veil. As
+                        it sets, it contracts slightly — visibly smoothing and tightening fine lines, often within 15
+                        minutes.</p>
+                </div>
+                <div class="ing-card6">
+                    <div class="ing-emoji">💧</div>
+                    <div class="ing-category">Deep Hydration & Plumping</div>
+                    <div class="ing-name">Low MW Hyaluronic Acid</div>
+                    <div class="ing-scientific">Sodium Hyaluronate (Low Molecular Weight)</div>
+                    <p class="ing-desc6">Unlike standard HA that sits on the surface, low MW hyaluronic acid penetrates
+                        into the upper skin layers, attracting and retaining up to 1,000× its weight in water.</p>
+                </div>
+                <div class="ing-card6">
+                    <div class="ing-emoji">🧬</div>
+                    <div class="ing-category">Collagen & Firmness Support</div>
+                    <div class="ing-name">Collagen-Boosting Peptides</div>
+                    <div class="ing-scientific">Palmitoyl Tripeptide-5 + Acetyl Tetrapeptide-5 + Palmitoyl Dipeptide-5
+                    </div>
+                    <p class="ing-desc6">Signal peptides that support your skin's natural collagen processes — the
+                        protein responsible for structure and firmness. Visible improvements with consistent use over
+                        4–8 weeks.</p>
+                </div>
+                <div class="ing-card6">
+                    <div class="ing-emoji">🌿</div>
+                    <div class="ing-category">Soothing & Circulation</div>
+                    <div class="ing-name">Butcher's Broom & Ginger</div>
+                    <div class="ing-scientific">Ruscus Aculeatus Root Extract + Zingiber Officinale Root Extract</div>
+                    <p class="ing-desc6">Butcher's Broom supports microcirculation and reduces puffiness. Ginger soothes
+                        and promotes a healthy, even-toned complexion.</p>
+                </div>
+                <div class="ing-card6">
+                    <div class="ing-emoji">☀️</div>
+                    <div class="ing-category">Brightening & Antioxidant</div>
+                    <div class="ing-name">Vitamin C & Vitamin E</div>
+                    <div class="ing-scientific">Sodium Ascorbyl Phosphate + Tocopheryl Acetate</div>
+                    <p class="ing-desc6">A stable Vitamin C derivative that brightens and evens skin tone, paired with
+                        Vitamin E for antioxidant protection against environmental aging.</p>
+                </div>
+                <div class="ing-card6">
+                    <div class="ing-emoji">🌺</div>
+                    <div class="ing-category">Moisture Lock & Repair</div>
+                    <div class="ing-name">Aloe, Panthenol & Hibiscus</div>
+                    <div class="ing-scientific">Aloe Barbadensis + Panthenol + Hibiscus Sabdariffa Flower Extract</div>
+                    <p class="ing-desc6">Aloe soothes and repairs. Panthenol strengthens the skin barrier. Hibiscus —
+                        the "botox plant" — is rich in natural AHAs that support cell turnover and elasticity.</p>
+                </div>
+            </div>
+            <div class="ing-full-toggle">
+                <button class="ing-full-btn"
+                    onclick="document.querySelector('.ing-full-list').classList.toggle('open');this.textContent=this.textContent.includes('View')?'Hide Full Ingredients List':'View Full Ingredients List'">View
+                    Full Ingredients List</button>
+                <div class="ing-full-list">Water, Dimethyl Sulfone, Sodium Acrylate/Sodium Acrylol Dimethyl Taurate
+                    Copolymer, Cetyl Alcohol, Glycol Stearate, Glyceryl Stearate, Caprylic/Capric Triglyceride, Citrus
+                    Aurantifolia (Lime) Fruit Extract, Ruscus Aculeatus Root Extract, Zingiber Officinale (Ginger) Root
+                    Extract, Hibiscus Sabdariffa Flower Extract, Sodium Hyaluronate, Dimethicone, Bis-Vinyl
+                    Dimethicone/Dimethicone Copolymer, Aloe Barbadensis Leaf Juice, Phenoxyethanol, Sodium Ascorbyl
+                    Phosphate, Polyacrylamide, C13-14 Isoparaffin, Laureth-7, Tocopheryl Acetate, Glycerin, Tetradecyl
+                    Aminobutyroylvalylaminobutyric Urea Trifluoroacetate, Palmitoyl Tripeptide-5, Palmitoyl Dipeptide-5
+                    Diaminobutyroyl Hydroxythreonine, Acetyl Tetrapeptide-5, Panthenol, Butylene Glycol.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== S11: FAQ ===== -->
+    <style>
+        .faq-section {
+            padding: 100px 0;
+            background: #fff;
+            border-top: 2px solid var(--color-black);
+        }
+
+        .faq-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .faq-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 44px);
+            text-align: center;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 56px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            border: 2px solid var(--color-black);
+        }
+
+        @media(min-width:900px) {
+            .faq-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 0;
+        }
+
+        @media(min-width:900px) {
+            .faq-item:nth-child(odd) {
+                border-right: 1px solid #ddd;
+            }
+        }
+
+        .faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 22px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-q .faq-icon {
+            font-size: 18px;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-q.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            font-size: 14px;
+            line-height: 1.75;
+            color: #444;
+        }
+
+        .faq-a.open {
+            max-height: 400px;
+        }
+
+        .faq-a-inner {
+            padding: 0 24px 22px;
+        }
+    </style>
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <p class="faq-eyebrow">Got Questions?</p>
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is Instant Lift Complex?<span
+                            class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">A multi-action anti-aging cream delivering visible tightening, deep
+                            hydration, and collagen support in one product via a three-tier mechanism: tightening
+                            polymers, low MW hyaluronic acid, and collagen-supporting peptides.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How quickly will I see
+                        results?<span class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Many women notice visible tightening within 15 minutes. Deeper
+                            hydration typically improves within 7–14 days. Long-term firmness develops over 30–60 days
+                            of consistent use.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What skin types does it work
+                        on?<span class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">All skin types — oily, dry, normal, combination, and sensitive. It is
+                            paraben-free and suitable for all skin tones.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use it with other
+                        products?<span class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Yes. Apply it after cleansing and before heavier creams or sunscreen.
+                            Many customers report replacing multiple products with just this one.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does one jar last?<span
+                            class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">One jar (0.5 oz / 15 ml) is approximately a 30-day supply when used as
+                            directed (2–3 times daily). The formula is concentrated — a little goes a long way.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is it safe for sensitive
+                        skin?<span class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Yes. Paraben-free with soothing ingredients like Aloe and Panthenol. Do
+                            a patch test first if you have known sensitivities.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the subscription
+                        work?<span class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">You receive 10% off every order. Cancel, pause, or adjust anytime
+                            through your account — no phone calls required, no cancellation fees.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is your return policy?<span
+                            class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">60-day, 100% money-back guarantee. Use it daily for up to 60 days. If
+                            you don't see a visible difference, contact us for a full refund — no questions asked.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this tested on animals?<span
+                            class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">No. Instant Lift Complex is cruelty-free. We do not test on animals.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What payment methods do you
+                        accept?<span class="faq-icon">+</span></button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">Visa, Mastercard, American Express, PayPal, Apple Pay, and Google Pay.
+                            All transactions are processed through secure, encrypted checkout.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== S13: GUARANTEE ===== -->
+    <style>
+        .guar-section {
+            padding: 100px 0;
+            background: var(--color-black);
+            border-top: 2px solid var(--color-black);
+            text-align: center;
+        }
+
+        .guar-badge {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            border: 4px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin: 0 auto 36px;
+            box-shadow: 0 0 0 8px rgba(255, 69, 0, 0.2);
+        }
+
+        .guar-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 48px);
+            color: #fff;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .guar-text {
+            font-size: 18px;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 640px;
+            margin: 0 auto 40px;
+        }
+
+        .guar-cta {
+            display: inline-block;
+            background: var(--color-accent);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 20px 48px;
+            border: 2px solid #fff;
+            box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+
+        .guar-cta:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 rgba(255, 255, 255, 0.3);
+        }
+    </style>
+    <section class="guar-section" id="guarantee">
+        <div class="container">
+            <div class="guar-badge">🛡️</div>
+            <h2 class="guar-title">Visible Results in 60 Days — Or Your Money Back</h2>
+            <p class="guar-text">Use Instant Lift Complex daily for 60 days. If you don't see a visible difference in
+                your skin — smoother texture, firmer feel, reduced appearance of fine lines — we'll refund every penny.
+                No questions. No hassle. No fine print.</p>
+            <a href="#purchase" class="guar-cta">Try Instant Lift Complex Risk-Free</a>
+        </div>
+    </section>
+
+    <!-- ===== S14: FOOTER ===== -->
+    <style>
+        .pdp-footer {
+            background: var(--color-black);
+            color: #fff;
+            padding: 64px 0 32px;
+            border-top: 2px solid #333;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        @media(min-width:768px) {
+            .footer-top {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+
+        .footer-brand .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand .footer-logo span {
+            color: var(--color-accent);
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-col-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding-top: 28px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-disclaimer {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .footer-pay {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-pay span {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+    <footer class="pdp-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">Glow Again Labs<span>.</span></div>
+                    <p>Premium multi-action skincare formulated for women who want visible results — not promises.</p>
+                    <div class="footer-pay" style="margin-top:20px;">
+                        <span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE</span><span>GPAY</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-title">Navigate</div>
+                    <a href="index.html">Home</a>
+                    <a href="product.html">Shop</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#guarantee">Guarantee</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-title">Support</div>
+                    <a href="mailto:support@glowagainlabs.com">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-disclaimer">* Customer experience reports the appearance of smoother, firmer-looking
+                    skin. Individual results may vary. Results described reflect the experience of individual users and
+                    are not guaranteed. This product is not intended to diagnose, treat, cure, or prevent any disease.
+                </p>
+                <div class="footer-copy">© 2026 Glow Again Labs. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Nav drawer
+        const hamburger = document.getElementById('hamburger');
+        const navDrawer = document.getElementById('nav-drawer');
+        const overlay = document.getElementById('overlay');
+        const drawerClose = document.getElementById('drawer-close');
+        function openDrawer() { navDrawer.classList.add('open'); overlay.classList.add('visible'); }
+        function closeDrawer() { navDrawer.classList.remove('open'); overlay.classList.remove('visible'); }
+        hamburger && hamburger.addEventListener('click', openDrawer);
+        drawerClose && drawerClose.addEventListener('click', closeDrawer);
+        overlay && overlay.addEventListener('click', closeDrawer);
+
+        // Gallery thumb switcher
+        function switchThumb(el, src, label) {
+            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            if (src) { document.getElementById('main-img').src = src; }
+        }
+
+        // Purchase plan toggle
+        const prices = {
+            sub: { 1: '$62/JAR', 3: '$53/JAR ($159)', 6: '$44/JAR ($264)' },
+            ot: { 1: '$69/JAR', 3: '$59/JAR ($177)', 6: '$49/JAR ($294)' }
+        };
+        let curPlan = 'sub', curSupply = 3;
+        function selectPlan(plan) {
+            curPlan = plan;
+            document.getElementById('sub-btn').classList.toggle('active', plan === 'sub');
+            document.getElementById('ot-btn').classList.toggle('active', plan === 'ot');
+            const perks = document.getElementById('sub-perks');
+            if (perks) perks.style.display = plan === 'sub' ? 'block' : 'none';
+            updateATC();
+        }
+        function selectSupply(qty) {
+            curSupply = qty;
+            [1, 3, 6].forEach(q => document.getElementById('s' + q).classList.toggle('active', q === qty));
+            updateATC();
+        }
+        function updateATC() {
+            const btn = document.getElementById('atc-btn');
+            if (btn) btn.textContent = 'ADD TO CART — ' + prices[curPlan][curSupply];
+        }
+
+        // Accordion (product details)
+        function toggleAcc(btn) {
+            const body = btn.nextElementSibling;
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+            document.querySelectorAll('.accordion-trigger').forEach(b => b.classList.remove('open'));
+            if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
+        }
+
+        // FAQ accordion
+        function toggleFaq(btn) {
+            const body = btn.nextElementSibling;
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.faq-a').forEach(b => b.classList.remove('open'));
+            document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
+            if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
+        }
+
+        // Reveal on scroll
+        const revealEls = document.querySelectorAll('.result-stat, .how-card, .ing-card6, .testi-card, .video-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
+        }, { threshold: 0.1 });
+        revealEls.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
+    </script>
+</body>
+
+</html>

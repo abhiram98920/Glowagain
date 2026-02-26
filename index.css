@@ -5,11 +5,15 @@
        Glow Again Labs - Brutalist Modern
        ============================ */
 
-    /* Brand Colors - High Contrast */
-    --color-black: #0A0A0A;
-    --color-white: #FFFFFF;
+    /* Brand Colors - Clinical Luxury */
+    --color-black: #08417A;
+    /* Deep Navy Blue from Hero */
+    --color-white: #f7f7f5;
+    /* Soft Off-White / Cream */
+    --color-secondary: #0E5CA5;
+    /* Medium Blue for accents/icons */
     --color-accent: #FF4500;
-    /* Electric Orange */
+    /* Keep Orange ONLY for CTAs */
     --color-accent-hover: #E63E00;
 
     /* Base Colors */
@@ -21,7 +25,8 @@
     /* Text Colors */
     --text-main: var(--color-black);
     --text-muted: #666666;
-    --text-light: var(--color-white);
+    --text-light: #ffffff;
+    /* Keep pure white for dark background text */
 
     /* Borders & Shadows */
     --border-main: var(--color-black);

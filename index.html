@@ -2760,23 +2760,140 @@
         </section>
     </main>
 
-    <footer class="footer"
-        style="background: var(--color-black); color: var(--color-white); border-top: 4px solid var(--border-main); padding: 8rem 0 4rem; position: relative; overflow: hidden;">
+    <style>
+        .footer-responsive {
+            background: var(--color-black);
+            color: var(--color-white);
+            border-top: 4px solid var(--border-main);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(36px, 12vw, 140px);
+            font-weight: 900;
+            line-height: 0.8;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            color: var(--color-white);
+            margin-bottom: 2rem;
+            display: block;
+            word-break: break-word;
+        }
+
+        .footer-brand-subtitle {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            line-height: 1.4;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .footer-newsletter {
+            display: flex;
+            border: 2px solid var(--border-main);
+            background: transparent;
+        }
+
+        .footer-newsletter input {
+            padding: 16px 20px;
+            background: transparent;
+            border: none;
+            width: 100%;
+            color: var(--color-white);
+            font-size: 14px;
+            font-weight: 700;
+            outline: none;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            min-width: 0;
+        }
+
+        .footer-newsletter button {
+            padding: 0 24px;
+            background: var(--color-accent);
+            border: none;
+            border-left: 2px solid var(--border-main);
+            color: var(--color-black);
+            font-size: 14px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition-base);
+        }
+
+        .footer-newsletter button:hover {
+            background: var(--color-white);
+        }
+
+        .footer-email {
+            font-family: 'Outfit', sans-serif;
+            color: var(--color-white);
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color 0.3s;
+            word-break: break-all;
+        }
+
+        @media (max-width: 600px) {
+            .footer-responsive {
+                padding: 4rem 0 2rem;
+            }
+
+            .footer-grid {
+                gap: 3rem;
+            }
+
+            .footer-newsletter {
+                flex-direction: column;
+            }
+
+            .footer-newsletter input {
+                border-bottom: 2px solid var(--border-main);
+                text-align: center;
+            }
+
+            .footer-newsletter button {
+                border-left: none;
+                padding: 16px 24px;
+                width: 100%;
+            }
+
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+
+    <footer class="footer-responsive">
         <div class="container container-wide relative z-10">
 
             <div style="display: grid; grid-template-columns: 1fr; gap: 4rem; margin-bottom: 6rem;">
                 <!-- Brand Pillar -->
                 <div style="text-align: center;">
-                    <h2
-                        style="font-family: 'Outfit', sans-serif; font-size: clamp(48px, 10vw, 140px); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -0.05em; color: var(--color-white); margin-bottom: 2rem; display: block;">
-                        GLOW AGAIN</h2>
-                    <p
-                        style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent);">
-                        Scientifically-backed skincare. Visible transformation.</p>
+                    <h2 class="footer-brand-title">GLOW AGAIN</h2>
+                    <p class="footer-brand-subtitle">Scientifically-backed skincare. Visible transformation.</p>
                 </div>
 
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; justify-content: space-between; max-width: 1000px; margin: 0 auto; width: 100%;">
+                <div class="footer-grid">
 
                     <!-- Navigation -->
                     <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
@@ -2800,8 +2917,7 @@
                         <p
                             style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">
                             Contact</p>
-                        <a href="mailto:support@glowagainlabs.com"
-                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">support@glowagainlabs.com</a>
+                        <a href="mailto:support@glowagainlabs.com" class="footer-email">support@glowagainlabs.com</a>
 
                         <div class="social-links" style="display: flex; gap: 16px; margin-top: 1rem;">
                             <a href="#"
@@ -2818,12 +2934,9 @@
                         <p
                             style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 24px;">
                             Stay Connected</p>
-                        <div class="footer-newsletter"
-                            style="display: flex; border: 2px solid var(--border-main); background: transparent;">
-                            <input type="email" placeholder="ENTER YOUR EMAIL"
-                                style="padding: 16px 20px; background: transparent; border: none; width: 100%; color: var(--color-white); font-size: 14px; font-weight: 700; outline: none; font-family: 'Outfit', sans-serif; text-transform: uppercase;">
-                            <button
-                                style="padding: 0 24px; background: var(--color-accent); border: none; border-left: 2px solid var(--border-main); color: var(--color-black); font-size: 14px; font-weight: 900; text-transform: uppercase; font-family: 'Outfit', sans-serif; cursor: pointer; white-space: nowrap; transition: var(--transition-base);">Join</button>
+                        <div class="footer-newsletter">
+                            <input type="email" placeholder="ENTER YOUR EMAIL">
+                            <button>Join</button>
                         </div>
                     </div>
                 </div>

@@ -532,6 +532,7 @@
         /* Plan toggle */
         .plan-toggle {
             display: flex;
+            flex-direction: column;
             gap: 0;
             border: 2px solid var(--color-black);
             overflow: hidden;
@@ -556,7 +557,7 @@
         }
 
         .plan-btn:first-child {
-            border-right: 2px solid var(--color-black);
+            border-bottom: 2px solid var(--color-black);
         }
 
         .plan-btn.active {
@@ -960,16 +961,6 @@
             /* Product title */
             .pdp-product-title {
                 font-size: clamp(22px, 5vw, 30px);
-            }
-
-            /* Plan toggle: stack vertically */
-            .plan-toggle {
-                flex-direction: column;
-            }
-
-            .plan-btn:first-child {
-                border-right: none;
-                border-bottom: 2px solid var(--color-black);
             }
 
             /* Supply grid: shrink text */

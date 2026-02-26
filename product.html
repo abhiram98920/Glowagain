@@ -188,12 +188,38 @@
             display: grid;
             grid-template-columns: 1fr;
             min-height: 80vh;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            /* stop any child bleeding out */
         }
 
         @media (min-width: 960px) {
             .pdp-hero {
                 grid-template-columns: 1fr 1fr;
             }
+        }
+
+        /* ALL grid/flex children: prevent auto min-width overflow (grid bug fix) */
+        .pdp-hero>* {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .purchase-col {
+            min-width: 0;
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .gallery-col {
+            min-width: 0;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
         }
 
         /* LEFT: Gallery */
@@ -472,6 +498,10 @@
             border: 2px solid var(--color-black);
             padding: 28px;
             margin-bottom: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
         }
 
         .step-label-pdp {

@@ -15,43 +15,69 @@
 <body>
 
     <!-- Section 1: Announcement Bar (Marquee) -->
+    <style>
+        .announcement-bar {
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 100;
+            border-bottom: 2px solid var(--color-black);
+        }
+
+        .announcement-marquee-content span {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0 2vw;
+        }
+
+        .announcement-marquee-content span.star {
+            color: var(--color-black);
+            font-size: 18px;
+        }
+    </style>
     <div class="announcement-bar">
         <div class="announcement-marquee">
             <div class="announcement-marquee-content">
                 <span>SAVE UP TO 36% — SUBSCRIBE & NEVER RUN OUT</span>
-                <span>✦</span>
-                <span>FREE SHIPPING</span>
-                <span>✦</span>
-                <span>60-DAY GUARANTEE</span>
-                <span>✦</span>
+                <span class="star">✦</span>
+                <span>FREE OVERNIGHT SHIPPING</span>
+                <span class="star">✦</span>
+                <span>NO QUESTIONS GUARANTEE</span>
+                <span class="star">✦</span>
                 <span>4.8★ FROM 2,100+ REVIEWS</span>
 
                 <!-- Duplicate for seamless loop -->
-                <span>✦</span>
+                <span class="star">✦</span>
                 <span>SAVE UP TO 36% — SUBSCRIBE & NEVER RUN OUT</span>
-                <span>✦</span>
-                <span>FREE SHIPPING</span>
-                <span>✦</span>
-                <span>60-DAY GUARANTEE</span>
-                <span>✦</span>
+                <span class="star">✦</span>
+                <span>FREE OVERNIGHT SHIPPING</span>
+                <span class="star">✦</span>
+                <span>NO QUESTIONS GUARANTEE</span>
+                <span class="star">✦</span>
                 <span>4.8★ FROM 2,100+ REVIEWS</span>
             </div>
         </div>
     </div>
 
     <!-- Section 2: Navigation Header -->
-    <header class="header" style="padding: 22px 0;">
+    <header class="header"
+        style="padding: 24px 0; border-bottom: 2px solid var(--color-black); background: var(--bg-page);">
         <div class="container nav-container">
             <div class="nav-left" style="display: flex; align-items: center;">
                 <a href="#" class="logo"
-                    style="font-size: 17px; font-weight: 400; color: var(--text-main); letter-spacing: 0.3px;">
-                    Glow Again Labs
+                    style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 900; color: var(--text-main); letter-spacing: -1px; text-transform: uppercase;">
+                    GLOW AGAIN LABS<span style="color: var(--color-accent);">.</span>
                 </a>
             </div>
             <div class="nav-right" style="display: flex; justify-content: flex-end; align-items: center;">
-                <button class="icon-btn" id="cart-toggle">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <button class="icon-btn" id="cart-toggle" style="color: var(--color-black); position: relative;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="square" stroke-linejoin="miter">
                         <circle cx="9" cy="21" r="1.5"></circle>
                         <circle cx="20" cy="21" r="1.5"></circle>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -99,262 +125,158 @@
 
     <main>
         <!-- Section 3: Hero Section -->
+        <!-- Section 3: Hero Section -->
         <style>
             .hero-slider-wrapper {
                 width: 100%;
-                background: var(--bg-beige);
+                background: var(--bg-page);
                 position: relative;
                 overflow: hidden;
-            }
-
-            /* Vignette overlay */
-            .hero-slider-wrapper::after {
-                content: '';
-                position: absolute;
-                inset: 0;
-                box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.05);
-                /* very subtle vignette */
-                pointer-events: none;
-                z-index: 5;
-            }
-
-            /* Warm glow backdrops */
-            .hero-glow-1 {
-                position: absolute;
-                top: -20%;
-                right: -10%;
-                width: 700px;
-                height: 700px;
-                background: radial-gradient(circle, rgba(255, 123, 51, 0.15) 0%, transparent 60%);
-                filter: blur(80px);
-                z-index: 0;
-            }
-
-            .hero-glow-2 {
-                position: absolute;
-                bottom: -20%;
-                left: -10%;
-                width: 600px;
-                height: 600px;
-                background: radial-gradient(circle, rgba(255, 51, 119, 0.1) 0%, transparent 60%);
-                filter: blur(80px);
-                z-index: 0;
+                border-bottom: 2px solid var(--border-main);
             }
 
             .hero-container {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
                 min-height: 85vh;
                 position: relative;
                 z-index: 10;
-                padding-top: 6rem;
-                padding-bottom: 4rem;
             }
 
-            @media (min-width: 768px) {
+            @media (min-width: 900px) {
                 .hero-container {
                     flex-direction: row;
-                    min-height: calc(100vh - 106px);
-                    padding-top: 4rem;
+                    min-height: calc(100vh - 80px);
                 }
             }
 
             .hero-content {
                 flex: 1;
-                max-width: 600px;
-                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 4rem 2rem;
                 z-index: 2;
-                margin-bottom: 3rem;
+                border-bottom: 2px solid var(--border-main);
             }
 
-            @media (min-width: 768px) {
+            @media (min-width: 900px) {
                 .hero-content {
-                    text-align: left;
-                    margin-bottom: 0;
+                    padding: 0 4rem;
+                    border-bottom: none;
+                    border-right: 2px solid var(--border-main);
+                    max-width: 55%;
                 }
             }
 
             .hero-visual {
                 flex: 1;
                 display: flex;
+                align-items: stretch;
                 justify-content: center;
-                align-items: center;
-                z-index: 2;
-            }
-
-            .hero-jar-wrap {
-                width: 100%;
-                max-width: 500px;
-                animation: float 6s ease-in-out infinite;
-                position: relative;
-            }
-
-            .hero-jar-wrap::after {
-                content: '';
-                position: absolute;
-                bottom: -20px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 70%;
-                height: 20px;
-                background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, transparent 70%);
-                filter: blur(5px);
-                animation: floatShadow 6s ease-in-out infinite;
-            }
-
-            @keyframes floatShadow {
-
-                0%,
-                100% {
-                    transform: translateX(-50%) scale(1);
-                    opacity: 0.8;
-                }
-
-                50% {
-                    transform: translateX(-50%) scale(0.85);
-                    opacity: 0.4;
-                }
-            }
-
-            .review-badge {
-                background: white;
-                box-shadow: var(--shadow-sm);
-                border: 1px solid rgba(0, 0, 0, 0.05);
-                color: var(--text-dark);
-                padding: 10px 20px;
-                border-radius: 100px;
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                font-size: 12px;
-                font-weight: 700;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                margin-bottom: 2rem;
-                animation: fadeDown 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-                opacity: 0;
-            }
-
-            .hero-title {
-                color: var(--text-dark);
-                margin-bottom: 1.25rem;
-                font-size: clamp(48px, 6vw, 76px);
-                line-height: 1.05;
-                letter-spacing: -0.02em;
-                opacity: 0;
-                transform: translateY(20px);
-                animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
-            }
-
-            .hero-subtitle {
-                color: var(--text-muted);
-                font-size: 18px;
-                font-weight: 400;
-                margin-bottom: 2.5rem;
-                max-width: 500px;
-                line-height: 1.6;
-                opacity: 0;
-                transform: translateY(20px);
-                animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
-            }
-
-            @media (max-width: 768px) {
-                .hero-subtitle {
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-            }
-
-            .hero-cta {
-                padding: 18px 40px;
-                display: inline-flex;
-                align-items: center;
-                gap: 12px;
-                font-size: 13.5px;
-                font-weight: 700;
-                border-radius: 100px;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                text-decoration: none;
-                animation: slowGlowPulse 3s infinite alternate;
+                z-index: 1;
+                background: var(--bg-dark);
                 position: relative;
                 overflow: hidden;
             }
 
-            .trust-microcopy {
-                margin-top: 1.5rem;
-                font-weight: 600;
-                font-size: 12.5px;
-                color: var(--text-muted);
-                display: flex;
+            .hero-img-fill {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center 20%;
+                filter: contrast(1.1) saturate(1.1);
+            }
+
+            .review-badge {
+                background: var(--color-black);
+                color: var(--color-white);
+                padding: 12px 24px;
+                display: inline-flex;
                 align-items: center;
-                gap: 8px;
-                opacity: 0;
-                animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
+                gap: 12px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                margin-bottom: 2rem;
+                box-shadow: var(--shadow-brutal);
+                border: 2px solid var(--color-black);
+                align-self: flex-start;
             }
 
-            @media (max-width: 768px) {
-                .trust-microcopy {
-                    justify-content: center;
-                }
+            .hero-title {
+                color: var(--text-dark);
+                margin-bottom: 1.5rem;
+                font-size: var(--text-hero);
+                line-height: 0.9;
+                letter-spacing: -0.05em;
+                text-transform: uppercase;
             }
 
-            @keyframes fadeInUp {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+            .hero-subtitle {
+                font-family: 'Inter', sans-serif;
+                font-size: 20px;
+                font-weight: 500;
+                color: var(--text-main);
+                margin-bottom: 3rem;
+                line-height: 1.5;
+                max-width: 90%;
             }
 
-            @keyframes fadeDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
+            .hero-cta {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: var(--color-accent);
+                color: var(--color-white);
+                font-family: 'Outfit', sans-serif;
+                font-size: 18px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                padding: 24px 48px;
+                border: 2px solid var(--color-black);
+                box-shadow: var(--shadow-brutal);
+                transition: var(--transition-base);
+                text-decoration: none;
+                align-self: flex-start;
+            }
 
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+            .hero-cta:hover {
+                transform: translate(-4px, -4px);
+                box-shadow: var(--shadow-brutal-hover);
+                background: var(--color-accent-hover);
+                color: var(--color-white);
             }
         </style>
-
         <section class="hero-slider-wrapper">
-            <div class="hero-glow-1"></div>
-            <div class="hero-glow-2"></div>
-            <div class="container hero-container">
+            <div class="container hero-container" style="padding: 0; max-width: 100%;">
                 <div class="hero-content">
                     <div class="review-badge">
-                        <span style="color: var(--accent-gold);">★</span> 2,100+ 5-star reviews
+                        <span style="color: var(--color-accent);">★</span> 2,100+ 5-STAR REVIEWS
                     </div>
-                    <h1 class="hero-title serif">
-                        See Firmer Skin <br /><span style="font-style: italic; color: var(--color-rose);">in 15
-                            Minutes</span>
+                    <h1 class="hero-title">
+                        SEE FIRMER SKIN<br />IN 15 MINUTES.
                     </h1>
                     <p class="hero-subtitle">
-                        A multi-level tightening cream that visibly lifts fine lines on contact, hydrates beneath the
-                        surface for plumper skin all day, and supports collagen for lasting firmness.
+                        A potent, high-performance tightening cream that visibly lifts fine lines on contact and
+                        supports collagen for brutal, lasting firmness.
                     </p>
-                    <div style="opacity: 0; animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;">
-                        <a href="#purchase" class="btn btn-primary hero-cta hover-lift">
+                    <div
+                        style="opacity: 0; animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards; display: flex; flex-direction: column;">
+                        <a href="#purchase" class="hero-cta">
                             SHOP & SAVE NOW
                         </a>
+                        <p
+                            style="margin-top: 1.5rem; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase;">
+                            SECURE CHECKOUT & 60-DAY GUARANTEE
+                        </p>
                     </div>
-                    <p class="trust-microcopy">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        Secure Checkout & 60-Day Guarantee
-                    </p>
                 </div>
                 <div class="hero-visual">
-                    <div class="hero-jar-wrap">
-                        <img src="public/images/product_jar.png" alt="Instant Lift Complex"
-                            style="width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.1));" />
-                    </div>
+                    <img src="public/images/bold_hero_model_1772080778363.png" alt="Glow Model" class="hero-img-fill" />
                 </div>
             </div>
         </section>
@@ -362,10 +284,11 @@
         <!-- Section 4: Credibility Bar -->
         <style>
             .credibility-section {
-                padding: 6rem 0 7rem;
-                background: var(--bg-pink-wash);
+                padding: 8rem 0;
+                background: var(--bg-page);
                 position: relative;
                 overflow: hidden;
+                border-bottom: 2px solid var(--border-main);
             }
 
             /* Molecule fading background */
@@ -381,18 +304,17 @@
             }
 
             .credibility-section::before {
-                content: 'RESEARCH';
+                content: 'CLINICAL RESEARCH';
                 position: absolute;
-                top: 3rem;
+                top: 4rem;
                 left: 50%;
                 transform: translateX(-50%);
-                font-size: 10px;
-                font-weight: 800;
-                letter-spacing: 0.35em;
-                color: var(--color-rose);
-                opacity: 0.7;
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 900;
+                letter-spacing: 0.2em;
+                color: var(--color-black);
                 text-transform: uppercase;
-                font-family: 'Inter', sans-serif;
                 z-index: 1;
             }
 
@@ -480,126 +402,88 @@
                 }
             }
 
-            .credibility-card::before {
-                content: '\201C';
-                position: absolute;
-                top: 0px;
-                right: 20px;
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 140px;
-                line-height: 1;
-                color: var(--color-rose);
-                opacity: 0.08;
-                filter: blur(2px);
-                /* quote blur */
-                pointer-events: none;
-                transition: all 0.4s ease;
-            }
 
-            .credibility-card:hover {
-                box-shadow: 0 12px 32px rgba(255, 107, 157, 0.15), 0 0 0 1px rgba(255, 107, 157, 0.3) inset;
-                border-color: rgba(255, 107, 157, 0.4);
-            }
 
             .credibility-card:not(.featured):hover {
-                transform: translateY(-8px) scale(1.02);
+                transform: translate(-4px, -4px);
+                box-shadow: var(--shadow-brutal-hover);
             }
 
             .credibility-card.featured:hover {
-                transform: scale(1.08);
-                /* larger center card */
-                box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2), 0 0 0 1px rgba(255, 107, 157, 0.4) inset;
-            }
-
-            .credibility-card:hover::before {
-                filter: blur(0px);
-                opacity: 0.15;
+                transform: scale(1.05) translate(-4px, -4px);
+                box-shadow: 12px 12px 0px var(--color-accent);
             }
 
             .journal-header {
                 display: flex;
                 align-items: center;
                 gap: 14px;
-                margin-bottom: 18px;
+                margin-bottom: 24px;
             }
 
             .journal-logo-circle {
-                width: 44px;
-                height: 44px;
-                border-radius: 50%;
-                background: var(--grad-glow);
+                width: 48px;
+                height: 48px;
+                border: 2px solid var(--border-main);
+                background: var(--color-accent);
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-shrink: 0;
-                box-shadow: 0 4px 14px rgba(255, 107, 157, 0.35);
-                position: relative;
-                overflow: hidden;
             }
 
-            /* Icon shimmer */
-            .credibility-card:hover .journal-logo-circle::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 50%;
-                height: 100%;
-                background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
-                animation: shimmer 1s forwards;
-            }
-
-            @keyframes shimmer {
-                100% {
-                    left: 200%;
-                }
+            .credibility-card.featured .journal-logo-circle {
+                background: var(--color-white);
+                border: 2px solid var(--color-white);
             }
 
             .journal-logo-circle svg {
-                width: 20px;
-                height: 20px;
-                stroke: white;
+                width: 24px;
+                height: 24px;
+                stroke: var(--color-black);
                 fill: none;
             }
 
             .journal-name {
-                font-weight: 700;
-                font-size: 13px;
-                line-height: 1.4;
-                color: var(--text-dark);
-                font-family: 'Inter', sans-serif;
+                font-weight: 800;
+                font-size: 14px;
+                line-height: 1.2;
+                color: var(--text-main);
+                font-family: 'Outfit', sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
 
             .journal-text {
-                font-size: 14.5px;
-                color: var(--text-body);
-                line-height: 1.7;
-                font-style: italic;
-                margin-bottom: 16px;
+                font-size: 16px;
+                color: var(--text-main);
+                line-height: 1.6;
+                font-weight: 500;
+                margin-bottom: 24px;
                 flex-grow: 1;
             }
 
             .journal-source {
-                font-size: 11px;
-                font-family: 'Inter', sans-serif;
-                font-weight: 600;
-                letter-spacing: 0.05em;
-                color: var(--color-rose);
-                opacity: 0.7;
+                font-size: 12px;
+                font-family: 'Outfit', sans-serif;
+                font-weight: 800;
+                letter-spacing: 0.1em;
+                color: var(--color-accent);
                 display: flex;
                 align-items: center;
-                gap: 5px;
+                gap: 8px;
+                text-transform: uppercase;
             }
 
             .journal-source::before {
-                content: '↳';
+                content: '→';
                 font-style: normal;
             }
         </style>
 
         <section class="credibility-section">
             <div class="container container-wide">
-                <h2 class="serif credibility-title">"The Science Behind Smoother, Firmer Skin"</h2>
+                <h2 class="credibility-title">THE SCIENCE BEHIND BRUTAL FIRMNESS</h2>
 
                 <div class="credibility-grid">
                     <!-- Left Column: Card 1 -->
@@ -637,17 +521,16 @@
                     <!-- Center Featured: Card 3 -->
                     <div class="credibility-card featured">
                         <div class="journal-header">
-                            <div class="journal-logo-circle" style="width: 56px; height: 56px;">
-                                <svg viewBox="0 0 24 24" style="width: 28px; height: 28px;" stroke-width="2.5"
-                                    stroke-linecap="round" stroke-linejoin="round">
+                            <div class="journal-logo-circle">
+                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
                                     <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
                                 </svg>
                             </div>
-                            <div class="journal-name" style="font-size: 16px;">Dermatologic Surgery</div>
+                            <div class="journal-name">Dermatologic Surgery</div>
                         </div>
-                        <p class="journal-text" style="font-size: 18px;">Topical peptide complexes showed visible
-                            improvement in fine lines within just 8 weeks of daily use, offering a powerful non-invasive
-                            alternative.</p>
+                        <p class="journal-text">Topical peptide complexes showed visible improvement in fine lines
+                            within just 8 weeks of daily use, offering a powerful non-invasive alternative.</p>
                         <span class="journal-source">Double-blind trial · 2020</span>
                     </div>
 
@@ -689,96 +572,93 @@
         <!-- Section 5: Story-Driven Testimonial Spotlight -->
         <style>
             .testimonials-section {
-                padding: 7rem 0 6rem;
-                background: var(--bg-pink-wash);
+                padding: 8rem 0;
+                background: var(--bg-dark);
+                color: var(--color-white);
+                border-bottom: 2px solid var(--border-main);
             }
 
             .testimonials-eyebrow {
                 text-align: center;
-                font-size: 10.5px;
-                font-weight: 800;
-                letter-spacing: 0.3em;
-                color: var(--color-rose);
+                font-size: 16px;
+                font-weight: 900;
+                letter-spacing: 0.2em;
+                color: var(--color-accent);
                 text-transform: uppercase;
-                font-family: 'Inter', sans-serif;
-                margin-bottom: 1.25rem;
+                font-family: 'Outfit', sans-serif;
+                margin-bottom: 1.5rem;
             }
 
             .testimonials-title {
                 text-align: center;
-                font-size: clamp(32px, 5vw, 48px);
+                font-size: clamp(32px, 6vw, 64px);
                 margin-bottom: 1rem;
-                color: var(--text-dark);
-                letter-spacing: -0.02em;
+                color: var(--color-white);
+                letter-spacing: -0.05em;
+                font-family: 'Outfit', sans-serif;
+                font-weight: 800;
+                text-transform: uppercase;
+                line-height: 1;
             }
 
             .testimonials-meta {
                 display: flex;
                 justify-content: center;
                 gap: 2rem;
-                margin-bottom: 4rem;
+                margin-bottom: 5rem;
                 flex-wrap: wrap;
             }
 
             .testimonials-meta-item {
-                font-family: 'Inter', sans-serif;
-                font-size: 12.5px;
-                font-weight: 600;
-                color: var(--text-muted);
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+                letter-spacing: 0.1em;
+                color: var(--color-white);
                 display: flex;
                 align-items: center;
-                gap: 6px;
+                gap: 8px;
+                text-transform: uppercase;
             }
 
             .testimonials-meta-item::before {
                 content: '✓';
-                background: var(--grad-glow);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
+                color: var(--color-accent);
                 font-weight: 900;
+                font-size: 18px;
             }
 
-            /* ── Spotlight layout ── */
+            /* ── BRUTALIST GRID ── */
             .spotlight-layout {
                 display: grid;
-                grid-template-columns: 1fr 1.6fr 1fr;
-                gap: 20px;
-                align-items: center;
+                grid-template-columns: 1fr;
+                gap: 24px;
+                align-items: stretch;
+            }
+
+            @media (min-width: 992px) {
+                .spotlight-layout {
+                    grid-template-columns: 1fr 1.5fr 1fr;
+                }
             }
 
             /* ── FEATURED CENTER CARD ── */
             .story-spotlight {
-                background: #fff;
-                border-radius: 24px;
+                background: var(--bg-surface);
+                border: 2px solid var(--border-main);
                 padding: 3rem 2.5rem;
                 position: relative;
-                overflow: hidden;
-                box-shadow: 0 20px 60px rgba(255, 107, 157, 0.25), 0 4px 20px rgba(0, 0, 0, 0.08);
-                border: 1px solid rgba(255, 107, 157, 0.3);
-                animation: glowPulse 3.5s ease-in-out infinite;
+                box-shadow: 8px 8px 0px var(--color-accent);
                 z-index: 2;
+                transition: var(--transition-base);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
 
-            @keyframes glowPulse {
-
-                0%,
-                100% {
-                    box-shadow: 0 20px 60px rgba(255, 107, 157, 0.25), 0 4px 20px rgba(0, 0, 0, 0.08);
-                }
-
-                50% {
-                    box-shadow: 0 20px 80px rgba(255, 107, 157, 0.45), 0 4px 20px rgba(0, 0, 0, 0.12);
-                }
-            }
-
-            .story-spotlight::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: radial-gradient(ellipse at 80% 0%, rgba(255, 107, 157, 0.07) 0%, transparent 65%),
-                    radial-gradient(ellipse at 20% 100%, rgba(255, 154, 92, 0.05) 0%, transparent 60%);
-                pointer-events: none;
+            .story-spotlight:hover {
+                transform: translate(-4px, -4px);
+                box-shadow: 12px 12px 0px var(--color-accent);
             }
 
             .spotlight-header {
@@ -789,25 +669,19 @@
             }
 
             .spotlight-avatar {
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                background: var(--grad-glow);
+                width: 64px;
+                height: 64px;
+                background: var(--bg-dark);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-family: 'Cormorant Garamond', serif;
+                font-family: 'Outfit', sans-serif;
                 font-size: 22px;
-                font-weight: 700;
-                color: white;
+                font-weight: 800;
+                color: var(--color-white);
                 flex-shrink: 0;
-                box-shadow: 0 4px 16px rgba(255, 107, 157, 0.4);
-                transition: transform 0.3s ease;
-                cursor: default;
-            }
-
-            .spotlight-avatar:hover {
-                transform: scale(1.08);
+                border: 2px solid var(--border-main);
+                box-shadow: 4px 4px 0px var(--color-accent);
             }
 
             .spotlight-meta {
@@ -815,68 +689,53 @@
             }
 
             .spotlight-name {
-                font-family: 'Inter', sans-serif;
-                font-weight: 800;
-                font-size: 17px;
-                color: var(--text-dark);
+                font-family: 'Outfit', sans-serif;
+                font-weight: 900;
+                font-size: 18px;
+                color: var(--text-main);
                 margin-bottom: 4px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
 
             .spotlight-verified {
                 display: inline-flex;
                 align-items: center;
                 gap: 5px;
-                font-family: 'Inter', sans-serif;
+                font-family: 'Outfit', sans-serif;
                 font-size: 11px;
-                font-weight: 700;
-                color: #fff;
-                background: var(--grad-glow);
-                padding: 3px 10px;
-                border-radius: 100px;
-                letter-spacing: 0.04em;
+                font-weight: 800;
+                color: var(--color-black);
+                background: var(--color-accent);
+                padding: 4px 12px;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                border: 2px solid var(--border-main);
             }
 
             .spotlight-stars {
                 font-size: 20px;
-                letter-spacing: 2px;
+                letter-spacing: 4px;
                 margin-bottom: 1.75rem;
-                background: var(--grad-gold);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
+                color: var(--color-accent);
             }
 
             .spotlight-quote {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 26px;
-                font-style: italic;
-                line-height: 1.45;
-                color: var(--text-dark);
-                margin-bottom: 1.5rem;
-                position: relative;
-            }
-
-            .spotlight-quote::before {
-                content: '\201C';
-                position: absolute;
-                top: -28px;
-                left: -8px;
-                font-size: 80px;
-                line-height: 1;
-                background: var(--grad-glow);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                opacity: 0.25;
-                font-style: normal;
+                font-family: 'Outfit', sans-serif;
+                font-size: 28px;
+                font-weight: 800;
+                line-height: 1.1;
+                color: var(--text-main);
+                margin-bottom: 2rem;
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
             }
 
             .highlight-word {
-                background: var(--grad-glow);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-style: italic;
+                color: var(--color-accent);
+                text-decoration: underline;
+                text-underline-offset: 4px;
+                text-decoration-thickness: 4px;
             }
 
             .spotlight-tags {
@@ -887,128 +746,132 @@
             }
 
             .spotlight-tag {
-                font-family: 'Inter', sans-serif;
-                font-size: 11px;
-                font-weight: 600;
-                letter-spacing: 0.08em;
-                background: var(--bg-tinted);
-                color: var(--color-rose);
-                border: 1px solid rgba(255, 107, 157, 0.2);
-                padding: 5px 12px;
-                border-radius: 100px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.1em;
+                background: var(--color-black);
+                color: var(--color-white);
+                border: 2px solid var(--color-black);
+                padding: 6px 14px;
                 text-transform: uppercase;
             }
 
             .spotlight-story-context {
-                font-family: 'Inter', sans-serif;
-                font-size: 13px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
                 color: var(--text-muted);
-                border-top: 1px solid rgba(255, 107, 157, 0.12);
+                border-top: 2px solid var(--border-main);
                 padding-top: 1.5rem;
                 margin-top: 0.5rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
 
             .spotlight-story-context strong {
-                color: var(--text-body);
+                color: var(--color-accent);
             }
 
             /* ── SIDE (supporting) cards ── */
             .story-side {
-                background: rgba(255, 255, 255, 0.5);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 107, 157, 0.1);
-                border-radius: 18px;
+                background: var(--bg-surface);
+                border: 2px solid var(--border-main);
                 padding: 2rem;
-                transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-                cursor: default;
-                box-shadow: var(--shadow-sm);
-                filter: blur(2px);
-                opacity: 0.7;
-                transform: scale(0.95);
+                transition: var(--transition-base);
+                box-shadow: var(--shadow-brutal);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
 
             .story-side:hover {
-                transform: scale(1.02) translateY(-4px);
-                box-shadow: 0 12px 32px rgba(255, 107, 157, 0.2);
-                border-color: rgba(255, 107, 157, 0.3);
-                background: rgba(255, 255, 255, 0.95);
-                filter: blur(0px);
-                opacity: 1;
+                transform: translate(-4px, -4px);
+                box-shadow: var(--shadow-brutal-hover);
             }
 
             .side-header {
                 display: flex;
                 align-items: center;
                 gap: 12px;
-                margin-bottom: 12px;
+                margin-bottom: 16px;
             }
 
             .side-avatar {
-                width: 44px;
-                height: 44px;
-                border-radius: 50%;
+                width: 48px;
+                height: 48px;
                 overflow: hidden;
-                border: 2px solid white;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                border: 2px solid var(--border-main);
+                box-shadow: 4px 4px 0px var(--color-accent);
             }
 
             .side-stars {
                 font-size: 14px;
-                letter-spacing: 1px;
-                background: var(--grad-gold);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                margin-bottom: 1rem;
+                letter-spacing: 2px;
+                color: var(--color-accent);
+                margin-bottom: 0.5rem;
             }
 
             .side-name {
-                font-family: 'Inter', sans-serif;
-                font-weight: 700;
+                font-family: 'Outfit', sans-serif;
+                font-weight: 900;
                 font-size: 14px;
-                color: var(--text-dark);
-                margin-bottom: 0.35rem;
+                color: var(--text-main);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
 
             .side-tags {
-                font-size: 10px;
+                font-size: 11px;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
-                color: var(--color-rose);
-                font-weight: 700;
-                margin-bottom: 1rem;
-                font-family: 'Inter', sans-serif;
+                color: var(--text-muted);
+                font-weight: 800;
+                margin-bottom: 1.5rem;
+                font-family: 'Outfit', sans-serif;
             }
 
             .side-quote {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 16px;
-                font-style: italic;
-                line-height: 1.6;
-                color: var(--text-body);
-                margin-bottom: 1.25rem;
+                font-family: 'Outfit', sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 1.4;
+                color: var(--text-main);
+                margin-bottom: 1.5rem;
             }
 
             .side-product {
-                font-family: 'Inter', sans-serif;
-                font-size: 11px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 800;
                 color: var(--text-muted);
-                padding-top: 1rem;
-                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                padding-top: 1.25rem;
+                border-top: 2px solid var(--border-main);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .side-product strong {
+                color: var(--color-accent);
             }
 
             /* ── Section CTA ── */
             .testimonials-section-cta {
                 text-align: center;
-                margin-top: 4rem;
+                margin-top: 5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
             }
 
             .testimonials-section-cta p {
                 font-size: 14px;
-                color: var(--text-muted);
-                margin-top: 1rem;
-                font-family: 'Inter', sans-serif;
+                font-weight: 800;
+                letter-spacing: 0.1em;
+                color: var(--color-white);
+                font-family: 'Outfit', sans-serif;
+                text-transform: uppercase;
             }
         </style>
 
@@ -1102,209 +965,165 @@
         <!-- Section 6: Visual Results Timeline -->
         <style>
             .journey-section {
-                padding: 8rem 0 6rem;
-                background: var(--bg-peach-wash);
+                padding: 8rem 0;
+                background: var(--bg-page);
                 overflow: hidden;
+                border-bottom: 2px solid var(--border-main);
             }
 
             .journey-eyebrow {
                 text-align: center;
-                font-size: 10.5px;
-                font-weight: 800;
-                letter-spacing: 0.3em;
-                color: var(--color-rose);
+                font-size: 16px;
+                font-weight: 900;
+                letter-spacing: 0.2em;
+                color: var(--color-black);
                 text-transform: uppercase;
-                font-family: 'Inter', sans-serif;
-                margin-bottom: 1.25rem;
+                font-family: 'Outfit', sans-serif;
+                margin-bottom: 1.5rem;
             }
 
             .journey-title {
                 text-align: center;
-                font-size: clamp(32px, 5vw, 48px);
-                margin-bottom: 0.75rem;
-                color: var(--text-dark);
-                letter-spacing: -0.02em;
+                font-size: clamp(32px, 6vw, 64px);
+                margin-bottom: 1rem;
+                color: var(--text-main);
+                letter-spacing: -0.05em;
+                font-family: 'Outfit', sans-serif;
+                font-weight: 800;
+                text-transform: uppercase;
+                line-height: 1;
             }
 
             .journey-subtitle {
                 text-align: center;
-                font-size: 15px;
+                font-size: 16px;
                 color: var(--text-muted);
-                font-family: 'Inter', sans-serif;
+                font-family: 'Outfit', sans-serif;
+                font-weight: 800;
                 margin-bottom: 5rem;
-                max-width: 520px;
+                max-width: 600px;
                 margin-left: auto;
                 margin-right: auto;
-                line-height: 1.65;
+                line-height: 1.6;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
 
             /* ── Timeline track ── */
             .journey-track {
-                position: relative;
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 28px;
-                align-items: start;
-                padding-top: 20px;
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            /* Connecting line */
-            .journey-track::before {
-                content: '';
-                position: absolute;
-                top: 240px;
-                /* just below the images */
-                left: 10%;
-                right: 10%;
-                height: 3px;
-                background: var(--grad-peach);
-                z-index: 1;
-                border-radius: 4px;
-                opacity: 0.5;
+            @media (min-width: 992px) {
+                .journey-track {
+                    grid-template-columns: repeat(3, 1fr);
+                }
             }
 
             .journey-card {
-                background: rgba(255, 255, 255, 0.8);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border: 1px solid rgba(255, 107, 157, 0.12);
-                border-radius: 22px;
+                background: var(--bg-surface);
+                border: 2px solid var(--border-main);
                 overflow: hidden;
-                box-shadow: var(--shadow-sm);
-                position: relative;
-                transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-                opacity: 0;
-                transform: translateY(32px);
-                z-index: 2;
-            }
-
-            /* Elevate middle card */
-            .journey-card:nth-child(2) {
-                margin-top: -30px;
-            }
-
-            .journey-card.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .journey-card.visible:nth-child(2) {
-                transform: translateY(-30px);
+                box-shadow: var(--shadow-brutal);
+                display: flex;
+                flex-direction: column;
+                transition: var(--transition-base);
             }
 
             .journey-card:hover {
-                box-shadow: 0 16px 40px rgba(255, 107, 157, 0.18);
-                border-color: rgba(255, 107, 157, 0.28);
-                transform: translateY(-6px);
+                transform: translate(-4px, -4px);
+                box-shadow: var(--shadow-brutal-hover);
             }
 
-            .journey-card:nth-child(2):hover {
-                transform: translateY(-36px);
-            }
-
-            /* Final card glow pulse */
             .journey-card.is-final {
-                animation: cardGlow 3s ease-in-out infinite;
-            }
-
-            @keyframes cardGlow {
-
-                0%,
-                100% {
-                    box-shadow: var(--shadow-sm);
-                }
-
-                50% {
-                    box-shadow: 0 12px 48px rgba(200, 80, 192, 0.22);
-                }
+                background: var(--color-accent);
+                color: var(--color-white);
             }
 
             /* ── Image wrapper ── */
             .journey-img {
-                position: relative;
-                height: 220px;
-                /* overflow: hidden removed to allow badge to overflow */
+                height: 240px;
+                border-bottom: 2px solid var(--border-main);
+                overflow: hidden;
             }
 
             .journey-img img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                transition: transform 0.5s ease;
-                border-radius: 22px 22px 0 0;
+                filter: grayscale(100%) contrast(1.2);
+                transition: var(--transition-base);
             }
 
             .journey-card:hover .journey-img img {
-                transform: scale(1.06);
+                filter: grayscale(0%) contrast(1.1);
+                transform: scale(1.05);
             }
 
             /* Floating time badge */
             .journey-badge {
-                position: absolute;
-                bottom: -14px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--grad-glow);
-                color: #fff;
-                font-family: 'Inter', sans-serif;
-                font-size: 10.5px;
-                font-weight: 800;
-                letter-spacing: 0.12em;
+                display: inline-block;
+                background: var(--color-black);
+                color: var(--color-white);
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 900;
+                letter-spacing: 0.1em;
                 text-transform: uppercase;
-                padding: 6px 18px;
-                border-radius: 100px;
-                white-space: nowrap;
-                box-shadow: 0 4px 16px rgba(255, 107, 157, 0.4);
-                z-index: 3;
-                animation: badgeBreather 3s infinite;
+                padding: 12px 24px;
+                border-bottom: 2px solid var(--border-main);
+                border-right: 2px solid var(--border-main);
+                margin-bottom: -2px;
             }
 
-            /* Dot on the connecting line */
-            .journey-img::after {
-                content: '';
-                position: absolute;
-                bottom: -6px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 12px;
-                height: 12px;
-                background: var(--grad-glow);
-                border-radius: 50%;
-                box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2);
-                z-index: 2;
+            .journey-card.is-final .journey-badge {
+                background: var(--color-white);
+                color: var(--color-black);
             }
 
             /* ── Card body ── */
             .journey-body {
-                padding: 28px 24px 24px;
-                padding-top: 24px;
+                padding: 2rem;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
             }
 
             .journey-card-title {
-                font-family: 'Cormorant Garamond', serif;
+                font-family: 'Outfit', sans-serif;
                 font-size: 24px;
-                font-weight: 700;
-                color: var(--text-dark);
-                margin-bottom: 10px;
-                line-height: 1.25;
+                font-weight: 900;
+                color: var(--text-main);
+                margin-bottom: 12px;
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
+            }
+
+            .journey-card.is-final .journey-card-title {
+                color: var(--color-white);
             }
 
             /* Ingredient pill */
             .journey-ingredient {
-                display: inline-flex;
-                align-items: center;
-                gap: 5px;
-                font-family: 'Inter', sans-serif;
-                font-size: 10.5px;
-                font-weight: 700;
-                letter-spacing: 0.06em;
-                color: var(--text-muted);
-                background: rgba(255, 107, 157, 0.07);
-                border: 1px solid rgba(255, 107, 157, 0.15);
-                padding: 4px 12px;
-                border-radius: 100px;
-                margin-bottom: 18px;
+                align-self: flex-start;
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.1em;
+                color: var(--color-accent);
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
+                padding: 6px 14px;
+                margin-bottom: 1.5rem;
                 text-transform: uppercase;
+            }
+
+            .journey-card.is-final .journey-ingredient {
+                color: var(--color-black);
+                background: var(--color-white);
+                border-color: var(--color-black);
             }
 
             /* Benefit list */
@@ -1312,62 +1131,50 @@
                 list-style: none;
                 display: flex;
                 flex-direction: column;
-                gap: 9px;
+                gap: 12px;
+                margin-top: auto;
             }
 
             .journey-benefits li {
-                font-family: 'Inter', sans-serif;
-                font-size: 13.5px;
-                color: var(--text-body);
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--text-main);
                 display: flex;
                 align-items: flex-start;
-                gap: 8px;
-                line-height: 1.45;
+                gap: 12px;
+                line-height: 1.4;
+            }
+
+            .journey-card.is-final .journey-benefits li {
+                color: var(--color-white);
             }
 
             .journey-benefits li::before {
-                content: '✓';
-                flex-shrink: 0;
-                width: 18px;
-                height: 18px;
-                background: var(--grad-glow);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-size: 13px;
+                content: '→';
                 font-weight: 900;
-                margin-top: 1px;
+                color: var(--color-accent);
             }
 
-            /* Scroll animation */
-            .journey-card {
-                transition-delay: 0s;
-            }
-
-            .journey-card:nth-child(2) {
-                transition-delay: 0.15s;
-            }
-
-            .journey-card:nth-child(3) {
-                transition-delay: 0.3s;
+            .journey-card.is-final .journey-benefits li::before {
+                color: var(--color-white);
             }
         </style>
 
         <section class="journey-section">
             <div class="container">
                 <p class="journey-eyebrow">Your Transformation Journey</p>
-                <h2 class="serif journey-title">What You Should Expect</h2>
+                <h2 class="journey-title">What You Should Expect</h2>
                 <p class="journey-subtitle">Visible improvements start within minutes and build steadily over 30 days.
                     Here's exactly what happens.</p>
 
                 <div class="journey-track">
-
                     <!-- Stage 1: 15 Minutes -->
-                    <div class="journey-card">
+                    <div class="journey-card visible">
+                        <div class="journey-badge">15 Minutes</div>
                         <div class="journey-img">
                             <img src="https://images.pexels.com/photos/3764013/pexels-photo-3764013.jpeg?auto=compress&w=600"
                                 alt="Applying cream — instant surface tightening">
-                            <span class="journey-badge">15 Minutes</span>
                         </div>
                         <div class="journey-body">
                             <h3 class="journey-card-title">Instant Surface Tightening</h3>
@@ -1380,11 +1187,11 @@
                     </div>
 
                     <!-- Stage 2: 7–14 Days -->
-                    <div class="journey-card">
+                    <div class="journey-card visible">
+                        <div class="journey-badge">7–14 Days</div>
                         <div class="journey-img">
                             <img src="https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&w=600"
                                 alt="Hydrated glowing skin">
-                            <span class="journey-badge">7–14 Days</span>
                         </div>
                         <div class="journey-body">
                             <h3 class="journey-card-title">Deep Hydration Kicks In</h3>
@@ -1396,29 +1203,26 @@
                         </div>
                     </div>
 
-                    <!-- Stage 3: 30 Days → glow pulse -->
-                    <div class="journey-card is-final">
+                    <!-- Stage 3: 30 Days -->
+                    <div class="journey-card is-final visible">
+                        <div class="journey-badge">30 Days</div>
                         <div class="journey-img">
                             <img src="https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg?auto=compress&w=600"
                                 alt="Firm confident radiant skin">
-                            <span class="journey-badge" style="background: var(--grad-peach);">30 Days</span>
                         </div>
                         <div class="journey-body">
-                            <h3 class="journey-card-title">Collagen Support Becomes Visible</h3>
-                            <span class="journey-ingredient"
-                                style="background:rgba(200,80,192,0.07); border-color:rgba(200,80,192,0.2); color: var(--color-lavender);">Collagen-Boosting
-                                Peptides</span>
+                            <h3 class="journey-card-title">Collagen Support Visible</h3>
+                            <span class="journey-ingredient">Collagen-Boosting Peptides</span>
                             <ul class="journey-benefits">
                                 <li>Skin feels noticeably firmer</li>
-                                <li>Transformation starts showing</li>
+                                <li>Full transformation revealed</li>
                             </ul>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="text-center" style="margin-top: 20px;">
-                    <a href="#purchase" class="btn btn-primary hover-lift">Start Your Journey — Save Up To 36%</a>
+                <div class="text-center" style="margin-top: 5rem;">
+                    <a href="#purchase" class="btn btn-primary">Start Your Journey — Save Up To 36%</a>
                 </div>
             </div>
         </section>
@@ -1439,134 +1243,93 @@
         <!-- Section 7: 3-Layer Skin Science Visual System -->
         <style>
             .science-section {
-                padding: 8rem 0 6rem;
-                background: #fff;
+                padding: 8rem 0;
+                background: var(--bg-page);
+                border-bottom: 2px solid var(--border-main);
             }
 
             .science-eyebrow {
                 text-align: center;
-                font-size: 10.5px;
-                font-weight: 800;
-                letter-spacing: 0.3em;
-                color: var(--color-rose);
+                font-size: 16px;
+                font-weight: 900;
+                letter-spacing: 0.2em;
+                color: var(--color-black);
                 text-transform: uppercase;
-                font-family: 'Inter', sans-serif;
-                margin-bottom: 1.25rem;
+                font-family: 'Outfit', sans-serif;
+                margin-bottom: 1.5rem;
             }
 
             .science-title {
                 text-align: center;
-                font-size: clamp(30px, 5vw, 48px);
+                font-size: clamp(32px, 6vw, 64px);
                 margin-bottom: 1rem;
-                color: var(--text-dark);
-                letter-spacing: -0.02em;
+                color: var(--text-main);
+                letter-spacing: -0.05em;
+                font-family: 'Outfit', sans-serif;
+                font-weight: 800;
+                text-transform: uppercase;
+                line-height: 1;
             }
 
             .science-subtitle {
                 text-align: center;
                 font-size: 16px;
                 color: var(--text-muted);
-                font-family: 'Inter', sans-serif;
+                font-family: 'Outfit', sans-serif;
+                font-weight: 800;
                 margin-bottom: 5rem;
                 max-width: 600px;
                 margin-left: auto;
                 margin-right: auto;
-                line-height: 1.7;
+                line-height: 1.6;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
 
             /* Stacked layer cards */
             .science-layers {
                 display: flex;
                 flex-direction: column;
-                gap: 0;
-                max-width: 900px;
+                gap: 2rem;
+                max-width: 1000px;
                 margin: 0 auto;
             }
 
             .science-layer {
                 display: grid;
-                grid-template-columns: 260px 1fr;
-                border-radius: 0;
-                overflow: hidden;
+                grid-template-columns: 1fr;
+                border: 2px solid var(--border-main);
+                background: var(--bg-surface);
                 position: relative;
-                opacity: 0;
-                transform: translateY(28px);
-                transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-                margin-bottom: -1px;
-                /* overlap borders */
-                border: 1px solid rgba(255, 107, 157, 0.12);
+                transition: var(--transition-base);
+                box-shadow: var(--shadow-brutal);
             }
 
-            .science-layer:first-child {
-                border-radius: 20px 20px 0 0;
-            }
-
-            .science-layer:last-child {
-                border-radius: 0 0 20px 20px;
-                margin-bottom: 0;
-            }
-
-            .science-layer.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .science-layer:nth-child(1) {
-                transition-delay: 0s;
-            }
-
-            .science-layer:nth-child(2) {
-                transition-delay: 0.15s;
-            }
-
-            .science-layer:nth-child(3) {
-                transition-delay: 0.28s;
-            }
-
-            /* Layer 1: Surface — lightest */
-            .science-layer:nth-child(1) {
-                background: var(--bg-pink-wash);
-            }
-
-            /* Layer 2: Hydration — mid tone */
-            .science-layer:nth-child(2) {
-                background: var(--bg-peach-wash);
-            }
-
-            /* Layer 3: Structural — richest */
-            .science-layer:nth-child(3) {
-                background: var(--bg-violet-wash);
-                animation: scienceGlow 3.5s ease-in-out infinite;
-            }
-
-            @keyframes scienceGlow {
-
-                0%,
-                100% {
-                    box-shadow: none;
-                }
-
-                50% {
-                    box-shadow: 0 8px 40px rgba(200, 80, 192, 0.14);
+            @media (min-width: 768px) {
+                .science-layer {
+                    grid-template-columns: 320px 1fr;
                 }
             }
 
-            /* Hover lift + depth */
             .science-layer:hover {
-                transform: scale(1.012) translateY(-2px);
-                z-index: 2;
-                box-shadow: 0 12px 36px rgba(255, 107, 157, 0.14);
+                transform: translate(-4px, -4px);
+                box-shadow: var(--shadow-brutal-hover);
             }
 
             /* Left illustration panel */
             .science-illus {
                 position: relative;
-                background: rgba(255, 255, 255, 0.4);
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                border-bottom: 2px solid var(--border-main);
                 overflow: hidden;
-                border-right: 1px solid rgba(255, 107, 157, 0.1);
+                height: 240px;
+            }
+
+            @media (min-width: 768px) {
+                .science-illus {
+                    border-bottom: none;
+                    border-right: 2px solid var(--border-main);
+                    height: auto;
+                }
             }
 
             .science-illus img {
@@ -1575,58 +1338,17 @@
                 object-fit: cover;
                 object-position: center;
                 transition: transform 0.5s ease;
-                filter: saturate(0.7);
+                filter: grayscale(100%) contrast(1.2);
             }
 
             .science-layer:hover .science-illus img {
-                transform: scale(1.07);
-            }
-
-            /* Emoji layer icon fallback */
-            .science-illus-icon {
-                font-size: 72px;
-                line-height: 1;
-                filter: none;
-            }
-
-            /* Molecule Accents */
-            .molecule {
-                position: absolute;
-                border-radius: 50%;
-                border: 1px solid rgba(255, 107, 157, 0.4);
-                background: rgba(255, 255, 255, 0.6);
-                backdrop-filter: blur(2px);
-                animation: float 5s ease-in-out infinite alternate;
-                z-index: 2;
-            }
-
-            .molecule-1 {
-                width: 35px;
-                height: 35px;
-                top: 15%;
-                left: 15%;
-                animation-delay: 0s;
-            }
-
-            .molecule-2 {
-                width: 22px;
-                height: 22px;
-                bottom: 15%;
-                right: 20%;
-                animation-delay: 1.5s;
-            }
-
-            .molecule-3 {
-                width: 28px;
-                height: 28px;
-                top: 50%;
-                left: 75%;
-                animation-delay: 2.5s;
+                transform: scale(1.05);
+                filter: grayscale(0%) contrast(1.1);
             }
 
             /* Right content */
             .science-content {
-                padding: 2.5rem 2.25rem;
+                padding: 3rem 2.5rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -1637,116 +1359,64 @@
                 display: inline-flex;
                 align-items: center;
                 gap: 6px;
-                font-family: 'Inter', sans-serif;
-                font-size: 10px;
-                font-weight: 800;
-                letter-spacing: 0.14em;
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 900;
+                letter-spacing: 0.1em;
                 text-transform: uppercase;
-                padding: 4px 12px;
-                border-radius: 100px;
-                margin-bottom: 14px;
+                background: var(--color-black);
+                color: var(--color-white);
+                padding: 8px 16px;
+                margin-bottom: 18px;
                 width: fit-content;
-            }
-
-            .science-badge.surface {
-                background: rgba(255, 107, 157, 0.1);
-                color: var(--color-rose);
-                border: 1px solid rgba(255, 107, 157, 0.2);
-            }
-
-            .science-badge.hydration {
-                background: rgba(255, 154, 92, 0.1);
-                color: var(--color-peach);
-                border: 1px solid rgba(255, 154, 92, 0.25);
-            }
-
-            .science-badge.structural {
-                background: rgba(200, 80, 192, 0.08);
-                color: var(--color-violet);
-                border: 1px solid rgba(200, 80, 192, 0.2);
+                border: 2px solid var(--color-black);
             }
 
             .science-layer-title {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 26px;
-                font-weight: 700;
-                color: var(--text-dark);
-                margin-bottom: 8px;
-                line-height: 1.2;
+                font-family: 'Outfit', sans-serif;
+                font-size: 32px;
+                font-weight: 900;
+                color: var(--text-main);
+                margin-bottom: 12px;
+                line-height: 1.1;
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
             }
 
             .science-ingredient-tag {
-                font-family: 'Inter', sans-serif;
-                font-size: 11px;
-                font-weight: 600;
-                color: var(--text-muted);
-                letter-spacing: 0.04em;
-                margin-bottom: 16px;
-                text-decoration: underline;
-                text-decoration-color: rgba(0, 0, 0, 0.15);
-                text-underline-offset: 3px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+                color: var(--color-accent);
+                letter-spacing: 0.05em;
+                margin-bottom: 24px;
+                text-transform: uppercase;
             }
 
             .science-bullets {
                 list-style: none;
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 12px;
             }
 
             .science-bullets li {
-                font-family: 'Inter', sans-serif;
-                font-size: 13.5px;
-                color: var(--text-body);
+                font-family: 'Outfit', sans-serif;
+                font-size: 15px;
+                font-weight: 600;
+                color: var(--text-main);
                 display: flex;
                 align-items: flex-start;
-                gap: 8px;
+                gap: 12px;
                 line-height: 1.4;
             }
 
             .science-bullets li::before {
-                content: '✓';
+                content: '→';
                 flex-shrink: 0;
                 font-weight: 900;
-                font-size: 12px;
-                margin-top: 1px;
-            }
-
-            .science-layer:nth-child(1) .science-bullets li::before {
-                color: var(--color-rose);
-            }
-
-            .science-layer:nth-child(2) .science-bullets li::before {
-                color: var(--color-peach);
-            }
-
-            .science-layer:nth-child(3) .science-bullets li::before {
-                color: var(--color-violet);
-            }
-
-            /* Layer depth indicator (right edge) */
-            .science-layer::after {
-                content: '';
-                position: absolute;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                width: 4px;
-            }
-
-            .science-layer:nth-child(1)::after {
-                background: var(--color-rose);
-                opacity: 0.3;
-            }
-
-            .science-layer:nth-child(2)::after {
-                background: var(--color-peach);
-                opacity: 0.4;
-            }
-
-            .science-layer:nth-child(3)::after {
-                background: var(--color-violet);
-                opacity: 0.5;
+                font-size: 16px;
+                color: var(--color-accent);
             }
 
             /* Trust badges */
@@ -1754,47 +1424,51 @@
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-                gap: 12px;
-                margin-top: 4rem;
-                padding-top: 3rem;
-                border-top: 1px solid rgba(255, 107, 157, 0.1);
+                gap: 16px;
+                margin-top: 5rem;
+                padding-top: 4rem;
+                border-top: 2px solid var(--border-main);
             }
 
             .trust-pill {
                 display: flex;
                 align-items: center;
-                gap: 7px;
-                background: rgba(255, 107, 157, 0.06);
-                border: 1px solid rgba(255, 107, 157, 0.12);
-                padding: 8px 18px;
-                border-radius: 100px;
-                font-family: 'Inter', sans-serif;
-                font-size: 12.5px;
-                font-weight: 600;
-                color: var(--text-body);
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--text-main);
+                background: var(--bg-surface);
+                border: 2px solid var(--border-main);
+                padding: 10px 20px;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                box-shadow: 4px 4px 0px var(--color-accent);
+                transition: var(--transition-base);
+            }
+
+            .trust-pill:hover {
+                transform: translate(-2px, -2px);
+                box-shadow: 6px 6px 0px var(--color-accent);
             }
         </style>
 
         <section class="science-section">
-            <div class="container">
+            <div class="container container-wide">
                 <p class="science-eyebrow">The Science</p>
-                <h2 class="serif science-title">Ingredients That Transform Your Skin in Days</h2>
+                <h2 class="science-title">Ingredients That Transform</h2>
                 <p class="science-subtitle">Instead of one temporary fix, Instant Lift Complex works at three distinct
                     skin depths — the surface, hydration layer, and structural layer beneath.</p>
 
                 <div class="science-layers">
 
                     <!-- Layer 1: Surface -->
-                    <div class="science-layer">
+                    <div class="science-layer visible">
                         <div class="science-illus">
-                            <div class="molecule molecule-1"></div>
-                            <div class="molecule molecule-2"></div>
-                            <img src="public/images/botanicals.png"
-                                style="object-position: 10% 20%; transform: scale(1.4);"
-                                alt="Tightening Polymer illustration">
+                            <img src="public/images/trendy_product_jar_1772081050172.png"
+                                alt="Product Jar illustration">
                         </div>
                         <div class="science-content">
-                            <span class="science-badge surface">● Surface Effect</span>
+                            <span class="science-badge surface">Layer 1: Surface Effect</span>
                             <h3 class="science-layer-title">Instant Visible Results</h3>
                             <p class="science-ingredient-tag">Tightening Polymers · Film-forming complex</p>
                             <ul class="science-bullets">
@@ -1806,16 +1480,12 @@
                     </div>
 
                     <!-- Layer 2: Hydration -->
-                    <div class="science-layer">
+                    <div class="science-layer visible">
                         <div class="science-illus">
-                            <div class="molecule molecule-3"></div>
-                            <div class="molecule molecule-2"></div>
-                            <img src="public/images/botanicals.png"
-                                style="object-position: 80% 30%; transform: scale(1.4);"
-                                alt="Hyaluronic acid illustration">
+                            <img src="public/images/cream_texture_macro_1772080959423.png" alt="Cream Texture Macro">
                         </div>
                         <div class="science-content">
-                            <span class="science-badge hydration">● Hydration Layer</span>
+                            <span class="science-badge hydration">Layer 2: Hydration Layer</span>
                             <h3 class="science-layer-title">Deep, Lasting Hydration</h3>
                             <p class="science-ingredient-tag">Low MW Hyaluronic Acid · 1,000× water binding</p>
                             <ul class="science-bullets">
@@ -1826,17 +1496,14 @@
                         </div>
                     </div>
 
-                    <!-- Layer 3: Structural — glow pulse -->
-                    <div class="science-layer">
+                    <!-- Layer 3: Structural -->
+                    <div class="science-layer visible">
                         <div class="science-illus">
-                            <div class="molecule molecule-1"></div>
-                            <div class="molecule molecule-3"></div>
-                            <img src="public/images/botanicals.png"
-                                style="object-position: 20% 80%; transform: scale(1.4);"
-                                alt="Collagen peptide illustration">
+                            <img src="public/images/bold_hero_model_1772080778363.png"
+                                alt="Structural Firmness Skin Model">
                         </div>
                         <div class="science-content">
-                            <span class="science-badge structural">● Structural Support</span>
+                            <span class="science-badge structural">Layer 3: Structural Support</span>
                             <h3 class="science-layer-title">Structural Firmness Over Time</h3>
                             <p class="science-ingredient-tag">Palmitoyl Tripeptide-5 · Collagen signal peptides</p>
                             <ul class="science-bullets">
@@ -1851,12 +1518,11 @@
 
                 <!-- Upgraded trust badges -->
                 <div class="science-trust">
-                    <span class="trust-pill">🌿 Paraben-free</span>
-                    <span class="trust-pill">🐰 Cruelty-free</span>
-                    <span class="trust-pill">✨ All skin types</span>
-                    <span class="trust-pill">🛡️ Sensitive skin safe</span>
-                    <span class="trust-pill">🚫 No harsh chemicals</span>
-                    <span class="trust-pill">🇺🇸 Made in USA</span>
+                    <span class="trust-pill">Paraben-free</span>
+                    <span class="trust-pill">Cruelty-free</span>
+                    <span class="trust-pill">All skin types</span>
+                    <span class="trust-pill">Sensitive skin safe</span>
+                    <span class="trust-pill">Made in USA</span>
                 </div>
             </div>
         </section>
@@ -1875,66 +1541,30 @@
         <!-- Section 8: Risk-Free Guarantee Spotlight -->
         <style>
             .guarantee-section {
-                padding: 6rem 0;
-                background: var(--bg-pink-wash);
+                padding: 8rem 0;
+                background: var(--bg-surface);
                 position: relative;
                 overflow: hidden;
-            }
-
-            .guarantee-section::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background:
-                    radial-gradient(ellipse at 15% 50%, rgba(255, 107, 157, 0.1) 0%, transparent 55%),
-                    radial-gradient(ellipse at 85% 50%, rgba(200, 80, 192, 0.07) 0%, transparent 55%);
-                pointer-events: none;
+                border-bottom: 2px solid var(--border-main);
             }
 
             .guarantee-card {
-                max-width: 580px;
+                max-width: 640px;
                 margin: 0 auto;
-                background: rgba(255, 255, 255, 0.85);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 107, 157, 0.2);
-                border-radius: 28px;
-                padding: 4rem 3.5rem;
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
+                padding: 4rem 3rem;
                 text-align: center;
-                box-shadow: 0 24px 64px rgba(255, 107, 157, 0.15), 0 4px 20px rgba(0, 0, 0, 0.04);
+                box-shadow: var(--shadow-brutal);
                 position: relative;
                 opacity: 0;
                 transform: translateY(24px);
-                transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-                overflow: hidden;
+                transition: var(--transition-base);
             }
 
-            .guarantee-card::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -150%;
-                width: 50%;
-                height: 100%;
-                background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8), transparent);
-                transform: skewX(-20deg);
-                animation: shineSweep 6s infinite;
-                z-index: 1;
-                pointer-events: none;
-            }
-
-            @keyframes shineSweep {
-                0% {
-                    left: -150%;
-                }
-
-                20% {
-                    left: 200%;
-                }
-
-                100% {
-                    left: 200%;
-                }
+            .guarantee-card:hover {
+                transform: translate(-4px, -4px);
+                box-shadow: var(--shadow-brutal-hover);
             }
 
             .guarantee-card.visible {
@@ -1942,83 +1572,77 @@
                 transform: translateY(0);
             }
 
-            /* Pulsing shield badge */
+            /* Blocky shield badge */
             .guarantee-badge {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                width: 90px;
-                height: 90px;
-                background: var(--grad-glow);
-                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                background: var(--color-black);
+                border: 2px solid var(--border-main);
                 margin: 0 auto 2rem;
-                box-shadow: 0 8px 28px rgba(255, 107, 157, 0.45);
-                animation: badgeBreather 3.5s ease-in-out infinite;
+                box-shadow: 6px 6px 0px var(--color-accent);
                 position: relative;
                 z-index: 2;
+                transition: var(--transition-base);
             }
 
-            @keyframes badgePulse {
-
-                0%,
-                100% {
-                    box-shadow: 0 8px 28px rgba(255, 107, 157, 0.45);
-                }
-
-                50% {
-                    box-shadow: 0 8px 44px rgba(255, 107, 157, 0.7), 0 0 0 10px rgba(255, 107, 157, 0.12);
-                }
+            .guarantee-card:hover .guarantee-badge {
+                transform: translate(-2px, -2px);
+                box-shadow: 8px 8px 0px var(--color-accent);
             }
 
             .guarantee-badge-text {
                 color: #fff;
-                font-family: 'Inter', sans-serif;
-                font-size: 9px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 10px;
                 font-weight: 900;
-                letter-spacing: 0.08em;
+                letter-spacing: 0.1em;
                 text-transform: uppercase;
                 line-height: 1.2;
                 text-align: center;
             }
 
             .guarantee-badge-days {
-                font-size: 20px;
+                color: #fff;
+                font-size: 28px;
                 font-weight: 900;
                 display: block;
                 line-height: 1;
+                font-family: 'Outfit', sans-serif;
             }
 
             .guarantee-heading {
-                font-family: 'Cormorant Garamond', serif;
+                font-family: 'Outfit', sans-serif;
                 font-size: clamp(32px, 5vw, 44px);
-                font-weight: 700;
-                color: var(--text-dark);
-                margin-bottom: 1.25rem;
-                line-height: 1.15;
-                position: relative;
-                z-index: 2;
+                font-weight: 900;
+                color: var(--text-main);
+                margin-bottom: 1.5rem;
+                line-height: 1.1;
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
             }
 
             .guarantee-body {
-                font-family: 'Inter', sans-serif;
-                font-size: 15.5px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
                 color: var(--text-muted);
-                line-height: 1.7;
-                margin-bottom: 2.25rem;
-                max-width: 440px;
+                line-height: 1.5;
+                margin-bottom: 2.5rem;
+                max-width: 480px;
                 margin-left: auto;
                 margin-right: auto;
-                position: relative;
-                z-index: 2;
             }
 
             .guarantee-bullets {
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-                gap: 10px;
-                margin-bottom: 2.5rem;
+                gap: 12px;
+                margin-bottom: 3rem;
                 position: relative;
                 z-index: 2;
             }
@@ -2026,59 +1650,64 @@
             .guarantee-bullet {
                 display: inline-flex;
                 align-items: center;
-                gap: 7px;
-                background: rgba(255, 107, 157, 0.07);
-                border: 1px solid rgba(255, 107, 157, 0.15);
-                padding: 7px 16px;
-                border-radius: 100px;
-                font-family: 'Inter', sans-serif;
-                font-size: 12.5px;
-                font-weight: 700;
-                color: var(--text-body);
+                gap: 8px;
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
+                padding: 8px 16px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 13px;
+                font-weight: 800;
+                color: var(--text-main);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
 
             .guarantee-bullet::before {
-                content: '✔';
-                color: var(--color-rose);
-                font-size: 11px;
+                content: '→';
+                color: var(--color-accent);
+                font-weight: 900;
+                font-size: 14px;
             }
 
             .guarantee-cta-wrap {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 0.75rem;
+                gap: 1rem;
                 position: relative;
                 z-index: 2;
             }
 
             .guarantee-microcopy {
-                font-family: 'Inter', sans-serif;
+                font-family: 'Outfit', sans-serif;
                 font-size: 12px;
+                font-weight: 800;
                 color: var(--text-muted);
-                opacity: 0.7;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
 
             .guarantee-proof {
                 display: flex;
                 justify-content: center;
-                gap: 1.5rem;
-                margin-top: 2.5rem;
+                gap: 2rem;
+                margin-top: 3rem;
                 flex-wrap: wrap;
-                padding-top: 2rem;
-                border-top: 1px solid rgba(255, 107, 157, 0.15);
+                padding-top: 2.5rem;
+                border-top: 2px solid var(--border-main);
                 position: relative;
                 z-index: 2;
             }
 
             .guarantee-proof-item {
-                font-family: 'Inter', sans-serif;
-                font-size: 12px;
-                font-weight: 600;
-                color: var(--text-muted);
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+                color: var(--text-main);
                 display: flex;
                 align-items: center;
-                gap: 5px;
+                gap: 8px;
+                text-transform: uppercase;
             }
         </style>
 
@@ -2086,7 +1715,7 @@
             <div class="container">
                 <div class="guarantee-card" id="guaranteeCard">
 
-                    <!-- Pulsing shield badge -->
+                    <!-- Blocky shield badge -->
                     <div class="guarantee-badge">
                         <span class="guarantee-badge-days">60</span>
                         <span class="guarantee-badge-text">Day<br>Guarantee</span>
@@ -2103,7 +1732,7 @@
                         <span class="guarantee-bullet">Risk-free trial</span>
                         <span class="guarantee-bullet">No questions asked</span>
                         <span class="guarantee-bullet">Easy refunds</span>
-                        <span class="guarantee-bullet">Your satisfaction guaranteed</span>
+                        <span class="guarantee-bullet">Satisfaction guaranteed</span>
                     </div>
 
                     <div class="guarantee-cta-wrap">
@@ -2112,9 +1741,9 @@
                     </div>
 
                     <div class="guarantee-proof">
-                        <span class="guarantee-proof-item">⭐ 4.8 average rating</span>
-                        <span class="guarantee-proof-item">🧪 Clinically backed</span>
-                        <span class="guarantee-proof-item">💬 2,100+ happy customers</span>
+                        <span class="guarantee-proof-item">4.8 Average Rating</span>
+                        <span class="guarantee-proof-item">Clinically Backed</span>
+                        <span class="guarantee-proof-item">2,100+ Happy Customers</span>
                     </div>
 
                 </div>
@@ -2132,117 +1761,124 @@
         <!-- Section 9: Stats -->
         <style>
             .stats-section {
-                padding: 7rem 0;
-                background: var(--bg-beige);
+                padding: 10rem 0;
+                background: var(--color-black);
+                color: var(--color-white);
+                border-bottom: 2px solid var(--border-main);
             }
 
             .stats-title {
                 text-align: center;
-                font-family: 'Cormorant Garamond', serif;
-                font-size: clamp(32px, 5vw, 48px);
-                font-weight: 700;
-                color: var(--text-dark);
-                margin-bottom: 4.5rem;
-                line-height: 1.15;
+                font-family: 'Outfit', sans-serif;
+                font-size: clamp(40px, 8vw, 84px);
+                font-weight: 900;
+                color: var(--color-white);
+                margin-bottom: 6rem;
+                line-height: 1;
+                text-transform: uppercase;
+                letter-spacing: -0.04em;
             }
 
             .stats-grid {
                 display: grid;
-                grid-template-columns: 1fr 1px 1fr 1px 1fr;
-                gap: 40px;
-                align-items: start;
-                max-width: 1100px;
+                grid-template-columns: 1fr 2px 1fr 2px 1fr;
+                gap: 0;
+                align-items: stretch;
+                max-width: 1200px;
                 margin: 0 auto;
             }
 
-            @media (max-width: 768px) {
+            @media (max-width: 992px) {
                 .stats-grid {
                     grid-template-columns: 1fr;
-                    gap: 30px;
+                    gap: 0;
                 }
 
                 .stats-divider {
                     width: 100%;
-                    height: 1px;
-                    background: linear-gradient(to right, transparent, rgba(200, 80, 192, 0.15), transparent) !important;
+                    height: 2px !important;
+                    background: var(--color-white) !important;
+                    opacity: 0.2;
+                }
+
+                .stat-card {
+                    padding: 4rem 1rem !important;
                 }
             }
 
             .stats-divider {
-                width: 1px;
+                width: 2px;
                 height: 100%;
-                background: linear-gradient(to bottom, transparent, rgba(200, 80, 192, 0.15), transparent);
+                background: var(--color-white);
+                opacity: 0.2;
             }
 
             .stat-card {
                 text-align: center;
-                padding: 0 1rem;
-            }
-
-            .stat-number {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 80px;
-                font-weight: 600;
-                color: var(--text-dark);
-                line-height: 1;
-                margin-bottom: 12px;
+                padding: 0 3rem;
                 display: flex;
-                align-items: center;
+                flex-direction: column;
                 justify-content: center;
             }
 
+            .stat-number {
+                font-family: 'Outfit', sans-serif;
+                font-size: 120px;
+                font-weight: 900;
+                color: var(--color-accent);
+                line-height: 0.9;
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                letter-spacing: -0.05em;
+                text-shadow: 4px 4px 0px rgba(255, 107, 157, 0.2);
+            }
+
             .stat-percent {
-                color: var(--color-rose);
-                font-size: 44px;
+                color: var(--color-white);
+                font-size: 64px;
                 margin-left: 2px;
             }
 
             .stat-text {
-                font-family: 'Inter', sans-serif;
-                font-size: 15.5px;
-                color: var(--text-muted);
-                line-height: 1.6;
-                max-width: 280px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 800;
+                color: var(--color-white);
+                line-height: 1.4;
+                max-width: 320px;
                 margin: 0 auto;
-            }
-
-            .stat-icon {
-                font-size: 28px;
-                margin-bottom: 20px;
-                opacity: 0.9;
-                filter: drop-shadow(0 4px 12px rgba(255, 107, 157, 0.3));
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
         </style>
 
         <section class="stats-section">
-            <div class="container">
-                <h2 class="stats-title">Life-Changing Results <span
-                        style="font-style: italic; color: var(--color-rose);">in Days</span></h2>
+            <div class="container container-wide">
+                <h2 class="stats-title">Life-Changing Results</h2>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-icon">✨</div>
                         <div class="stat-number"><span class="count-up" data-target="94">0</span><span
                                 class="stat-percent">%</span></div>
-                        <p class="stat-text">reported visibly firmer, tighter-looking skin within 30 days</p>
+                        <p class="stat-text">Reported visibly firmer, tighter-looking skin within 30 days</p>
                     </div>
                     <div class="stats-divider"></div>
                     <div class="stat-card">
-                        <div class="stat-icon">💧</div>
                         <div class="stat-number"><span class="count-up" data-target="89">0</span><span
                                 class="stat-percent">%</span></div>
-                        <p class="stat-text">experienced improved skin hydration and a plumper, smoother feel</p>
+                        <p class="stat-text">Experienced improved skin hydration and a plumper, smoother feel</p>
                     </div>
                     <div class="stats-divider"></div>
                     <div class="stat-card">
-                        <div class="stat-icon">🏆</div>
                         <div class="stat-number"><span class="count-up" data-target="91">0</span><span
                                 class="stat-percent">%</span></div>
-                        <p class="stat-text">said it outperformed their previous anti-aging products</p>
+                        <p class="stat-text">Said it outperformed their previous anti-aging products</p>
                     </div>
                 </div>
                 <p
-                    style="font-size: 11px; color: var(--text-muted); opacity: 0.6; margin-top: 4rem; text-align: center; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Inter', sans-serif;">
-                    *Based on ingredient research and 30-day user satisfaction tracking. Individual results may vary.
+                    style="font-size: 12px; color: var(--color-white); opacity: 0.5; margin-top: 6rem; text-align: center; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Outfit', sans-serif; font-weight: 800;">
+                    *Based on ingredient research and 30-day user satisfaction tracking.
                 </p>
             </div>
         </section>
@@ -2275,97 +1911,240 @@
 
         <!-- Section 10: Purchase Module -->
         <style>
+            .purchase-module {
+                padding: 10rem 0;
+                background: var(--bg-surface);
+                border-bottom: 2px solid var(--border-main);
+            }
+
+            .product-visual {
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
+                padding: 4rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: var(--shadow-brutal);
+            }
+
             .product-visual img {
-                transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+                width: 100%;
+                max-width: 400px;
+                transition: transform 0.4s ease;
             }
 
             .purchase-module:hover .product-visual img {
-                transform: rotate(-6deg) scale(1.06);
+                transform: scale(1.05);
             }
 
-            .supply-option.popular-tier {
-                animation: popularGlow 3.5s ease-in-out infinite;
-                transform: scale(1.02);
-                border-color: rgba(255, 107, 157, 0.4);
-                background: rgba(255, 107, 157, 0.05);
+            .purchase-header {
+                text-align: center;
+                margin-bottom: 4rem;
             }
 
-            @keyframes popularGlow {
+            .purchase-tagline {
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+                color: var(--color-accent);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                margin-bottom: 1rem;
+            }
 
-                0%,
-                100% {
-                    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.15);
-                }
-
-                50% {
-                    box-shadow: 0 12px 35px rgba(255, 107, 157, 0.45), 0 0 0 1px rgba(255, 107, 157, 0.3) inset;
-                }
+            .section-title {
+                font-family: 'Outfit', sans-serif;
+                font-size: clamp(40px, 6vw, 64px);
+                font-weight: 900;
+                color: var(--text-main);
+                line-height: 1;
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
+                margin-bottom: 1.5rem;
             }
 
             .urgency-badge {
                 display: inline-block;
-                background: rgba(255, 107, 157, 0.15);
-                color: #ffb8d2;
-                font-family: 'Inter', sans-serif;
-                font-size: 11px;
-                font-weight: 700;
-                padding: 6px 14px;
-                border-radius: 100px;
-                margin-top: 1rem;
-                letter-spacing: 0.04em;
-                border: 1px solid rgba(255, 107, 157, 0.3);
+                background: var(--color-black);
+                color: var(--color-accent);
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+                padding: 12px 24px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                border: 2px solid var(--border-main);
+                box-shadow: 4px 4px 0px var(--border-main);
+                margin-top: 1.5rem;
+            }
+
+            .purchase-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                align-items: start;
+            }
+
+            @media (min-width: 992px) {
+                .purchase-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+            .selection-step {
+                margin-bottom: 3rem;
+            }
+
+            .step-label {
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 900;
+                color: var(--text-main);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 1.5rem;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .step-label::before {
+                content: '';
+                display: block;
+                width: 24px;
+                height: 2px;
+                background: var(--color-accent);
+            }
+
+            .plan-toggle {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0;
+                border: 2px solid var(--border-main);
+                background: var(--bg-page);
+                box-shadow: var(--shadow-brutal);
+            }
+
+            .toggle-btn {
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+                padding: 20px;
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: var(--text-main);
+                cursor: pointer;
+                transition: var(--transition-base);
+                border: none;
+                background: transparent;
+            }
+
+            .toggle-btn:first-child {
+                border-right: 2px solid var(--border-main);
+            }
+
+            .toggle-btn.active {
+                background: var(--color-black);
+                color: #fff;
+            }
+
+            .supply-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            @media (max-width: 600px) {
+                .supply-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .supply-option {
+                border: 2px solid var(--border-main);
+                background: var(--bg-page);
+                padding: 2rem 1rem;
+                text-align: center;
+                cursor: pointer;
+                transition: var(--transition-base);
+                position: relative;
+            }
+
+            .supply-option.selected {
+                border-color: var(--color-black);
+                background: var(--bg-surface);
+                box-shadow: var(--shadow-brutal);
+                transform: translate(-4px, -4px);
+            }
+
+            .supply-option.popular-tier {
+                border-color: var(--color-accent);
+                background: rgba(255, 107, 157, 0.05);
+            }
+
+            .supply-option.popular-tier.selected {
+                box-shadow: 6px 6px 0px var(--color-accent);
+            }
+
+            .supply-option p {
+                font-family: 'Outfit', sans-serif;
             }
 
             .payment-trust-strip {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 12px;
-                margin-top: 1.5rem;
-                opacity: 0.6;
+                gap: 16px;
+                margin-top: 2rem;
             }
 
             .payment-icon {
-                font-size: 24px;
-                background: rgba(255, 255, 255, 0.1);
-                padding: 4px 10px;
-                border-radius: 4px;
-                display: flex;
-                align-items: center;
+                font-size: 28px;
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
+                padding: 6px 12px;
+                box-shadow: 2px 2px 0px var(--border-main);
             }
 
             .checkout-secure-txt {
-                font-family: 'Inter', sans-serif;
-                font-size: 11.5px;
-                color: rgba(255, 255, 255, 0.7);
-                margin-top: 6px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--text-main);
+                margin-top: 1rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 6px;
+                gap: 8px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
         </style>
+
         <section class="purchase-module" id="purchase">
-            <div class="container">
+            <div class="container container-wide">
                 <div class="purchase-header text-center">
                     <p class="purchase-tagline">The Cream That Transformed 2,100+ Women’s Skin</p>
                     <h2 class="section-title">Instant Lift Complex</h2>
-                    <p style="color: var(--accent-gold); font-weight: 600; font-size: 14px; margin-top: 8px;">⭐ 4.8 from
-                        2,100+ Reviews |
-                        Visible Results in 15 Minutes</p>
-                    <div class="urgency-badge">🔥 High Demand: Only 42 sets left at this price today</div>
+                    <p
+                        style="color: var(--text-main); font-weight: 800; font-size: 16px; margin-top: 12px; font-family: 'Outfit', sans-serif; text-transform: uppercase;">
+                        4.8 rating from 2,100+ Reviews | Visible Results in 15 Minutes
+                    </p>
+                    <div class="urgency-badge">High Demand: Only 42 sets left at this price today</div>
                 </div>
 
                 <div class="purchase-grid">
                     <div class="product-visual">
                         <img src="public/images/product_jar.png" alt="Instant Lift Complex Jar">
                     </div>
+
                     <div class="purchase-info">
                         <div class="selection-step">
                             <p class="step-label">Step 1 — Choose Your Plan</p>
                             <div class="plan-toggle">
                                 <button class="toggle-btn active" data-plan="subscribe">Subscribe & Save 10%</button>
-                                <button class="toggle-btn" data-plan="one-time">One-Time Purchase</button>
+                                <button class="toggle-btn" data-plan="one-time">One-Time</button>
                             </div>
                         </div>
 
@@ -2373,29 +2152,43 @@
                             <p class="step-label">Step 2 — Select Your Supply</p>
                             <div class="supply-grid">
                                 <div class="supply-option selected" data-jars="1">
-                                    <p style="font-weight: 700;">1 Jar</p>
-                                    <p style="font-size: 12px; color: var(--text-muted);">1-Month Supply</p>
-                                    <p class="price" style="margin-top: 12px; font-weight: 600;">$62/jar</p>
+                                    <p style="font-weight: 900; font-size: 24px; color: var(--text-main);">1 Jar</p>
+                                    <p
+                                        style="font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
+                                        1-Month Supply</p>
+                                    <p class="price"
+                                        style="margin-top: 16px; font-weight: 900; font-size: 20px; color: var(--text-main);">
+                                        $62/jar</p>
                                 </div>
-                                <div class="supply-option popular-tier" data-jars="3" style="position: relative;">
+                                <div class="supply-option popular-tier" data-jars="3">
                                     <div
-                                        style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--grad-glow); color: #fff; font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; white-space: nowrap; box-shadow: 0 4px 12px rgba(255,107,157,0.4);">
-                                        ⭐ MOST POPULAR</div>
-                                    <p style="font-weight: 700;">3 Jars</p>
-                                    <p style="font-size: 12px; color: var(--text-muted);">3-Month Supply</p>
-                                    <p class="price" style="margin-top: 12px; font-weight: 600;">$53/jar</p>
+                                        style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: #fff; font-size: 10px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border: 2px solid var(--border-main); white-space: nowrap;">
+                                        MOST POPULAR
+                                    </div>
+                                    <p style="font-weight: 900; font-size: 24px; color: var(--text-main);">3 Jars</p>
+                                    <p
+                                        style="font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
+                                        3-Month Supply</p>
+                                    <p class="price"
+                                        style="margin-top: 16px; font-weight: 900; font-size: 20px; color: var(--text-main);">
+                                        $53/jar</p>
                                 </div>
                                 <div class="supply-option" data-jars="6">
-                                    <p style="font-weight: 700;">6 Jars</p>
-                                    <p class="font-size: 12px; color: var(--text-muted);">6-Month Supply</p>
-                                    <p class="price" style="margin-top: 12px; font-weight: 600;">$44/jar</p>
+                                    <p style="font-weight: 900; font-size: 24px; color: var(--text-main);">6 Jars</p>
+                                    <p
+                                        style="font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
+                                        6-Month Supply</p>
+                                    <p class="price"
+                                        style="margin-top: 16px; font-weight: 900; font-size: 20px; color: var(--text-main);">
+                                        $44/jar</p>
                                 </div>
                             </div>
                         </div>
 
                         <button id="add-to-cart" class="btn btn-primary w-full"
-                            style="width: 100%; font-size: 16px;">ADD TO CART — <span
-                                id="display-price">$44</span>/jar</button>
+                            style="width: 100%; font-size: 18px; padding: 24px; margin-top: 1rem;">
+                            ADD TO CART — <span id="display-price">$62</span>/JAR
+                        </button>
 
                         <div class="text-center mt-4">
                             <div class="payment-trust-strip">
@@ -2404,10 +2197,11 @@
                                 <span class="payment-icon">🅿️</span>
                             </div>
                             <div class="checkout-secure-txt">
-                                🔒 Bank-Grade 256-Bit Encrypted Checkout
+                                Bank-Grade 256-Bit Encrypted Checkout
                             </div>
-                            <p style="font-size: 12px; color: var(--text-muted); margin-top: 20px;">
-                                🛡️ 60-Day 100% Money-Back Guarantee
+                            <p
+                                style="font-size: 12px; font-weight: 800; color: var(--text-muted); margin-top: 20px; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'Outfit', sans-serif;">
+                                60-Day 100% Money-Back Guarantee
                             </p>
                         </div>
                     </div>
@@ -2418,129 +2212,84 @@
         <!-- Section 11: Beautifully Simple (How to Use) -->
         <style>
             .how-to-section {
-                padding: 7rem 0 8rem;
-                background: var(--bg-beige);
-                position: relative;
+                padding: 10rem 0;
+                background: var(--bg-surface);
+                border-bottom: 2px solid var(--border-main);
             }
 
             .how-to-header {
                 text-align: center;
-                margin-bottom: 4rem;
+                margin-bottom: 5rem;
             }
 
             .how-to-grid {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 24px;
-                max-width: 1000px;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                max-width: 1200px;
                 margin: 0 auto;
-                position: relative;
             }
 
-            .how-to-grid::before {
-                content: '';
-                position: absolute;
-                top: 80px;
-                /* aligns roughly behind icons */
-                left: 15%;
-                right: 15%;
-                height: 2px;
-                background-image: linear-gradient(to right, rgba(255, 107, 157, 0.3) 50%, transparent 50%);
-                background-size: 12px 2px;
-                z-index: 1;
+            @media (min-width: 992px) {
+                .how-to-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
             }
 
             .step-card {
-                background: linear-gradient(180deg, #fff 0%, #FAFAFA 100%);
-                border: 1px solid rgba(0, 0, 0, 0.06);
-                border-radius: 20px;
-                padding: 3rem 2rem;
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
+                padding: 4rem 2rem;
                 text-align: center;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-                transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
+                box-shadow: var(--shadow-brutal);
+                transition: var(--transition-base);
                 position: relative;
-                z-index: 2;
-                overflow: hidden;
-            }
-
-            .step-card::after {
-                content: attr(data-step);
-                position: absolute;
-                bottom: -25px;
-                right: -10px;
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 180px;
-                font-weight: 700;
-                color: rgba(255, 107, 157, 0.035);
-                line-height: 1;
-                pointer-events: none;
-                z-index: 0;
             }
 
             .step-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 16px 40px rgba(255, 107, 157, 0.1);
-            }
-
-            .step-content {
-                position: relative;
-                z-index: 2;
+                transform: translate(-4px, -4px);
+                box-shadow: var(--shadow-brutal-hover);
             }
 
             .step-icon-wrap {
-                width: 72px;
-                height: 72px;
-                background: #fff;
-                border: 2px solid rgba(255, 107, 157, 0.15);
-                border-radius: 50%;
+                width: 80px;
+                height: 80px;
+                background: var(--color-black);
+                border: 2px solid var(--border-main);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin: 0 auto 1.5rem;
-                color: var(--color-rose);
-                font-size: 28px;
-                position: relative;
-                z-index: 2;
-                box-shadow: 0 4px 12px rgba(255, 107, 157, 0.1);
-                animation: stepIconPulse 3.5s ease-in-out infinite;
-            }
-
-            @keyframes stepIconPulse {
-
-                0%,
-                100% {
-                    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.1);
-                    transform: scale(1);
-                }
-
-                50% {
-                    box-shadow: 0 8px 24px rgba(255, 107, 157, 0.3);
-                    transform: scale(1.05);
-                }
+                margin: 0 auto 2rem;
+                color: #fff;
+                font-size: 32px;
+                box-shadow: 4px 4px 0px var(--color-accent);
             }
 
             .step-number {
-                font-family: 'Inter', sans-serif;
-                font-size: 10px;
-                font-weight: 800;
-                letter-spacing: 0.15em;
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 900;
+                letter-spacing: 0.1em;
                 text-transform: uppercase;
-                color: var(--color-rose);
-                margin-bottom: 0.5rem;
+                color: var(--color-accent);
+                margin-bottom: 1rem;
                 display: block;
             }
 
             .step-title {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 28px;
-                font-weight: 700;
-                color: var(--text-dark);
+                font-family: 'Outfit', sans-serif;
+                font-size: 32px;
+                font-weight: 900;
+                color: var(--text-main);
                 margin-bottom: 1rem;
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
             }
 
             .step-desc {
-                font-family: 'Inter', sans-serif;
-                font-size: 14.5px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
                 color: var(--text-muted);
                 line-height: 1.6;
             }
@@ -2548,84 +2297,83 @@
             .pro-tip-pill {
                 display: flex;
                 align-items: center;
-                gap: 12px;
-                background: linear-gradient(90deg, #FFF0F6 0%, #FFF8F5 100%);
-                border: 1px solid rgba(255, 107, 157, 0.15);
-                padding: 12px 24px;
-                border-radius: 100px;
+                justify-content: center;
+                gap: 16px;
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
+                padding: 16px 32px;
                 width: fit-content;
-                margin: 3.5rem auto 0;
-                box-shadow: 0 8px 24px rgba(255, 107, 157, 0.08);
+                margin: 5rem auto 0;
+                box-shadow: var(--shadow-brutal);
+                flex-wrap: wrap;
             }
 
             .pro-tip-badge {
-                background: var(--grad-glow);
-                color: #fff;
-                font-family: 'Inter', sans-serif;
-                font-size: 9px;
-                font-weight: 800;
+                background: var(--color-accent);
+                color: var(--color-black);
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 900;
                 letter-spacing: 0.1em;
                 text-transform: uppercase;
-                padding: 4px 10px;
-                border-radius: 100px;
+                padding: 8px 16px;
+                border: 2px solid var(--border-main);
             }
 
             .pro-tip-text {
-                font-family: 'Inter', sans-serif;
-                font-size: 13px;
-                font-weight: 500;
-                color: var(--text-dark);
-                font-style: italic;
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+                color: var(--text-main);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
         </style>
 
         <section class="how-to-section">
-            <div class="container">
+            <div class="container container-wide">
                 <div class="how-to-header">
-                    <h2 class="serif section-title" style="margin-bottom: 0;">Beautifully Simple</h2>
+                    <h2 class="section-title">The Ritual</h2>
                 </div>
 
                 <div class="how-to-grid">
                     <!-- Step 1 -->
-                    <div class="step-card" data-step="01">
+                    <div class="step-card">
                         <div class="step-icon-wrap">🫧</div>
                         <div class="step-content">
                             <span class="step-number">Step 01</span>
                             <h3 class="step-title">Cleanse</h3>
                             <p class="step-desc">Start with a fresh canvas. Cleanse your face thoroughly and pat
-                                completely
-                                dry.</p>
+                                completely dry.</p>
                         </div>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="step-card" data-step="02">
+                    <div class="step-card">
                         <div class="step-icon-wrap">✨</div>
                         <div class="step-content">
                             <span class="step-number">Step 02</span>
                             <h3 class="step-title">Apply</h3>
                             <p class="step-desc">Apply a thin, even layer to desired areas — forehead, around eyes,
-                                cheeks,
-                                jawline, and neck.</p>
+                                cheeks, jawline, and neck.</p>
                         </div>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="step-card" data-step="03">
+                    <div class="step-card">
                         <div class="step-icon-wrap">⏱️</div>
                         <div class="step-content">
                             <span class="step-number">Step 03</span>
-                            <h3 class="step-title">Lift</h3>
+                            <h3 class="step-title">Wait</h3>
                             <p class="step-desc">Remain expressionless and allow 15 minutes for the tightening
-                                micro-veil to
-                                fully set.</p>
+                                micro-veil to fully set.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Pro Tip Pill -->
                 <div class="pro-tip-pill">
-                    <span class="pro-tip-badge">Pro Tip</span>
+                    <span class="pro-tip-badge">CRITICAL PROTOCOL</span>
                     <span class="pro-tip-text">Take a 'before' photo on Day 1. You'll want it when people start
                         asking.</span>
                 </div>
@@ -2635,19 +2383,9 @@
         <!-- Section 12: Why Women Are Switching (Timeline) -->
         <style>
             .why-switch-section {
-                padding: 7rem 0 8rem;
-                background: var(--bg-beige);
-                position: relative;
-                overflow: hidden;
-            }
-
-            .why-switch-section::after {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: radial-gradient(circle at center, rgba(255, 107, 157, 0.05) 0%, transparent 60%);
-                pointer-events: none;
-                z-index: 0;
+                padding: 10rem 0;
+                background: var(--bg-surface);
+                border-bottom: 2px solid var(--border-main);
             }
 
             .why-switch-header {
@@ -2659,132 +2397,82 @@
                 max-width: 700px;
                 margin: 0 auto;
                 color: var(--text-muted);
-                font-size: 17px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
                 line-height: 1.6;
             }
 
             .tier-timeline {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 32px;
-                position: relative;
-                max-width: 1050px;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                max-width: 1200px;
                 margin: 0 auto;
-            }
-
-            /* The connecting line */
-            .tier-timeline::before {
-                content: '';
-                position: absolute;
-                top: 48px;
-                /* aligns with icon centers */
-                left: 17%;
-                right: 17%;
-                height: 2px;
-                background: linear-gradient(90deg, rgba(255, 107, 157, 0.4) 0%, rgba(255, 154, 92, 0.6) 50%, rgba(200, 80, 192, 0.4) 100%);
-                z-index: 1;
-            }
-
-            .tier-card {
-                background: #fff;
-                border-radius: 20px;
-                padding: 3rem 2.5rem 2.5rem;
                 position: relative;
-                z-index: 2;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-                border: 1px solid rgba(255, 107, 157, 0.08);
-                transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             }
 
             @media(min-width: 900px) {
-                .tier-card:nth-child(2) {
-                    margin-top: 30px;
+                .tier-timeline {
+                    grid-template-columns: repeat(3, 1fr);
                 }
+            }
 
-                .tier-card:nth-child(3) {
-                    margin-top: 60px;
-                }
-
-                .tier-timeline::before {
-                    transform-origin: left center;
-                    transform: rotate(4.2deg);
-                }
+            .tier-card {
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
+                padding: 3rem 2rem;
+                position: relative;
+                box-shadow: var(--shadow-brutal);
+                transition: var(--transition-base);
             }
 
             .tier-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 16px 40px rgba(255, 107, 157, 0.1);
+                transform: translate(-4px, -4px);
+                box-shadow: var(--shadow-brutal-hover);
             }
 
             .tier-icon {
-                width: 96px;
-                height: 96px;
-                background: #fff;
-                border: 2px solid transparent;
-                border-radius: 50%;
+                width: 80px;
+                height: 80px;
+                background: var(--color-black);
+                border: 2px solid var(--border-main);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin: -5.5rem auto 2rem;
+                margin: -4.5rem auto 2rem;
                 font-size: 32px;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-                position: relative;
-            }
-
-            /* Tier Progressive Styling */
-            .tier-card:nth-child(1) .tier-icon {
-                background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #fff, var(--color-rose)) border-box;
-                color: var(--color-rose);
-                box-shadow: 0 0 0 8px rgba(255, 107, 157, 0.1), 0 8px 24px rgba(255, 107, 157, 0.25);
-            }
-
-            .tier-card:nth-child(2) .tier-icon {
-                background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #fff, var(--color-peach)) border-box;
-                color: var(--color-peach);
-                box-shadow: 0 0 0 8px rgba(255, 154, 92, 0.1), 0 8px 24px rgba(255, 154, 92, 0.25);
-            }
-
-            .tier-card:nth-child(3) .tier-icon {
-                background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #fff, var(--color-violet)) border-box;
-                color: var(--color-violet);
-                box-shadow: 0 0 0 8px rgba(200, 80, 192, 0.1), 0 8px 24px rgba(200, 80, 192, 0.25);
+                color: #fff;
+                box-shadow: 4px 4px 0px var(--color-accent);
             }
 
             .tier-label {
-                font-family: 'Inter', sans-serif;
-                font-size: 10px;
-                font-weight: 800;
-                letter-spacing: 0.15em;
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 900;
+                letter-spacing: 0.1em;
                 text-transform: uppercase;
                 margin-bottom: 0.5rem;
                 display: block;
                 text-align: center;
-            }
-
-            .tier-card:nth-child(1) .tier-label {
-                color: var(--color-rose);
-            }
-
-            .tier-card:nth-child(2) .tier-label {
-                color: var(--color-peach);
-            }
-
-            .tier-card:nth-child(3) .tier-label {
-                color: var(--color-violet);
+                color: var(--color-accent);
             }
 
             .tier-title {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 26px;
-                font-weight: 700;
-                color: var(--text-dark);
+                font-family: 'Outfit', sans-serif;
+                font-size: 28px;
+                font-weight: 900;
+                color: var(--text-main);
                 margin-bottom: 1rem;
                 text-align: center;
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
             }
 
             .tier-desc {
-                font-family: 'Inter', sans-serif;
-                font-size: 14px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
                 color: var(--text-muted);
                 line-height: 1.6;
                 text-align: center;
@@ -2792,9 +2480,9 @@
         </style>
 
         <section class="why-switch-section">
-            <div class="container">
+            <div class="container container-wide">
                 <div class="why-switch-header">
-                    <h2 class="serif section-title">Why Women Are Switching</h2>
+                    <h2 class="section-title">Why Women Are Switching</h2>
                     <p>Most creams just add temporary moisture. It evaporates, and fine lines return. Instant Lift
                         Complex is scientifically designed to work on three distinct levels of your skin simultaneously.
                     </p>
@@ -2831,64 +2519,50 @@
             </div>
         </section>
 
-        <!-- Section 13: Why These Ingredients Are So Powerful (Detailed) -->
         <!-- Section 13: Featured Ingredients Hierarchy -->
         <style>
             .ingredients-section {
-                padding: 7rem 0 8rem;
-                background: var(--bg-violet-wash);
-                position: relative;
-                overflow: hidden;
+                padding: 10rem 0;
+                background: var(--bg-surface);
+                border-bottom: 2px solid var(--border-main);
             }
 
             .ing-hero {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 244, 251, 0.8) 100%);
-                backdrop-filter: blur(10px);
-                border-radius: 24px;
-                overflow: hidden;
+                grid-template-columns: 1fr;
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
                 margin-top: 4rem;
-                margin-bottom: 2rem;
-                box-shadow: 0 12px 40px rgba(200, 80, 192, 0.1), 0 0 0 1px rgba(200, 80, 192, 0.2) inset;
-                border: none;
-                animation: heroBorderGlow 4s ease-in-out infinite;
+                margin-bottom: 4rem;
+                box-shadow: var(--shadow-brutal);
                 position: relative;
-                z-index: 2;
             }
 
-            @keyframes heroBorderGlow {
-
-                0%,
-                100% {
-                    box-shadow: 0 12px 40px rgba(200, 80, 192, 0.1), 0 0 0 1px rgba(200, 80, 192, 0.2) inset;
-                }
-
-                50% {
-                    box-shadow: 0 20px 60px rgba(200, 80, 192, 0.2), 0 0 0 2px rgba(200, 80, 192, 0.4) inset;
+            @media (min-width: 900px) {
+                .ing-hero {
+                    grid-template-columns: 1fr 1fr;
                 }
             }
 
             .ing-hero-img {
-                background: rgba(255, 255, 255, 0.4);
+                background: var(--color-black);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding: 3rem;
-                position: relative;
-                overflow: hidden;
+                padding: 4rem;
+                border-right: 2px solid var(--border-main);
             }
 
             .ing-hero-img img {
                 width: 100%;
-                max-width: 380px;
+                max-width: 400px;
                 object-fit: contain;
-                transform: scale(1.1);
-                filter: saturate(0.85);
+                filter: grayscale(100%) contrast(1.2);
+                mix-blend-mode: luminosity;
             }
 
             .ing-hero-content {
-                padding: 4rem 3.5rem;
+                padding: 4rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -2896,34 +2570,37 @@
 
             .ing-pill {
                 display: inline-block;
-                background: var(--grad-glow);
+                background: var(--color-black);
                 color: #fff;
-                font-family: 'Inter', sans-serif;
-                font-size: 10px;
-                font-weight: 800;
-                letter-spacing: 0.15em;
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 900;
+                letter-spacing: 0.1em;
                 text-transform: uppercase;
-                padding: 6px 16px;
-                border-radius: 100px;
+                padding: 8px 16px;
                 margin-bottom: 1.5rem;
                 width: fit-content;
-                box-shadow: 0 4px 16px rgba(255, 107, 157, 0.3);
+                border: 2px solid var(--border-main);
+                box-shadow: 4px 4px 0px var(--color-accent);
             }
 
             .ing-title {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 34px;
-                font-weight: 700;
-                color: var(--text-dark);
+                font-family: 'Outfit', sans-serif;
+                font-size: 36px;
+                font-weight: 900;
+                color: var(--text-main);
                 margin-bottom: 0.5rem;
-                line-height: 1.1;
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
             }
 
             .ing-scientific {
-                font-family: 'Inter', sans-serif;
-                font-size: 13px;
-                color: var(--color-rose);
-                font-weight: 600;
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                color: var(--color-accent);
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
                 margin-bottom: 2rem;
             }
 
@@ -2931,116 +2608,96 @@
                 list-style: none;
                 display: flex;
                 flex-direction: column;
-                gap: 12px;
+                gap: 16px;
             }
 
             .ing-bullets li {
                 display: flex;
                 align-items: flex-start;
                 gap: 12px;
-                font-family: 'Inter', sans-serif;
-                font-size: 15px;
-                color: var(--text-body);
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--text-muted);
                 line-height: 1.5;
             }
 
             .ing-bullets li::before {
-                content: '✨';
-                font-size: 14px;
-                margin-top: 1px;
+                content: '→';
+                color: var(--color-accent);
+                font-weight: 900;
             }
 
             .ing-secondary-grid {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 24px;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            @media (min-width: 900px) {
+                .ing-secondary-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
             }
 
             .ing-secondary-card {
-                background: #fff;
-                border: 1px solid rgba(0, 0, 0, 0.08);
-                border-radius: 16px;
-                padding: 2.5rem 2rem;
-                transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
+                background: var(--bg-page);
+                border: 2px solid var(--border-main);
+                padding: 3rem 2rem;
+                transition: var(--transition-base);
+                box-shadow: var(--shadow-brutal);
                 position: relative;
-                z-index: 1;
-            }
-
-            .ing-secondary-card::before {
-                content: '';
-                position: absolute;
-                inset: -2px;
-                background: linear-gradient(135deg, var(--color-rose), var(--color-violet));
-                border-radius: 18px;
-                z-index: -1;
-                opacity: 0;
-                transition: opacity 0.4s;
             }
 
             .ing-secondary-card:hover {
-                transform: translateY(-8px) scale(1.02);
-                box-shadow: 0 16px 40px rgba(200, 80, 192, 0.15);
-                border-color: transparent;
-            }
-
-            .ing-secondary-card:hover::before {
-                opacity: 1;
+                transform: translate(-4px, -4px);
+                box-shadow: var(--shadow-brutal-hover);
             }
 
             .ing-secondary-icon {
-                font-size: 28px;
+                font-size: 32px;
                 margin-bottom: 1rem;
             }
 
             .ing-secondary-title {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 22px;
-                font-weight: 700;
-                color: var(--text-dark);
-                margin-bottom: 4px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 24px;
+                font-weight: 900;
+                color: var(--text-main);
+                margin-bottom: 8px;
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
             }
 
             .ing-secondary-scientific {
-                font-family: 'Inter', sans-serif;
-                font-size: 11px;
-                color: var(--text-muted);
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-accent);
                 margin-bottom: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
             }
 
             .ing-secondary-desc {
-                font-family: 'Inter', sans-serif;
-                font-size: 14px;
-                color: var(--text-body);
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--text-muted);
                 line-height: 1.6;
-            }
-
-            @media (max-width: 900px) {
-                .ing-hero {
-                    grid-template-columns: 1fr;
-                }
-
-                .ing-hero-img {
-                    padding: 2rem;
-                }
-
-                .ing-secondary-grid {
-                    grid-template-columns: 1fr;
-                }
             }
         </style>
 
         <section class="ingredients-section">
-            <div class="container relative z-10">
+            <div class="container container-wide">
                 <h2 class="section-title text-center">Why These Ingredients Are So Powerful</h2>
 
                 <!-- Hero Ingredient -->
                 <div class="ing-hero">
                     <div class="ing-hero-img">
-                        <div class="molecule molecule-1" style="border-color: rgba(200,80,192,0.3);"></div>
-                        <div class="molecule molecule-2" style="border-color: rgba(200,80,192,0.4);"></div>
-                        <div class="molecule molecule-3" style="border-color: rgba(200,80,192,0.3);"></div>
-                        <img src="public/images/botanicals.png" alt="Tightening Polymers Botanical"
-                            style="position: relative; z-index: 2;">
+                        <img src="public/images/botanicals.png" alt="Tightening Polymers Botanical">
                     </div>
                     <div class="ing-hero-content">
                         <span class="ing-pill">Hero Ingredient</span>
@@ -3082,13 +2739,12 @@
                 </div>
 
                 <!-- Full Ingredients Toggle -->
-                <div class="text-center mt-12">
+                <div class="text-center mt-12" style="margin-top: 4rem;">
                     <button id="toggle-ingredients" class="btn btn-outline"
-                        style="font-weight: 600; font-size: 14px; margin-top: 1rem; padding: 10px 24px; border-color: rgba(200,80,192,0.3); color: var(--color-violet);">View
-                        Full Ingredients
-                        List</button>
+                        style="border: 2px solid var(--border-main); font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase;">View
+                        Full Ingredients List</button>
                     <div id="full-ingredients-list"
-                        style="display: none; margin-top: 32px; font-size: 12px; color: var(--text-muted); line-height: 1.8; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        style="display: none; margin-top: 32px; font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); line-height: 1.8; max-width: 800px; margin-left: auto; margin-right: auto;">
                         Water, Dimethyl Sulfone, Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer, Cetyl
                         Alcohol, Glycol Stearate, Glyceryl Stearate, Caprylic/Capric Triglyceride, Citrus Aurantifolia
                         (Lime) Fruit Extract, Ruscus Aculeatus Root Extract, Zingiber Officinale (Ginger) Root Extract,
@@ -3105,103 +2761,81 @@
     </main>
 
     <footer class="footer"
-        style="background: linear-gradient(180deg, var(--bg-dark) 0%, #1a0f2e 100%); padding: 5rem 0 3rem; color: #fff; position: relative;">
-        <!-- Glowing top line -->
-        <div
-            style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,107,157,0.5), transparent); box-shadow: 0 0 15px rgba(255,107,157,0.4);">
-        </div>
-        <div class="container">
+        style="background: var(--color-black); color: var(--color-white); border-top: 4px solid var(--border-main); padding: 8rem 0 4rem; position: relative; overflow: hidden;">
+        <div class="container container-wide relative z-10">
 
-            <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 4rem;">
+            <div style="display: grid; grid-template-columns: 1fr; gap: 4rem; margin-bottom: 6rem;">
                 <!-- Brand Pillar -->
-                <div>
-                    <h3 class="serif" style="font-size: 24px; margin-bottom: 16px; color: #fff;">Glow Again Labs</h3>
+                <div style="text-align: center;">
+                    <h2
+                        style="font-family: 'Outfit', sans-serif; font-size: clamp(48px, 10vw, 140px); font-weight: 900; line-height: 0.8; text-transform: uppercase; letter-spacing: -0.05em; color: var(--color-white); margin-bottom: 2rem; display: block;">
+                        GLOW AGAIN</h2>
                     <p
-                        style="font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 24px; max-width: 250px;">
-                        Scientifically-backed skincare designed to deliver visible, lasting transformation.
-                    </p>
-                    <div class="social-links" style="display: flex; gap: 12px;">
-                        <style>
-                            .social-links a {
-                                transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, box-shadow 0.3s !important;
-                            }
+                        style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent);">
+                        Scientifically-backed skincare. Visible transformation.</p>
+                </div>
 
-                            .social-links a:hover {
-                                transform: translateY(-4px) scale(1.1);
-                                background: var(--grad-glow) !important;
-                                box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
-                            }
-                        </style>
-                        <!-- Social Icons -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; justify-content: space-between; max-width: 1000px; margin: 0 auto; width: 100%;">
+
+                    <!-- Navigation -->
+                    <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
+                        <p
+                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">
+                            Navigate</p>
                         <a href="#"
-                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px;">FB</a>
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Home</a>
                         <a href="#"
-                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px;">IG</a>
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Shop</a>
                         <a href="#"
-                            style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 14px;">TT</a>
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">FAQ</a>
+                        <a href="#"
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Contact</a>
+                        <a href="#"
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Guarantee</a>
                     </div>
-                </div>
 
-                <!-- Navigation -->
-                <div class="footer-links" style="display: flex; flex-direction: column; gap: 12px;">
-                    <p
-                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 8px;">
-                        Navigation</p>
-                    <a href="#"
-                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">Home</a>
-                    <a href="#"
-                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">Shop</a>
-                    <a href="#"
-                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">FAQ</a>
-                    <a href="#"
-                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">Contact</a>
-                    <a href="#"
-                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">Guarantee</a>
-                </div>
+                    <!-- Contact -->
+                    <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
+                        <p
+                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">
+                            Contact</p>
+                        <a href="mailto:support@glowagainlabs.com"
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">support@glowagainlabs.com</a>
 
-                <!-- Contact -->
-                <div class="footer-links" style="display: flex; flex-direction: column; gap: 12px;">
-                    <p
-                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 8px;">
-                        Contact</p>
-                    <a href="mailto:support@glowagainlabs.com"
-                        style="color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s;">support@glowagainlabs.com</a>
-                </div>
+                        <div class="social-links" style="display: flex; gap: 16px; margin-top: 1rem;">
+                            <a href="#"
+                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase; transition: var(--transition-base);">FB</a>
+                            <a href="#"
+                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase; transition: var(--transition-base);">IG</a>
+                            <a href="#"
+                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase; transition: var(--transition-base);">TT</a>
+                        </div>
+                    </div>
 
-                <!-- Newsletter -->
-                <div>
-                    <p
-                        style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 16px;">
-                        Stay Connected</p>
-                    <style>
-                        .footer-newsletter {
-                            display: flex;
-                            background: rgba(255, 255, 255, 0.06);
-                            border: 1px solid rgba(255, 255, 255, 0.1);
-                            border-radius: 12px;
-                            overflow: hidden;
-                            transition: border-color 0.3s;
-                        }
-
-                        .footer-newsletter:focus-within {
-                            border-color: rgba(255, 107, 157, 0.6);
-                            box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.15);
-                        }
-                    </style>
-                    <div class="footer-newsletter">
-                        <input type="email" placeholder="Enter your email"
-                            style="padding: 14px 16px; background: transparent; border: none; width: 100%; color: #fff; font-size: 13px; outline: none; font-family: 'Inter', sans-serif;">
-                        <button
-                            style="padding: 0 20px; background: var(--grad-glow); border: none; color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap;">Subscribe</button>
+                    <!-- Newsletter -->
+                    <div>
+                        <p
+                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 24px;">
+                            Stay Connected</p>
+                        <div class="footer-newsletter"
+                            style="display: flex; border: 2px solid var(--border-main); background: transparent;">
+                            <input type="email" placeholder="ENTER YOUR EMAIL"
+                                style="padding: 16px 20px; background: transparent; border: none; width: 100%; color: var(--color-white); font-size: 14px; font-weight: 700; outline: none; font-family: 'Outfit', sans-serif; text-transform: uppercase;">
+                            <button
+                                style="padding: 0 24px; background: var(--color-accent); border: none; border-left: 2px solid var(--border-main); color: var(--color-black); font-size: 14px; font-weight: 900; text-transform: uppercase; font-family: 'Outfit', sans-serif; cursor: pointer; white-space: nowrap; transition: var(--transition-base);">Join</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div
-                style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;">
-                <p style="color: rgba(255,255,255,0.4); font-size: 12px;">© 2026 Glow Again Labs. All rights reserved.
-                </p>
-                <p style="color: rgba(255,255,255,0.3); font-size: 10px; line-height: 1.6; max-width: 800px;">
+                style="border-top: 2px solid var(--border-main); padding-top: 3rem; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;">
+                <p
+                    style="font-family: 'Outfit', sans-serif; color: var(--text-muted); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">
+                    © 2026 Glow Again Labs. All rights reserved.</p>
+                <p
+                    style="font-family: 'Outfit', sans-serif; color: rgba(255,255,255,0.3); font-size: 12px; font-weight: 600; line-height: 1.6; max-width: 800px; text-transform: uppercase;">
                     Disclaimer: Customer experience reports the appearance of smoother, firmer-looking skin. Individual
                     results may vary. Results described reflect the experience of individual users and are not
                     guaranteed. This product is not intended to diagnose, treat, cure, or prevent any disease.

@@ -230,6 +230,48 @@
             transform: scale(1.03);
         }
 
+        /* Gallery content slides (non-image thumbs) */
+        .gallery-slide {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 32px 24px;
+            position: absolute;
+            inset: 0;
+            background: #f8f7f5;
+            z-index: 2;
+        }
+
+        .gallery-slide.active {
+            display: flex;
+        }
+
+        .gallery-slide-icon {
+            font-size: 56px;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .gallery-slide-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--color-black);
+            margin-bottom: 14px;
+        }
+
+        .gallery-slide-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 1.75;
+            color: #555;
+            max-width: 320px;
+        }
+
         .gallery-badge {
             position: absolute;
             top: 20px;
@@ -1114,28 +1156,70 @@
     <section class="pdp-hero" id="purchase">
         <!-- LEFT: Gallery -->
         <div class="gallery-col">
-            <div class="gallery-main" id="gallery-main">
+            <div class="gallery-main" id="gallery-main" style="position:relative;">
                 <div class="gallery-badge">New Formula</div>
-                <img src="public/images/product_hero_jar.png" alt="Instant Lift Complex Jar" id="main-img">
-                <div class="gallery-counter">1 / 5</div>
+                <img src="public/images/product_hero_jar.png" alt="Instant Lift Complex Jar" id="main-img"
+                    style="position:relative;z-index:1;">
+                <div class="gallery-counter" id="gallery-counter">1 / 7</div>
+                <!-- Non-image slides -->
+                <div class="gallery-slide" id="slide-texture">
+                    <div class="gallery-slide-icon">🫧</div>
+                    <div class="gallery-slide-title">Lightweight Texture</div>
+                    <p class="gallery-slide-body">Melts into skin on contact. No greasy residue. Dries to a smooth,
+                        velvety finish that works under makeup.</p>
+                </div>
+                <div class="gallery-slide" id="slide-results">
+                    <div class="gallery-slide-icon">📈</div>
+                    <div class="gallery-slide-title">Results</div>
+                    <p class="gallery-slide-body"><strong>15 min:</strong> Visible tightening &amp;
+                        smoothing<br><strong>7–14 days:</strong> Improved hydration &amp; plumpness<br><strong>30–60
+                            days:</strong> Firmer, more lifted skin<br><br><em
+                            style="color:var(--color-accent);font-weight:700;">94% reported firmer skin in 30
+                            days.*</em></p>
+                </div>
+                <div class="gallery-slide" id="slide-howto">
+                    <div class="gallery-slide-icon">📋</div>
+                    <div class="gallery-slide-title">How To Use</div>
+                    <p class="gallery-slide-body">① Cleanse &amp; pat dry<br>② Apply a thin layer to face, neck,
+                        jawline<br>③ Gently massage until absorbed<br>④ Allow 15 min to set<br>⑤ Use 2–3× daily for best
+                        results</p>
+                </div>
+                <div class="gallery-slide" id="slide-formula">
+                    <div class="gallery-slide-icon">🧪</div>
+                    <div class="gallery-slide-title">The Formula</div>
+                    <p class="gallery-slide-body"><strong>Tightening Polymers</strong> — instant visible
+                        lift<br><strong>Low MW Hyaluronic Acid</strong> — deep hydration<br><strong>Palmitoyl
+                            Tripeptide-5</strong> — collagen support<br><strong>Aloe + Panthenol</strong> — soothe &amp;
+                        repair<br><strong>Vitamin C + E</strong> — brighten &amp; protect</p>
+                </div>
+                <div class="gallery-slide" id="slide-guarantee">
+                    <div class="gallery-slide-icon">🛡️</div>
+                    <div class="gallery-slide-title">60-Day Guarantee</div>
+                    <p class="gallery-slide-body">Use it daily for 60 days. If you don't see a visible difference in
+                        your skin, we'll refund every penny.<br><br><strong>No questions. No hassle. No fine
+                            print.</strong></p>
+                </div>
             </div>
             <div class="gallery-thumbnails">
                 <div class="thumb-item active"
-                    onclick="switchThumb(this,'public/images/product_hero_jar.png','Front View')">
+                    onclick="switchThumb(this,'img','public/images/product_hero_jar.png','1 / 7')">
                     <img src="public/images/product_hero_jar.png" alt="Front">
                 </div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','Texture')">🫧<span>Texture</span></div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-texture','2 / 7')">
+                    🫧<span>Texture</span></div>
                 <div class="thumb-item thumb-icon"
-                    onclick="switchThumb(this,'public/images/step2_apply.png','Applying')">
+                    onclick="switchThumb(this,'img','public/images/step2_apply.png','3 / 7')">
                     <img src="public/images/step2_apply.png" alt="Applying"
                         style="width:60px;height:60px;object-fit:cover;">
                 </div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','Results')">📈<span>Results</span></div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','3-Step')">📋<span>How To</span></div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','Ingredients')">🧪<span>Formula</span>
-                </div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'','Guarantee')">🛡️<span>Guarantee</span>
-                </div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-results','4 / 7')">
+                    📈<span>Results</span></div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-howto','5 / 7')">📋<span>How
+                        To</span></div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-formula','6 / 7')">
+                    🧪<span>Formula</span></div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-guarantee','7 / 7')">
+                    🛡️<span>Guarantee</span></div>
             </div>
         </div>
 
@@ -2890,11 +2974,30 @@
         overlay && overlay.addEventListener('click', closeDrawer);
 
         // Gallery thumb switcher
-        function switchThumb(el, src, label) {
+        function switchThumb(el, type, value, counter) {
+            // Update active thumb
             document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
             el.classList.add('active');
-            if (src) { document.getElementById('main-img').src = src; }
+            // Update counter
+            const ctr = document.getElementById('gallery-counter');
+            if (ctr && counter) ctr.textContent = counter;
+            // Show correct content
+            const mainImg = document.getElementById('main-img');
+            const allSlides = document.querySelectorAll('.gallery-slide');
+            if (type === 'img') {
+                // Show image, hide all slides
+                mainImg.src = value;
+                mainImg.style.display = '';
+                allSlides.forEach(s => s.classList.remove('active'));
+            } else if (type === 'slide') {
+                // Hide image, show requested slide
+                mainImg.style.display = 'none';
+                allSlides.forEach(s => s.classList.remove('active'));
+                const target = document.getElementById(value);
+                if (target) target.classList.add('active');
+            }
         }
+
 
         // Purchase plan toggle
         const prices = {

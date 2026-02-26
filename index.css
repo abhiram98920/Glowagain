@@ -12,9 +12,9 @@
     /* Soft Off-White / Cream */
     --color-secondary: #0E5CA5;
     /* Medium Blue for accents/icons */
-    --color-accent: #FF4500;
-    /* Keep Orange ONLY for CTAs */
-    --color-accent-hover: #E63E00;
+    --color-accent: #08417A;
+    /* Transitioning Orange to Brand Blue */
+    --color-accent-hover: #0a1128;
 
     /* Base Colors */
     --bg-page: var(--color-white);
@@ -32,8 +32,8 @@
     --border-main: var(--color-black);
     --border-light: rgba(0, 0, 0, 0.1);
     --border-dark: rgba(255, 255, 255, 0.1);
-    --shadow-brutal: 4px 4px 0px var(--color-black);
-    --shadow-brutal-hover: 8px 8px 0px var(--color-black);
+    --shadow-brutal: 4px 4px 0px rgba(8, 65, 122, 0.2);
+    --shadow-brutal-hover: 8px 8px 0px rgba(8, 65, 122, 0.3);
 
     /* Premium Spacing System */
     --space-section: 120px;

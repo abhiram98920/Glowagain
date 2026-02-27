@@ -174,10 +174,13 @@
 
         .gallery-thumbnails {
             display: flex;
+            justify-content: center;
             overflow-x: auto;
             gap: 0;
             scrollbar-width: none;
             padding: 0;
+            border-top: 2px solid var(--color-black);
+            border-bottom: 2px solid var(--color-black);
         }
 
         .gallery-thumbnails::-webkit-scrollbar {
@@ -187,8 +190,10 @@
         .thumb-item {
             min-width: 80px;
             height: 80px;
-            flex-shrink: 0;
             border-right: 1px solid var(--color-black);
+            border-left: 1px solid var(--color-black);
+            flex-shrink: 0;
+            margin-left: -1px;
             cursor: pointer;
             display: flex;
             align-items: center;

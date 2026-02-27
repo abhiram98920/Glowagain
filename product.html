@@ -82,13 +82,14 @@
             .gallery-main {
                 flex: 1;
                 min-height: 480px;
-                padding: 48px;
+                padding: 0;
+                /* Removed padding to allow image to fill box */
             }
         }
 
         .gallery-main img {
-            max-height: 420px;
-            width: auto;
+            width: 100%;
+            height: auto;
             max-width: 100%;
             object-fit: contain;
             transition: transform 0.5s ease;

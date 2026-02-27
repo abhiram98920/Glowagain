@@ -439,10 +439,6 @@ img {
     line-height: 1;
 }
 
-display: flex;
-justify-content: flex-end;
-}
-
 .logo img {
     height: 32px;
 }

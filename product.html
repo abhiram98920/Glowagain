@@ -1312,9 +1312,9 @@
         <!-- RIGHT: Purchase -->
         <div class="purchase-col">
             <!-- Best Seller Badge & Tagline -->
-            <div style="margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+            <div style="margin-bottom: 24px; display: flex; align-items: center; gap: 12px; position: relative;">
                 <span
-                    style="background:var(--color-secondary); color:#fff; font-size:10px; font-weight:900; padding:5px 12px; text-transform:uppercase; letter-spacing:0.1em; border:1px solid var(--color-black); box-shadow: 2px 2px 0 var(--color-black);">BEST
+                    style="background:var(--color-black); color:#fff; font-size:10px; font-weight:900; padding:4px 10px; text-transform:uppercase; letter-spacing:0.1em; border:1px solid var(--color-black);">BEST
                     SELLER</span>
                 <span
                     style="font-family:'Outfit',sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted);">Trending
@@ -1347,37 +1347,36 @@
 
             <!-- PURCHASE MODULE -->
             <div class="step-label-pdp"><span class="step-num">1</span> Choose Your Plan</div>
+            <p
+                style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:16px;">
+                FREE SHIPPING + CANCEL ANYTIME</p>
             <div class="supply-grid">
-                <!-- Tier 1: Subscribe -->
-                <button class="supply-btn active" id="s1" onclick="selectTier(this, 1, 62, 'subscribe')">
-                    <div class="plan-badge"
-                        style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-black); color: #fff; font-size: 8px; padding: 4px 10px; border: 1px solid var(--border-main); white-space: nowrap;">
-                        RECOMMENDED</div>
-                    <span class="supply-qty">1 Month</span>
+                <!-- Tier 1: 6 Jars (Best Value) -->
+                <button class="supply-btn" id="s6" onclick="selectTier(this, 6, 264, 'subscribe')">
+                    <span class="supply-qty">6 Month Supply</span>
                     <span class="supply-label">Subscribe & Save 36%</span>
+                    <span class="supply-price">$264.00</span>
+                    <span style="font-size: 10px; opacity: 0.7;">$44/jar</span>
+                </button>
+                <!-- Tier 2: 3 Jars (Most Popular) -->
+                <button class="supply-btn active" id="s3" onclick="selectTier(this, 3, 159, 'subscribe')">
+                    <span class="supply-qty">3 Month Supply</span>
+                    <span class="supply-label">Subscribe & Save 23%</span>
+                    <span class="supply-price">$159.00</span>
+                    <span style="font-size: 10px; opacity: 0.7;">$53/jar</span>
+                </button>
+                <!-- Tier 3: 1 Jar (Trial) -->
+                <button class="supply-btn" id="s1" onclick="selectTier(this, 1, 62, 'subscribe')">
+                    <span class="supply-qty">1 Month Supply</span>
+                    <span class="supply-label">Subscribe & Save 10%</span>
                     <span class="supply-price">$62.00</span>
-                </button>
-                <!-- Tier 2: Bundle -->
-                <button class="supply-btn" id="s3" onclick="selectTier(this, 3, 186, 'one-time')">
-                    <div class="plan-badge"
-                        style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-black); color: #fff; font-size: 8px; padding: 4px 10px; border: 1px solid var(--border-main); white-space: nowrap;">
-                        BEST VALUE</div>
-                    <span class="supply-qty">3 Month</span>
-                    <span class="supply-label">Bundle & Save 36%</span>
-                    <span class="supply-price">$186.00</span>
-                    <span style="font-size: 10px; opacity: 0.7;">$62/jar</span>
-                </button>
-                <!-- Tier 3: Single Jar -->
-                <button class="supply-btn" id="s-trial" onclick="selectTier(this, 1, 97, 'one-time')">
-                    <span class="supply-qty">Single Jar</span>
-                    <span class="supply-label">One-Time Trial</span>
-                    <span class="supply-price">$97.00</span>
                 </button>
             </div>
 
             <div class="sub-perks" id="sub-perks">
                 <span>✓</span>Free shipping on every order<br>
                 <span>✓</span>Cancel or change anytime<br>
+                <span>✓</span>Automatic delivery so you never run out<br>
                 <span>✓</span>60-Day Money-Back Guarantee
             </div>
 
@@ -1407,9 +1406,9 @@
                         </tr>
                         <tr>
                             <td>You Save</td>
-                            <td>Up to 10%</td>
-                            <td>Up to 23%</td>
-                            <td class="price-highlight">Up to 36%</td>
+                            <td>10%</td>
+                            <td>23%</td>
+                            <td class="price-highlight">36%</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1417,7 +1416,7 @@
 
             <!-- Step 3: ATC -->
             <div class="step-label-pdp"><span class="step-num">3</span> Add to Cart</div>
-            <button class="atc-btn" id="atc-btn">ADD TO CART — $44/JAR</button>
+            <button class="atc-btn" id="atc-btn">ADD TO CART — $159.00</button>
             <div class="atc-sub">Price updates based on plan &amp; supply selection</div>
 
             <!-- Guarantee strip -->
@@ -1432,12 +1431,21 @@
 
             <!-- Payment methods -->
             <div class="payment-row">
-                <div class="pay-badge">VISA</div>
-                <div class="pay-badge">MASTERCARD</div>
-                <div class="pay-badge">AMEX</div>
-                <div class="pay-badge">PAYPAL</div>
-                <div class="pay-badge">APPLE PAY</div>
-                <div class="pay-badge">GPay</div>
+                <div class="pay-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
+                        alt="Visa" style="height:12px;"></div>
+                <div class="pay-badge"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard"
+                        style="height:18px;"></div>
+                <div class="pay-badge"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg"
+                        alt="Amex" style="height:18px;"></div>
+                <div class="pay-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+                        alt="PayPal" style="height:18px;"></div>
+                <div class="pay-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg"
+                        alt="Apple Pay" style="height:18px;"></div>
+                <div class="pay-badge"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="GPay"
+                        style="height:18px;"></div>
             </div>
 
             <!-- Trust badges -->
@@ -1554,10 +1562,10 @@
         .video-section-eyebrow {
             font-family: 'Outfit', sans-serif;
             font-weight: 900;
-            font-size: 12px;
-            letter-spacing: 0.2em;
+            font-size: 14px;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: var(--color-secondary);
+            color: #fff;
             margin-bottom: 16px;
             text-align: center;
         }
@@ -2019,7 +2027,7 @@
         <div class="testi-track">
             <div class="testi-card">
                 <div class="testi-stars">★★★★★</div>
-                <div class="testi-name">Joan, 68</div>
+                <div class="testi-name">Joan, 64</div>
                 <div class="testi-tags">Visible Tightening · Smoother Skin</div>
                 <p class="testi-quote">"I could see the difference in my jawline after the first week. My daughter asked
                     what I was doing differently."</p><button class="testi-read">Read More</button>
@@ -2780,53 +2788,53 @@
             <p class="ing-eyebrow">The Formula</p>
             <h2 class="ing-title">How Does Instant Lift Complex Work?</h2>
             <div class="ing-grid6">
-                <!-- Card 1: Peptides -->
+                <!-- Card 1: Polymers -->
                 <div class="ing-card6">
-                    <div class="ing-emoji">🧬</div>
-                    <div class="ing-category">Structural Support</div>
-                    <div class="ing-name">Palmitoyl Tripeptide-5</div>
-                    <p class="ing-desc6">A key signal peptide that works deep within the skin's layers to support
-                        natural collagen processes and promote long-term firmness.</p>
+                    <div class="ing-emoji">✨</div>
+                    <div class="ing-category">Instant Lift</div>
+                    <div class="ing-name">Tightening Polymers</div>
+                    <p class="ing-desc6">Creates an invisible, breathable micro-veil that produces a visible lifting
+                        effect within 15 minutes of application.</p>
                 </div>
                 <!-- Card 2: HA -->
                 <div class="ing-card6">
                     <div class="ing-emoji">💧</div>
                     <div class="ing-category">Deep Hydration</div>
                     <div class="ing-name">Low MW Hyaluronic Acid</div>
-                    <p class="ing-desc6">Standard HA sits on top. Our low-molecular-weight version is specifically
-                        designed to penetrate deeper, plumping from within.</p>
+                    <p class="ing-desc6">Our low-molecular-weight version is specifically designed to penetrate deeper,
+                        pulling moisture deep beneath the surface to plump from within.</p>
                 </div>
-                <!-- Card 3: Polymers -->
+                <!-- Card 3: Peptides -->
                 <div class="ing-card6">
-                    <div class="ing-emoji">✨</div>
-                    <div class="ing-category">Instant Lift</div>
-                    <div class="ing-name">Tightening Polymer Complex</div>
-                    <p class="ing-desc6">Creates an invisible, breathable micro-veil that produces a visible lifting
-                        effect within 15 minutes of application.</p>
+                    <div class="ing-emoji">🧬</div>
+                    <div class="ing-category">Structural Support</div>
+                    <div class="ing-name">Collagen-Boosting Peptides</div>
+                    <p class="ing-desc6">Signal peptides like Palmitoyl Tripeptide-5 reinforce the structural layer of
+                        your skin, promoting real firmness that improves week after week.</p>
                 </div>
-                <!-- Card 4: Ceramides -->
-                <div class="ing-card6">
-                    <div class="ing-emoji">🛡️</div>
-                    <div class="ing-category">Barrier Recovery</div>
-                    <div class="ing-name">Ceramides NP, AP, EOP</div>
-                    <p class="ing-desc6">Essential lipids that restore the skin's protective barrier, locking in
-                        moisture and protecting against environmental stressors.</p>
-                </div>
-                <!-- Card 5: Squalane -->
+                <!-- Card 4: Circulation -->
                 <div class="ing-card6">
                     <div class="ing-emoji">🌿</div>
-                    <div class="ing-category">Botanical Emollient</div>
-                    <div class="ing-name">Squalane (Olive-Derived)</div>
-                    <p class="ing-desc6">A highly stable hydrocarbon that mimics your skin's natural sebum, providing
-                        silky smoothness without any greasy residue.</p>
+                    <div class="ing-category">Circulation & Soothing</div>
+                    <div class="ing-name">Butcher’s Broom & Ginger</div>
+                    <p class="ing-desc6">Botanical extracts that soothe the skin surface while supporting healthy
+                        micro-circulation for a more vibrant, awake appearance.</p>
                 </div>
-                <!-- Card 6: Niacinamide -->
+                <!-- Card 5: Protection -->
                 <div class="ing-card6">
                     <div class="ing-emoji">💎</div>
-                    <div class="ing-category">Tone & Texture</div>
-                    <div class="ing-name">Niacinamide (Vitamin B3)</div>
-                    <p class="ing-desc6">Universally loved for its ability to refine the appearance of pores, brighten
-                        uneven tone, and support a healthy skin barrier.</p>
+                    <div class="ing-category">Brightening & Protection</div>
+                    <div class="ing-name">Vitamin C & Vitamin E</div>
+                    <p class="ing-desc6">A powerful antioxidant duo that brightens uneven skin tone and protects against
+                        environmental stressors that cause premature aging.</p>
+                </div>
+                <!-- Card 6: Recovery -->
+                <div class="ing-card6">
+                    <div class="ing-emoji">🛡️</div>
+                    <div class="ing-category">The Recovery Complex</div>
+                    <div class="ing-name">Aloe, Panthenol & Hibiscus</div>
+                    <p class="ing-desc6">Essential nutrients that restore the skin's protective barrier, locking in
+                        moisture and calming sensitive areas for a smooth, velvety finish.</p>
                 </div>
             </div>
             <div class="ing-full-toggle">
@@ -3312,7 +3320,21 @@
                     <div class="footer-logo">Glow Again Labs<span>.</span></div>
                     <p>Premium multi-action skincare formulated for women who want visible results — not promises.</p>
                     <div class="footer-pay" style="margin-top:20px;">
-                        <span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE</span><span>GPAY</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa"
+                            style="height:12px; margin-right:12px; filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                            alt="Mastercard"
+                            style="height:18px; margin-right:12px; filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg"
+                            alt="Amex"
+                            style="height:18px; margin-right:12px; filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal"
+                            style="height:18px; margin-right:12px; filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg"
+                            alt="Apple Pay"
+                            style="height:18px; margin-right:12px; filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="GPay"
+                            style="height:18px; filter:brightness(0) invert(1); opacity:0.8;">
                     </div>
                 </div>
                 <div class="footer-col">
@@ -3322,8 +3344,8 @@
                     <a href="#faq">FAQ</a>
                     <a href="mailto:support@glowagainlabs.com">Contact</a>
                     <a href="#guarantee">Guarantee</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
                 </div>
                 <div class="footer-col">
                     <div class="footer-col-title">Social</div>
@@ -3393,8 +3415,14 @@
             const count = document.getElementById('cart-count');
 
             if (desc) desc.textContent = qty + " (" + plan + ")";
-            if (cartPrice) cartPrice.textContent = price;
-            if (cartTotal) cartTotal.textContent = price;
+
+            // Clean price for calculation
+            const numericPrice = parseFloat(price.replace('$', ''));
+            const numericQty = parseInt(qty);
+            const pricePerJar = Math.round(numericPrice / numericQty);
+
+            if (cartPrice) cartPrice.textContent = `$${pricePerJar}.00 / jar`;
+            if (cartTotal) cartTotal.textContent = `$${numericPrice}.00`;
             if (empty) empty.style.display = 'none';
             if (full) full.style.display = 'block';
             if (count) { count.textContent = '(1)'; count.style.display = 'inline'; }

@@ -3211,6 +3211,52 @@
         </div>
     </footer>
 
+    <!-- Section 2: Navigation & Drawers -->
+    <div class="overlay" id="overlay"></div>
+
+    <nav class="nav-drawer" id="nav-drawer">
+        <button class="drawer-close" id="drawer-close">✕</button>
+        <div class="nav-drawer-links">
+            <a href="index.html">Home</a>
+            <a href="product.html">Shop</a>
+            <a href="product.html#faq">FAQ</a>
+            <a href="product.html#guarantee">Guarantee</a>
+        </div>
+    </nav>
+
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="flex justify-between items-center mb-8">
+            <h3 class="serif" style="font-size: 24px;">Your Cart</h3>
+            <button id="close-cart">✕</button>
+        </div>
+        <div id="cart-empty-state" class="text-center" style="margin-top: 60px;">
+            <div style="font-size: 64px; margin-bottom: 24px;">🏺</div>
+            <p style="color: var(--text-muted); margin-bottom: 32px;">Your cart is empty. A 10 years younger you is one
+                click away.</p>
+            <a href="product.html" class="btn btn-primary" id="shop-now-empty">SHOP NOW</a>
+        </div>
+        <div id="cart-full-state" style="display: none; margin-top: 40px;">
+            <div class="flex gap-4 items-center"
+                style="border-bottom: 1px solid var(--border-color); padding-bottom: 24px; margin-bottom: 24px;">
+                <img src="public/images/product_jar.png" id="cart-item-image"
+                    style="width: 80px; height: 80px; object-fit: contain; background: #F9F9F9;">
+                <div>
+                    <p style="font-weight: 700; font-size: 16px;">Instant Lift Complex</p>
+                    <p id="cart-item-desc" style="font-size: 12px; color: var(--text-muted);">1-Month Supply (Plan:
+                        Subscribe)</p>
+                    <p id="cart-item-price" style="font-weight: 600; margin-top: 8px;">$62.00</p>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mb-8">
+                <span style="font-weight: 600;">Total</span>
+                <span id="cart-total" style="font-weight: 700; font-size: 20px;">$62.00</span>
+            </div>
+            <button class="btn btn-primary w-full" style="width: 100%;">CHECKOUT</button>
+            <p style="font-size: 11px; text-align: center; color: var(--text-muted); margin-top: 16px;">✓ Free shipping
+                included</p>
+        </div>
+    </div>
+
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         // ── Nav & Drawer Control ──
@@ -3369,51 +3415,6 @@
         }, { threshold: 0.1 });
         revealEls.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
     </script>
-    <!-- Section 2: Navigation & Drawers -->
-    <div class="overlay" id="overlay"></div>
-
-    <nav class="nav-drawer" id="nav-drawer">
-        <button class="drawer-close" id="drawer-close">✕</button>
-        <div class="nav-drawer-links">
-            <a href="index.html">Home</a>
-            <a href="product.html">Shop</a>
-            <a href="product.html#faq">FAQ</a>
-            <a href="product.html#guarantee">Guarantee</a>
-        </div>
-    </nav>
-
-    <div class="cart-drawer" id="cart-drawer">
-        <div class="flex justify-between items-center mb-8">
-            <h3 class="serif" style="font-size: 24px;">Your Cart</h3>
-            <button id="close-cart">✕</button>
-        </div>
-        <div id="cart-empty-state" class="text-center" style="margin-top: 60px;">
-            <div style="font-size: 64px; margin-bottom: 24px;">🏺</div>
-            <p style="color: var(--text-muted); margin-bottom: 32px;">Your cart is empty. A 10 years younger you is one
-                click away.</p>
-            <a href="product.html" class="btn btn-primary" id="shop-now-empty">SHOP NOW</a>
-        </div>
-        <div id="cart-full-state" style="display: none; margin-top: 40px;">
-            <div class="flex gap-4 items-center"
-                style="border-bottom: 1px solid var(--border-color); padding-bottom: 24px; margin-bottom: 24px;">
-                <img src="public/images/product_jar.png" id="cart-item-image"
-                    style="width: 80px; height: 80px; object-fit: contain; background: #F9F9F9;">
-                <div>
-                    <p style="font-weight: 700; font-size: 16px;">Instant Lift Complex</p>
-                    <p id="cart-item-desc" style="font-size: 12px; color: var(--text-muted);">1-Month Supply (Plan:
-                        Subscribe)</p>
-                    <p id="cart-item-price" style="font-weight: 600; margin-top: 8px;">$62.00</p>
-                </div>
-            </div>
-            <div class="flex justify-between items-center mb-8">
-                <span style="font-weight: 600;">Total</span>
-                <span id="cart-total" style="font-weight: 700; font-size: 20px;">$62.00</span>
-            </div>
-            <button class="btn btn-primary w-full" style="width: 100%;">CHECKOUT</button>
-            <p style="font-size: 11px; text-align: center; color: var(--text-muted); margin-top: 16px;">✓ Free shipping
-                included</p>
-        </div>
-    </div>
 </body>
 
 </html>

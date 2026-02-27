@@ -38,69 +38,19 @@
         </div>
     </div>
 
-    <!-- Section 2: Navigation Header -->
-    <div class="overlay" id="nav-overlay">
-    </div>
+    <!-- Section 2: Navigation & Drawers -->
+    <div class="overlay" id="overlay"></div>
+
     <nav class="nav-drawer" id="nav-drawer">
         <button class="drawer-close" id="drawer-close">✕</button>
-        <a href="index.html">Home</a>
-        <a href="product.html">Shop</a>
-        <a href="product.html#faq">FAQ</a>
-        <a href="product.html#guarantee">Guarantee</a>
+        <div class="nav-drawer-links">
+            <a href="index.html">Home</a>
+            <a href="product.html">Shop</a>
+            <a href="product.html#faq">FAQ</a>
+            <a href="product.html#guarantee">Guarantee</a>
+        </div>
     </nav>
 
-    <header class="site-header">
-        <div class="site-nav-container">
-            <!-- Left: Hamburger -->
-            <button class="site-nav-btn" id="hamburger">
-                <div style="display:flex;flex-direction:column;gap:5px;">
-                    <span style="display:block;width:24px;height:2px;background:var(--color-black);"></span>
-                    <span style="display:block;width:24px;height:2px;background:var(--color-black);"></span>
-                    <span style="display:block;width:24px;height:2px;background:var(--color-black);"></span>
-                </div>
-            </button>
-            <!-- Center: Logo -->
-            <a href="index.html" class="site-logo">
-                GLOW AGAIN LABS<span>.</span>
-            </a>
-            <!-- Right: Cart -->
-            <button class="site-nav-btn" id="cart-toggle">
-                <div style="position: relative;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="square" stroke-linejoin="miter">
-                        <circle cx="9" cy="21" r="1.5"></circle>
-                        <circle cx="20" cy="21" r="1.5"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span class="cart-count-badge" id="cart-count">(0)</span>
-                </div>
-            </button>
-        </div>
-    </header>
-
-    <script>
-        // Nav drawer
-        const hamburger = document.getElementById('hamburger');
-        const navDrawer = document.getElementById('nav-drawer');
-        const navOverlay = document.getElementById('nav-overlay');
-        const drawerClose = document.getElementById('drawer-close');
-        function openDrawer() {
-            navDrawer.classList.add('open');
-            navOverlay.style.display = 'block';
-            setTimeout(() => navOverlay.style.opacity = '1', 10);
-        }
-        function closeDrawer() {
-            navDrawer.classList.remove('open');
-            navOverlay.style.opacity = '0';
-            setTimeout(() => navOverlay.style.display = 'none', 300);
-        }
-        hamburger && hamburger.addEventListener('click', openDrawer);
-        drawerClose && drawerClose.addEventListener('click', closeDrawer);
-        navOverlay && navOverlay.addEventListener('click', closeDrawer);
-    </script>
-
-    <!-- Cart Drawer -->
-    <div class="overlay" id="overlay"></div>
     <div class="cart-drawer" id="cart-drawer">
         <div class="flex justify-between items-center mb-8">
             <h3 class="serif" style="font-size: 24px;">Your Cart</h3>
@@ -134,133 +84,156 @@
         </div>
     </div>
 
+    <header class="site-header">
+        <div class="site-nav-container">
+            <!-- Left: Hamburger -->
+            <button class="site-nav-btn" id="hamburger">
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                    <span style="display:block;width:24px;height:2px;background:var(--color-black);"></span>
+                    <span style="display:block;width:24px;height:2px;background:var(--color-black);"></span>
+                    <span style="display:block;width:24px;height:2px;background:var(--color-black);"></span>
+                </div>
+            </button>
+            <!-- Center: Logo -->
+            <a href="index.html" class="site-logo">
+                GLOW AGAIN LABS<span>.</span>
+            </a>
+            <!-- Right: Cart -->
+            <button class="site-nav-btn" id="cart-toggle">
+                <div style="position: relative;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="square" stroke-linejoin="miter">
+                        <circle cx="9" cy="21" r="1.5"></circle>
+                        <circle cx="20" cy="21" r="1.5"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count-badge" id="cart-count">(0)</span>
+                </div>
+            </button>
+        </div>
+    </header>
+
     <main>
         <!-- Section 3: Hero Section -->
         <!-- Section 3: Hero Section -->
         <style>
             .hero-slider-wrapper {
-                width: 100%;
-                background: var(--bg-page);
-                position: relative;
-                overflow: hidden;
-                border-bottom: 2px solid var(--border-main);
-            }
 
-            .hero-container {
-                display: flex;
-                flex-direction: column;
-                min-height: 85vh;
-                position: relative;
-                z-index: 10;
-            }
-
-            @media (min-width: 900px) {
                 .hero-container {
-                    flex-direction: row;
-                    min-height: calc(100vh - 80px);
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 85vh;
+                    position: relative;
+                    z-index: 10;
                 }
-            }
 
-            .hero-content {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding: 4rem 2rem;
-                z-index: 2;
-                border-bottom: 2px solid var(--border-main);
-            }
+                @media (min-width: 900px) {
+                    .hero-container {
+                        flex-direction: row;
+                        min-height: calc(100vh - 80px);
+                    }
+                }
 
-            @media (min-width: 900px) {
                 .hero-content {
-                    padding: 0 4rem;
-                    border-bottom: none;
-                    border-right: 2px solid var(--border-main);
-                    max-width: 55%;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 4rem 2rem;
+                    z-index: 2;
+                    border-bottom: 2px solid var(--border-main);
                 }
-            }
 
-            .hero-visual {
-                flex: 1;
-                display: flex;
-                align-items: stretch;
-                justify-content: center;
-                z-index: 1;
-                background: var(--bg-dark);
-                position: relative;
-                overflow: hidden;
-            }
+                @media (min-width: 900px) {
+                    .hero-content {
+                        padding: 0 4rem;
+                        border-bottom: none;
+                        border-right: 2px solid var(--border-main);
+                        max-width: 55%;
+                    }
+                }
 
-            .hero-img-fill {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center 20%;
-                filter: contrast(1.1) saturate(1.1);
-            }
+                .hero-visual {
+                    flex: 1;
+                    display: flex;
+                    align-items: stretch;
+                    justify-content: center;
+                    z-index: 1;
+                    background: var(--bg-dark);
+                    position: relative;
+                    overflow: hidden;
+                }
 
-            .review-badge {
-                background: var(--color-black);
-                color: var(--color-white);
-                padding: 12px 24px;
-                display: inline-flex;
-                align-items: center;
-                gap: 12px;
-                font-family: 'Outfit', sans-serif;
-                font-size: 14px;
-                font-weight: 800;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                margin-bottom: 2rem;
-                box-shadow: var(--shadow-brutal);
-                border: 2px solid var(--color-black);
-                align-self: flex-start;
-            }
+                .hero-img-fill {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                    filter: contrast(1.1) saturate(1.1);
+                }
 
-            .hero-title {
-                color: var(--text-dark);
-                margin-bottom: 1.5rem;
-                font-size: var(--text-hero);
-                line-height: 0.9;
-                letter-spacing: -0.05em;
-                text-transform: uppercase;
-            }
+                .review-badge {
+                    background: var(--color-black);
+                    color: var(--color-white);
+                    padding: 12px 24px;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 12px;
+                    font-family: 'Outfit', sans-serif;
+                    font-size: 14px;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    margin-bottom: 2rem;
+                    box-shadow: var(--shadow-brutal);
+                    border: 2px solid var(--color-black);
+                    align-self: flex-start;
+                }
 
-            .hero-subtitle {
-                font-family: 'Inter', sans-serif;
-                font-size: 20px;
-                font-weight: 500;
-                color: var(--text-main);
-                margin-bottom: 3rem;
-                line-height: 1.5;
-                max-width: 90%;
-            }
+                .hero-title {
+                    color: var(--text-dark);
+                    margin-bottom: 1.5rem;
+                    font-size: var(--text-hero);
+                    line-height: 0.9;
+                    letter-spacing: -0.05em;
+                    text-transform: uppercase;
+                }
 
-            .hero-cta {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: var(--color-black);
-                color: var(--color-white);
-                font-family: 'Outfit', sans-serif;
-                font-size: 18px;
-                font-weight: 800;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                padding: 24px 48px;
-                border: 2px solid var(--color-black);
-                box-shadow: var(--shadow-brutal);
-                transition: var(--transition-base);
-                text-decoration: none;
-                align-self: flex-start;
-            }
+                .hero-subtitle {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: var(--text-main);
+                    margin-bottom: 3rem;
+                    line-height: 1.5;
+                    max-width: 90%;
+                }
 
-            .hero-cta:hover {
-                transform: translate(-4px, -4px);
-                box-shadow: var(--shadow-brutal-hover);
-                background: var(--color-black);
-                color: var(--color-white);
-            }
+                .hero-cta {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: var(--color-black);
+                    color: var(--color-white);
+                    font-family: 'Outfit', sans-serif;
+                    font-size: 18px;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    padding: 24px 48px;
+                    border: 2px solid var(--color-black);
+                    box-shadow: var(--shadow-brutal);
+                    transition: var(--transition-base);
+                    text-decoration: none;
+                    align-self: flex-start;
+                }
+
+                .hero-cta:hover {
+                    transform: translate(-4px, -4px);
+                    box-shadow: var(--shadow-brutal-hover);
+                    background: var(--color-black);
+                    color: var(--color-white);
+                }
         </style>
         <section class="hero-slider-wrapper">
             <div class="container hero-container" style="padding: 0; max-width: 100%;">
@@ -3211,136 +3184,167 @@
         </div>
     </footer>
 
-    <script>
-        // Cart Logic
-        const cartToggle = document.getElementById('cart-toggle');
-        const closeCart = document.getElementById('close-cart');
-        const cartDrawer = document.getElementById('cart-drawer');
-        const overlay = document.getElementById('overlay');
-        const shopNowEmpty = document.getElementById('shop-now-empty');
+    // ── Nav & Drawer Control ──
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('nav-drawer');
+    const overlay = document.getElementById('overlay');
+    const drawerClose = document.getElementById('drawer-close');
+    const cartToggle = document.getElementById('cart-toggle');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const closeCart = document.getElementById('close-cart');
+    const shopNowEmpty = document.getElementById('shop-now-empty');
 
-        const toggleCart = () => {
-            cartDrawer.classList.toggle('open');
-            overlay.classList.toggle('visible');
-            document.body.style.overflow = cartDrawer.classList.contains('open') ? 'hidden' : 'auto';
-        };
+    function openNavDrawer() {
+    if (navDrawer) navDrawer.classList.add('open');
+    if (overlay) overlay.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+    }
 
-        cartToggle.addEventListener('click', toggleCart);
-        closeCart.addEventListener('click', toggleCart);
-        overlay.addEventListener('click', toggleCart);
-        shopNowEmpty.addEventListener('click', toggleCart);
+    function closeNavDrawer() {
+    if (navDrawer) navDrawer.classList.remove('open');
+    if (!cartDrawer || !cartDrawer.classList.contains('open')) {
+    if (overlay) overlay.classList.remove('visible');
+    document.body.style.overflow = '';
+    }
+    }
 
-        // Pricing Logic
-        const supplyOptions = document.querySelectorAll('.supply-option');
-        const displayPrice = document.getElementById('display-price');
+    function openCartDrawer() {
+    if (cartDrawer) cartDrawer.classList.add('open');
+    if (overlay) overlay.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+    }
 
-        supplyOptions.forEach(opt => {
-            opt.addEventListener('click', () => {
-                supplyOptions.forEach(o => o.classList.remove('selected'));
-                opt.classList.add('selected');
-                const price = opt.getAttribute('data-price');
-                displayPrice.innerText = `$${price}.00`;
-            });
-        });
+    function closeCartDrawer() {
+    if (cartDrawer) cartDrawer.classList.remove('open');
+    if (!navDrawer || !navDrawer.classList.contains('open')) {
+    if (overlay) overlay.classList.remove('visible');
+    document.body.style.overflow = '';
+    }
+    }
+
+    function closeAll() {
+    closeNavDrawer();
+    closeCartDrawer();
+    }
+
+    hamburger && hamburger.addEventListener('click', openNavDrawer);
+    drawerClose && drawerClose.addEventListener('click', closeNavDrawer);
+    cartToggle && cartToggle.addEventListener('click', openCartDrawer);
+    closeCart && closeCart.addEventListener('click', closeCartDrawer);
+    shopNowEmpty && shopNowEmpty.addEventListener('click', closeCartDrawer);
+    overlay && overlay.addEventListener('click', closeAll);
+
+    // Pricing Logic
+    const supplyOptions = document.querySelectorAll('.supply-option');
+    const displayPrice = document.getElementById('display-price');
+
+    supplyOptions.forEach(opt => {
+    opt.addEventListener('click', () => {
+    supplyOptions.forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    const price = opt.getAttribute('data-price');
+    displayPrice.innerText = `$${price}.00`;
+    });
+    });
 
 
-        // Initialize pricing
-        // The original updatePricing() function is removed as per the new pricing structure.
-        // The initial price should be set by default selection in HTML or by triggering a click on the default option.
+    // Initialize pricing
+    // The original updatePricing() function is removed as per the new pricing structure.
+    // The initial price should be set by default selection in HTML or by triggering a click on the default option.
 
-        // Add to Cart
-        const addToCartBtn = document.getElementById('add-to-cart');
-        const cartEmptyState = document.getElementById('cart-empty-state');
-        const cartFullState = document.getElementById('cart-full-state');
-        const cartItemDesc = document.getElementById('cart-item-desc');
-        const cartItemPrice = document.getElementById('cart-item-price');
-        const cartTotal = document.getElementById('cart-total');
+    // Add to Cart
+    const addToCartBtn = document.getElementById('add-to-cart');
+    const cartEmptyState = document.getElementById('cart-empty-state');
+    const cartFullState = document.getElementById('cart-full-state');
+    const cartItemDesc = document.getElementById('cart-item-desc');
+    const cartItemPrice = document.getElementById('cart-item-price');
+    const cartTotal = document.getElementById('cart-total');
 
-        addToCartBtn.addEventListener('click', () => {
-            const selectedOpt = document.querySelector('.supply-option.selected');
-            if (!selectedOpt) return;
+    addToCartBtn.addEventListener('click', () => {
+    const selectedOpt = document.querySelector('.supply-option.selected');
+    if (!selectedOpt) return;
 
-            const jars = selectedOpt.getAttribute('data-jars');
-            const price = selectedOpt.getAttribute('data-price');
-            const plan = selectedOpt.getAttribute('data-plan');
+    const jars = selectedOpt.getAttribute('data-jars');
+    const price = selectedOpt.getAttribute('data-price');
+    const plan = selectedOpt.getAttribute('data-plan');
 
-            document.getElementById('cart-count').textContent = `(1)`;
-            document.getElementById('cart-count').style.display = 'inline';
+    document.getElementById('cart-count').textContent = `(1)`;
+    document.getElementById('cart-count').style.display = 'inline';
 
-            // Update drawer UI
-            cartEmptyState.style.display = 'none';
-            cartFullState.style.display = 'block';
+    // Update drawer UI
+    cartEmptyState.style.display = 'none';
+    cartFullState.style.display = 'block';
 
-            const planText = plan === 'subscribe' ? 'Subscribe & Save' : 'One-Time Purchase';
-            cartItemDesc.textContent = `${jars}-Month Supply (${planText})`;
+    const planText = plan === 'subscribe' ? 'Subscribe & Save' : 'One-Time Purchase';
+    cartItemDesc.textContent = `${jars}-Month Supply (${planText})`;
 
-            // Correctly show price per jar
-            const numericPrice = parseInt(price);
-            const numericJars = parseInt(jars);
-            const pricePerJar = Math.round(numericPrice / numericJars);
+    // Correctly show price per jar
+    const numericPrice = parseInt(price);
+    const numericJars = parseInt(jars);
+    const pricePerJar = Math.round(numericPrice / numericJars);
 
-            cartItemPrice.textContent = `$${pricePerJar}.00 / jar`;
-            cartTotal.textContent = `$${numericPrice}.00`;
+    cartItemPrice.textContent = `$${pricePerJar}.00 / jar`;
+    cartTotal.textContent = `$${numericPrice}.00`;
 
-            toggleCart();
-        });
+    openCartDrawer();
+    });
 
-        // Testimonial Read More
-        document.querySelectorAll('.read-more-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const extra = btn.previousElementSibling;
-                if (extra.style.display === 'none') {
-                    extra.style.display = 'block';
-                    btn.textContent = '[Read less]';
-                } else {
-                    extra.style.display = 'none';
-                    btn.textContent = '[Read more]';
-                }
-            });
-        });
+    // Testimonial Read More
+    document.querySelectorAll('.read-more-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+    const extra = btn.previousElementSibling;
+    if (extra.style.display === 'none') {
+    extra.style.display = 'block';
+    btn.textContent = '[Read less]';
+    } else {
+    extra.style.display = 'none';
+    btn.textContent = '[Read more]';
+    }
+    });
+    });
 
-        // Toggle Ingredients
-        const toggleIng = document.getElementById('toggle-ingredients');
-        const ingList = document.getElementById('full-ingredients-list');
-        toggleIng.addEventListener('click', () => {
-            if (ingList.style.display === 'none') {
-                ingList.style.display = 'block';
-                toggleIng.textContent = '[Hide Full Ingredients List]';
-            } else {
-                ingList.style.display = 'none';
-                toggleIng.textContent = '[View Full Ingredients List]';
-            }
-        });
+    // Toggle Ingredients
+    const toggleIng = document.getElementById('toggle-ingredients');
+    const ingList = document.getElementById('full-ingredients-list');
+    toggleIng.addEventListener('click', () => {
+    if (ingList.style.display === 'none') {
+    ingList.style.display = 'block';
+    toggleIng.textContent = '[Hide Full Ingredients List]';
+    } else {
+    ingList.style.display = 'none';
+    toggleIng.textContent = '[View Full Ingredients List]';
+    }
+    });
 
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+    behavior: 'smooth'
+    });
+    });
+    });
 
-        // Global Scroll Reveal Animation
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
+    // Global Scroll Reveal Animation
+    const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+    };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+    const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+    entry.target.classList.add('active');
+    observer.unobserve(entry.target);
+    }
+    });
+    }, observerOptions);
 
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
+    document.querySelectorAll('.reveal').forEach((el) => {
+    observer.observe(el);
+    });
     </script>
 </body>
 

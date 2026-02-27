@@ -1352,21 +1352,24 @@
                 FREE SHIPPING + CANCEL ANYTIME</p>
             <div class="supply-grid">
                 <!-- Tier 1: 6 Jars (Best Value) -->
-                <button class="supply-btn" id="s6" onclick="selectTier(this, 6, 264, 'subscribe')">
+                <button class="supply-btn" id="s6" onclick="selectTier(this, 6, 264, 'subscribe')" data-jars="6"
+                    data-price="264" data-plan="subscribe">
                     <span class="supply-qty">6 Month Supply</span>
                     <span class="supply-label">Subscribe & Save 36%</span>
                     <span class="supply-price">$264.00</span>
                     <span style="font-size: 10px; opacity: 0.7;">$44/jar</span>
                 </button>
                 <!-- Tier 2: 3 Jars (Most Popular) -->
-                <button class="supply-btn active" id="s3" onclick="selectTier(this, 3, 159, 'subscribe')">
+                <button class="supply-btn active" id="s3" onclick="selectTier(this, 3, 159, 'subscribe')" data-jars="3"
+                    data-price="159" data-plan="subscribe">
                     <span class="supply-qty">3 Month Supply</span>
                     <span class="supply-label">Subscribe & Save 23%</span>
                     <span class="supply-price">$159.00</span>
                     <span style="font-size: 10px; opacity: 0.7;">$53/jar</span>
                 </button>
                 <!-- Tier 3: 1 Jar (Trial) -->
-                <button class="supply-btn" id="s1" onclick="selectTier(this, 1, 62, 'subscribe')">
+                <button class="supply-btn" id="s1" onclick="selectTier(this, 1, 62, 'subscribe')" data-jars="1"
+                    data-price="62" data-plan="subscribe">
                     <span class="supply-qty">1 Month Supply</span>
                     <span class="supply-label">Subscribe & Save 10%</span>
                     <span class="supply-price">$62.00</span>
@@ -1432,7 +1435,7 @@
             <!-- Payment methods -->
             <div class="payment-row">
                 <div class="pay-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
-                        alt="Visa" style="height:12px;"></div>
+                        alt="Visa" style="height:18px;"></div>
                 <div class="pay-badge"><img
                         src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard"
                         style="height:18px;"></div>
@@ -3321,7 +3324,7 @@
                     <p>Premium multi-action skincare formulated for women who want visible results — not promises.</p>
                     <div class="footer-pay" style="margin-top:20px;">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa"
-                            style="height:12px; margin-right:12px; filter:brightness(0) invert(1); opacity:0.8;">
+                            style="height:18px; margin-right:12px; filter:brightness(0) invert(1); opacity:0.8;">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
                             alt="Mastercard"
                             style="height:18px; margin-right:12px; filter:brightness(0) invert(1); opacity:0.8;">
@@ -3402,9 +3405,9 @@
         atcBtn && atcBtn.addEventListener('click', function () {
             // Updated for new 3-tier structure
             const activeBtn = document.querySelector('.supply-btn.active');
-            const qty = activeBtn.querySelector('.supply-qty').textContent;
-            const plan = activeBtn.querySelector('.supply-label').textContent;
-            const price = activeBtn.querySelector('.supply-price').textContent;
+            const jars = activeBtn.getAttribute('data-jars');
+            const price = activeBtn.getAttribute('data-price');
+            const plan = activeBtn.getAttribute('data-plan');
 
             // Update cart drawer content
             const desc = document.getElementById('cart-item-desc');
@@ -3414,12 +3417,15 @@
             const full = document.getElementById('cart-full-state');
             const count = document.getElementById('cart-count');
 
-            if (desc) desc.textContent = qty + " (" + plan + ")";
+            if (desc) {
+                const planText = plan === 'subscribe' ? 'Subscribe & Save' : 'One-Time Purchase';
+                desc.textContent = jars + "-Month Supply (" + planText + ")";
+            }
 
             // Clean price for calculation
-            const numericPrice = parseFloat(price.replace('$', ''));
-            const numericQty = parseInt(qty);
-            const pricePerJar = Math.round(numericPrice / numericQty);
+            const numericPrice = parseFloat(price);
+            const numericJars = parseInt(jars);
+            const pricePerJar = Math.round(numericPrice / numericJars);
 
             if (cartPrice) cartPrice.textContent = `$${pricePerJar}.00 / jar`;
             if (cartTotal) cartTotal.textContent = `$${numericPrice}.00`;

@@ -21,49 +21,6 @@
         }
 
 
-        /* Mobile Nav Drawer */
-        .nav-drawer {
-            position: fixed;
-            top: 0;
-            left: -320px;
-            width: 300px;
-            height: 100%;
-            background: #fff;
-            z-index: 999;
-            padding: 40px 32px;
-            border-right: 2px solid var(--color-black);
-            transition: left 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .nav-drawer.open {
-            left: 0;
-        }
-
-        .nav-drawer a {
-            display: block;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 28px;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            color: var(--color-black);
-            text-decoration: none;
-            margin-bottom: 24px;
-            transition: color 0.2s;
-        }
-
-        .nav-drawer a:hover {
-            color: var(--color-secondary);
-        }
-
-        .drawer-close {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            margin-bottom: 40px;
-            display: block;
-        }
 
         /* ===== S3: HERO PRODUCT SECTION ===== */
         .pdp-hero {
@@ -2561,7 +2518,7 @@
                     </div>
                 </div>
                 <div class="diff-visual">
-                    <div class="diff-visual-overlay"></div>
+                    <div class="overlay" id="overlay"></div>
                     <img src="public/images/product_hero_jar.png" alt="Instant Lift Complex — Three Tier Formula">
                 </div>
             </div>

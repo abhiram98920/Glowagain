@@ -1369,18 +1369,37 @@
                     <button class="accordion-trigger" onclick="toggleAcc(this)">Full Ingredients List <span
                             class="acc-icon">+</span></button>
                     <div class="accordion-body">
-                        <p style="font-size:13px;line-height:1.8;">Water, Dimethyl Sulfone, Sodium Acrylate/Sodium
-                            Acrylol Dimethyl Taurate Copolymer, Cetyl Alcohol, Glycol Stearate, Glyceryl Stearate,
-                            Caprylic/Capric Triglyceride, Citrus Aurantifolia (Lime) Fruit Extract, Ruscus Aculeatus
-                            Root Extract, Zingiber Officinale (Ginger) Root Extract, Hibiscus Sabdariffa Flower
-                            Extract,
-                            Sodium Hyaluronate, Dimethicone, Bis-Vinyl Dimethicone/Dimethicone Copolymer, Aloe
-                            Barbadensis Leaf Juice, Phenoxyethanol, Sodium Ascorbyl Phosphate, Polyacrylamide,
-                            C13-14
-                            Isoparaffin, Laureth-7, Tocopheryl Acetate, Glycerin, Tetradecyl
-                            Aminobutyroylvalylaminobutyric Urea Trifluoroacetate, Palmitoyl Tripeptide-5, Palmitoyl
-                            Dipeptide-5 Diaminobutyroyl Hydroxythreonine, Acetyl Tetrapeptide-5, Panthenol, Butylene
-                            Glycol.</p>
+                        <ul
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 1.4;">
+                            <li>• Water</li>
+                            <li>• Dimethyl Sulfone</li>
+                            <li>• Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer</li>
+                            <li>• Cetyl Alcohol</li>
+                            <li>• Glycol Stearate</li>
+                            <li>• Glyceryl Stearate</li>
+                            <li>• Caprylic/Capric Triglyceride</li>
+                            <li>• Citrus Aurantifolia (Lime) Fruit Extract</li>
+                            <li>• Ruscus Aculeatus Root Extract</li>
+                            <li>• Zingiber Officinale (Ginger) Root Extract</li>
+                            <li>• Hibiscus Sabdariffa Flower Extract</li>
+                            <li>• Sodium Hyaluronate</li>
+                            <li>• Dimethicone</li>
+                            <li>• Bis-Vinyl Dimethicone/Dimethicone Copolymer</li>
+                            <li>• Aloe Barbadensis Leaf Juice</li>
+                            <li>• Phenoxyethanol</li>
+                            <li>• Sodium Ascorbyl Phosphate</li>
+                            <li>• Polyacrylamide</li>
+                            <li>• C13-14 Isoparaffin</li>
+                            <li>• Laureth-7</li>
+                            <li>• Tocopheryl Acetate</li>
+                            <li>• Glycerin</li>
+                            <li>• Tetradecyl Aminobutyroylvalylaminobutyric Urea Trifluoroacetate</li>
+                            <li>• Palmitoyl Tripeptide-5</li>
+                            <li>• Palmitoyl Dipeptide-5 Diaminobutyroyl Hydroxythreonine</li>
+                            <li>• Acetyl Tetrapeptide-5</li>
+                            <li>• Panthenol</li>
+                            <li>• Butylene Glycol</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -3277,8 +3296,12 @@
         </div>
         <div id="cart-empty-state" class="text-center" style="margin-top: 60px;">
             <div style="font-size: 64px; margin-bottom: 24px;">🏺</div>
-            <p style="color: var(--text-muted); margin-bottom: 32px;">Your cart is empty. A 10 years younger you is one
-                click away.</p>
+            <p
+                style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 600; color: var(--color-black); margin-bottom: 12px;">
+                Your cart is empty.</p>
+            <p
+                style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: var(--color-secondary); margin-bottom: 32px; font-style: italic;">
+                A 10 years younger you is one click away.</p>
             <a href="product.html" class="btn btn-primary" id="shop-now-empty">SHOP NOW</a>
         </div>
         <div id="cart-full-state" style="display: none; margin-top: 40px;">

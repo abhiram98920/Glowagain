@@ -1046,17 +1046,14 @@
                 <div class="gallery-badge">New Formula</div>
                 <img src="public/images/product_hero_jar.png" alt="Instant Lift Complex Jar" id="main-img"
                     style="position:relative;">
-                <div class="gallery-counter" id="gallery-counter">1 / 7</div>
+                <video id="main-video"
+                    style="display:none; width:100%; height:100%; max-height:480px; object-fit:contain;"
+                    controls></video>
+                <div class="gallery-counter" id="gallery-counter">1 / 13</div>
                 <!-- Non-image slides -->
-                <div class="gallery-slide" id="slide-texture">
-                    <div class="gallery-slide-icon">🫧</div>
-                    <div class="gallery-slide-title">Lightweight Texture</div>
-                    <p class="gallery-slide-body">Melts into skin on contact. No greasy residue. Dries to a smooth,
-                        velvety finish that works under makeup.</p>
-                </div>
                 <div class="gallery-slide" id="slide-results">
                     <div class="gallery-slide-icon">📈</div>
-                    <div class="gallery-slide-title">Results</div>
+                    <div class="gallery-slide-title">Expected Results</div>
                     <p class="gallery-slide-body"><strong>15 min:</strong> Visible tightening &amp;
                         smoothing<br><strong>7–14 days:</strong> Improved hydration &amp; plumpness<br><strong>30–60
                             days:</strong> Firmer, more lifted skin<br><br><em
@@ -1072,11 +1069,21 @@
                 </div>
                 <div class="gallery-slide" id="slide-formula">
                     <div class="gallery-slide-icon">🧪</div>
-                    <div class="gallery-slide-title">The Formula</div>
-                    <p class="gallery-slide-body"><strong>Tightening Polymers</strong> — instant visible
-                        lift<br><strong>Low MW Hyaluronic Acid</strong> — deep hydration<br><strong>Palmitoyl
-                            Tripeptide-5</strong> — collagen support<br><strong>Aloe + Panthenol</strong> — soothe &amp;
-                        repair<br><strong>Vitamin C + E</strong> — brighten &amp; protect</p>
+                    <div class="gallery-slide-title">3-Tier Mechanism</div>
+                    <p class="gallery-slide-body"><strong>Tightening Polymers</strong> — surface
+                        tightening<br><strong>Low MW Hyaluronic Acid</strong> — deep hydration<br><strong>Palmitoyl
+                            Tripeptide-5</strong> — collagen support</p>
+                </div>
+                <div class="gallery-slide" id="slide-ingredients">
+                    <div class="gallery-slide-icon">🌿</div>
+                    <div class="gallery-slide-title">Full Ingredients</div>
+                    <p class="gallery-slide-body" style="font-size:11px;line-height:1.4;">Water, Dimethyl Sulfone,
+                        Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer, Cetyl Alcohol, Glycol Stearate,
+                        Glyceryl Stearate, Caprylic/Capric Triglyceride, Citrus Aurantifolia Fruit Extract, Ruscus
+                        Aculeatus Root Extract, Zingiber Officinale Root Extract, Hibiscus Sabdariffa Flower Extract,
+                        Sodium Hyaluronate, Dimethicone, Bis-Vinyl Dimethicone, Aloe Barbadensis Leaf Juice,
+                        Phenoxyethanol, Sodium Ascorbyl Phosphate, Polyacrylamide, C13-14 Isoparaffin, Laureth-7,
+                        Tocopheryl Acetate, Glycerin, Peptides, Panthenol, Butylene Glycol.</p>
                 </div>
                 <div class="gallery-slide" id="slide-guarantee">
                     <div class="gallery-slide-icon">🛡️</div>
@@ -1088,24 +1095,44 @@
             </div>
             <div class="gallery-thumbnails">
                 <div class="thumb-item active"
-                    onclick="switchThumb(this,'img','public/images/product_hero_jar.png','1 / 7')">
+                    onclick="switchThumb(this,'img','public/images/product_hero_jar.png','1 / 13')">
                     <img src="public/images/product_hero_jar.png" alt="Front">
                 </div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-texture','2 / 7')">
-                    🫧<span>Texture</span></div>
-                <div class="thumb-item thumb-icon"
-                    onclick="switchThumb(this,'img','public/images/step2_apply.png','3 / 7')">
-                    <img src="public/images/step2_apply.png" alt="Applying"
-                        style="width:60px;height:60px;object-fit:cover;">
+                <div class="thumb-item"
+                    onclick="switchThumb(this,'img','public/images/product_package_back.png','2 / 13')">
+                    <img src="public/images/product_package_back.png" alt="Back">
                 </div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-results','4 / 7')">
-                    📈<span>Results</span></div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-howto','5 / 7')">📋<span>How
-                        To</span></div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-formula','6 / 7')">
-                    🧪<span>Formula</span></div>
-                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-guarantee','7 / 7')">
+                <div class="thumb-item" onclick="switchThumb(this,'img','public/images/product_jar_open.png','3 / 13')">
+                    <img src="public/images/product_jar_open.png" alt="Open Jar">
+                </div>
+                <div class="thumb-item" onclick="switchThumb(this,'img','public/images/step2_apply.png','4 / 13')">
+                    <img src="public/images/step2_apply.png" alt="Applying">
+                </div>
+                <div class="thumb-item"
+                    onclick="switchThumb(this,'img','public/images/before_after_result.png','5 / 13')">
+                    <img src="public/images/before_after_result.png" alt="Before/After">
+                </div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-formula','6 / 13')">
+                    🧪<span>Mechanism</span></div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-results','7 / 13')">
+                    📈<span>Timeline</span></div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-howto','8 / 13')">
+                    📋<span>How To</span></div>
+                <div class="thumb-item" onclick="switchThumb(this,'video','public/videos/317227_tiny.mp4','9 / 13')">
+                    <img src="public/images/video_testimonial_thumb.png" alt="Video">
+                </div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-ingredients','10 / 13')">
+                    🌿<span>Ingredients</span></div>
+                <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-guarantee','11 / 13')">
                     🛡️<span>Guarantee</span></div>
+                <div class="thumb-item"
+                    onclick="switchThumb(this,'img','public/images/lifestyle_woman_smiling.png','12 / 13')">
+                    <img src="public/images/lifestyle_woman_smiling.png" alt="Lifestyle">
+                </div>
+                <div class="thumb-item"
+                    onclick="switchThumb(this,'img','public/images/customer_results_grid.png','13 / 13')">
+                    <img src="public/images/customer_results_grid.png" alt="Results">
+                </div>
             </div>
         </div>
 
@@ -1146,33 +1173,46 @@
             </div>
 
             <!-- PURCHASE MODULE -->
-            <div class="step-label-pdp"><span class="step-num">1</span> Choose Your Plan</div>
-            <p
+            <div class="step-label-pdp"><span class="step-num">1</span> Choose Delivery Options</div>
+
+            <div class="plan-toggle" style="margin-bottom: 24px;">
+                <button class="plan-btn active" id="plan-sub" onclick="setPlanType('subscribe')">
+                    Subscribe & Save Up to 36%
+                    <span class="plan-badge">Voted Best</span>
+                </button>
+                <button class="plan-btn" id="plan-one" onclick="setPlanType('onetime')">
+                    One-Time Purchase
+                </button>
+            </div>
+
+            <div class="step-label-pdp"><span class="step-num">2</span> Select Supply</div>
+            <p id="supply-hint"
                 style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:16px;">
                 FREE SHIPPING + CANCEL ANYTIME</p>
             <div class="supply-grid">
                 <!-- Tier 1: 6 Jars (Best Value) -->
-                <button class="supply-btn" id="s6" onclick="selectTier(this, 6, 264, 'subscribe')" data-jars="6"
-                    data-price="264" data-plan="subscribe">
+                <button class="supply-btn" id="s6" onclick="selectTier(this, 6)" data-jars="6" data-price="264"
+                    data-plan="subscribe">
                     <span class="supply-qty">6 Month Supply</span>
-                    <span class="supply-label">Subscribe & Save 36%</span>
+                    <span class="supply-label">Save 36%</span>
                     <span class="supply-price">$264.00</span>
                     <span style="font-size: 10px; opacity: 0.7;">$44/jar</span>
                 </button>
                 <!-- Tier 2: 3 Jars (Most Popular) -->
-                <button class="supply-btn active" id="s3" onclick="selectTier(this, 3, 159, 'subscribe')" data-jars="3"
-                    data-price="159" data-plan="subscribe">
+                <button class="supply-btn active" id="s3" onclick="selectTier(this, 3)" data-jars="3" data-price="159"
+                    data-plan="subscribe">
                     <span class="supply-qty">3 Month Supply</span>
-                    <span class="supply-label">Subscribe & Save 23%</span>
+                    <span class="supply-label">Save 23%</span>
                     <span class="supply-price">$159.00</span>
                     <span style="font-size: 10px; opacity: 0.7;">$53/jar</span>
                 </button>
                 <!-- Tier 3: 1 Jar (Trial) -->
-                <button class="supply-btn" id="s1" onclick="selectTier(this, 1, 62, 'subscribe')" data-jars="1"
-                    data-price="62" data-plan="subscribe">
+                <button class="supply-btn" id="s1" onclick="selectTier(this, 1)" data-jars="1" data-price="62"
+                    data-plan="subscribe">
                     <span class="supply-qty">1 Month Supply</span>
-                    <span class="supply-label">Subscribe & Save 10%</span>
+                    <span class="supply-label">Save 10%</span>
                     <span class="supply-price">$62.00</span>
+                    <span style="font-size: 10px; opacity: 0.7;"></span>
                 </button>
             </div>
 
@@ -1188,16 +1228,28 @@
                 <table class="price-table">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>1 Jar<br><span
-                                    style="font-size: 11px; font-weight: 500; opacity: 0.8; text-transform: none; letter-spacing: normal;">1-Month
-                                    Supply</span></th>
-                            <th>3 Jars<br><span
-                                    style="font-size: 11px; font-weight: 500; opacity: 0.8; text-transform: none; letter-spacing: normal;">3-Month
-                                    Supply</span></th>
-                            <th>6 Jars<br><span
-                                    style="font-size: 11px; font-weight: 500; opacity: 0.8; text-transform: none; letter-spacing: normal;">6-Month
-                                    Supply (Best Value)</span></th>
+                            <th style="background: #eef5fb; border-bottom: none;"></th>
+                            <th
+                                style="background: #eef5fb; border-bottom: none; color: var(--color-black); font-size: 14px;">
+                                1 Jar</th>
+                            <th
+                                style="background: #eef5fb; border-bottom: none; color: var(--color-black); font-size: 14px;">
+                                3 Jars</th>
+                            <th
+                                style="background: #dbeaf5; border-bottom: none; color: var(--color-black); font-size: 14px;">
+                                6 Jars</th>
+                        </tr>
+                        <tr>
+                            <th style="background: #eef5fb; border-top: none;"></th>
+                            <th
+                                style="background: #eef5fb; border-top: none; color: var(--color-black); font-size: 11px; font-weight: 500; text-transform: none; letter-spacing: normal;">
+                                1-Month Supply</th>
+                            <th
+                                style="background: #eef5fb; border-top: none; color: var(--color-black); font-size: 11px; font-weight: 500; text-transform: none; letter-spacing: normal;">
+                                3-Month Supply</th>
+                            <th
+                                style="background: #dbeaf5; border-top: none; color: var(--color-black); font-size: 11px; font-weight: 800; text-transform: none; letter-spacing: normal;">
+                                6-Month Supply (Best Value)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -2047,8 +2099,19 @@
             border-bottom: 1px solid #222;
         }
 
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         .sci-marquee {
             display: flex;
+            width: max-content;
             gap: 0;
             animation: marquee 40s linear infinite;
         }
@@ -2361,7 +2424,7 @@
         }
 
         .how-tip strong {
-            color: var(--color-secondary);
+            color: #8bbce1;
         }
     </style>
     <section class="how-section">
@@ -3437,12 +3500,27 @@
             if (ctr && counter) ctr.textContent = counter;
             // Show correct content
             const mainImg = document.getElementById('main-img');
+            const mainVid = document.getElementById('main-video');
             const allSlides = document.querySelectorAll('.gallery-slide');
+
+            if (mainVid) {
+                mainVid.pause();
+                mainVid.style.display = 'none';
+            }
+
             if (type === 'img') {
                 // Show image, hide all slides
                 mainImg.src = value;
                 mainImg.style.display = '';
                 allSlides.forEach(s => s.classList.remove('active'));
+            } else if (type === 'video') {
+                mainImg.style.display = 'none';
+                allSlides.forEach(s => s.classList.remove('active'));
+                if (mainVid) {
+                    mainVid.src = value;
+                    mainVid.style.display = '';
+                    mainVid.play().catch(e => console.log(e));
+                }
             } else if (type === 'slide') {
                 // Hide image, show requested slide
                 mainImg.style.display = 'none';
@@ -3453,8 +3531,68 @@
         }
 
 
-        // Purchase tier toggle
-        function selectTier(btn, qty, price, plan) {
+        // State variables
+        let currentPlan = 'subscribe'; // 'subscribe' or 'onetime'
+        let currentQty = 3;
+
+        // Plan type toggle (Step 1)
+        function setPlanType(plan) {
+            currentPlan = plan;
+
+            // Update buttons
+            document.getElementById('plan-sub').classList.toggle('active', plan === 'subscribe');
+            document.getElementById('plan-one').classList.toggle('active', plan === 'onetime');
+
+            // Update supply hint
+            const hint = document.getElementById('supply-hint');
+            if (hint) {
+                hint.textContent = plan === 'subscribe' ? 'FREE SHIPPING + CANCEL ANYTIME' : 'STANDARD SHIPPING FOR 1 JAR';
+            }
+
+            // Update pricing on supply grid
+            updateGridPrices();
+
+            // Trigger selection of current quantity to update UI
+            const activeBtn = document.querySelector(`.supply-btn[data-jars="${currentQty}"]`);
+            if (activeBtn) selectTier(activeBtn, currentQty);
+        }
+
+        function updateGridPrices() {
+            // Data for Subscribe
+            const subData = {
+                6: { price: 264, label: 'Save 36%', unit: '$44/jar' },
+                3: { price: 159, label: 'Save 23%', unit: '$53/jar' },
+                1: { price: 62, label: 'Save 10%', unit: '' }
+            };
+            // Data for One-Time
+            const oneData = {
+                6: { price: 294, label: 'Save 29%', unit: '$49/jar' },
+                3: { price: 177, label: 'Save 14%', unit: '$59/jar' },
+                1: { price: 69, label: 'Retail Price', unit: '' }
+            };
+
+            const data = currentPlan === 'subscribe' ? subData : oneData;
+
+            document.querySelectorAll('.supply-btn').forEach(btn => {
+                const qty = parseInt(btn.getAttribute('data-jars'));
+                const info = data[qty];
+                if (info) {
+                    btn.setAttribute('data-price', info.price);
+                    btn.setAttribute('data-plan', currentPlan);
+                    btn.querySelector('.supply-price').textContent = '$' + info.price.toFixed(2);
+                    btn.querySelector('.supply-label').textContent = info.label;
+                    const unitLabel = btn.querySelector('span[style*="10px;"]');
+                    if (unitLabel && info.unit) unitLabel.textContent = info.unit;
+                }
+            });
+        }
+
+        // Purchase tier toggle (Step 2)
+        function selectTier(btn, qty) {
+            currentQty = qty;
+            const price = parseFloat(btn.getAttribute('data-price'));
+            const plan = btn.getAttribute('data-plan');
+
             // Update active state
             document.querySelectorAll('.supply-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');

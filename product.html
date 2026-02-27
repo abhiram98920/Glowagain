@@ -315,6 +315,7 @@
             padding: 6px 14px;
             border: 2px solid var(--color-black);
             box-shadow: 3px 3px 0 var(--color-black);
+            z-index: 10;
         }
 
         .gallery-counter {
@@ -329,6 +330,7 @@
             background: rgba(255, 255, 255, 0.9);
             padding: 4px 12px;
             border: 1px solid var(--color-black);
+            z-index: 10;
         }
 
         .gallery-thumbnails {
@@ -940,7 +942,7 @@
             }
 
             .gallery-main img {
-                max-height: 280px;
+                max-height: 240px;
             }
 
             .thumb-item {
@@ -1243,7 +1245,7 @@
             <div class="gallery-main" id="gallery-main" style="position:relative;">
                 <div class="gallery-badge">New Formula</div>
                 <img src="public/images/product_hero_jar.png" alt="Instant Lift Complex Jar" id="main-img"
-                    style="position:relative;z-index:1;">
+                    style="position:relative;">
                 <div class="gallery-counter" id="gallery-counter">1 / 7</div>
                 <!-- Non-image slides -->
                 <div class="gallery-slide" id="slide-texture">

@@ -282,13 +282,13 @@ img {
 
 .btn-primary:hover {
     background: var(--color-white);
-    color: var(--color-black);
+    color: #0A0A0A;
     border-color: var(--color-black);
 }
 
 .btn-white {
     background: var(--color-white);
-    color: var(--color-black);
+    color: #0A0A0A;
     border: 2px solid var(--color-black);
     box-shadow: 4px 4px 0px var(--color-black);
 }
@@ -352,7 +352,7 @@ img {
 }
 
 .site-announcement-sep {
-    color: var(--color-black);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 18px;
     opacity: 0.5;
     flex-shrink: 0;
@@ -398,7 +398,7 @@ img {
     font-size: 24px;
     letter-spacing: -0.03em;
     text-transform: uppercase;
-    color: var(--color-black);
+    color: #0A0A0A;
     text-decoration: none;
     line-height: 1;
 }
@@ -413,7 +413,7 @@ img {
     cursor: pointer;
     display: flex;
     align-items: center;
-    color: var(--color-black);
+    color: #0A0A0A;
     padding: 8px;
     transition: var(--transition-base);
 }
@@ -520,7 +520,7 @@ img {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    color: var(--color-black);
+    color: #0A0A0A;
     text-decoration: none;
     border-bottom: 1px solid var(--border-light);
     transition: color 0.2s;
@@ -538,7 +538,7 @@ img {
     margin-bottom: 40px;
     display: block;
     align-self: flex-start;
-    color: var(--color-black);
+    color: #0A0A0A;
     transition: color 0.2s;
 }
 

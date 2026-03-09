@@ -1324,25 +1324,47 @@
             </div>
 
             <!-- Payment methods -->
-            <div class="payment-row">
-                <div class="pay-badge" aria-label="Visa">
-                    <img src="public/images/visa.png" alt="Visa" style="height: 16px;">
-                </div>
-                <div class="pay-badge" aria-label="Mastercard">
-                    <img src="public/images/mastercard.png" alt="Mastercard" style="height: 28px;">
-                </div>
-                <div class="pay-badge" aria-label="Amex">
-                    <img src="public/images/amex.png" alt="Amex" style="height: 24px;">
-                </div>
-                <div class="pay-badge" aria-label="PayPal">
-                    <img src="public/images/paypal.png" alt="PayPal" style="height: 24px;">
-                </div>
-                <div class="pay-badge" aria-label="Apple Pay">
-                    <img src="public/images/applepay.png" alt="Apple Pay" style="height: 24px;">
-                </div>
-                <div class="pay-badge" aria-label="Google Pay">
-                    <img src="public/images/googlepay.png" alt="Google Pay" style="height: 24px;">
-                </div>
+            <div class="payment-trust-strip" style="display: flex; gap: 12px; margin-top: 1rem;">
+                <!-- Visa -->
+                <svg width="34" height="14" viewBox="0 0 100 32"
+                    style="height:14px; width:auto; vertical-align:middle; fill:#1A1F71;">
+                    <path
+                        d="M40.3 2.1L33.7 30h8.6l6.6-27.9h-8.6zM22.5 2.1L12.9 24.3l-1.1-5.4-.2-.9C10.5 14.5 7.6 11.2 4.1 9.4l7.6 20.6h9.1L33.7 2.1h-11.2zM48.8 30h8.1l5.1-27.9h-8.1L48.8 30zM95.6 2.1L88.9 30h8.3l6.7-27.9h-8.3z" />
+                </svg>
+                <!-- Mastercard -->
+                <svg width="24" height="18" viewBox="0 0 24 18" style="height:18px; width:auto; vertical-align:middle;">
+                    <circle cx="7" cy="9" r="7" fill="#EB001B" />
+                    <circle cx="17" cy="9" r="7" fill="#F79E1B" />
+                    <path d="M12 9a6.974 6.974 0 0 1 3-5.742A6.974 6.974 0 0 0 9 3.258a6.974 6.974 0 0 0 3 5.742"
+                        fill="#FF5F00" />
+                </svg>
+                <!-- Amex -->
+                <svg width="18" height="18" viewBox="0 0 18 18" style="height:18px; width:auto; vertical-align:middle;">
+                    <rect width="18" height="18" rx="2" fill="#0070CD" />
+                    <text x="2" y="13" font-family="Arial" font-size="8" fill="white" font-weight="bold">AX</text>
+                </svg>
+                <!-- PayPal -->
+                <svg width="18" height="18" viewBox="0 0 24 24"
+                    style="height:18px; width:auto; vertical-align:middle; fill:#003087;">
+                    <path
+                        d="M20.067 6.378c-.628 3.104-2.618 4.706-5.49 4.706h-1.3l-1.1 5.5h-3.6l1.1-5.5h-1.3c-2.872 0-4.862-1.602-5.49-4.706C2.636 3.274 4.626 1.672 7.498 1.672h1.3l1.1-5.5h3.6l-1.1 5.5h1.3c2.872 0 4.862 1.602 5.49 4.706z" />
+                </svg>
+                <!-- Apple Pay -->
+                <svg width="34" height="18" viewBox="0 0 34 18" style="height:18px; width:auto; vertical-align:middle;">
+                    <rect width="34" height="18" rx="3" fill="black" />
+                    <path
+                        d="M12.5 9c0-1.8 1.5-2.7 1.6-2.8-.8-1.2-2.1-1.4-2.6-1.4-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.8-3.1 2-1.3 2.3-.3 5.7 1 7.5.6.9 1.4 1.9 2.3 1.9s1.2-.6 2.3-.6c1.1 0 1.4.6 2.4.6.9 0 1.6-.9 2.2-1.8.7-1 1-1.9 1-2-.1 0-1.7-.6-1.7-2.6zM10.8 4.2c.5-.6.9-1.5.8-2.3-.7 0-1.6.5-2.1 1.1-.4.5-.8 1.4-.7 2.2.8.1 1.5-.4 2-.1z"
+                        fill="white" />
+                    <text x="16" y="13" font-family="Arial" font-size="9" fill="white" font-weight="bold">Pay</text>
+                </svg>
+                <!-- Google Pay -->
+                <svg width="34" height="18" viewBox="0 0 34 18" style="height:18px; width:auto; vertical-align:middle;">
+                    <rect width="34" height="18" rx="3" fill="white" stroke="#ddd" stroke-width="1" />
+                    <text x="4" y="13" font-family="Arial" font-size="9" font-weight="bold">
+                        <tspan fill="#4285F4">G</tspan>
+                        <tspan fill="#5f6368"> Pay</tspan>
+                    </text>
+                </svg>
             </div>
 
             <!-- Trust badges -->
@@ -1362,6 +1384,7 @@
             <!-- Seen in Action Widget -->
             <style>
                 .widget-video-section {
+                    margin-top: 32px;
                     margin-bottom: 32px;
                     background: #fff;
                 }
@@ -1380,9 +1403,20 @@
                 }
 
                 .widget-video-grid {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 2px;
+                    display: flex;
+                    gap: 8px;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    padding-bottom: 8px;
+                }
+
+                .widget-video-grid::-webkit-scrollbar {
+                    height: 6px;
+                }
+
+                .widget-video-grid::-webkit-scrollbar-thumb {
+                    background-color: #ccc;
+                    border-radius: 4px;
                 }
 
                 .video-card {
@@ -1391,6 +1425,8 @@
                     cursor: pointer;
                     background: #111;
                     border: 1px solid #222;
+                    flex: 0 0 160px;
+                    scroll-snap-align: start;
                 }
 
                 .video-card-img {
@@ -2068,148 +2104,6 @@
         </div>
     </section>
 
-    <!-- ===== S6: SCIENTIFIC VALIDATION ===== -->
-    <style>
-        .science-val-section {
-            background: #08417A;
-            color: #fff;
-            padding: 100px 0;
-            border-top: 2px solid #08417A;
-            overflow: hidden;
-        }
-
-        .science-val-eyebrow {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 900;
-            font-size: 12px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        .science-val-title {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 900;
-            font-size: clamp(24px, 3.5vw, 38px);
-            color: #fff;
-            text-align: center;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-            margin-bottom: 60px;
-            line-height: 1.1;
-        }
-
-        .sci-marquee-wrap {
-            overflow: hidden;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .sci-marquee {
-            display: flex;
-            width: max-content;
-            gap: 0;
-            animation: marquee 40s linear infinite;
-        }
-
-        .sci-marquee-wrap:hover .sci-marquee {
-            animation-play-state: paused;
-        }
-
-        .sci-card {
-            min-width: 340px;
-            padding: 32px 36px;
-            border-right: 1px solid #222;
-            flex-shrink: 0;
-        }
-
-        .sci-journal {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 900;
-            font-size: 12px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.75);
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sci-journal::before {
-            content: '📖';
-            font-size: 16px;
-        }
-
-        .sci-quote {
-            font-size: 15px;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.8);
-            font-style: italic;
-        }
-    </style>
-    <section class="science-val-section">
-        <p class="science-val-eyebrow">Peer-Reviewed Research</p>
-        <h2 class="science-val-title">Backed by Ingredient Science.<br>Not Marketing Hype.</h2>
-        <div class="sci-marquee-wrap">
-            <div class="sci-marquee">
-                <div class="sci-card">
-                    <div class="sci-journal">Journal of Cosmetic Dermatology</div>
-                    <p class="sci-quote">"Low molecular weight hyaluronic acid penetrates the upper skin layers more
-                        effectively, delivering superior hydration."</p>
-                </div>
-                <div class="sci-card">
-                    <div class="sci-journal">International Journal of Cosmetic Science</div>
-                    <p class="sci-quote">"Palmitoyl Tripeptide-5 demonstrated measurable support for collagen synthesis
-                        in clinical evaluation."</p>
-                </div>
-                <div class="sci-card">
-                    <div class="sci-journal">Dermatologic Surgery</div>
-                    <p class="sci-quote">"Topical peptide complexes showed visible improvement in fine lines and skin
-                        firmness within 8 weeks of consistent use."</p>
-                </div>
-                <div class="sci-card">
-                    <div class="sci-journal">Clinical, Cosmetic &amp; Investigational Dermatology</div>
-                    <p class="sci-quote">"Film-forming polymers create an immediate visible tightening effect while
-                        allowing the skin to breathe normally."</p>
-                </div>
-                <div class="sci-card">
-                    <div class="sci-journal">Journal of Drugs in Dermatology</div>
-                    <p class="sci-quote">"Multi-action topical formulations addressing both surface and sub-surface
-                        aging outperform single-mechanism products."</p>
-                </div>
-                <!-- Duplicate for loop -->
-                <div class="sci-card">
-                    <div class="sci-journal">Journal of Cosmetic Dermatology</div>
-                    <p class="sci-quote">"Low molecular weight hyaluronic acid penetrates the upper skin layers more
-                        effectively, delivering superior hydration."</p>
-                </div>
-                <div class="sci-card">
-                    <div class="sci-journal">International Journal of Cosmetic Science</div>
-                    <p class="sci-quote">"Palmitoyl Tripeptide-5 demonstrated measurable support for collagen synthesis
-                        in clinical evaluation."</p>
-                </div>
-                <div class="sci-card">
-                    <div class="sci-journal">Dermatologic Surgery</div>
-                    <p class="sci-quote">"Topical peptide complexes showed visible improvement in fine lines and skin
-                        firmness within 8 weeks of consistent use."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== S7: RESULTS STATS ===== -->
     <style>
         .results-section {
@@ -2288,20 +2182,51 @@
             <p class="results-eyebrow">Clinical-Level Results</p>
             <h2 class="results-title">Results You Can Expect</h2>
             <div class="results-grid">
-                <div class="result-stat"><span class="stat-num">94%</span>
+                <div class="result-stat"><span class="stat-num" data-target="94">0%</span>
                     <p class="stat-text">reported visibly firmer, tighter-looking skin within 30 days of consistent use
                     </p>
                 </div>
-                <div class="result-stat" style="border-left:none;border-right:none;"><span class="stat-num">89%</span>
+                <div class="result-stat" style="border-left:none;border-right:none;"><span class="stat-num"
+                        data-target="89">0%</span>
                     <p class="stat-text">experienced improved skin hydration and a plumper, smoother feel within 2 weeks
                     </p>
                 </div>
-                <div class="result-stat"><span class="stat-num">91%</span>
+                <div class="result-stat"><span class="stat-num" data-target="91">0%</span>
                     <p class="stat-text">said Instant Lift Complex outperformed their previous anti-aging products</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stats = document.querySelectorAll('.stat-num');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        let count = 0;
+                        const duration = 1000; // 1 second
+                        const increment = target / (duration / 16); // 60 fps
+
+                        const updateCount = () => {
+                            count += increment;
+                            if (count < target) {
+                                entry.target.innerText = Math.ceil(count) + '%';
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                entry.target.innerText = target + '%';
+                            }
+                        };
+                        updateCount();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            stats.forEach(stat => observer.observe(stat));
+        });
+    </script>
 
     <!-- ===== S8: HOW TO USE ===== -->
     <style>
@@ -2580,7 +2505,8 @@
                 <div>
                     <p class="diff-eyebrow">The Difference</p>
                     <h2 class="diff-title">What Makes Instant Lift Complex Different</h2>
-                    <p class="diff-intro">Most anti-aging creams do one thing: add a thin layer of moisture to the
+                    <p class="diff-intro">Where it matters. Most anti-aging creams do one thing: add a thin layer of
+                        moisture to the
                         surface of your skin. That moisture evaporates within hours. The fine lines return. The sagging
                         continues. Instant Lift Complex works at three levels — simultaneously:</p>
                     <div class="diff-tier">
@@ -2754,7 +2680,10 @@
             <div class="ing-grid6">
                 <!-- Card 1: Polymers -->
                 <div class="ing-card6">
-                    <div class="ing-emoji">✨</div>
+                    <div class="ing-emoji">
+                        <img src="public/images/ingredient_tightening_polymers.png" alt="Tightening Polymers"
+                            style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                    </div>
                     <div class="ing-category">Instant Lift</div>
                     <div class="ing-name">Tightening Polymers</div>
                     <p class="ing-desc6">Creates an invisible, breathable micro-veil that produces a visible lifting
@@ -2762,7 +2691,10 @@
                 </div>
                 <!-- Card 2: HA -->
                 <div class="ing-card6">
-                    <div class="ing-emoji">💧</div>
+                    <div class="ing-emoji">
+                        <img src="public/images/ingredient_hyaluronic_acid.png" alt="Hyaluronic Acid"
+                            style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                    </div>
                     <div class="ing-category">Deep Hydration</div>
                     <div class="ing-name">Low MW Hyaluronic Acid</div>
                     <p class="ing-desc6">Our low-molecular-weight version is specifically designed to penetrate deeper,
@@ -2770,7 +2702,10 @@
                 </div>
                 <!-- Card 3: Peptides -->
                 <div class="ing-card6">
-                    <div class="ing-emoji">🧬</div>
+                    <div class="ing-emoji">
+                        <img src="public/images/ingredient_collagen_peptides.png" alt="Collagen Peptides"
+                            style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                    </div>
                     <div class="ing-category">Structural Support</div>
                     <div class="ing-name">Collagen-Boosting Peptides</div>
                     <p class="ing-desc6">Signal peptides like Palmitoyl Tripeptide-5 reinforce the structural layer of
@@ -2778,7 +2713,10 @@
                 </div>
                 <!-- Card 4: Circulation -->
                 <div class="ing-card6">
-                    <div class="ing-emoji">🌿</div>
+                    <div class="ing-emoji">
+                        <img src="public/images/ingredient_butchers_broom.png" alt="Butcher's Broom"
+                            style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                    </div>
                     <div class="ing-category">Circulation & Soothing</div>
                     <div class="ing-name">Butcher’s Broom & Ginger</div>
                     <p class="ing-desc6">Botanical extracts that soothe the skin surface while supporting healthy
@@ -2786,7 +2724,10 @@
                 </div>
                 <!-- Card 5: Protection -->
                 <div class="ing-card6">
-                    <div class="ing-emoji">💎</div>
+                    <div class="ing-emoji">
+                        <img src="public/images/ingredient_vitamin_c_e.png" alt="Vitamin C & E"
+                            style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                    </div>
                     <div class="ing-category">Brightening & Protection</div>
                     <div class="ing-name">Vitamin C & Vitamin E</div>
                     <p class="ing-desc6">A powerful antioxidant duo that brightens uneven skin tone and protects
@@ -2795,7 +2736,10 @@
                 </div>
                 <!-- Card 6: Recovery -->
                 <div class="ing-card6">
-                    <div class="ing-emoji">🛡️</div>
+                    <div class="ing-emoji">
+                        <img src="public/images/ingredient_aloe_panthenol.png" alt="Aloe & Panthenol"
+                            style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                    </div>
                     <div class="ing-category">The Recovery Complex</div>
                     <div class="ing-name">Aloe, Panthenol & Hibiscus</div>
                     <p class="ing-desc6">Essential nutrients that restore the skin's protective barrier, locking in
@@ -2854,8 +2798,33 @@
         .faq-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 0;
+            gap: 40px;
+        }
+
+        @media(min-width:900px) {
+            .faq-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+            }
+        }
+
+        .faq-questions {
             border: 2px solid #08417A;
+        }
+
+        .faq-image-container {
+            position: sticky;
+            top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .faq-image-container img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: contain;
         }
 
         @media(min-width:900px) {
@@ -2925,174 +2894,222 @@
             <p class="faq-eyebrow">Got Questions?</p>
             <h2 class="faq-title">Frequently Asked Questions</h2>
             <div class="faq-grid">
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is Instant Lift Complex?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Instant Lift Complex is a multi-action anti-aging cream that delivers
-                            visible tightening, deep hydration, and collagen support in one product. It uses a
-                            three-tier mechanism: (1) tightening polymers that create an invisible micro-veil on the
-                            skin's surface for an immediate visible lift, (2) low molecular weight hyaluronic acid that
-                            penetrates beneath the surface to attract and retain moisture, and (3) collagen-supporting
-                            peptides that reinforce skin firmness over time. It's designed for women who want to see
-                            real results — not just another moisturizer that fades by noon.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How quickly will I see
-                        results?<span class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Many women notice a visible tightening and smoothing effect within 15
-                            minutes of the first application. This is the tightening polymer layer working on the
-                            surface of your skin. Deeper hydration improvements typically become noticeable within 7–14
-                            days of consistent use. Long-term improvements in skin firmness and the appearance of fine
-                            lines develop over 30–60 days as the collagen-supporting peptides build cumulative results.
-                            We recommend taking a "before" photo on Day 1 so you can track your progress.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I use it?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Cleanse and pat your skin dry. Apply a thin layer of Instant Lift
-                            Complex to desired areas — face, neck, jawline, around eyes, forehead. Gently massage until
-                            absorbed and allow 15 minutes for the tightening effect to fully set. Use 2–3 times daily
-                            for best results. The formula is highly concentrated, so a small amount goes a long way. One
-                            jar (0.5 oz / 15 ml) is a 30-day supply at recommended usage. Can be worn under makeup.
+                <div class="faq-questions">
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is Instant Lift
+                            Complex?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Instant Lift Complex is a multi-action anti-aging cream that
+                                delivers
+                                visible tightening, deep hydration, and collagen support in one product. It uses a
+                                three-tier mechanism: (1) tightening polymers that create an invisible micro-veil on the
+                                skin's surface for an immediate visible lift, (2) low molecular weight hyaluronic acid
+                                that
+                                penetrates beneath the surface to attract and retain moisture, and (3)
+                                collagen-supporting
+                                peptides that reinforce skin firmness over time. It's designed for women who want to see
+                                real results — not just another moisturizer that fades by noon.</div>
                         </div>
                     </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What skin types does it work
-                        on?<span class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Instant Lift Complex is formulated for all skin types: oily, dry,
-                            normal, combination, and sensitive. It is paraben-free and suitable for all skin tones. The
-                            formula was designed to be effective without causing irritation. If you have specific
-                            sensitivities or active skin conditions, we recommend reviewing the full ingredient list or
-                            consulting your dermatologist before use.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use it with other skincare
-                        products?<span class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Yes. Instant Lift Complex works well as part of your existing routine.
-                            Apply it after cleansing and before heavier creams or sunscreen. Many of our customers
-                            report that it simplifies their routine — replacing multiple products with one. If you're
-                            using prescription skincare products (like retinoids), apply them at separate times of day.
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How quickly will I see
+                            results?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Many women notice a visible tightening and smoothing effect within
+                                15
+                                minutes of the first application. This is the tightening polymer layer working on the
+                                surface of your skin. Deeper hydration improvements typically become noticeable within
+                                7–14
+                                days of consistent use. Long-term improvements in skin firmness and the appearance of
+                                fine
+                                lines develop over 30–60 days as the collagen-supporting peptides build cumulative
+                                results.
+                                We recommend taking a "before" photo on Day 1 so you can track your progress.</div>
                         </div>
                     </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does one jar last?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">One jar (0.5 oz / 15 ml) is approximately a 30-day supply when used as
-                            directed (2–3 times daily with thin, even applications). The formula is concentrated, so you
-                            only need a small amount each time. Most women find that one jar lasts a full month.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What makes this different from
-                        other anti-aging creams?<span class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Most anti-aging creams work at a single level — they add temporary
-                            moisture to the surface that evaporates within hours. Instant Lift Complex works at three
-                            levels simultaneously. Tightening polymers provide immediate visible smoothing on the
-                            surface. Low molecular weight hyaluronic acid hydrates below the surface where standard HA
-                            can't reach. And collagen-supporting peptides work at the structural level to promote
-                            firmness over time. This means you get instant visible proof AND cumulative long-term
-                            improvement. Most products give you one or the other.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is it safe for sensitive
-                        skin?<span class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Yes. Instant Lift Complex is paraben-free and formulated to be gentle
-                            on sensitive skin. It contains soothing ingredients like Aloe Barbadensis and Panthenol
-                            (Pro-Vitamin B5) that support the skin barrier rather than stripping it. As with any
-                            skincare product, if you experience irritation, discontinue use. We recommend doing a small
-                            patch test if you have known sensitivities.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are the key ingredients?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">The three core functional components are: (1) Tightening polymers
-                            (Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer) for immediate visible
-                            tightening, (2) Sodium Hyaluronate (low molecular weight) for deep hydration and plumping,
-                            and (3) Palmitoyl Tripeptide-5 and Acetyl Tetrapeptide-5 for collagen support. Supporting
-                            ingredients include Butcher's Broom (circulation support), Ginger (soothing), Hibiscus
-                            (natural AHAs), Vitamin C (brightening), Vitamin E (antioxidant), Aloe Vera (repair), and
-                            Panthenol (moisture lock). The full ingredient list is available in the Product Details
-                            section above.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is the science behind these
-                        ingredients real?<span class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Yes. Each of the three core ingredient groups has published research
-                            supporting its mechanism of action. Low molecular weight hyaluronic acid's superior skin
-                            penetration is documented in dermatological literature. Palmitoyl Tripeptide-5's role in
-                            supporting collagen processes has been studied in cosmetic science research. And the
-                            film-forming tightening effect of topical polymers is well-established in clinical
-                            dermatology. We do not make claims beyond what the ingredient science supports.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the subscription
-                        work?<span class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">When you choose Subscribe &amp; Save, you receive a 10% discount on
-                            every order. Your selected supply (1, 3, or 6 jars) ships automatically at the frequency you
-                            choose. You can change your delivery schedule, skip a shipment, or cancel at any time — no
-                            phone calls required, no cancellation fees. Subscribers also receive free shipping on every
-                            order.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I cancel my subscription?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Yes. Cancel anytime through your account dashboard. No hoops, no phone
-                            calls, no retention tactics. If you need to pause, adjust frequency, or cancel entirely, it
-                            takes less than a minute. We'd rather have you come back on your own terms than feel locked
-                            in.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is your return policy?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">We offer a 60-day, 100% money-back guarantee. Use Instant Lift Complex
-                            daily for up to 60 days. If you don't see a visible difference in your skin, contact our
-                            support team for a full refund — no questions asked. We're confident in the product because
-                            the ingredient science is confident. But if it's not right for you, we'll make it right.
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I use it?<span
+                                class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Cleanse and pat your skin dry. Apply a thin layer of Instant Lift
+                                Complex to desired areas — face, neck, jawline, around eyes, forehead. Gently massage
+                                until
+                                absorbed and allow 15 minutes for the tightening effect to fully set. Use 2–3 times
+                                daily
+                                for best results. The formula is highly concentrated, so a small amount goes a long way.
+                                One
+                                jar (0.5 oz / 15 ml) is a 30-day supply at recommended usage. Can be worn under makeup.
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you ship internationally?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">We currently ship within the United States. Free shipping is included
-                            with all subscription orders. One-time purchases ship via standard delivery (3–5 business
-                            days). International shipping may be available in the future.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What payment methods do you
-                        accept?<span class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">We accept all major credit cards (Visa, Mastercard, American Express),
-                            PayPal, Apple Pay, and Google Pay. All transactions are processed through secure, encrypted
-                            checkout.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will this product make me break
-                        out?<span class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">Instant Lift Complex is non-comedogenic and designed not to clog pores.
-                            The formula does not contain heavy oils or known pore-blocking ingredients. Most users
-                            experience no breakouts. As with any new skincare product, your skin may need a brief
-                            adjustment period. If breakouts persist, discontinue use.</div>
-                    </div>
-                </div>
-                <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this tested on animals?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">No. Instant Lift Complex is cruelty-free. We do not test on animals.
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What skin types does it work
+                            on?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Instant Lift Complex is formulated for all skin types: oily, dry,
+                                normal, combination, and sensitive. It is paraben-free and suitable for all skin tones.
+                                The
+                                formula was designed to be effective without causing irritation. If you have specific
+                                sensitivities or active skin conditions, we recommend reviewing the full ingredient list
+                                or
+                                consulting your dermatologist before use.</div>
                         </div>
                     </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use it with other
+                            skincare
+                            products?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Yes. Instant Lift Complex works well as part of your existing
+                                routine.
+                                Apply it after cleansing and before heavier creams or sunscreen. Many of our customers
+                                report that it simplifies their routine — replacing multiple products with one. If
+                                you're
+                                using prescription skincare products (like retinoids), apply them at separate times of
+                                day.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does one jar
+                            last?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">One jar (0.5 oz / 15 ml) is approximately a 30-day supply when used
+                                as
+                                directed (2–3 times daily with thin, even applications). The formula is concentrated, so
+                                you
+                                only need a small amount each time. Most women find that one jar lasts a full month.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What makes this different from
+                            other anti-aging creams?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Most anti-aging creams work at a single level — they add temporary
+                                moisture to the surface that evaporates within hours. Instant Lift Complex works at
+                                three
+                                levels simultaneously. Tightening polymers provide immediate visible smoothing on the
+                                surface. Low molecular weight hyaluronic acid hydrates below the surface where standard
+                                HA
+                                can't reach. And collagen-supporting peptides work at the structural level to promote
+                                firmness over time. This means you get instant visible proof AND cumulative long-term
+                                improvement. Most products give you one or the other.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is it safe for sensitive
+                            skin?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Yes. Instant Lift Complex is paraben-free and formulated to be
+                                gentle
+                                on sensitive skin. It contains soothing ingredients like Aloe Barbadensis and Panthenol
+                                (Pro-Vitamin B5) that support the skin barrier rather than stripping it. As with any
+                                skincare product, if you experience irritation, discontinue use. We recommend doing a
+                                small
+                                patch test if you have known sensitivities.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are the key
+                            ingredients?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">The three core functional components are: (1) Tightening polymers
+                                (Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer) for immediate visible
+                                tightening, (2) Sodium Hyaluronate (low molecular weight) for deep hydration and
+                                plumping,
+                                and (3) Palmitoyl Tripeptide-5 and Acetyl Tetrapeptide-5 for collagen support.
+                                Supporting
+                                ingredients include Butcher's Broom (circulation support), Ginger (soothing), Hibiscus
+                                (natural AHAs), Vitamin C (brightening), Vitamin E (antioxidant), Aloe Vera (repair),
+                                and
+                                Panthenol (moisture lock). The full ingredient list is available in the Product Details
+                                section above.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is the science behind these
+                            ingredients real?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Yes. Each of the three core ingredient groups has published
+                                research
+                                supporting its mechanism of action. Low molecular weight hyaluronic acid's superior skin
+                                penetration is documented in dermatological literature. Palmitoyl Tripeptide-5's role in
+                                supporting collagen processes has been studied in cosmetic science research. And the
+                                film-forming tightening effect of topical polymers is well-established in clinical
+                                dermatology. We do not make claims beyond what the ingredient science supports.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the subscription
+                            work?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">When you choose Subscribe &amp; Save, you receive a 10% discount on
+                                every order. Your selected supply (1, 3, or 6 jars) ships automatically at the frequency
+                                you
+                                choose. You can change your delivery schedule, skip a shipment, or cancel at any time —
+                                no
+                                phone calls required, no cancellation fees. Subscribers also receive free shipping on
+                                every
+                                order.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I cancel my
+                            subscription?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Yes. Cancel anytime through your account dashboard. No hoops, no
+                                phone
+                                calls, no retention tactics. If you need to pause, adjust frequency, or cancel entirely,
+                                it
+                                takes less than a minute. We'd rather have you come back on your own terms than feel
+                                locked
+                                in.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is your return
+                            policy?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">We offer a 60-day, 100% money-back guarantee. Use Instant Lift
+                                Complex
+                                daily for up to 60 days. If you don't see a visible difference in your skin, contact our
+                                support team for a full refund — no questions asked. We're confident in the product
+                                because
+                                the ingredient science is confident. But if it's not right for you, we'll make it right.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you ship
+                            internationally?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">We currently ship within the United States. Free shipping is
+                                included
+                                with all subscription orders. One-time purchases ship via standard delivery (3–5
+                                business
+                                days). International shipping may be available in the future.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What payment methods do you
+                            accept?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">We accept all major credit cards (Visa, Mastercard, American
+                                Express),
+                                PayPal, Apple Pay, and Google Pay. All transactions are processed through secure,
+                                encrypted
+                                checkout.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will this product make me
+                            break
+                            out?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Instant Lift Complex is non-comedogenic and designed not to clog
+                                pores.
+                                The formula does not contain heavy oils or known pore-blocking ingredients. Most users
+                                experience no breakouts. As with any new skincare product, your skin may need a brief
+                                adjustment period. If breakouts persist, discontinue use.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this tested on
+                            animals?<span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">No. Instant Lift Complex is cruelty-free. We do not test on
+                                animals.
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End faq-questions -->
+
+                <div class="faq-image-container">
+                    <img src="public/images/trendy_product_jar_1772081050172.png" alt="Product FAQ">
                 </div>
             </div>
 
@@ -3100,6 +3117,121 @@
     </section>
 
 
+
+    <style>
+        .trusted-section {
+            padding: 80px 0;
+            background: #fdfdfd;
+            border-top: 2px solid #08417A;
+            text-align: center;
+        }
+
+        .trusted-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 40px);
+            color: #0A0A0A;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .trusted-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trusted-card {
+            background: #fff;
+            border: 2px solid #08417A;
+            padding: 24px;
+            text-align: left;
+            position: relative;
+        }
+
+        .trusted-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            background: #eee;
+        }
+
+        .trusted-vid-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .trusted-vid-placeholder::after {
+            content: '▶';
+            font-size: 40px;
+            color: #fff;
+            opacity: 0.8;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .trusted-quote {
+            font-size: 15px;
+            font-family: 'Outfit', sans-serif;
+            font-style: italic;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+    </style>
+
+    <section class="trusted-section">
+        <div class="container container-wide">
+            <h2 class="trusted-title">Trusted by 2100 women</h2>
+
+            <div class="trusted-grid">
+                <!-- Image Review 1 -->
+                <div class="trusted-card">
+                    <img src="public/images/before_after_result.png" alt="Customer Results">
+                    <p class="trusted-quote">"The difference is undeniable. I look and feel more confident."</p>
+                    <div style="color:#F59E0B; font-size:14px; margin-bottom:8px;">★★★★★</div>
+                    <p
+                        style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; text-transform:uppercase;">
+                        Elena V.</p>
+                </div>
+
+                <!-- Video Review -->
+                <div class="trusted-card">
+                    <div class="trusted-vid-placeholder"></div>
+                    <p class="trusted-quote">"I threw away all my expensive serums. This actually works."</p>
+                    <div style="color:#F59E0B; font-size:14px; margin-bottom:8px;">★★★★★</div>
+                    <p
+                        style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; text-transform:uppercase;">
+                        Sarah T.</p>
+                </div>
+
+                <!-- Image Review 2 -->
+                <div class="trusted-card">
+                    <img src="public/images/customer_results_grid.png" alt="Customer Results">
+                    <p class="trusted-quote">"My husband asked if I got work done! Best money ever spent."</p>
+                    <div style="color:#F59E0B; font-size:14px; margin-bottom:8px;">★★★★★</div>
+                    <p
+                        style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; text-transform:uppercase;">
+                        Marie L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ===== S13: GUARANTEE ===== -->
     <style>
@@ -3186,9 +3318,10 @@
     </style>
     <section class="guar-section" id="guarantee">
         <div class="container">
-            <div class="guar-badge">
-                <span>60</span>
-                <small>Days</small>
+            <div class="guar-badge-img-wrapper" style="margin: 0 auto 36px;">
+                <img src="public/images/guarantee-badge.svg" alt="Real Money Back Guarantee"
+                    style="height: 160px; width: auto; max-width: 100%;"
+                    onerror="this.onerror=null; this.src='https://placehold.co/160x160/16a34a/white?text=100%25%0AGuarantee&font=lora';">
             </div>
             <h2 class="guar-title">Visible Results in 60 Days — Or Your Money Back</h2>
             <p class="guar-text">Use Instant Lift Complex daily for 60 days. If you don't see a visible difference in

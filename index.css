@@ -1172,3 +1172,129 @@ img {
         object-position: center !important;
     }
 }
+
+/* ===== TESTIMONIAL MARQUEE ===== */
+.testi-section {
+    padding: 100px 0;
+    background: #f8f7f5;
+    border-top: 2px solid var(--border-main);
+    overflow: hidden;
+}
+
+.testi-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-main);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.testi-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 44px);
+    text-align: center;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--text-main);
+    margin-bottom: 64px;
+}
+
+.testi-track {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+
+.testi-marquee-inner {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: marquee-scroll 40s linear infinite;
+}
+
+.testi-track:hover .testi-marquee-inner {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.testi-card {
+    background: #fff;
+    border: 2px solid var(--border-main);
+    padding: 32px;
+    width: 360px;
+    flex-shrink: 0;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.05);
+}
+
+.testi-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.testi-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--border-main);
+}
+
+.testi-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testi-stars {
+    color: #0A0A0A;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.testi-name {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--text-main);
+}
+
+.testi-tags {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: inline-block;
+    padding: 4px 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.testi-quote {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-main);
+    font-style: italic;
+    font-weight: 500;
+}

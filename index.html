@@ -1618,16 +1618,7 @@
             </div>
         </section>
 
-        <script>
-            // Scroll-triggered reveal for science layers
-            const scienceLayers = document.querySelectorAll('.science-layer');
-            const scienceObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1 });
-            scienceLayers.forEach(l => scienceObserver.observe(l));
-        </script>
+
 
         <!-- Section 8: Risk-Free Guarantee Spotlight -->
         <style>
@@ -2828,7 +2819,10 @@
                 <div class="ing-secondary-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
                     <!-- Card 1: Polymers -->
                     <div class="ing-secondary-card">
-                        <div class="ing-secondary-icon">✨</div>
+                        <div class="ing-secondary-icon">
+                            <img src="public/images/ingredient_tightening_polymers.png" alt="Tightening Polymers"
+                                style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                        </div>
                         <h4 class="ing-secondary-title">Tightening Polymers</h4>
                         <p class="ing-secondary-scientific">Instant Surface Lift</p>
                         <p class="ing-secondary-desc">Creates an invisible, breathable micro-veil that produces a
@@ -2837,7 +2831,10 @@
 
                     <!-- Card 2: HA -->
                     <div class="ing-secondary-card">
-                        <div class="ing-secondary-icon">💧</div>
+                        <div class="ing-secondary-icon">
+                            <img src="public/images/ingredient_hyaluronic_acid.png" alt="Hyaluronic Acid"
+                                style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                        </div>
                         <h4 class="ing-secondary-title">Low MW Hyaluronic Acid</h4>
                         <p class="ing-secondary-scientific">Deep Moisture Lock</p>
                         <p class="ing-secondary-desc">Our low-molecular-weight version is specifically designed to
@@ -2846,7 +2843,10 @@
 
                     <!-- Card 3: Peptides -->
                     <div class="ing-secondary-card">
-                        <div class="ing-secondary-icon">🧬</div>
+                        <div class="ing-secondary-icon">
+                            <img src="public/images/ingredient_collagen_peptides.png" alt="Collagen Peptides"
+                                style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                        </div>
                         <h4 class="ing-secondary-title">Collagen-Boosting Peptides</h4>
                         <p class="ing-secondary-scientific">Structural Firmness</p>
                         <p class="ing-secondary-desc">Signal peptides like Palmitoyl Tripeptide-5 reinforce the
@@ -2855,7 +2855,10 @@
 
                     <!-- Card 4: Circulation -->
                     <div class="ing-secondary-card">
-                        <div class="ing-secondary-icon">🌿</div>
+                        <div class="ing-secondary-icon">
+                            <img src="public/images/ingredient_butchers_broom.png" alt="Butcher's Broom"
+                                style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                        </div>
                         <h4 class="ing-secondary-title">Butcher’s Broom & Ginger</h4>
                         <p class="ing-secondary-scientific">Circulation & Soothing</p>
                         <p class="ing-secondary-desc">Botanical extracts that soothe the skin surface while supporting
@@ -2864,7 +2867,10 @@
 
                     <!-- Card 5: Protection -->
                     <div class="ing-secondary-card">
-                        <div class="ing-secondary-icon">💎</div>
+                        <div class="ing-secondary-icon">
+                            <img src="public/images/ingredient_vitamin_c_e.png" alt="Vitamin C & E"
+                                style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                        </div>
                         <h4 class="ing-secondary-title">Vitamin C & Vitamin E</h4>
                         <p class="ing-secondary-scientific">Brightening & Protection</p>
                         <p class="ing-secondary-desc">A powerful antioxidant duo that brightens uneven skin tone and
@@ -2873,7 +2879,10 @@
 
                     <!-- Card 6: Recovery -->
                     <div class="ing-secondary-card">
-                        <div class="ing-secondary-icon">🛡️</div>
+                        <div class="ing-secondary-icon">
+                            <img src="public/images/ingredient_aloe_panthenol.png" alt="Aloe & Panthenol"
+                                style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
+                        </div>
                         <h4 class="ing-secondary-title">Aloe, Panthenol & Hibiscus</h4>
                         <p class="ing-secondary-scientific">The Recovery Complex</p>
                         <p class="ing-secondary-desc">Essential nutrients that restore the skin's protective barrier,

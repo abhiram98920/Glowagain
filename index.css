@@ -193,19 +193,7 @@ img {
     gap: 32px;
 }
 
-/* Motion & Interactivity Framework */
-.hover-lift {
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(255, 51, 119, 0.12);
-}
-
-.hover-glow:hover {
-    box-shadow: var(--shadow-rose);
-}
+/* hover-lift and hover-glow utility classes are inactive — non-interactive elements should not animate */
 
 @keyframes float {
     0% {
@@ -691,9 +679,6 @@ img {
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.step-card:hover .step-image-wrap img {
-    transform: scale(1.05);
-}
 
 .read-more {
     font-size: 13px;
@@ -736,10 +721,6 @@ img {
     box-shadow: var(--shadow-sm);
 }
 
-.expect-item:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
 
 .expect-img-wrapper {
     width: 100%;
@@ -818,11 +799,6 @@ img {
     transition: var(--transition-base);
 }
 
-.testimonial-card-v2:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-rose);
-    border-color: rgba(255, 107, 157, 0.4);
-}
 
 .ing-card {
     background: hsl(var(--card));
@@ -838,10 +814,6 @@ img {
     box-shadow: var(--shadow-sm);
 }
 
-.ing-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
 
 .ing-image {
     width: 100%;

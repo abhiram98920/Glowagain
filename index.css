@@ -383,8 +383,9 @@ img {
 .site-logo {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
-    height: 44px;
+    height: 52px;
 }
 
 .site-logo img {

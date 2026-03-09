@@ -174,6 +174,44 @@
             z-index: 10;
         }
 
+        /* ── Gallery Arrow Navigation ── */
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.92);
+            border: 2px solid #08417A;
+            box-shadow: 3px 3px 0 #08417A;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 900;
+            color: #08417A;
+            transition: all 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .gallery-arrow:hover {
+            background: #08417A;
+            color: #fff;
+            transform: translateY(-50%) translate(-2px, -2px);
+            box-shadow: 5px 5px 0 #08417A;
+        }
+
+        .gallery-arrow.prev {
+            left: 12px;
+        }
+
+        .gallery-arrow.next {
+            right: 12px;
+        }
+
         .gallery-thumbnails {
             display: flex;
             justify-content: center;
@@ -1092,6 +1130,9 @@
                         your skin, we'll refund every penny.<br><br><strong>No questions. No hassle. No fine
                             print.</strong></p>
                 </div>
+                <!-- Arrow Navigation -->
+                <button class="gallery-arrow prev" id="gallery-prev" aria-label="Previous image">&#8592;</button>
+                <button class="gallery-arrow next" id="gallery-next" aria-label="Next image">&#8594;</button>
             </div>
             <div class="gallery-thumbnails">
                 <div class="thumb-item active"
@@ -3511,39 +3552,59 @@
             openCartDrawer();
         });
 
-        // Gallery thumb switcher
+        // ── Gallery Carousel with Arrow + Swipe Navigation ──
+        (function initGallery() {
+            const thumbs = Array.from(document.querySelectorAll('.thumb-item'));
+            let currentIdx = 0;
+
+            function activateThumb(idx) {
+                currentIdx = ((idx % thumbs.length) + thumbs.length) % thumbs.length;
+                thumbs[currentIdx].click();
+                thumbs[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+
+            // Wire prev/next arrows
+            const prevBtn = document.getElementById('gallery-prev');
+            const nextBtn = document.getElementById('gallery-next');
+            if (prevBtn) prevBtn.addEventListener('click', () => activateThumb(currentIdx - 1));
+            if (nextBtn) nextBtn.addEventListener('click', () => activateThumb(currentIdx + 1));
+
+            // Track currentIdx on direct thumb click
+            thumbs.forEach((th, i) => th.addEventListener('click', () => { currentIdx = i; }));
+
+            // Touch swipe support
+            let touchStartX = 0;
+            const galleryEl = document.getElementById('gallery-main');
+            if (galleryEl) {
+                galleryEl.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].clientX;
+                }, { passive: true });
+                galleryEl.addEventListener('touchend', e => {
+                    const diff = touchStartX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 40) activateThumb(diff > 0 ? currentIdx + 1 : currentIdx - 1);
+                }, { passive: true });
+            }
+        })();
+
+        // Gallery thumb switcher (called by each thumb-item onclick)
         function switchThumb(el, type, value, counter) {
-            // Update active thumb
             document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
             el.classList.add('active');
-            // Update counter
             const ctr = document.getElementById('gallery-counter');
             if (ctr && counter) ctr.textContent = counter;
-            // Show correct content
             const mainImg = document.getElementById('main-img');
             const mainVid = document.getElementById('main-video');
             const allSlides = document.querySelectorAll('.gallery-slide');
-
-            if (mainVid) {
-                mainVid.pause();
-                mainVid.style.display = 'none';
-            }
-
+            if (mainVid) { mainVid.pause(); mainVid.style.display = 'none'; }
             if (type === 'img') {
-                // Show image, hide all slides
                 mainImg.src = value;
                 mainImg.style.display = '';
                 allSlides.forEach(s => s.classList.remove('active'));
             } else if (type === 'video') {
                 mainImg.style.display = 'none';
                 allSlides.forEach(s => s.classList.remove('active'));
-                if (mainVid) {
-                    mainVid.src = value;
-                    mainVid.style.display = '';
-                    mainVid.play().catch(e => console.log(e));
-                }
+                if (mainVid) { mainVid.src = value; mainVid.style.display = ''; mainVid.play().catch(e => { }); }
             } else if (type === 'slide') {
-                // Hide image, show requested slide
                 mainImg.style.display = 'none';
                 allSlides.forEach(s => s.classList.remove('active'));
                 const target = document.getElementById(value);

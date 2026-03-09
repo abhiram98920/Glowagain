@@ -1255,7 +1255,7 @@
 
             <!-- Step 3: ATC -->
             <div class="step-label-pdp"><span class="step-num">3</span> Add to Cart</div>
-            <button class="atc-btn" id="atc-btn">ADD TO CART — $159.00</button>
+            <button class="atc-btn" id="atc-btn">ADD TO CART — $53 per jar</button>
             <div class="atc-sub">Price updates based on plan &amp; supply selection</div>
 
             <!-- Guarantee strip -->
@@ -3595,7 +3595,8 @@
             // Update ATC button text
             const atcBtn = document.getElementById('atc-btn');
             if (atcBtn) {
-                atcBtn.textContent = 'ADD TO CART — $' + price.toFixed(2);
+                const perJarText = btn.querySelector('.supply-price').textContent;
+                atcBtn.textContent = 'ADD TO CART — ' + (perJarText.includes('per jar') ? perJarText : perJarText + ' per jar');
             }
 
             // Sync with perks display if needed

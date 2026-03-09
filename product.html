@@ -984,7 +984,14 @@
             .guar-badge {
                 width: 90px;
                 height: 90px;
-                font-size: 36px;
+            }
+
+            .guar-badge span {
+                font-size: 32px;
+            }
+
+            .guar-badge small {
+                font-size: 11px;
             }
 
             .guar-text {
@@ -3112,14 +3119,40 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: #0E5CA5;
-            border: 4px solid #fff;
+            background: #16a34a;
+            border: 3px solid #bbf7d0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
             margin: 0 auto 36px;
-            box-shadow: 0 0 0 8px rgba(255, 69, 0, 0.2);
+            box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.2);
+            position: relative;
+            color: white;
+        }
+
+        .guar-badge::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border: 2px dashed rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+        }
+
+        .guar-badge span {
+            font-family: 'Outfit', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1;
+            margin-top: 4px;
+        }
+
+        .guar-badge small {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            opacity: 0.95;
+            text-transform: uppercase;
         }
 
         .guar-title {
@@ -3158,7 +3191,10 @@
     </style>
     <section class="guar-section" id="guarantee">
         <div class="container">
-            <div class="guar-badge">🛡️</div>
+            <div class="guar-badge">
+                <span>60</span>
+                <small>Days</small>
+            </div>
             <h2 class="guar-title">Visible Results in 60 Days — Or Your Money Back</h2>
             <p class="guar-text">Use Instant Lift Complex daily for 60 days. If you don't see a visible difference in
                 your skin — smoother texture, firmer feel, reduced appearance of fine lines — we'll refund every penny.

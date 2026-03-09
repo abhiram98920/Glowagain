@@ -6,7 +6,7 @@
        ============================ */
 
     /* Brand Colors - Clinical Luxury */
-    --color-black: #08417A;
+    --color-black: #0A0A0A;
     /* Deep Navy Blue from Hero */
     --color-white: #f7f7f5;
     /* Soft Off-White / Cream */
@@ -271,46 +271,46 @@ img {
 .btn-primary {
     background: var(--color-accent);
     color: var(--color-white);
-    border: 2px solid var(--color-black);
-    box-shadow: 4px 4px 0px var(--color-black);
+    border: 2px solid #08417A;
+    box-shadow: 4px 4px 0px #08417A;
 }
 
 .btn-primary:active {
     transform: translate(4px, 4px);
-    box-shadow: 0px 0px 0px var(--color-black);
+    box-shadow: 4px 4px 0 #08417A;
 }
 
 .btn-primary:hover {
     background: var(--color-white);
     color: #0A0A0A;
-    border-color: var(--color-black);
+    border-color: #08417A;
 }
 
 .btn-white {
     background: var(--color-white);
     color: #0A0A0A;
-    border: 2px solid var(--color-black);
-    box-shadow: 4px 4px 0px var(--color-black);
+    border: 2px solid #08417A;
+    box-shadow: 4px 4px 0px #08417A;
 }
 
 .btn-white:hover {
-    background: var(--color-black);
+    background: #08417A;
     color: var(--color-white);
-    border-color: var(--color-black);
+    border-color: #08417A;
 }
 
 .btn-outline {
     background-color: transparent;
     color: var(--text-main);
     border: 2px solid var(--border-main);
-    box-shadow: 4px 4px 0px var(--border-main);
+    box-shadow: 4px 4px 0px #08417A;
 }
 
 .btn-outline:hover {
-    background: var(--color-black);
+    background: #08417A;
     color: var(--color-white);
-    border-color: var(--color-black);
-    box-shadow: 4px 4px 0px var(--color-black);
+    border-color: #08417A;
+    box-shadow: 4px 4px 0px #08417A;
     transform: translate(-2px, -2px);
 }
 
@@ -329,7 +329,7 @@ img {
     overflow: hidden;
     position: relative;
     z-index: 1000;
-    border-bottom: 2px solid var(--color-black);
+    border-bottom: 2px solid #08417A;
     white-space: nowrap;
 }
 
@@ -373,7 +373,7 @@ img {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 2px solid var(--color-black);
+    border-bottom: 2px solid #08417A;
     padding: 16px 0;
     position: sticky;
     top: 0;
@@ -501,7 +501,7 @@ img {
     background: white;
     z-index: 2100;
     padding: 40px 32px;
-    border-right: 2px solid var(--color-black);
+    border-right: 2px solid #08417A;
     transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     display: flex;
     flex-direction: column;

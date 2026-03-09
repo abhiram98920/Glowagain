@@ -381,18 +381,20 @@ img {
 }
 
 .site-logo {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 900;
-    font-size: 24px;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    color: #0A0A0A;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    line-height: 1;
+    height: 32px;
+}
+
+.site-logo img {
+    height: 100%;
+    width: auto;
+    display: block;
 }
 
 .site-logo span {
-    color: var(--color-secondary);
+    display: none;
 }
 
 .site-nav-btn {

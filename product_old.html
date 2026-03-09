@@ -722,10 +722,9 @@
             opacity: 1;
         }
 
-        .pay-badge img {
+        .pay-badge svg {
             height: 22px;
             width: auto;
-            object-fit: contain;
         }
 
         /* Trust badges */
@@ -1102,8 +1101,7 @@
             </button>
             <!-- Center: Logo -->
             <a href="index.html" class="site-logo">
-                <img src="public/images/logo.png" alt="Glow Again Labs">
-                <span>Glow Again Labs</span>
+                GLOW AGAIN LABS<span>.</span>
             </a>
             <!-- Right: Cart -->
             <button class="site-nav-btn" id="cart-toggle">
@@ -1326,22 +1324,22 @@
             <!-- Payment methods -->
             <div class="payment-row">
                 <div class="pay-badge" aria-label="Visa">
-                    <img src="public/images/visa.png" alt="Visa" style="height: 16px;">
+                    <img src="public/images/visa.png" alt="Visa">
                 </div>
                 <div class="pay-badge" aria-label="Mastercard">
-                    <img src="public/images/mastercard.png" alt="Mastercard" style="height: 28px;">
+                    <img src="public/images/mastercard.png" alt="Mastercard">
                 </div>
                 <div class="pay-badge" aria-label="Amex">
-                    <img src="public/images/amex.png" alt="Amex" style="height: 24px;">
+                    <img src="public/images/amex.png" alt="Amex">
                 </div>
                 <div class="pay-badge" aria-label="PayPal">
-                    <img src="public/images/paypal.png" alt="PayPal" style="height: 24px;">
+                    <img src="public/images/paypal.png" alt="PayPal">
                 </div>
                 <div class="pay-badge" aria-label="Apple Pay">
-                    <img src="public/images/applepay.png" alt="Apple Pay" style="height: 24px;">
+                    <img src="public/images/applepay.png" alt="Apple Pay">
                 </div>
                 <div class="pay-badge" aria-label="Google Pay">
-                    <img src="public/images/googlepay.png" alt="Google Pay" style="height: 24px;">
+                    <img src="public/images/googlepay.png" alt="Google Pay">
                 </div>
             </div>
 
@@ -1358,358 +1356,6 @@
                         Shipping<br>on
                         Subscriptions</span></div>
             </div>
-
-            <!-- Seen in Action Widget -->
-            <style>
-                .widget-video-section {
-                    margin-bottom: 32px;
-                    background: #fff;
-                }
-
-                .widget-video-title {
-                    font-family: 'Outfit', sans-serif;
-                    font-weight: 900;
-                    font-size: 20px;
-                    color: #0A0A0A;
-                    text-align: left;
-                    letter-spacing: -0.01em;
-                    text-transform: uppercase;
-                    margin-bottom: 16px;
-                    border-bottom: 2px solid #eee;
-                    padding-bottom: 12px;
-                }
-
-                .widget-video-grid {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 2px;
-                }
-
-                .video-card {
-                    position: relative;
-                    overflow: hidden;
-                    cursor: pointer;
-                    background: #111;
-                    border: 1px solid #222;
-                }
-
-                .video-card-img {
-                    width: 100%;
-                    aspect-ratio: 9/16;
-                    object-fit: cover;
-                    display: block;
-                    filter: brightness(0.8);
-                    transition: filter 0.4s, transform 0.4s;
-                }
-
-                .video-card:hover .video-card-img {
-                    filter: brightness(0.6);
-                    transform: scale(1.04);
-                }
-
-                .video-play,
-                .video-pause {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 40px;
-                    height: 40px;
-                    background: rgba(14, 92, 165, 0.9);
-                    border: 2px solid #fff;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: all 0.3s;
-                    z-index: 5;
-                }
-
-                .video-play svg,
-                .video-pause svg {
-                    fill: #fff;
-                    width: 16px;
-                    height: 16px;
-                }
-
-                .video-pause {
-                    opacity: 0;
-                    pointer-events: none;
-                }
-
-                .video-card.is-playing:hover .video-pause {
-                    opacity: 1;
-                }
-
-                .video-card:not(.is-playing) .video-play {
-                    opacity: 1;
-                }
-
-                .video-card.is-playing .video-play {
-                    opacity: 0;
-                    pointer-events: none;
-                }
-
-                .video-card-info {
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    padding: 16px 8px 8px;
-                    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-                    z-index: 10;
-                }
-
-                .video-card-name {
-                    font-family: 'Outfit', sans-serif;
-                    font-weight: 900;
-                    font-size: 13px;
-                    color: #fff;
-                    text-transform: uppercase;
-                    letter-spacing: 0.04em;
-                }
-
-                .video-card-tag {
-                    font-family: 'Outfit', sans-serif;
-                    font-size: 9px;
-                    font-weight: 700;
-                    color: #fff;
-                    text-transform: uppercase;
-                    letter-spacing: 0.1em;
-                    margin-top: 2px;
-                    opacity: 0.8;
-                }
-
-                .inline-video {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    z-index: 2;
-                    opacity: 0;
-                    transition: opacity 0.4s;
-                }
-
-                .video-card.is-playing .inline-video {
-                    opacity: 1;
-                }
-
-                .vc-mute-btn {
-                    position: absolute;
-                    top: 8px;
-                    right: 8px;
-                    background: rgba(0, 0, 0, 0.4);
-                    color: #fff;
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                    width: 24px;
-                    height: 24px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    z-index: 15;
-                    opacity: 0;
-                    transition: all 0.3s;
-                    backdrop-filter: blur(4px);
-                }
-
-                .vc-mute-btn svg {
-                    width: 12px;
-                    height: 12px;
-                }
-
-                .video-card:hover .vc-mute-btn {
-                    opacity: 1;
-                }
-            </style>
-
-            <div class="widget-video-section">
-                <h2 class="widget-video-title">Seen in Action</h2>
-                <div class="widget-video-grid">
-                    <div class="video-card is-playing">
-                        <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted autoplay
-                            preload="metadata"></video>
-                        <img class="video-card-img"
-                            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=700&fit=crop&q=80"
-                            alt="Linda">
-                        <div class="video-play">
-                            <svg viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21" />
-                            </svg>
-                        </div>
-                        <div class="video-pause">
-                            <svg viewBox="0 0 24 24">
-                                <rect x="6" y="4" width="4" height="16" />
-                                <rect x="14" y="4" width="4" height="16" />
-                            </svg>
-                        </div>
-                        <button class="vc-mute-btn" aria-label="Toggle Mute">
-                            <svg class="vc-icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                <line x1="23" y1="9" x2="17" y2="15"></line>
-                                <line x1="17" y1="9" x2="23" y2="15"></line>
-                            </svg>
-                            <svg class="vc-icon-unmute" style="display:none;" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                            </svg>
-                        </button>
-                        <div class="video-card-info">
-                            <div class="video-card-name">Linda, 58</div>
-                            <div class="video-card-tag">Jawline Transformation</div>
-                        </div>
-                    </div>
-                    <div class="video-card is-playing">
-                        <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted autoplay
-                            preload="metadata"></video>
-                        <img class="video-card-img"
-                            src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=700&fit=crop&q=80"
-                            alt="Diane">
-                        <div class="video-play">
-                            <svg viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21" />
-                            </svg>
-                        </div>
-                        <div class="video-pause">
-                            <svg viewBox="0 0 24 24">
-                                <rect x="6" y="4" width="4" height="16" />
-                                <rect x="14" y="4" width="4" height="16" />
-                            </svg>
-                        </div>
-                        <button class="vc-mute-btn" aria-label="Toggle Mute">
-                            <svg class="vc-icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                <line x1="23" y1="9" x2="17" y2="15"></line>
-                                <line x1="17" y1="9" x2="23" y2="15"></line>
-                            </svg>
-                            <svg class="vc-icon-unmute" style="display:none;" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                            </svg>
-                        </button>
-                        <div class="video-card-info">
-                            <div class="video-card-name">Diane, 63</div>
-                            <div class="video-card-tag">Application Routine</div>
-                        </div>
-                    </div>
-                    <div class="video-card is-playing">
-                        <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted autoplay
-                            preload="metadata"></video>
-                        <img class="video-card-img"
-                            src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=700&fit=crop&q=80"
-                            alt="Barbara">
-                        <div class="video-play">
-                            <svg viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21" />
-                            </svg>
-                        </div>
-                        <div class="video-pause">
-                            <svg viewBox="0 0 24 24">
-                                <rect x="6" y="4" width="4" height="16" />
-                                <rect x="14" y="4" width="4" height="16" />
-                            </svg>
-                        </div>
-                        <button class="vc-mute-btn" aria-label="Toggle Mute">
-                            <svg class="vc-icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                <line x1="23" y1="9" x2="17" y2="15"></line>
-                                <line x1="17" y1="9" x2="23" y2="15"></line>
-                            </svg>
-                            <svg class="vc-icon-unmute" style="display:none;" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                            </svg>
-                        </button>
-                        <div class="video-card-info">
-                            <div class="video-card-name">Barbara, 52</div>
-                            <div class="video-card-tag">Before / After Reveal</div>
-                        </div>
-                    </div>
-                    <div class="video-card is-playing">
-                        <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted autoplay
-                            preload="metadata"></video>
-                        <img class="video-card-img"
-                            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=700&fit=crop&q=80"
-                            alt="Sandra">
-                        <div class="video-play">
-                            <svg viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21" />
-                            </svg>
-                        </div>
-                        <div class="video-pause">
-                            <svg viewBox="0 0 24 24">
-                                <rect x="6" y="4" width="4" height="16" />
-                                <rect x="14" y="4" width="4" height="16" />
-                            </svg>
-                        </div>
-                        <button class="vc-mute-btn" aria-label="Toggle Mute">
-                            <svg class="vc-icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                <line x1="23" y1="9" x2="17" y2="15"></line>
-                                <line x1="17" y1="9" x2="23" y2="15"></line>
-                            </svg>
-                            <svg class="vc-icon-unmute" style="display:none;" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                            </svg>
-                        </button>
-                        <div class="video-card-info">
-                            <div class="video-card-name">Sandra, 67</div>
-                            <div class="video-card-tag">Smooth Forehead Test</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const videoCards = document.querySelectorAll('.video-card');
-
-                    videoCards.forEach(card => {
-                        const video = card.querySelector('.inline-video');
-                        const muteBtn = card.querySelector('.vc-mute-btn');
-                        const muteIcon = muteBtn.querySelector('.vc-icon-mute');
-                        const unmuteIcon = muteBtn.querySelector('.vc-icon-unmute');
-
-                        // Toggle Play/Pause when clicking card
-                        card.addEventListener('click', (e) => {
-                            if (e.target.closest('.vc-mute-btn')) return;
-
-                            if (video.paused) {
-                                video.play();
-                                card.classList.add('is-playing');
-                            } else {
-                                video.pause();
-                                card.classList.remove('is-playing');
-                            }
-                        });
-
-                        // Toggle Mute
-                        muteBtn.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                            video.muted = !video.muted;
-                            if (video.muted) {
-                                muteIcon.style.display = 'block';
-                                unmuteIcon.style.display = 'none';
-                            } else {
-                                muteIcon.style.display = 'none';
-                                unmuteIcon.style.display = 'block';
-                            }
-                        });
-                    });
-                });
-            </script>
 
             <!-- Accordion details -->
             <div class="accordion" id="accordion">
@@ -1781,7 +1427,7 @@
                 </div>
 
                 <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleAcc(this)">Ingredients <span
+                    <button class="accordion-trigger" onclick="toggleAcc(this)">Full Ingredients List <span
                             class="acc-icon">+</span></button>
                     <div class="accordion-body">
                         <ul
@@ -1818,252 +1464,596 @@
                     </div>
                 </div>
 
-
             </div><!-- /accordion -->
         </div><!-- /purchase-col -->
     </section>
-    </div><!-- /purchase-col -->
+
+    <!-- ===== S4: SEE IT IN ACTION ===== -->
+    <style>
+        .video-section {
+            padding: 100px 0;
+            background: #08417A;
+            border-top: 2px solid #08417A;
+        }
+
+        .video-section-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .video-section-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 44px);
+            color: #fff;
+            text-align: center;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 56px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+        }
+
+        @media(min-width:768px) {
+            .video-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .video-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            background: #111;
+            border: 2px solid #222;
+        }
+
+        .video-card-img {
+            width: 100%;
+            aspect-ratio: 9/16;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.7) grayscale(0.2);
+            transition: filter 0.4s, transform 0.4s;
+        }
+
+        .video-card:hover .video-card-img {
+            filter: brightness(0.5);
+            transform: scale(1.04);
+        }
+
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            width: 60px;
+            height: 60px;
+            background: rgba(14, 92, 165, 0.9);
+            border: 3px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover .video-play {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-play svg {
+            margin-left: 4px;
+        }
+
+        .video-card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 16px 16px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+        }
+
+        .video-card-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .video-card-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: #0A0A0A;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 3px;
+        }
+
+        /* Inline Video Player Styles */
+        .inline-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .video-card.is-playing .inline-video {
+            opacity: 1;
+        }
+
+        .video-card.is-playing .video-card-img {
+            opacity: 0;
+        }
+
+        .video-card.is-playing .video-play {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        .video-card.is-paused .video-play {
+            opacity: 1;
+            pointer-events: none;
+            /* Let clicks pass through to the card */
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Ensure card info stays above video */
+        .video-card-info {
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Mute Button */
+        .vc-mute-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 4;
+            opacity: 0;
+            transition: opacity 0.3s, background 0.3s;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .vc-mute-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .video-card.is-playing .vc-mute-btn,
+        .video-card.is-paused .vc-mute-btn {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoCards = document.querySelectorAll('.video-card');
+
+            videoCards.forEach(card => {
+                const video = card.querySelector('.inline-video');
+                const playBtn = card.querySelector('.video-play');
+                const muteBtn = card.querySelector('.vc-mute-btn');
+                const muteIcon = muteBtn.querySelector('.vc-icon-mute');
+                const unmuteIcon = muteBtn.querySelector('.vc-icon-unmute');
+
+                let isPlaying = false;
+
+                // Toggle Play/Pause when clicking card (except mute button)
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.vc-mute-btn')) return;
+
+                    if (video.paused) {
+                        video.play();
+                        card.classList.add('is-playing');
+                        card.classList.remove('is-paused');
+                        isPlaying = true;
+                    } else {
+                        video.pause();
+                        card.classList.add('is-paused');
+                        isPlaying = false;
+                    }
+                });
+
+                // Toggle Mute
+                muteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // prevent card click
+                    video.muted = !video.muted;
+                    if (video.muted) {
+                        muteIcon.style.display = 'block';
+                        unmuteIcon.style.display = 'none';
+                    } else {
+                        muteIcon.style.display = 'none';
+                        unmuteIcon.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <section class="video-section">
+        <div class="container">
+            <p class="video-section-eyebrow">Hear It From Them</p>
+            <h2 class="video-section-title">See It In Action</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted
+                        preload="metadata"></video>
+                    <img class="video-card-img"
+                        src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=700&fit=crop&q=80"
+                        alt="Linda">
+                    <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg></div>
+                    <button class="vc-mute-btn" aria-label="Toggle Mute">
+                        <svg class="vc-icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <svg class="vc-icon-unmute" style="display:none;" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                    </button>
+                    <div class="video-card-info">
+                        <div class="video-card-name">Linda, 58</div>
+                        <div class="video-card-tag">Jawline Transformation</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted
+                        preload="metadata"></video>
+                    <img class="video-card-img"
+                        src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=700&fit=crop&q=80"
+                        alt="Diane">
+                    <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg></div>
+                    <button class="vc-mute-btn" aria-label="Toggle Mute">
+                        <svg class="vc-icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <svg class="vc-icon-unmute" style="display:none;" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                    </button>
+                    <div class="video-card-info">
+                        <div class="video-card-name">Diane, 63</div>
+                        <div class="video-card-tag">Application Routine</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted
+                        preload="metadata"></video>
+                    <img class="video-card-img"
+                        src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=700&fit=crop&q=80"
+                        alt="Barbara">
+                    <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg></div>
+                    <button class="vc-mute-btn" aria-label="Toggle Mute">
+                        <svg class="vc-icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <svg class="vc-icon-unmute" style="display:none;" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                    </button>
+                    <div class="video-card-info">
+                        <div class="video-card-name">Barbara, 52</div>
+                        <div class="video-card-tag">Before / After Reveal</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video class="inline-video" src="public/videos/317227_tiny.mp4" playsinline loop muted
+                        preload="metadata"></video>
+                    <img class="video-card-img"
+                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=700&fit=crop&q=80"
+                        alt="Sandra">
+                    <div class="video-play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+                            <polygon points="5,3 19,12 5,21" />
+                        </svg></div>
+                    <button class="vc-mute-btn" aria-label="Toggle Mute">
+                        <svg class="vc-icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <svg class="vc-icon-unmute" style="display:none;" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                    </button>
+                    <div class="video-card-info">
+                        <div class="video-card-name">Sandra, 67</div>
+                        <div class="video-card-tag">Smooth Forehead Results</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-
     <!-- ===== S5: TESTIMONIAL CAROUSEL ===== -->
+    <style>
+        .testi-section {
+            padding: 100px 0;
+            background: #fff;
+            border-top: 2px solid #08417A;
+            overflow: hidden;
+        }
+
+        .testi-eyebrow {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #0A0A0A;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .testi-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: clamp(28px, 4vw, 44px);
+            text-align: center;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            margin-bottom: 56px;
+            color: #0A0A0A;
+        }
+
+        .testi-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 24px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+
+        .testi-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testi-card {
+            min-width: 320px;
+            max-width: 340px;
+            flex-shrink: 0;
+            background: #fff;
+            border: 2px solid #08417A;
+            padding: 28px;
+            scroll-snap-align: start;
+            box-shadow: 4px 4px 0 #08417A;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+
+        .testi-stars {
+            color: #0A0A0A;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testi-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .testi-tags {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #0A0A0A;
+        }
+
+        .testi-quote {
+            font-size: 15px;
+            line-height: 1.65;
+            color: #333;
+            font-weight: 500;
+            flex-grow: 1;
+        }
+
+        .testi-read {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #0A0A0A;
+            border-bottom: 2px solid var(--color-secondary);
+            display: inline-block;
+            padding-bottom: 2px;
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            cursor: pointer;
+        }
+    </style>
     <section class="testi-section">
         <p class="testi-eyebrow">TESTIMONIALS</p>
         <h2 class="testi-title">Real Women. Real Results.</h2>
         <div class="testi-track">
-            <div class="testi-marquee-inner">
-                <!-- === Original set === -->
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/joan_64_portrait.png" alt="Joan"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Joan, 64</div>
-                        </div>
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/joan_64_portrait.png" alt="Joan"></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Joan, 64</div>
                     </div>
-                    <div class="testi-tags">Visible Tightening · Smoother Skin</div>
-                    <p class="testi-quote">"I could see the difference in my jawline after the first week. My daughter
-                        asked what I was doing differently."</p>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/patricia_54_portrait.png" alt="Patricia">
-                        </div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Patricia, 54</div>
-                        </div>
+                <div class="testi-tags">Visible Tightening · Smoother Skin</div>
+                <p class="testi-quote">"I could see the difference in my jawline after the first week. My daughter asked
+                    what I was doing differently."</p>
+            </div>
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/patricia_54_portrait.png" alt="Patricia"></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Patricia, 54</div>
                     </div>
-                    <div class="testi-tags">Fine Lines · Hydration</div>
-                    <p class="testi-quote">"I stopped wearing heavy foundation. I don't need it anymore."</p>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_karen.png" alt="Karen"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Karen, 48</div>
-                        </div>
+                <div class="testi-tags">Fine Lines · Hydration</div>
+                <p class="testi-quote">"I stopped wearing heavy foundation. I don't need it anymore."</p>
+            </div>
+
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/testi_karen.png" alt="Karen"></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Karen, 48</div>
                     </div>
-                    <div class="testi-tags">Firmer Skin · Confidence</div>
-                    <p class="testi-quote">"My husband noticed before I did. 'Your skin looks amazing,' he said."</p>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_margaret.png" alt="Margaret"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Margaret, 61</div>
-                        </div>
+                <div class="testi-tags">Firmer Skin · Confidence</div>
+                <p class="testi-quote">"My husband noticed before I did. 'Your skin looks amazing,' he said."</p>
+            </div>
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/testi_margaret.png" alt="Margaret"></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Margaret, 61</div>
                     </div>
-                    <div class="testi-tags">Deep Hydration · Smooth Texture</div>
-                    <p class="testi-quote">"The 'crinkly' texture on my cheeks is actually smoothing out."</p>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_susan.png" alt="Susan"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Susan, 57</div>
-                        </div>
+                <div class="testi-tags">Deep Hydration · Smooth Texture</div>
+                <p class="testi-quote">"The 'crinkly' texture on my cheeks is actually smoothing out."</p>
+            </div>
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/testi_susan.png" alt="Susan"></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Susan, 57</div>
                     </div>
-                    <div class="testi-tags">Visible Lift · Quick Results</div>
-                    <p class="testi-quote">"I put it on before my reunion and three people said I looked ten years
-                        younger."</p>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_linda.png" alt="Linda R."></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Linda R., 66</div>
-                        </div>
+                <div class="testi-tags">Visible Lift · Quick Results</div>
+                <p class="testi-quote">"I put it on before my reunion and three people said I looked ten years younger."
+                </p>
+            </div>
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/testi_linda.png" alt="Linda R."></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Linda R., 66</div>
                     </div>
-                    <div class="testi-tags">Neck · Jawline</div>
-                    <p class="testi-quote">"I'm a retired nurse. I don't fall for gimmicks. This is not a gimmick."</p>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_nancy.png" alt="Nancy"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Nancy, 53</div>
-                        </div>
+                <div class="testi-tags">Neck · Jawline</div>
+                <p class="testi-quote">"I'm a retired nurse. I don't fall for gimmicks. This is not a gimmick."</p>
+
+            </div>
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/testi_nancy.png" alt="Nancy"></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Nancy, 53</div>
                     </div>
-                    <div class="testi-tags">Forehead Lines · Glow</div>
-                    <p class="testi-quote">"My forehead lines are softer and my skin has this glow I haven't seen in
-                        years."</p>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_deborah.png" alt="Deborah"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Deborah, 70</div>
-                        </div>
+                <div class="testi-tags">Forehead Lines · Glow</div>
+                <p class="testi-quote">"My forehead lines are softer and my skin has this glow I haven't seen in years."
+                </p>
+            </div>
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/testi_deborah.png" alt="Deborah"></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Deborah, 70</div>
                     </div>
-                    <div class="testi-tags">All Skin Types · Sensitive Skin</div>
-                    <p class="testi-quote">"I have very sensitive skin and this is one of the only products that doesn't
-                        irritate it."</p>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_carol.png" alt="Carol"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Carol, 59</div>
-                        </div>
+                <div class="testi-tags">All Skin Types · Sensitive Skin</div>
+                <p class="testi-quote">"I have very sensitive skin and this is one of the only products that doesn't
+                    irritate it."</p>
+            </div>
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/testi_carol.png" alt="Carol"></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Carol, 59</div>
                     </div>
-                    <div class="testi-tags">Value · One Product</div>
-                    <p class="testi-quote">"I replaced 4 products with this one. My bathroom counter thanks me."</p>
                 </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_jennifer.png" alt="Jennifer"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Jennifer, 46</div>
-                        </div>
+                <div class="testi-tags">Value · One Product</div>
+                <p class="testi-quote">"I replaced 4 products with this one. My bathroom counter thanks me."</p>
+            </div>
+            <div class="testi-card">
+                <div class="testi-header">
+                    <div class="testi-avatar"><img src="public/images/testi_jennifer.png" alt="Jennifer"></div>
+                    <div>
+                        <div class="testi-stars">★★★★★</div>
+                        <div class="testi-name">Jennifer, 46</div>
                     </div>
-                    <div class="testi-tags">Under Eye · Plumping</div>
-                    <p class="testi-quote">"The hollows under my eyes look fuller. I don't look exhausted anymore."</p>
                 </div>
-                <!-- === Clone set (seamless loop) === -->
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/joan_64_portrait.png" alt="Joan"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Joan, 64</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">Visible Tightening · Smoother Skin</div>
-                    <p class="testi-quote">"I could see the difference in my jawline after the first week. My daughter
-                        asked what I was doing differently."</p>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/patricia_54_portrait.png" alt="Patricia">
-                        </div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Patricia, 54</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">Fine Lines · Hydration</div>
-                    <p class="testi-quote">"I stopped wearing heavy foundation. I don't need it anymore."</p>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_karen.png" alt="Karen"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Karen, 48</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">Firmer Skin · Confidence</div>
-                    <p class="testi-quote">"My husband noticed before I did. 'Your skin looks amazing,' he said."</p>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_margaret.png" alt="Margaret"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Margaret, 61</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">Deep Hydration · Smooth Texture</div>
-                    <p class="testi-quote">"The 'crinkly' texture on my cheeks is actually smoothing out."</p>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_susan.png" alt="Susan"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Susan, 57</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">Visible Lift · Quick Results</div>
-                    <p class="testi-quote">"I put it on before my reunion and three people said I looked ten years
-                        younger."</p>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_linda.png" alt="Linda R."></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Linda R., 66</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">Neck · Jawline</div>
-                    <p class="testi-quote">"I'm a retired nurse. I don't fall for gimmicks. This is not a gimmick."</p>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_nancy.png" alt="Nancy"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Nancy, 53</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">Forehead Lines · Glow</div>
-                    <p class="testi-quote">"My forehead lines are softer and my skin has this glow I haven't seen in
-                        years."</p>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_deborah.png" alt="Deborah"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Deborah, 70</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">All Skin Types · Sensitive Skin</div>
-                    <p class="testi-quote">"I have very sensitive skin and this is one of the only products that doesn't
-                        irritate it."</p>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_carol.png" alt="Carol"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Carol, 59</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">Value · One Product</div>
-                    <p class="testi-quote">"I replaced 4 products with this one. My bathroom counter thanks me."</p>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-header">
-                        <div class="testi-avatar"><img src="public/images/testi_jennifer.png" alt="Jennifer"></div>
-                        <div>
-                            <div class="testi-stars">★★★★★</div>
-                            <div class="testi-name">Jennifer, 46</div>
-                        </div>
-                    </div>
-                    <div class="testi-tags">Under Eye · Plumping</div>
-                    <p class="testi-quote">"The hollows under my eyes look fuller. I don't look exhausted anymore."</p>
-                </div>
+                <div class="testi-tags">Under Eye · Plumping</div>
+                <p class="testi-quote">"The hollows under my eyes look fuller. I don't look exhausted anymore."</p>
+
             </div>
         </div>
     </section>
@@ -2789,8 +2779,7 @@
                     <div class="ing-emoji">💎</div>
                     <div class="ing-category">Brightening & Protection</div>
                     <div class="ing-name">Vitamin C & Vitamin E</div>
-                    <p class="ing-desc6">A powerful antioxidant duo that brightens uneven skin tone and protects
-                        against
+                    <p class="ing-desc6">A powerful antioxidant duo that brightens uneven skin tone and protects against
                         environmental stressors that cause premature aging.</p>
                 </div>
                 <!-- Card 6: Recovery -->
@@ -2804,19 +2793,15 @@
             </div>
             <div class="ing-full-toggle">
                 <button class="ing-full-btn"
-                    onclick="document.querySelector('.ing-full-list').classList.toggle('open');this.textContent=this.textContent.includes('View')?'Hide Ingredients':'View Ingredients'">View
-                    Ingredients</button>
+                    onclick="document.querySelector('.ing-full-list').classList.toggle('open');this.textContent=this.textContent.includes('View')?'Hide Full Ingredients List':'View Full Ingredients List'">View
+                    Full Ingredients List</button>
                 <div class="ing-full-list">Water, Dimethyl Sulfone, Sodium Acrylate/Sodium Acrylol Dimethyl Taurate
-                    Copolymer, Cetyl Alcohol, Glycol Stearate, Glyceryl Stearate, Caprylic/Capric Triglyceride,
-                    Citrus
-                    Aurantifolia (Lime) Fruit Extract, Ruscus Aculeatus Root Extract, Zingiber Officinale (Ginger)
-                    Root
+                    Copolymer, Cetyl Alcohol, Glycol Stearate, Glyceryl Stearate, Caprylic/Capric Triglyceride, Citrus
+                    Aurantifolia (Lime) Fruit Extract, Ruscus Aculeatus Root Extract, Zingiber Officinale (Ginger) Root
                     Extract, Hibiscus Sabdariffa Flower Extract, Sodium Hyaluronate, Dimethicone, Bis-Vinyl
                     Dimethicone/Dimethicone Copolymer, Aloe Barbadensis Leaf Juice, Phenoxyethanol, Sodium Ascorbyl
-                    Phosphate, Polyacrylamide, C13-14 Isoparaffin, Laureth-7, Tocopheryl Acetate, Glycerin,
-                    Tetradecyl
-                    Aminobutyroylvalylaminobutyric Urea Trifluoroacetate, Palmitoyl Tripeptide-5, Palmitoyl
-                    Dipeptide-5
+                    Phosphate, Polyacrylamide, C13-14 Isoparaffin, Laureth-7, Tocopheryl Acetate, Glycerin, Tetradecyl
+                    Aminobutyroylvalylaminobutyric Urea Trifluoroacetate, Palmitoyl Tripeptide-5, Palmitoyl Dipeptide-5
                     Diaminobutyroyl Hydroxythreonine, Acetyl Tetrapeptide-5, Panthenol, Butylene Glycol.</div>
             </div>
         </div>
@@ -3099,8 +3084,6 @@
 
     </section>
 
-
-
     <!-- ===== S13: GUARANTEE ===== -->
     <style>
         .guar-section {
@@ -3312,10 +3295,7 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="public/images/logo.png" alt="Glow Again Labs"
-                            style="height: 48px; filter: brightness(0) invert(1);">
-                    </div>
+                    <div class="footer-logo">Glow Again Labs<span>.</span></div>
                     <p>Premium multi-action skincare formulated for women who want visible results — not promises.</p>
                     <div class="footer-pay" style="margin-top:20px;">
                         <!-- Visa (White) -->

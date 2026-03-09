@@ -19,7 +19,7 @@
     /* Base Colors */
     --bg-page: var(--color-white);
     --bg-surface: var(--color-white);
-    --bg-dark: var(--color-black);
+    --bg-dark: #08417A;
     --bg-accent: var(--color-accent);
 
     /* Text Colors */
@@ -868,7 +868,7 @@ img {
 /* Purchase Module */
 .purchase-module {
     padding: 120px 0;
-    background: var(--bg-dark);
+    background: #08417A;
     color: #fff;
     position: relative;
     overflow: hidden;

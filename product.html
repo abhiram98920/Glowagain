@@ -1226,25 +1226,22 @@
                 <button class="supply-btn" id="s6" onclick="selectTier(this, 6)" data-jars="6" data-price="264"
                     data-plan="subscribe">
                     <span class="supply-qty">6 Month Supply</span>
+                    <span class="supply-price">$44 per jar</span>
                     <span class="supply-label">Save 36%</span>
-                    <span class="supply-price">$264.00</span>
-                    <span style="font-size: 10px; opacity: 0.7;">$44/jar</span>
                 </button>
                 <!-- Tier 2: 3 Jars (Most Popular) -->
                 <button class="supply-btn active" id="s3" onclick="selectTier(this, 3)" data-jars="3" data-price="159"
                     data-plan="subscribe">
                     <span class="supply-qty">3 Month Supply</span>
+                    <span class="supply-price">$53 per jar</span>
                     <span class="supply-label">Save 23%</span>
-                    <span class="supply-price">$159.00</span>
-                    <span style="font-size: 10px; opacity: 0.7;">$53/jar</span>
                 </button>
                 <!-- Tier 3: 1 Jar (Trial) -->
                 <button class="supply-btn" id="s1" onclick="selectTier(this, 1)" data-jars="1" data-price="62"
                     data-plan="subscribe">
                     <span class="supply-qty">1 Month Supply</span>
-                    <span class="supply-label">Save 10%</span>
                     <span class="supply-price">$62.00</span>
-                    <span style="font-size: 10px; opacity: 0.7;"></span>
+                    <span class="supply-label">Save 10%</span>
                 </button>
             </div>
 
@@ -3560,15 +3557,15 @@
         function updateGridPrices() {
             // Data for Subscribe
             const subData = {
-                6: { price: 264, label: 'Save 36%', unit: '$44/jar' },
-                3: { price: 159, label: 'Save 23%', unit: '$53/jar' },
-                1: { price: 62, label: 'Save 10%', unit: '' }
+                6: { price: 264, label: 'Save 36%', displayPrice: '$44 per jar' },
+                3: { price: 159, label: 'Save 23%', displayPrice: '$53 per jar' },
+                1: { price: 62, label: 'Save 10%', displayPrice: '$62.00' }
             };
             // Data for One-Time
             const oneData = {
-                6: { price: 294, label: 'Save 29%', unit: '$49/jar' },
-                3: { price: 177, label: 'Save 14%', unit: '$59/jar' },
-                1: { price: 69, label: 'Retail Price', unit: '' }
+                6: { price: 294, label: 'Save 29%', displayPrice: '$49 per jar' },
+                3: { price: 177, label: 'Save 14%', displayPrice: '$59 per jar' },
+                1: { price: 69, label: 'Retail Price', displayPrice: '$69.00' }
             };
 
             const data = currentPlan === 'subscribe' ? subData : oneData;
@@ -3579,10 +3576,8 @@
                 if (info) {
                     btn.setAttribute('data-price', info.price);
                     btn.setAttribute('data-plan', currentPlan);
-                    btn.querySelector('.supply-price').textContent = '$' + info.price.toFixed(2);
+                    btn.querySelector('.supply-price').textContent = info.displayPrice;
                     btn.querySelector('.supply-label').textContent = info.label;
-                    const unitLabel = btn.querySelector('span[style*="10px;"]');
-                    if (unitLabel && info.unit) unitLabel.textContent = info.unit;
                 }
             });
         }

@@ -6,15 +6,15 @@
        ============================ */
 
     /* Brand Colors - Clinical Luxury */
-    --color-black: #08417A;
-    /* Deep Navy Blue from Hero */
+    --color-black: #0A0A0A;
+    /* True Black */
     --color-white: #f7f7f5;
     /* Soft Off-White / Cream */
-    --color-secondary: #0E5CA5;
-    /* Medium Blue for accents/icons */
-    --color-accent: #08417A;
-    /* Transitioning Orange to Brand Blue */
-    --color-accent-hover: #0a1128;
+    --color-secondary: #0A0A0A;
+    /* Black for accents/icons */
+    --color-accent: #0A0A0A;
+    /* True Black */
+    --color-accent-hover: #333333;
 
     /* Base Colors */
     --bg-page: var(--color-white);
@@ -32,8 +32,8 @@
     --border-main: var(--color-black);
     --border-light: rgba(0, 0, 0, 0.1);
     --border-dark: rgba(255, 255, 255, 0.1);
-    --shadow-brutal: 4px 4px 0px rgba(8, 65, 122, 0.2);
-    --shadow-brutal-hover: 8px 8px 0px rgba(8, 65, 122, 0.3);
+    --shadow-brutal: 4px 4px 0px rgba(0, 0, 0, 0.2);
+    --shadow-brutal-hover: 8px 8px 0px rgba(0, 0, 0, 0.3);
 
     /* Premium Spacing System */
     --space-section: 120px;

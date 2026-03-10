@@ -3050,6 +3050,20 @@
     </div>
 
     <script>
+        // ── Sticky Header Logic ──
+        (function () {
+            const header = document.querySelector('.site-header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 20) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+        })();
+
         // ── Nav & Drawer Control ──
         const hamburger = document.getElementById('hamburger');
         const navDrawer = document.getElementById('nav-drawer');
@@ -3231,16 +3245,6 @@
 
         document.querySelectorAll('.reveal').forEach((el) => {
             observer.observe(el);
-        });
-
-        // Sticky Header Logic
-        const header = document.querySelector('.site-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
         });
     </script>
 </body>

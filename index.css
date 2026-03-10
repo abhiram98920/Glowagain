@@ -1113,6 +1113,30 @@ img {
         font-size: 44px;
     }
 
+    /* Fix Mobile Logo Text */
+    .site-logo .logo-text {
+        font-size: 14px !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.05em !important;
+        margin-top: 2px !important;
+        white-space: nowrap;
+        text-align: center;
+        width: 100%;
+    }
+
+    .site-logo {
+        gap: 2px !important;
+        padding: 4px 0;
+    }
+
+    .site-logo img {
+        height: 28px !important;
+    }
+
+    .site-header {
+        padding: 10px 0 !important;
+    }
+
     .purchase-grid {
         grid-template-columns: 1fr;
     }

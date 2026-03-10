@@ -1621,214 +1621,25 @@
 
 
         <!-- Section 8: Risk-Free Guarantee Spotlight -->
-        <style>
-            .guarantee-section {
-                padding: 8rem 0;
-                background: var(--bg-surface);
-                position: relative;
-                overflow: hidden;
-                border-bottom: 2px solid var(--border-main);
-            }
 
-            .guarantee-card {
-                max-width: 640px;
-                margin: 0 auto;
-                background: var(--bg-page);
-                border: 2px solid var(--border-main);
-                padding: 4rem 3rem;
-                text-align: center;
-                box-shadow: var(--shadow-brutal);
-                position: relative;
-                opacity: 0;
-                transform: translateY(24px);
-                transition: var(--transition-base);
-            }
 
-            .guarantee-card.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            /* Blocky shield badge */
-            .guarantee-badge {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                width: 100px;
-                height: 100px;
-                background: #08417A;
-                border: 2px solid var(--border-main);
-                margin: 0 auto 2rem;
-                box-shadow: 6px 6px 0px var(--color-secondary);
-                position: relative;
-                z-index: 2;
-                transition: var(--transition-base);
-            }
-
-            .guarantee-badge-text {
-                color: #fff;
-                font-family: 'Outfit', sans-serif;
-                font-size: 10px;
-                font-weight: 900;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                line-height: 1.2;
-                text-align: center;
-            }
-
-            .guarantee-badge-days {
-                color: #fff;
-                font-size: 28px;
-                font-weight: 900;
-                display: block;
-                line-height: 1;
-                font-family: 'Outfit', sans-serif;
-            }
-
-            .guarantee-heading {
-                font-family: 'Outfit', sans-serif;
-                font-size: clamp(32px, 5vw, 44px);
-                font-weight: 900;
-                color: var(--text-main);
-                margin-bottom: 1.5rem;
-                line-height: 1.1;
-                text-transform: uppercase;
-                letter-spacing: -0.02em;
-            }
-
-            .guarantee-body {
-                font-family: 'Outfit', sans-serif;
-                font-size: 16px;
-                font-weight: 600;
-                color: var(--text-muted);
-                line-height: 1.5;
-                margin-bottom: 2.5rem;
-                max-width: 480px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .guarantee-bullets {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 12px;
-                margin-bottom: 3rem;
-                position: relative;
-                z-index: 2;
-            }
-
-            .guarantee-bullet {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                background: var(--bg-page);
-                border: 2px solid var(--border-main);
-                padding: 8px 16px;
-                font-family: 'Outfit', sans-serif;
-                font-size: 13px;
-                font-weight: 800;
-                color: var(--text-main);
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-            }
-
-            .guarantee-bullet::before {
-                content: '→';
-                color: #0A0A0A;
-                font-weight: 900;
-                font-size: 14px;
-            }
-
-            .guarantee-cta-wrap {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-                position: relative;
-                z-index: 2;
-            }
-
-            .guarantee-microcopy {
-                font-family: 'Outfit', sans-serif;
-                font-size: 12px;
-                font-weight: 800;
-                color: var(--text-muted);
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-            }
-
-            .guarantee-proof {
-                display: flex;
-                justify-content: center;
-                gap: 2rem;
-                margin-top: 3rem;
-                flex-wrap: wrap;
-                padding-top: 2.5rem;
-                border-top: 2px solid var(--border-main);
-                position: relative;
-                z-index: 2;
-            }
-
-            .guarantee-proof-item {
-                font-family: 'Outfit', sans-serif;
-                font-size: 14px;
-                font-weight: 800;
-                color: var(--text-main);
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                text-transform: uppercase;
-            }
-        </style>
-
-        <section class="guarantee-section" id="guarantee">
-            <div class="container">
-                <div class="guarantee-card" id="guaranteeCard">
-
-                    <!-- Blocky shield badge -->
-                    <div class="guarantee-badge">
-                        <span class="guarantee-badge-days">60</span>
-                        <span class="guarantee-badge-text">Day<br>Guarantee</span>
+        <section class="guarantee-section" id="guarantee"
+            style="padding: 60px 0; background: #fff; border-bottom: 2px solid var(--border-main);">
+            <div class="container" style="max-width: 800px; margin: 0 auto;">
+                <!-- Guarantee strip -->
+                <div class="guarantee-strip">
+                    <div class="guarantee-seal">
+                        <span>60</span>
+                        <small>Days</small>
                     </div>
-
-                    <h2 class="guarantee-heading">Firmer Skin in 60 Days<br>or Your Money Back</h2>
-
-                    <p class="guarantee-body">
-                        Use Instant Lift Complex daily for 60 days.<br>
-                        No visible results? Get your money back — no questions asked.
-                    </p>
-
-                    <div class="guarantee-bullets">
-                        <span class="guarantee-bullet">Risk-free trial</span>
-                        <span class="guarantee-bullet">No questions asked</span>
-                        <span class="guarantee-bullet">Easy refunds</span>
-                        <span class="guarantee-bullet">Satisfaction guaranteed</span>
+                    <div class="guarantee-text">
+                        100% Money-Back Guarantee
+                        <small>If you don't see a visible difference, we'll refund every penny. No questions. No
+                            hassle.</small>
                     </div>
-
-                    <div class="guarantee-cta-wrap">
-                        <a href="product.html" class="btn btn-primary">Try It Risk-Free Today</a>
-                        <span class="guarantee-microcopy">60-day money-back guarantee · Cancel anytime</span>
-                    </div>
-
-                    <div class="guarantee-proof">
-                        <span class="guarantee-proof-item">4.8 Average Rating</span>
-                        <span class="guarantee-proof-item">Clinically Backed</span>
-                        <span class="guarantee-proof-item">2,100+ Happy Customers</span>
-                    </div>
-
                 </div>
             </div>
         </section>
-
-        <script>
-            const guaranteeCard = document.getElementById('guaranteeCard');
-            const guaranteeObserver = new IntersectionObserver((entries) => {
-                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-            }, { threshold: 0.2 });
-            if (guaranteeCard) guaranteeObserver.observe(guaranteeCard);
-        </script>
 
         <!-- Section 9: Stats -->
         <style>
@@ -2218,47 +2029,48 @@
                             <p class="step-label">Choose Your Plan</p>
                             <div class="supply-grid">
                                 <!-- Tier 1: 6 Jars (Best Value) -->
-                                <div class="supply-option" data-jars="6" data-price="264" data-plan="subscribe">
+                                <button class="supply-option" data-jars="6" data-price="264" data-plan="subscribe"
+                                    style="cursor: pointer; text-align: left; background: none; border: none; padding: 0;">
                                     <div
                                         style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: #08417A; color: var(--color-white); font-size: 10px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border: 2px solid var(--border-main); white-space: nowrap;">
                                         BEST VALUE</div>
                                     <p style="font-weight: 900; font-size: 24px; color: var(--text-main);">6 Month
                                         Supply</p>
-                                    <p
-                                        style="font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
-                                        Subscribe & Save 36%</p>
                                     <p class="price"
-                                        style="margin-top: 16px; font-weight: 900; font-size: 20px; color: var(--text-main);">
-                                        $264.00</p>
-                                    <p style="font-size: 11px; font-weight: 700; color: var(--text-muted);">$44/jar</p>
-                                </div>
+                                        style="margin-top: 16px; font-weight: 900; font-size: 16px; color: var(--text-main);">
+                                        $44 per jar</p>
+                                    <p
+                                        style="font-size: 11px; font-weight: 800; color: #fff; background: #0E5CA5; display: inline-block; padding: 2px 8px; text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
+                                        Save 36%</p>
+                                </button>
                                 <!-- Tier 2: 3 Jars (Most Popular) -->
-                                <div class="supply-option selected popular-tier" data-jars="3" data-price="159"
-                                    data-plan="subscribe">
+                                <button class="supply-option selected popular-tier" data-jars="3" data-price="159"
+                                    data-plan="subscribe"
+                                    style="cursor: pointer; text-align: left; background: none; border: none; padding: 0;">
                                     <div
                                         style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: #08417A; color: var(--color-white); font-size: 10px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border: 2px solid var(--border-main); white-space: nowrap;">
                                         MOST POPULAR</div>
                                     <p style="font-weight: 900; font-size: 24px; color: var(--text-main);">3 Month
                                         Supply</p>
-                                    <p
-                                        style="font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
-                                        Subscribe & Save 23%</p>
                                     <p class="price"
-                                        style="margin-top: 16px; font-weight: 900; font-size: 20px; color: var(--text-main);">
-                                        $159.00</p>
-                                    <p style="font-size: 11px; font-weight: 700; color: var(--text-muted);">$53/jar</p>
-                                </div>
+                                        style="margin-top: 16px; font-weight: 900; font-size: 16px; color: var(--text-main);">
+                                        $53 per jar</p>
+                                    <p
+                                        style="font-size: 11px; font-weight: 800; color: #fff; background: #0E5CA5; display: inline-block; padding: 2px 8px; text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
+                                        Save 23%</p>
+                                </button>
                                 <!-- Tier 3: 1 Jar (Trial) -->
-                                <div class="supply-option" data-jars="1" data-price="62" data-plan="subscribe">
+                                <button class="supply-option" data-jars="1" data-price="62" data-plan="subscribe"
+                                    style="cursor: pointer; text-align: left; background: none; border: none; padding: 0;">
                                     <p style="font-weight: 900; font-size: 24px; color: var(--text-main);">1 Month
                                         Supply</p>
-                                    <p
-                                        style="font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
-                                        Subscribe & Save 10%</p>
                                     <p class="price"
-                                        style="margin-top: 16px; font-weight: 900; font-size: 20px; color: var(--text-main);">
+                                        style="margin-top: 16px; font-weight: 900; font-size: 16px; color: var(--text-main);">
                                         $62.00</p>
-                                </div>
+                                    <p
+                                        style="font-size: 11px; font-weight: 800; color: #fff; background: #0E5CA5; display: inline-block; padding: 2px 8px; text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
+                                        Save 10%</p>
+                                </button>
                             </div>
                         </div>
 

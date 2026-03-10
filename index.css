@@ -1298,3 +1298,109 @@ img {
     font-style: italic;
     font-weight: 500;
 }
+/* ===== SHARED PRODUCT & HOME COMPONENTS ===== */
+
+/* Guarantee Strip */
+.guarantee-strip {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #bbf7d0;
+    padding: 16px 20px;
+    background: #f4fdf8;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.guarantee-seal {
+    width: 60px;
+    height: 60px;
+    background: #16a34a;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+    border: 2px solid #22c55e;
+    position: relative;
+}
+
+.guarantee-seal::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px dashed rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+
+.guarantee-seal span {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.guarantee-seal small {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    opacity: 0.95;
+    text-transform: uppercase;
+}
+
+.guarantee-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-main);
+}
+
+.guarantee-text small {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Pro Tip Pill */
+.pro-tip-pill {
+    background: #eef2f6;
+    border: 1px solid #cce0f5;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.pro-tip-badge {
+    background: #08417A;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-top: 2px;
+}
+
+.pro-tip-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #444;
+    font-style: italic;
+}

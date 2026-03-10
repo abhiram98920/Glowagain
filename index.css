@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;800;900&display=swap");
 
+/* ─── SCROLLBAR UTILITY ─── */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
 :root {
     /* ============================
        Glow Again Labs - Brutalist Modern
@@ -1415,10 +1427,19 @@ img {
 }
 
 .supply-btn .supply-qty {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 900;
     display: block;
-    margin-bottom: 4px;
+    background: #08417A;
+    color: #fff;
+    padding: 8px 4px;
+    margin: -16px -8px 12px -8px;
+    letter-spacing: 0.02em;
+}
+
+.supply-btn.active .supply-qty {
+    background: #fff;
+    color: #08417A;
 }
 
 .supply-btn .supply-label {
@@ -1428,9 +1449,10 @@ img {
 }
 
 .supply-btn .supply-price {
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 900;
     display: block;
-    margin-top: 6px;
+    margin-top: 8px;
     color: #0A0A0A;
 }
 

@@ -501,78 +501,6 @@
             margin-right: 6px;
         }
 
-        /* Supply selector */
-        .supply-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 0;
-            border: 2px solid #08417A;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .supply-btn {
-            padding: 16px 8px;
-            text-align: center;
-            font-family: 'Outfit', sans-serif;
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            border: none;
-            background: #fff;
-            cursor: pointer;
-            border-right: 1px solid #08417A;
-            transition: all 0.2s;
-            color: #0A0A0A;
-        }
-
-        .supply-btn:last-child {
-            border-right: none;
-        }
-
-        .supply-btn.active {
-            background: #08417A;
-            color: #fff;
-        }
-
-        .supply-btn .supply-qty {
-            font-size: 20px;
-            font-weight: 900;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .supply-btn .supply-label {
-            font-size: 9px;
-            display: block;
-            opacity: 0.7;
-        }
-
-        .supply-btn .supply-price {
-            font-size: 14px;
-            display: block;
-            margin-top: 6px;
-            color: #0A0A0A;
-        }
-
-        .supply-btn.active .supply-price {
-            color: #fff;
-        }
-
-        .supply-btn .supply-save {
-            font-size: 9px;
-            background: #0E5CA5;
-            color: #fff;
-            display: inline-block;
-            padding: 1px 6px;
-            margin-top: 4px;
-        }
-
-        .supply-btn.active .supply-save {
-            background: #0E5CA5;
-        }
-
         /* Price table */
         .price-table {
             width: 100%;
@@ -914,23 +842,6 @@
             /* Product title */
             .pdp-product-title {
                 font-size: clamp(22px, 5vw, 30px);
-            }
-
-            /* Supply grid: shrink text */
-            .supply-btn {
-                padding: 12px 4px;
-            }
-
-            .supply-btn .supply-qty {
-                font-size: 16px;
-            }
-
-            .supply-btn .supply-label {
-                font-size: 8px;
-            }
-
-            .supply-btn .supply-price {
-                font-size: 11px;
             }
 
             /* Price table: allow horizontal scroll */
@@ -1286,7 +1197,7 @@
                 </button>
             </div>
 
-            <div class="step-label-pdp"><span class="step-num">2</span> Select Supply</div>
+            <div class="step-label-pdp"><span class="step-num">2</span> Step 2 – Select Supply</div>
             <p id="supply-hint"
                 style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:16px;">
                 FREE SHIPPING + CANCEL ANYTIME</p>
@@ -1323,7 +1234,7 @@
 
 
             <!-- Step 3: ATC -->
-            <div class="step-label-pdp"><span class="step-num">3</span> Add to Cart</div>
+            <div class="step-label-pdp"><span class="step-num">3</span> Step 3 – Add to Cart</div>
             <button class="atc-btn" id="atc-btn">ADD TO CART — $53 per jar</button>
             <div class="atc-sub">Price updates based on plan &amp; supply selection</div>
 
@@ -1342,20 +1253,17 @@
 
             <!-- Payment methods -->
             <div class="payment-trust-strip" style="display: flex; gap: 12px; margin-top: 1rem; flex-wrap: wrap;">
-                <div class="pay-badge"><img src="public/images/visa.png" alt="Visa"
-                        style="height: 18px; width: auto; object-fit: contain;"></div>
-                <div class="pay-badge"><img src="public/images/mastercard.png" alt="Mastercard"
-                        style="height: 18px; width: auto; object-fit: contain;"></div>
-                <div class="pay-badge"><img src="public/images/amex.png" alt="Amex"
-                        style="height: 18px; width: auto; object-fit: contain;"></div>
-                <div class="pay-badge"><img src="public/images/paypal.png" alt="PayPal"
-                        style="height: 18px; width: auto; object-fit: contain;"></div>
+                <div class="pay-badge"><img src="public/images/visa.png" alt="Visa" class="pay-icon-visa"></div>
+                <div class="pay-badge"><img src="public/images/mastercard.png" alt="Mastercard" class="pay-icon-mc">
+                </div>
+                <div class="pay-badge"><img src="public/images/amex.png" alt="Amex" class="pay-icon-amex"></div>
+                <div class="pay-badge"><img src="public/images/paypal.png" alt="PayPal" class="pay-icon-paypal"></div>
                 <div class="pay-badge"
-                    style="background: black; padding: 2px 6px; border-radius: 4px; display:flex; align-items:center;">
+                    style="background: black; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; height: 18px;">
                     <span style="color:white; font-family:Arial; font-size:10px; font-weight:bold;">Pay</span>
                 </div>
                 <div class="pay-badge"
-                    style="border: 1px solid #ddd; padding: 2px 6px; border-radius: 4px; display:flex; align-items:center;">
+                    style="border: 1px solid #ddd; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; height: 18px;">
                     <span style="font-family:Arial; font-size:10px; font-weight:bold;"><span
                             style="color:#4285F4">G</span><span style="color:#5f6368"> Pay</span></span>
                 </div>
@@ -3457,39 +3365,24 @@
                             style="height: 48px; filter: brightness(0) invert(1);">
                     </div>
                     <p>Premium multi-action skincare formulated for women who want visible results — not promises.</p>
-                    <div class="footer-pay" style="margin-top:20px;">
-                        <!-- Visa (White) -->
-                        <svg width="34" height="14" viewBox="0 0 100 32"
-                            style="height:14px; width:auto; vertical-align:middle; fill:white; margin-right:12px; opacity:0.8;">
-                            <path
-                                d="M40.3 2.1L33.7 30h8.6l6.6-27.9h-8.6zM22.5 2.1L12.9 24.3l-1.1-5.4-.2-.9C10.5 14.5 7.6 11.2 4.1 9.4l7.6 20.6h9.1L33.7 2.1h-11.2zM48.8 30h8.1l5.1-27.9h-8.1L48.8 30zM95.6 2.1L88.9 30h8.3l6.7-27.9h-8.3z" />
-                        </svg>
-                        <!-- Mastercard -->
-                        <svg width="24" height="18" viewBox="0 0 24 18"
-                            style="height:18px; width:auto; vertical-align:middle; margin-right:12px; opacity:0.8;">
-                            <circle cx="7" cy="9" r="7" fill="white" fill-opacity="0.2" />
-                            <circle cx="17" cy="9" r="7" fill="white" fill-opacity="0.2" />
-                            <text x="5" y="12" font-family="Arial" font-size="6" fill="white"
-                                font-weight="bold">MC</text>
-                        </svg>
-                        <!-- Amex -->
-                        <svg width="18" height="18" viewBox="0 0 18 18"
-                            style="height:18px; width:auto; vertical-align:middle; margin-right:12px; opacity:0.8;">
-                            <rect width="18" height="18" rx="2" fill="white" fill-opacity="0.2" />
-                            <text x="2" y="13" font-family="Arial" font-size="8" fill="white"
-                                font-weight="bold">AX</text>
-                        </svg>
-                        <!-- PayPal -->
-                        <svg width="34" height="18" viewBox="0 0 34 18"
-                            style="height:18px; width:auto; vertical-align:middle; margin-right:12px; opacity:0.8;">
-                            <text x="0" y="14" font-family="Arial" font-size="12" fill="white"
-                                font-weight="bold">PayPal</text>
-                        </svg>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg"
-                            alt="Apple Pay"
-                            style="height:18px; margin-right:12px; filter:brightness(0) invert(1); opacity:0.8;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="GPay"
-                            style="height:18px; filter:brightness(0) invert(1); opacity:0.8;">
+                    <div class="footer-pay" style="margin-top:20px; display:flex; gap:12px; align-items:center;">
+                        <img src="public/images/visa.png" alt="Visa" class="pay-icon-visa"
+                            style="filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="public/images/mastercard.png" alt="Mastercard" class="pay-icon-mc"
+                            style="filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="public/images/amex.png" alt="Amex" class="pay-icon-amex"
+                            style="filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="public/images/paypal.png" alt="PayPal" class="pay-icon-paypal"
+                            style="filter:brightness(0) invert(1); opacity:0.8;">
+                        <div
+                            style="background: white; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; opacity:0.8; height: 18px;">
+                            <span style="color:black; font-family:Arial; font-size:10px; font-weight:bold;">Pay</span>
+                        </div>
+                        <div
+                            style="background: white; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; opacity:0.8; height: 18px;">
+                            <span style="font-family:Arial; font-size:10px; font-weight:bold;"><span
+                                    style="color:#4285F4">G</span><span style="color:#5f6368"> Pay</span></span>
+                        </div>
                     </div>
                 </div>
                 <div class="footer-col">

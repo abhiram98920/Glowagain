@@ -2017,47 +2017,7 @@
                 color: #fff;
             }
 
-            .supply-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
 
-            @media (max-width: 600px) {
-                .supply-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            .supply-option {
-                border: 2px solid var(--border-main);
-                background: var(--bg-page);
-                padding: 2rem 1rem;
-                text-align: center;
-                cursor: pointer;
-                transition: var(--transition-base);
-                position: relative;
-            }
-
-            .supply-option.selected {
-                border-color: #08417A;
-                background: var(--bg-surface);
-                box-shadow: var(--shadow-brutal);
-                transform: translate(-4px, -4px);
-            }
-
-            .supply-option.popular-tier {
-                border-color: #08417A;
-                background: rgba(8, 65, 122, 0.05);
-            }
-
-            .supply-option.popular-tier.selected {
-                box-shadow: 4px 4px 0 #08417A;
-            }
-
-            .supply-option p {
-                font-family: 'Outfit', sans-serif;
-            }
 
             .payment-trust-strip {
                 display: flex;
@@ -2113,47 +2073,27 @@
                             <p class="step-label">Choose Your Plan</p>
                             <div class="supply-grid">
                                 <!-- Tier 1: 6 Jars (Best Value) -->
-                                <button class="supply-option" data-jars="6" data-price="264" data-plan="subscribe"
-                                    style="cursor: pointer; text-align: left; background: none; border: none; padding: 0;">
-                                    <div
-                                        style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: #08417A; color: var(--color-white); font-size: 10px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border: 2px solid var(--border-main); white-space: nowrap;">
-                                        BEST VALUE</div>
-                                    <p style="font-weight: 900; font-size: 24px; color: var(--text-main);">6 Month
-                                        Supply</p>
-                                    <p class="price"
-                                        style="margin-top: 16px; font-weight: 900; font-size: 16px; color: var(--text-main);">
-                                        $44 per jar</p>
-                                    <p
-                                        style="font-size: 11px; font-weight: 800; color: #fff; background: #0E5CA5; display: inline-block; padding: 2px 8px; text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
-                                        Save 36%</p>
+                                <button class="supply-btn" id="s6" onclick="selectTier(this, 6)" data-jars="6"
+                                    data-price="264" data-plan="subscribe">
+                                    <span class="supply-qty">6 Month Supply</span>
+                                    <span class="supply-price">$44 per jar</span>
+                                    <span class="supply-label">Save 36%</span>
+                                    <span class="supply-save">Best Value</span>
                                 </button>
                                 <!-- Tier 2: 3 Jars (Most Popular) -->
-                                <button class="supply-option selected popular-tier" data-jars="3" data-price="159"
-                                    data-plan="subscribe"
-                                    style="cursor: pointer; text-align: left; background: none; border: none; padding: 0;">
-                                    <div
-                                        style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: #08417A; color: var(--color-white); font-size: 10px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border: 2px solid var(--border-main); white-space: nowrap;">
-                                        MOST POPULAR</div>
-                                    <p style="font-weight: 900; font-size: 24px; color: var(--text-main);">3 Month
-                                        Supply</p>
-                                    <p class="price"
-                                        style="margin-top: 16px; font-weight: 900; font-size: 16px; color: var(--text-main);">
-                                        $53 per jar</p>
-                                    <p
-                                        style="font-size: 11px; font-weight: 800; color: #fff; background: #0E5CA5; display: inline-block; padding: 2px 8px; text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
-                                        Save 23%</p>
+                                <button class="supply-btn active" id="s3" onclick="selectTier(this, 3)" data-jars="3"
+                                    data-price="159" data-plan="subscribe">
+                                    <span class="supply-qty">3 Month Supply</span>
+                                    <span class="supply-price">$53 per jar</span>
+                                    <span class="supply-label">Save 23%</span>
+                                    <span class="supply-save">Most Popular</span>
                                 </button>
                                 <!-- Tier 3: 1 Jar (Trial) -->
-                                <button class="supply-option" data-jars="1" data-price="62" data-plan="subscribe"
-                                    style="cursor: pointer; text-align: left; background: none; border: none; padding: 0;">
-                                    <p style="font-weight: 900; font-size: 24px; color: var(--text-main);">1 Month
-                                        Supply</p>
-                                    <p class="price"
-                                        style="margin-top: 16px; font-weight: 900; font-size: 16px; color: var(--text-main);">
-                                        $62.00</p>
-                                    <p
-                                        style="font-size: 11px; font-weight: 800; color: #fff; background: #0E5CA5; display: inline-block; padding: 2px 8px; text-transform: uppercase; letter-spacing: 0.05em; margin: 8px 0;">
-                                        Save 10%</p>
+                                <button class="supply-btn" id="s1" onclick="selectTier(this, 1)" data-jars="1"
+                                    data-price="62" data-plan="subscribe">
+                                    <span class="supply-qty">1 Month Supply</span>
+                                    <span class="supply-price">$62.00</span>
+                                    <span class="supply-label">Save 10%</span>
                                 </button>
                             </div>
                         </div>
@@ -2166,53 +2106,24 @@
                         <div class="text-center mt-4">
                             <div class="payment-trust-strip"
                                 style="display: flex; gap: 12px; justify-content: center; margin-top: 1rem;">
-                                <!-- Visa -->
-                                <svg width="34" height="14" viewBox="0 0 100 32"
-                                    style="height:14px; width:auto; vertical-align:middle; fill:#1A1F71;">
-                                    <path
-                                        d="M40.3 2.1L33.7 30h8.6l6.6-27.9h-8.6zM22.5 2.1L12.9 24.3l-1.1-5.4-.2-.9C10.5 14.5 7.6 11.2 4.1 9.4l7.6 20.6h9.1L33.7 2.1h-11.2zM48.8 30h8.1l5.1-27.9h-8.1L48.8 30zM95.6 2.1L88.9 30h8.3l6.7-27.9h-8.3z" />
-                                </svg>
-                                <!-- Mastercard -->
-                                <svg width="24" height="18" viewBox="0 0 24 18"
-                                    style="height:18px; width:auto; vertical-align:middle;">
-                                    <circle cx="7" cy="9" r="7" fill="#EB001B" />
-                                    <circle cx="17" cy="9" r="7" fill="#F79E1B" />
-                                    <path
-                                        d="M12 9a6.974 6.974 0 0 1 3-5.742A6.974 6.974 0 0 0 9 3.258a6.974 6.974 0 0 0 3 5.742"
-                                        fill="#FF5F00" />
-                                </svg>
-                                <!-- Amex -->
-                                <svg width="18" height="18" viewBox="0 0 18 18"
-                                    style="height:18px; width:auto; vertical-align:middle;">
-                                    <rect width="18" height="18" rx="2" fill="#0070CD" />
-                                    <text x="2" y="13" font-family="Arial" font-size="8" fill="white"
-                                        font-weight="bold">AX</text>
-                                </svg>
-                                <!-- PayPal -->
-                                <svg width="18" height="18" viewBox="0 0 24 24"
-                                    style="height:18px; width:auto; vertical-align:middle; fill:#003087;">
-                                    <path
-                                        d="M20.067 6.378c-.628 3.104-2.618 4.706-5.49 4.706h-1.3l-1.1 5.5h-3.6l1.1-5.5h-1.3c-2.872 0-4.862-1.602-5.49-4.706C2.636 3.274 4.626 1.672 7.498 1.672h1.3l1.1-5.5h3.6l-1.1 5.5h1.3c2.872 0 4.862 1.602 5.49 4.706z" />
-                                </svg>
-                                <!-- Apple Pay -->
-                                <svg width="34" height="18" viewBox="0 0 34 18"
-                                    style="height:18px; width:auto; vertical-align:middle;">
-                                    <rect width="34" height="18" rx="3" fill="black" />
-                                    <path
-                                        d="M12.5 9c0-1.8 1.5-2.7 1.6-2.8-.8-1.2-2.1-1.4-2.6-1.4-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.8-3.1 2-1.3 2.3-.3 5.7 1 7.5.6.9 1.4 1.9 2.3 1.9s1.2-.6 2.3-.6c1.1 0 1.4.6 2.4.6.9 0 1.6-.9 2.2-1.8.7-1 1-1.9 1-2-.1 0-1.7-.6-1.7-2.6zM10.8 4.2c.5-.6.9-1.5.8-2.3-.7 0-1.6.5-2.1 1.1-.4.5-.8 1.4-.7 2.2.8.1 1.5-.4 2-.1z"
-                                        fill="white" />
-                                    <text x="16" y="13" font-family="Arial" font-size="9" fill="white"
-                                        font-weight="bold">Pay</text>
-                                </svg>
-                                <!-- Google Pay -->
-                                <svg width="34" height="18" viewBox="0 0 34 18"
-                                    style="height:18px; width:auto; vertical-align:middle;">
-                                    <rect width="34" height="18" rx="3" fill="white" stroke="#ddd" stroke-width="1" />
-                                    <text x="4" y="13" font-family="Arial" font-size="9" font-weight="bold">
-                                        <tspan fill="#4285F4">G</tspan>
-                                        <tspan fill="#5f6368"> Pay</tspan>
-                                    </text>
-                                </svg>
+                                <div class="pay-badge"><img src="public/images/visa.png" alt="Visa"
+                                        class="pay-icon-visa"></div>
+                                <div class="pay-badge"><img src="public/images/mastercard.png" alt="Mastercard"
+                                        class="pay-icon-mc"></div>
+                                <div class="pay-badge"><img src="public/images/amex.png" alt="Amex"
+                                        class="pay-icon-amex"></div>
+                                <div class="pay-badge"><img src="public/images/paypal.png" alt="PayPal"
+                                        class="pay-icon-paypal"></div>
+                                <div class="pay-badge"
+                                    style="background: black; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; height: 18px;">
+                                    <span
+                                        style="color:white; font-family:Arial; font-size:10px; font-weight:bold;">Pay</span>
+                                </div>
+                                <div class="pay-badge"
+                                    style="border: 1px solid #ddd; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; height: 18px;">
+                                    <span style="font-family:Arial; font-size:10px; font-weight:bold;"><span
+                                            style="color:#4285F4">G</span><span style="color:#5f6368"> Pay</span></span>
+                                </div>
                             </div>
                             <div class="checkout-secure-txt">
                                 Bank-Grade 256-Bit Encrypted Checkout
@@ -2990,6 +2901,26 @@
                     </div>
                     <p class="footer-brand-subtitle" style="color: rgba(255,255,255,0.7);">Scientifically-backed
                         skincare. Visible transformation.</p>
+                    <div class="footer-pay"
+                        style="margin-top:20px; display:flex; gap:12px; align-items:center; justify-content:center;">
+                        <img src="public/images/visa.png" alt="Visa" class="pay-icon-visa"
+                            style="filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="public/images/mastercard.png" alt="Mastercard" class="pay-icon-mc"
+                            style="filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="public/images/amex.png" alt="Amex" class="pay-icon-amex"
+                            style="filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="public/images/paypal.png" alt="PayPal" class="pay-icon-paypal"
+                            style="filter:brightness(0) invert(1); opacity:0.8;">
+                        <div
+                            style="background: white; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; opacity:0.8; height: 18px;">
+                            <span style="color:black; font-family:Arial; font-size:10px; font-weight:bold;">Pay</span>
+                        </div>
+                        <div
+                            style="background: white; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; opacity:0.8; height: 18px;">
+                            <span style="font-family:Arial; font-size:10px; font-weight:bold;"><span
+                                    style="color:#4285F4">G</span><span style="color:#5f6368"> Pay</span></span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="footer-grid">

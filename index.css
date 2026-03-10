@@ -399,11 +399,11 @@ img {
     justify-content: center;
     text-decoration: none;
     height: auto;
-    gap: 4px;
+    gap: 0;
 }
 
 .site-logo img {
-    height: 48px;
+    height: 56px;
     width: auto;
     display: block;
 }
@@ -411,12 +411,13 @@ img {
 .site-logo .logo-text {
     display: block;
     font-family: 'Outfit', sans-serif;
-    font-size: 18px;
+    font-size: 38px;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.06em;
     color: #08417A;
-    margin-top: -4px;
+    margin-top: -12px;
+    line-height: 0.8;
 }
 
 .site-logo span:not(.logo-text) {

@@ -921,34 +921,7 @@ img {
     color: #fff;
 }
 
-.supply-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-}
 
-.supply-option {
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 24px 12px;
-    border-radius: var(--radius-sm);
-    text-align: center;
-    cursor: pointer;
-    transition: var(--transition-base);
-    background: rgba(255, 255, 255, 0.07);
-    color: #fff;
-}
-
-.supply-option p,
-.supply-option span,
-.supply-option div {
-    color: #fff;
-}
-
-.supply-option:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 107, 157, 0.5);
-}
 
 .supply-option.selected {
     border-color: var(--color-rose);
@@ -1298,6 +1271,7 @@ img {
     font-style: italic;
     font-weight: 500;
 }
+
 /* ===== SHARED PRODUCT & HOME COMPONENTS ===== */
 
 /* Guarantee Strip */
@@ -1478,15 +1452,64 @@ img {
 }
 
 @media (max-width: 900px) {
-    .supply-btn { padding: 12px 4px; }
-    .supply-btn .supply-qty { font-size: 16px; }
-    .supply-btn .supply-label { font-size: 8px; }
-    .supply-btn .supply-price { font-size: 11px; }
+    .supply-btn {
+        padding: 12px 4px;
+    }
+
+    .supply-btn .supply-qty {
+        font-size: 16px;
+    }
+
+    .supply-btn .supply-label {
+        font-size: 8px;
+    }
+
+    .supply-btn .supply-price {
+        font-size: 11px;
+    }
 }
 
 /* Payment Icons Standardized visually */
-.pay-icon-visa { height: 12px; width: auto; object-fit: contain; }
-.pay-icon-mc { height: 22px; width: auto; object-fit: contain; }
-.pay-icon-amex { height: 22px; width: auto; object-fit: contain; }
-.pay-icon-paypal { height: 16px; width: auto; object-fit: contain; }
-.pay-icon-box { height: 18px; padding: 0 8px; border-radius: 4px; display: flex; align-items: center; }
+.pay-icon-visa {
+    height: 13px;
+    width: auto;
+    object-fit: contain;
+}
+
+.pay-icon-mc {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+}
+
+.pay-icon-amex {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+}
+
+.pay-icon-paypal {
+    height: 18px;
+    width: auto;
+    object-fit: contain;
+}
+
+.pay-icon-apple {
+    height: 14px;
+    width: auto;
+    object-fit: contain;
+}
+
+.pay-icon-gpay {
+    height: 14px;
+    width: auto;
+    object-fit: contain;
+}
+
+.pay-icon-box {
+    height: 18px;
+    padding: 0 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}

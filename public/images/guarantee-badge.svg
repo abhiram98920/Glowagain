@@ -9,11 +9,6 @@
       <stop offset="50%" stop-color="#D4AF37" />
       <stop offset="100%" stop-color="#AA7C11" />
     </linearGradient>
-    <linearGradient id="gold-grad-rev" x1="100%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#FFDF73" />
-      <stop offset="50%" stop-color="#D4AF37" />
-      <stop offset="100%" stop-color="#AA7C11" />
-    </linearGradient>
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0E5CA5"/>
       <stop offset="100%" stop-color="#08417A"/>
@@ -30,15 +25,9 @@
   <!-- Shield icon in the background -->
   <path d="M200,60 L280,100 L280,180 C280,240 240,300 200,320 C160,300 120,240 120,180 L120,100 Z" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="20"/>
 
-  <text x="200" y="140" font-family="'Outfit', sans-serif, Arial" font-size="64" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">60 DAY</text>
+  <text x="200" y="130" font-family="'Outfit', sans-serif, Arial" font-size="60" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">60 DAY</text>
   
-  <text x="200" y="190" font-family="'Outfit', sans-serif, Arial" font-size="28" font-weight="800" fill="url(#gold-grad)" text-anchor="middle" letter-spacing="4">100% MONEY-BACK</text>
+  <text x="200" y="185" font-family="'Outfit', sans-serif, Arial" font-size="26" font-weight="800" fill="url(#gold-grad)" text-anchor="middle" letter-spacing="2">100% MONEY-BACK</text>
   
-  <text x="200" y="240" font-family="'Outfit', sans-serif, Arial" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="6">GUARANTEE</text>
-
-  <!-- Stars -->
-  <g fill="url(#gold-grad)">
-    <polygon points="100,200 105,215 120,215 108,225 112,240 100,230 88,240 92,225 80,215 95,215"/>
-    <polygon points="300,200 305,215 320,215 308,225 312,240 300,230 288,240 292,225 280,215 295,215"/>
-  </g>
+  <text x="200" y="240" font-family="'Outfit', sans-serif, Arial" font-size="34" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="4">GUARANTEE</text>
 </svg>

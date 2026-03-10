@@ -579,12 +579,15 @@
         .guarantee-strip {
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: left;
             gap: 16px;
             border: 1px solid #bbf7d0;
             padding: 16px 20px;
             background: #f4fdf8;
             border-radius: 12px;
-            margin-bottom: 20px;
+            margin: 20px auto;
+            max-width: 500px;
         }
 
         .guarantee-seal {
@@ -1234,7 +1237,8 @@
 
 
             <!-- Step 3: ATC -->
-            <div class="step-label-pdp"><span class="step-num">3</span> Step 3 – Add to Cart</div>
+            <div class="step-label-pdp" style="margin-top: 2rem;"><span class="step-num">3</span> Step 3 – Add to Cart
+            </div>
             <button class="atc-btn" id="atc-btn">ADD TO CART — $53 per jar</button>
             <div class="atc-sub">Price updates based on plan &amp; supply selection</div>
 
@@ -1256,23 +1260,26 @@
                 </div>
                 <div class="pay-badge"><img src="public/images/amex.png" alt="Amex" class="pay-icon-amex"></div>
                 <div class="pay-badge"><img src="public/images/paypal.png" alt="PayPal" class="pay-icon-paypal"></div>
-                <div class="pay-badge"
-                    style="background: black; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; height: 18px;">
-                    <span style="color:white; font-family:Arial; font-size:10px; font-weight:bold;">Pay</span>
+                <div class="pay-badge" style="height: 18px; display: flex; align-items: center;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay"
+                        class="pay-icon-apple">
                 </div>
-                <div class="pay-badge"
-                    style="border: 1px solid #ddd; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; height: 18px;">
-                    <span style="font-family:Arial; font-size:10px; font-weight:bold;"><span
-                            style="color:#4285F4">G</span><span style="color:#5f6368"> Pay</span></span>
+                <div class="pay-badge" style="height: 18px; display: flex; align-items: center;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay"
+                        class="pay-icon-gpay">
                 </div>
             </div>
 
             <!-- Trust badges -->
             <div class="trust-badges" style="margin-top: 1rem;">
                 <div class="trust-badge">
-                    <span class="trust-icon" style="display: flex; justify-content: center; margin-bottom: 8px;">
-                        <img src="public/images/gentle_formula_icon.png" alt="Gentle Formula icon"
-                            style="height: 32px; width: auto; object-fit: contain;">
+                    <span class="trust-icon"
+                        style="display: flex; justify-content: center; margin-bottom: 8px; color: #08417A;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.2A7 7 0 0 1 11 20z" />
+                            <path d="M19 2c-2.4 2.4-5.2 3.6-8 4.8" />
+                        </svg>
                     </span>
                     <span class="trust-label">Gentle Formula<br>All Skin Types</span>
                 </div>
@@ -2665,10 +2672,10 @@
 
     <style>
         .widget-video-section {
-            margin-top: 64px;
-            margin-bottom: 64px;
-            background: transparent;
+            padding: 60px 0;
+            background: #fff;
             width: 100%;
+            border-top: none;
         }
 
         .widget-video-title {
@@ -3231,7 +3238,8 @@
     </style>
     <section class="guar-section" id="guarantee">
         <div class="container">
-            <div class="guar-badge-img-wrapper" style="margin: 0 auto 36px;">
+            <div class="guar-badge-img-wrapper"
+                style="margin: 0 auto 36px; display: flex; justify-content: center; align-items: center; text-align: center;">
                 <img src="public/images/guarantee-badge.svg" alt="Real Money Back Guarantee"
                     style="height: 160px; width: auto; max-width: 100%;"
                     onerror="this.onerror=null; this.src='https://placehold.co/160x160/16a34a/white?text=100%25%0AGuarantee&font=lora';">
@@ -3372,15 +3380,10 @@
                             style="filter:brightness(0) invert(1); opacity:0.8;">
                         <img src="public/images/paypal.png" alt="PayPal" class="pay-icon-paypal"
                             style="filter:brightness(0) invert(1); opacity:0.8;">
-                        <div
-                            style="background: white; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; opacity:0.8; height: 18px;">
-                            <span style="color:black; font-family:Arial; font-size:10px; font-weight:bold;">Pay</span>
-                        </div>
-                        <div
-                            style="background: white; padding: 0 6px; border-radius: 4px; display:flex; align-items:center; opacity:0.8; height: 18px;">
-                            <span style="font-family:Arial; font-size:10px; font-weight:bold;"><span
-                                    style="color:#4285F4">G</span><span style="color:#5f6368"> Pay</span></span>
-                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg"
+                            alt="Apple Pay" class="pay-icon-apple" style="filter:brightness(0) invert(1); opacity:0.8;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg"
+                            alt="Google Pay" class="pay-icon-gpay" style="filter:brightness(0) invert(1); opacity:0.8;">
                     </div>
                 </div>
                 <div class="footer-col">

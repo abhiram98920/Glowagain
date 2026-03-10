@@ -394,19 +394,32 @@ img {
 
 .site-logo {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    height: 52px;
+    height: auto;
+    gap: 4px;
 }
 
 .site-logo img {
-    height: 100%;
+    height: 48px;
     width: auto;
     display: block;
 }
 
-.site-logo span {
+.site-logo .logo-text {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #08417A;
+    margin-top: -2px;
+}
+
+.site-logo span:not(.logo-text) {
     display: none;
 }
 

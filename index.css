@@ -380,6 +380,12 @@ img {
     left: 0;
     width: 100%;
     z-index: 1100;
+    transition: padding 0.3s ease, background 0.3s ease;
+}
+
+.site-header.scrolled {
+    padding: 8px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .site-nav-container {
@@ -400,12 +406,23 @@ img {
     text-decoration: none;
     height: auto;
     gap: 0;
+    transition: flex-direction 0.3s ease, gap 0.3s ease;
+}
+
+.site-header.scrolled .site-logo {
+    flex-direction: row;
+    gap: 12px;
 }
 
 .site-logo img {
     height: 56px;
     width: auto;
     display: block;
+    transition: height 0.3s ease;
+}
+
+.site-header.scrolled .site-logo img {
+    height: 32px;
 }
 
 .site-logo .logo-text {
@@ -418,6 +435,12 @@ img {
     color: #08417A;
     margin-top: 4px;
     line-height: 1;
+    transition: font-size 0.3s ease, margin 0.3s ease;
+}
+
+.site-header.scrolled .logo-text {
+    font-size: 20px;
+    margin-top: 0;
 }
 
 .site-logo span:not(.logo-text) {

@@ -411,12 +411,12 @@ img {
 .site-logo .logo-text {
     display: block;
     font-family: 'Outfit', sans-serif;
-    font-size: 11px;
-    font-weight: 800;
+    font-size: 18px;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: -0.02em;
     color: #08417A;
-    margin-top: -2px;
+    margin-top: -4px;
 }
 
 .site-logo span:not(.logo-text) {

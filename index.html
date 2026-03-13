@@ -102,7 +102,7 @@
                 .hero-content {
                     padding: 0 4rem;
                     border-bottom: none;
-                    border-right: 2px solid var(--border-main);
+                    border-left: 2px solid var(--border-main);
                     max-width: 55%;
                 }
             }
@@ -139,7 +139,6 @@
                 letter-spacing: 0.1em;
                 text-transform: uppercase;
                 margin-bottom: 2rem;
-                box-shadow: var(--shadow-brutal);
                 border: 2px solid #08417A;
                 align-self: flex-start;
             }
@@ -189,9 +188,12 @@
                 color: var(--color-white);
             }
         </style>
-        <section class="hero-slider-wrapper" style="border-bottom: 2px solid var(--border-main);">
+        <section class="hero-slider-wrapper">
             <div class="container hero-container" style="padding: 0; max-width: 100%;">
-                <div class="hero-content">
+                <div class="hero-visual">
+                    <img src="public/images/bold_hero_model_1772080778363.png" alt="Glow Model" class="hero-img-fill" />
+                </div>
+                <div class="hero-content" style="border-left: 2px solid var(--border-main);">
                     <div class="review-badge">
                         ⭐ 4.8 from 2,100+ reviews
                     </div>
@@ -206,14 +208,15 @@
                         <a href="product.html" class="hero-cta">
                             SHOP & SAVE NOW
                         </a>
-                        <p
-                            style="margin-top: 1.5rem; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase;">
-                            Results in 60 days or YOUR money back
-                        </p>
+                        <div
+                            style="margin-top: 2rem; display: flex; align-items: center; gap: 12px; padding: 12px 20px; background: rgba(8, 65, 122, 0.05); border-left: 4px solid #08417A; width: fit-content;">
+                            <span style="font-size: 20px;">🛡️</span>
+                            <p
+                                style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; color: #08417A; text-transform: uppercase; margin: 0;">
+                                Results in 60 days <span style="color: var(--text-muted); font-weight: 400;">or your money back</span>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="hero-visual">
-                    <img src="public/images/bold_hero_model_1772080778363.png" alt="Glow Model" class="hero-img-fill" />
                 </div>
             </div>
         </section>
@@ -240,100 +243,63 @@
                 z-index: 0;
             }
 
-            .credibility-section::before {
-                content: 'CLINICAL RESEARCH';
-                position: absolute;
-                top: 4rem;
-                left: 50%;
-                transform: translateX(-50%);
-                font-family: 'Outfit', sans-serif;
-                font-size: 16px;
-                font-weight: 900;
-                letter-spacing: 0.2em;
-                color: var(--color-black);
-                text-transform: uppercase;
-                z-index: 1;
-            }
-
             .credibility-title {
                 text-align: center;
                 font-size: clamp(28px, 4vw, 42px);
                 margin-bottom: 4rem;
                 color: var(--text-dark);
-                margin-top: 1.25rem;
+                margin-top: 0;
                 position: relative;
                 z-index: 1;
+                line-height: 1.2;
             }
 
             .credibility-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
                 position: relative;
                 z-index: 1;
             }
 
-            @media (min-width: 992px) {
-                .credibility-grid {
-                    grid-template-columns: 1fr 1.2fr 1fr;
-                    grid-template-rows: auto auto;
-                    gap: 32px;
-                    align-items: center;
-                }
+            .credibility-row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 32px;
             }
 
             .credibility-card {
-                background: rgba(255, 255, 255, 0.72);
-                backdrop-filter: blur(16px);
-                -webkit-backdrop-filter: blur(16px);
-                border: 1px solid rgba(255, 107, 157, 0.15);
-                border-radius: 20px;
-                padding: 28px 28px 24px;
+                background: white;
+                border: 2px solid var(--border-main);
+                padding: 32px;
                 width: 100%;
+                max-width: 380px;
                 display: flex;
                 flex-direction: column;
                 gap: 0;
-                transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+                transition: none;
+                box-shadow: none;
                 position: relative;
                 overflow: hidden;
             }
 
-            .credibility-card.featured {
-                background: white;
-                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 107, 157, 0.3) inset;
-                transform: scale(1);
-                z-index: 2;
-                padding: 40px 32px;
-            }
-
-            @media (min-width: 992px) {
-                .credibility-card.featured {
-                    grid-column: 2;
-                    grid-row: 1 / 3;
-                    transform: scale(1.05);
+            @media (min-width: 768px) {
+                .credibility-card {
+                    width: calc(50% - 16px);
                 }
-
-                .credibility-card:nth-child(1) {
-                    grid-column: 1;
-                    grid-row: 1;
-                }
-
-                .credibility-card:nth-child(2) {
-                    grid-column: 1;
-                    grid-row: 2;
-                }
-
-                .credibility-card:nth-child(4) {
-                    grid-column: 3;
-                    grid-row: 1;
-                }
-
-                .credibility-card:nth-child(5) {
-                    grid-column: 3;
-                    grid-row: 2;
+                .credibility-row-2 .credibility-card {
+                    width: calc(33.333% - 22px);
                 }
             }
+
+            @media (max-width: 767px) {
+                .credibility-card {
+                    max-width: 100%;
+                }
+            }
+
+
 
             .journal-header {
                 display: flex;
@@ -411,84 +377,85 @@
                 <h2 class="credibility-title">THE SCIENCE BEHIND SMOOTHER, FIRMER SKIN</h2>
 
                 <div class="credibility-grid">
-                    <!-- Left Column: Card 1 -->
-                    <div class="credibility-card">
-                        <div class="journal-header">
-                            <div class="journal-logo-circle">
-                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                                </svg>
+                    <div class="credibility-row credibility-row-1">
+                        <!-- Row 1: 2 items -->
+                        <div class="credibility-card static-element">
+                            <div class="journal-header">
+                                <div class="journal-logo-circle">
+                                    <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                    </svg>
+                                </div>
+                                <div class="journal-name">Journal of Cosmetic Dermatology</div>
                             </div>
-                            <div class="journal-name">Journal of Cosmetic Dermatology</div>
+                            <p class="journal-text">Low molecular weight HA delivers superior hydration to the upper skin
+                                layers, visibly plumping fine lines.</p>
+                            <span class="journal-source">Peer-reviewed · 2021</span>
                         </div>
-                        <p class="journal-text">Low molecular weight HA delivers superior hydration to the upper skin
-                            layers, visibly plumping fine lines.</p>
-                        <span class="journal-source">Peer-reviewed · 2021</span>
+
+                        <div class="credibility-card static-element">
+                            <div class="journal-header">
+                                <div class="journal-logo-circle">
+                                    <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                    </svg>
+                                </div>
+                                <div class="journal-name">International Journal of Cosmetic Science</div>
+                            </div>
+                            <p class="journal-text">Palmitoyl Tripeptide-5 supports measurable collagen synthesis when
+                                applied topically over time.</p>
+                            <span class="journal-source">Clinical Study · 2019</span>
+                        </div>
                     </div>
 
-                    <!-- Left Column: Card 2 -->
-                    <div class="credibility-card">
-                        <div class="journal-header">
-                            <div class="journal-logo-circle">
-                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                                </svg>
+                    <div class="credibility-row credibility-row-2">
+                        <!-- Row 2: 3 items -->
+                        <div class="credibility-card static-element">
+                            <div class="journal-header">
+                                <div class="journal-logo-circle">
+                                    <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                    </svg>
+                                </div>
+                                <div class="journal-name">Dermatologic Surgery</div>
                             </div>
-                            <div class="journal-name">International Journal of Cosmetic Science</div>
+                            <p class="journal-text">Topical peptide complexes showed visible improvement in fine lines
+                                within just 8 weeks of daily use.</p>
+                            <span class="journal-source">Double-blind trial · 2020</span>
                         </div>
-                        <p class="journal-text">Palmitoyl Tripeptide-5 supports measurable collagen synthesis when
-                            applied topically over time.</p>
-                        <span class="journal-source">Clinical Study · 2019</span>
-                    </div>
 
-                    <!-- Center Featured: Card 3 -->
-                    <div class="credibility-card featured">
-                        <div class="journal-header">
-                            <div class="journal-logo-circle">
-                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                                </svg>
+                        <div class="credibility-card static-element">
+                            <div class="journal-header">
+                                <div class="journal-logo-circle">
+                                    <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                    </svg>
+                                </div>
+                                <div class="journal-name">Clinical & Investigational</div>
                             </div>
-                            <div class="journal-name">Dermatologic Surgery</div>
+                            <p class="journal-text">Film-forming polymers create immediate visible tightening while letting
+                                skin breathe naturally.</p>
+                            <span class="journal-source">Observational · 2022</span>
                         </div>
-                        <p class="journal-text">Topical peptide complexes showed visible improvement in fine lines
-                            within just 8 weeks of daily use, offering a powerful non-invasive alternative.</p>
-                        <span class="journal-source">Double-blind trial · 2020</span>
-                    </div>
 
-                    <!-- Right Column: Card 4 -->
-                    <div class="credibility-card">
-                        <div class="journal-header">
-                            <div class="journal-logo-circle">
-                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                                </svg>
+                        <div class="credibility-card static-element">
+                            <div class="journal-header">
+                                <div class="journal-logo-circle">
+                                    <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                                    </svg>
+                                </div>
+                                <div class="journal-name">Journal of Drugs in Dermatology</div>
                             </div>
-                            <div class="journal-name">Clinical, Cosmetic & Investigational</div>
+                            <p class="journal-text">Multi-action formulations consistently outperform single-mechanism
+                                products in firming outcomes.</p>
+                            <span class="journal-source">Meta-analysis · 2023</span>
                         </div>
-                        <p class="journal-text">Film-forming polymers create immediate visible tightening while letting
-                            skin breathe naturally.</p>
-                        <span class="journal-source">Observational · 2022</span>
-                    </div>
-
-                    <!-- Right Column: Card 5 -->
-                    <div class="credibility-card">
-                        <div class="journal-header">
-                            <div class="journal-logo-circle">
-                                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                                </svg>
-                            </div>
-                            <div class="journal-name">Journal of Drugs in Dermatology</div>
-                        </div>
-                        <p class="journal-text">Multi-action formulations consistently outperform single-mechanism
-                            products in firming outcomes.</p>
-                        <span class="journal-source">Meta-analysis · 2023</span>
                     </div>
                 </div>
             </div>
@@ -500,7 +467,6 @@
                 padding: 4rem 0;
                 background: #08417A;
                 color: var(--color-white);
-                border-bottom: 2px solid var(--border-main);
             }
 
             .testimonials-eyebrow {
@@ -1068,7 +1034,6 @@
                 padding: 4rem 0;
                 background: var(--bg-page);
                 overflow: hidden;
-                border-bottom: 2px solid var(--border-main);
             }
 
             .journey-eyebrow {
@@ -1250,7 +1215,7 @@
                     </div>
 
                     <!-- Stage 2: 7–14 Days -->
-                    <div class="journey-card visible">
+                    <div class="journey-card visible static-element">
                         <div class="journey-badge">7–14 Days</div>
                         <div class="journey-img">
                             <img src="https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&w=600"
@@ -1267,7 +1232,7 @@
                     </div>
 
                     <!-- Stage 3: 30 Days -->
-                    <div class="journey-card visible">
+                    <div class="journey-card visible static-element">
                         <div class="journey-badge">30 Days</div>
                         <div class="journey-img">
                             <img src="https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg?auto=compress&w=600"
@@ -1284,7 +1249,7 @@
                     </div>
 
                     <!-- Stage 4: 60 Days -->
-                    <div class="journey-card visible">
+                    <div class="journey-card visible static-element">
                         <div class="journey-badge">60 Days</div>
                         <div class="journey-img">
                             <img src="https://images.pexels.com/photos/3762871/pexels-photo-3762871.jpeg?auto=compress&w=600"
@@ -1325,7 +1290,6 @@
             .science-section {
                 padding: 4rem 0;
                 background: var(--bg-page);
-                border-bottom: 2px solid var(--border-main);
             }
 
             .science-eyebrow {
@@ -1381,8 +1345,6 @@
                 border: 2px solid var(--border-main);
                 background: linear-gradient(rgba(247, 247, 245, 0.95), rgba(247, 247, 245, 0.95)), url('public/images/white_marble.jpg') center/cover;
                 position: relative;
-                transition: var(--transition-base);
-                box-shadow: var(--shadow-brutal);
             }
 
             @media (min-width: 768px) {
@@ -1512,7 +1474,6 @@
                 padding: 10px 20px;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
-                box-shadow: 4px 4px 0px var(--color-secondary);
                 transition: var(--transition-base);
             }
         </style>
@@ -1544,7 +1505,7 @@
                     </div>
 
                     <!-- Layer 2: Hydration -->
-                    <div class="science-layer visible">
+                    <div class="science-layer visible static-element">
                         <div class="science-illus">
                             <img src="public/images/cream_texture_macro_1772080959423.png" alt="Cream Texture Macro">
                         </div>
@@ -1561,7 +1522,7 @@
                     </div>
 
                     <!-- Layer 3: Structural -->
-                    <div class="science-layer visible">
+                    <div class="science-layer visible static-element">
                         <div class="science-illus">
                             <img src="public/images/bold_hero_model_1772080778363.png"
                                 alt="Structural Firmness Skin Model">

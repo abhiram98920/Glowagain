@@ -56,9 +56,9 @@
     --space-grid-gap: 28px;
 
     /* Fluid Typography Clamps */
-    --text-hero: clamp(3rem, 8vw, 7.5rem);
-    --text-h2: clamp(2.5rem, 5vw, 4.5rem);
-    --text-h3: clamp(1.5rem, 3vw, 2.5rem);
+    --text-hero: clamp(1.75rem, 5vw, 3.5rem);
+    --text-h2: clamp(1.625rem, 4vw, 3rem);
+    --text-h3: clamp(1.25rem, 2.5vw, 2rem);
 
     /* Radii - Keeping some curves but mostly sharp */
     --radius-xs: 4px;
@@ -108,7 +108,7 @@ h6 {
 
 a {
     text-decoration: none;
-    color: var(--color-rose);
+    color: var(--text-main);
     transition: var(--transition-base);
 }
 
@@ -206,6 +206,17 @@ img {
 }
 
 /* hover-lift and hover-glow utility classes are inactive — non-interactive elements should not animate */
+.static-element {
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    cursor: default !important;
+}
+
+.static-element:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
 
 @keyframes float {
     0% {
@@ -712,7 +723,7 @@ img {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-rose);
+    color: var(--text-main);
     margin: 8px 0 16px;
     font-weight: 600;
 }
@@ -973,9 +984,9 @@ img {
 
 
 .supply-option.selected {
-    border-color: var(--color-rose);
-    background: rgba(255, 107, 157, 0.25);
-    box-shadow: 0 0 0 1px var(--color-rose);
+    border-color: var(--text-main);
+    background: var(--grad-glow);
+    box-shadow: 0 0 0 1px var(--text-main);
     color: #fff;
 }
 
@@ -1089,7 +1100,7 @@ img {
 }
 
 .footer-links a:hover {
-    color: var(--color-rose);
+    color: var(--text-main);
     transform: translateX(4px);
 }
 
@@ -1142,7 +1153,7 @@ img {
     }
 
     .supply-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column !important;
     }
 
     .expect-grid {
@@ -1454,8 +1465,7 @@ img {
 
 /* Shared Supply Grid (Product & Index) */
 .supply-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
     gap: 0;
     border: 2px solid #08417A;
     overflow: hidden;
@@ -1475,7 +1485,8 @@ img {
     cursor: pointer;
     border-right: 1px solid #08417A;
     transition: all 0.2s;
-    color: #0A0A0A;
+    color: #0A0A0A !important;
+    flex: 1;
 }
 
 .supply-btn:last-child {

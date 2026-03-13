@@ -1487,7 +1487,7 @@ img {
     cursor: pointer;
     border-right: 1px solid #08417A;
     transition: all 0.2s;
-    color: #0A0A0A !important;
+    color: #0A0A0A;
     flex: 1;
 }
 
@@ -1520,6 +1520,7 @@ img {
     font-size: 9px;
     display: block;
     opacity: 0.7;
+    color: inherit;
 }
 
 .supply-btn .supply-price {
@@ -1527,7 +1528,7 @@ img {
     font-weight: 900;
     display: block;
     margin-top: 8px;
-    color: #0A0A0A;
+    color: inherit;
 }
 
 .supply-btn.active .supply-price {

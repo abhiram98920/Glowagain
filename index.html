@@ -245,7 +245,7 @@
 
             .credibility-title {
                 text-align: center;
-                font-size: clamp(28px, 4vw, 42px);
+                font-size: clamp(28px, 4vw, 44px);
                 margin-bottom: 4rem;
                 color: var(--text-dark);
                 margin-top: 0;
@@ -482,10 +482,10 @@
 
             .testimonials-title {
                 text-align: center;
-                font-size: clamp(32px, 6vw, 64px);
+                font-size: clamp(28px, 4vw, 44px);
                 margin-bottom: 1rem;
                 color: var(--color-white);
-                letter-spacing: -0.05em;
+                letter-spacing: -0.03em;
                 font-family: 'Outfit', sans-serif;
                 font-weight: 800;
                 text-transform: uppercase;
@@ -519,91 +519,112 @@
                 font-size: 18px;
             }
 
-            /* ── BRUTALIST GRID ── */
-            .spotlight-layout {
-                display: grid;
-                grid-template-columns: 1fr;
+            /* ── REVIEWS REDESIGN ── */
+            .testi-track {
+                overflow-x: auto;
+                display: flex;
                 gap: 24px;
-                align-items: stretch;
+                padding-bottom: 2rem;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none; /* Hide scrollbar for Chrome/Safari below */
             }
 
-            @media (min-width: 992px) {
-                .spotlight-layout {
-                    grid-template-columns: 1fr 1.5fr 1fr;
-                }
+            .testi-track::-webkit-scrollbar {
+                display: none;
             }
 
-            /* ── FEATURED CENTER CARD ── */
-            .story-spotlight {
-                background: var(--bg-surface);
+            .testi-card {
+                flex: 0 0 350px;
+                background: #fff;
                 border: 2px solid var(--border-main);
-                padding: 3rem 2.5rem;
-                position: relative;
-                box-shadow: 8px 8px 0px var(--color-secondary);
-                z-index: 2;
-                transition: var(--transition-base);
+                padding: 2.5rem;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                scroll-snap-align: start;
+                position: relative;
             }
 
-            .spotlight-header {
-                display: flex;
-                align-items: center;
-                gap: 14px;
-                margin-bottom: 2rem;
-            }
-
-            .spotlight-avatar {
-                width: 64px;
-                height: 64px;
-                background: #08417A;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-family: 'Outfit', sans-serif;
-                font-size: 22px;
-                font-weight: 800;
-                color: var(--color-white);
-                flex-shrink: 0;
-                border: 2px solid var(--border-main);
-                box-shadow: 4px 4px 0px var(--color-secondary);
-            }
-
-            .spotlight-meta {
-                flex: 1;
-            }
-
-            .spotlight-name {
-                font-family: 'Outfit', sans-serif;
-                font-weight: 900;
-                font-size: 18px;
-                color: var(--text-main);
-                margin-bottom: 4px;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-            }
-
-            .spotlight-verified {
-                display: inline-flex;
-                align-items: center;
-                gap: 5px;
+            .testi-benefit-tag {
+                align-self: flex-start;
                 font-family: 'Outfit', sans-serif;
                 font-size: 11px;
                 font-weight: 800;
-                color: var(--color-white);
-                background: #0E5CA5;
-                padding: 4px 12px;
                 letter-spacing: 0.1em;
+                background: #08417A;
+                color: #fff;
+                padding: 6px 12px;
                 text-transform: uppercase;
+                margin-bottom: 1.5rem;
+            }
+
+            .testi-card-image {
+                width: 100%;
+                height: 200px;
+                margin-bottom: 1.5rem;
+                overflow: hidden;
                 border: 2px solid var(--border-main);
             }
 
-            .spotlight-stars {
-                font-size: 20px;
-                letter-spacing: 4px;
-                margin-bottom: 1.75rem;
+            .testi-card-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .testi-stars {
                 color: #f0c040;
+                font-size: 18px;
+                letter-spacing: 2px;
+                margin-bottom: 0.5rem;
+            }
+
+            .testi-name {
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 800;
+                color: var(--text-main);
+                text-transform: uppercase;
+                margin-bottom: 1.5rem;
+            }
+
+            .testi-content-main {
+                font-family: 'Outfit', sans-serif;
+                font-size: 22px;
+                font-weight: 800;
+                line-height: 1.2;
+                color: var(--text-main);
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+            }
+
+            .testi-content-detail {
+                font-size: 15px;
+                line-height: 1.6;
+                color: var(--text-muted);
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .testi-content-detail.expanded {
+                display: block;
+                overflow: visible;
+            }
+
+            .read-toggle {
+                background: none;
+                border: none;
+                color: #08417A;
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 800;
+                text-transform: uppercase;
+                cursor: pointer;
+                padding: 0;
+                margin-top: 1rem;
+                align-self: flex-start;
             }
 
             .spotlight-quote {
@@ -767,522 +788,359 @@
                 </div>
 
                 <div class="testi-track">
-                    <div class="testi-marquee-inner">
-                        <!-- === Original set === -->
+                        <!-- Review 1 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/joan_64_portrait.png" alt="Joan">
-                                </div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Joan, 64</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Visible Tightening · Smoother Skin</div>
-                            <p class="testi-quote">"I could see the difference in my jawline after the first week. My
-                                daughter asked what I was doing differently."</p>
+                            <div class="testi-benefit-tag">Instant Tightening</div>
+                            <div class="testi-card-image"><img src="public/images/joan_64_portrait.png" alt="Joan"></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Joan, 64</div>
+                            <div class="testi-content-main">Visible difference in my jawline</div>
+                            <p class="testi-content-detail">I could see the difference in my jawline after the first week. My daughter asked what I was doing differently. It feels like my skin has more bounce and the sagging around my chin is much less noticeable. I'm so glad I found this.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
+                        <!-- Review 2 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/patricia_54_portrait.png"
-                                        alt="Patricia"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Patricia, 54</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Fine Lines · Hydration</div>
-                            <p class="testi-quote">"I stopped wearing heavy foundation. I don't need it anymore."</p>
+                            <div class="testi-benefit-tag">Deep Hydration</div>
+                            <div class="testi-card-image"><img src="public/images/patricia_54_portrait.png" alt="Patricia"></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Patricia, 54</div>
+                            <div class="testi-content-main">Stopped wearing heavy foundation</div>
+                            <p class="testi-content-detail">I stopped wearing heavy foundation. I don't need it anymore. My skin feels so hydrated and plump. The fine lines around my eyes have softened significantly, and I have this natural glow that makes me feel confident even without makeup.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
+                        <!-- Review 3 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_karen.png" alt="Karen"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Karen, 48</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Firmer Skin · Confidence</div>
-                            <p class="testi-quote">"My husband noticed before I did. 'Your skin looks amazing,' he
-                                said."</p>
+                            <div class="testi-benefit-tag">Firmer Skin</div>
+                            <div class="testi-card-image"><img src="public/images/testi_karen.png" alt="Karen"></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Karen, 48</div>
+                            <div class="testi-content-main">My husband noticed before I did</div>
+                            <p class="testi-content-detail">My husband noticed before I did. 'Your skin looks amazing,' he said. It’s a rare compliment, so I knew it was working! The texture is so much smoother, and I love how quickly it absorbs into my skin without leaving any greasy residue.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
+                        <!-- Review 4 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_margaret.png" alt="Margaret">
-                                </div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Margaret, 61</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Deep Hydration · Smooth Texture</div>
-                            <p class="testi-quote">"The 'crinkly' texture on my cheeks is actually smoothing out."</p>
+                            <div class="testi-benefit-tag">Smooth Texture</div>
+                            <div class="testi-card-image"><img src="public/images/testi_margaret.png" alt="Margaret"></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Margaret, 61</div>
+                            <div class="testi-content-main">Crinkly texture is smoothing out</div>
+                            <p class="testi-content-detail">The 'crinkly' texture on my cheeks is actually smoothing out. I've tried so many expensive creams, but this is the first one that has actually delivered visible results on my mature skin. It feels like it's deeply hydrating from within.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
+                        <!-- Review 5 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_susan.png" alt="Susan"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Susan, 57</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Visible Lift · Quick Results</div>
-                            <p class="testi-quote">"I put it on before my reunion and three people said I looked ten
-                                years younger."</p>
+                            <div class="testi-benefit-tag">Visible Lift</div>
+                            <div class="testi-card-image"><img src="public/images/testi_susan.png" alt="Susan"></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Susan, 57</div>
+                            <div class="testi-content-main">Looked ten years younger</div>
+                            <p class="testi-content-detail">I put it on before my reunion and three people said I looked ten years younger. I couldn't believe it! The lift is real, and it stays throughout the day. It has become an essential part of my morning routine.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
+                        <!-- Review 6 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_linda.png" alt="Linda R."></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Linda R., 66</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Neck · Jawline</div>
-                            <p class="testi-quote">"I'm a retired nurse. I don't fall for gimmicks. This is not a
-                                gimmick."</p>
+                            <div class="testi-benefit-tag">Neck & Jawline</div>
+                            <div class="testi-card-image"><img src="public/images/testi_linda.png" alt="Linda R."></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Linda R., 66</div>
+                            <div class="testi-content-main">This is not a gimmick</div>
+                            <p class="testi-content-detail">I'm a retired nurse. I don't fall for gimmicks. This is not a gimmick. I've seen the science, and I can see the results on my own neck and jawline. It’s effective, gentle, and worth every penny.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
+                        <!-- Review 7 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_nancy.png" alt="Nancy"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Nancy, 53</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Forehead Lines · Glow</div>
-                            <p class="testi-quote">"My forehead lines are softer and my skin has this glow I haven't
-                                seen in years."</p>
+                            <div class="testi-benefit-tag">Healthy Glow</div>
+                            <div class="testi-card-image"><img src="public/images/testi_nancy.png" alt="Nancy"></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Nancy, 53</div>
+                            <div class="testi-content-main">Glow I haven't seen in years</div>
+                            <p class="testi-content-detail">My forehead lines are softer and my skin has this glow I haven't seen in years. It’s like my skin has been revitalized. Even my friends are asking what my secret is. I recommend this to everyone.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
+                        <!-- Review 8 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_deborah.png" alt="Deborah">
-                                </div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Deborah, 70</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">All Skin Types · Sensitive Skin</div>
-                            <p class="testi-quote">"I have very sensitive skin and this is one of the only products that
-                                doesn't irritate it."</p>
+                            <div class="testi-benefit-tag">Sensitive Skin</div>
+                            <div class="testi-card-image"><img src="public/images/testi_deborah.png" alt="Deborah"></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Deborah, 70</div>
+                            <div class="testi-content-main">Doesn't irritate my skin</div>
+                            <p class="testi-content-detail">I have very sensitive skin and this is one of the only products that doesn't irritate it. It feels very calming and soothing, while still providing the firming benefits I was looking for. A perfect balance.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
+                        <!-- Review 9 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_carol.png" alt="Carol"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Carol, 59</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Value · One Product</div>
-                            <p class="testi-quote">"I replaced 4 products with this one. My bathroom counter thanks me."
-                            </p>
+                            <div class="testi-benefit-tag">Great Value</div>
+                            <div class="testi-card-image"><img src="public/images/testi_carol.png" alt="Carol"></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Carol, 59</div>
+                            <div class="testi-content-main">Replaced 4 products with this one</div>
+                            <p class="testi-content-detail">I replaced 4 products with this one. My bathroom counter thanks me. It's an all-in-one solution that actually works. I'm saving money and time while getting better results than before.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
+                        <!-- Review 10 -->
                         <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_jennifer.png" alt="Jennifer">
-                                </div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Jennifer, 46</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Under Eye · Plumping</div>
-                            <p class="testi-quote">"The hollows under my eyes look fuller. I don't look exhausted
-                                anymore."</p>
+                            <div class="testi-benefit-tag">Under Eye</div>
+                            <div class="testi-card-image"><img src="public/images/testi_jennifer.png" alt="Jennifer"></div>
+                            <div class="testi-stars">★★★★★</div>
+                            <div class="testi-name">Jennifer, 46</div>
+                            <div class="testi-content-main">Hollows under my eyes look fuller</div>
+                            <p class="testi-content-detail">The hollows under my eyes look fuller. I don't look exhausted anymore. It has a great plumping effect that makes me look well-rested and refreshed. It’s my go-to product for dark circles and volume loss.</p>
+                            <button class="read-toggle">Read More</button>
                         </div>
-                        <!-- === Clone set (seamless loop) === -->
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/joan_64_portrait.png" alt="Joan">
-                                </div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Joan, 64</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Visible Tightening · Smoother Skin</div>
-                            <p class="testi-quote">"I could see the difference in my jawline after the first week. My
-                                daughter asked what I was doing differently."</p>
-                        </div>
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/patricia_54_portrait.png"
-                                        alt="Patricia"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Patricia, 54</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Fine Lines · Hydration</div>
-                            <p class="testi-quote">"I stopped wearing heavy foundation. I don't need it anymore."</p>
-                        </div>
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_karen.png" alt="Karen"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Karen, 48</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Firmer Skin · Confidence</div>
-                            <p class="testi-quote">"My husband noticed before I did. 'Your skin looks amazing,' he
-                                said."</p>
-                        </div>
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_margaret.png" alt="Margaret">
-                                </div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Margaret, 61</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Deep Hydration · Smooth Texture</div>
-                            <p class="testi-quote">"The 'crinkly' texture on my cheeks is actually smoothing out."</p>
-                        </div>
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_susan.png" alt="Susan"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Susan, 57</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Visible Lift · Quick Results</div>
-                            <p class="testi-quote">"I put it on before my reunion and three people said I looked ten
-                                years younger."</p>
-                        </div>
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_linda.png" alt="Linda R."></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Linda R., 66</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Neck · Jawline</div>
-                            <p class="testi-quote">"I'm a retired nurse. I don't fall for gimmicks. This is not a
-                                gimmick."</p>
-                        </div>
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_nancy.png" alt="Nancy"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Nancy, 53</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Forehead Lines · Glow</div>
-                            <p class="testi-quote">"My forehead lines are softer and my skin has this glow I haven't
-                                seen in years."</p>
-                        </div>
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_deborah.png" alt="Deborah">
-                                </div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Deborah, 70</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">All Skin Types · Sensitive Skin</div>
-                            <p class="testi-quote">"I have very sensitive skin and this is one of the only products that
-                                doesn't irritate it."</p>
-                        </div>
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_carol.png" alt="Carol"></div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Carol, 59</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Value · One Product</div>
-                            <p class="testi-quote">"I replaced 4 products with this one. My bathroom counter thanks me."
-                            </p>
-                        </div>
-                        <div class="testi-card">
-                            <div class="testi-header">
-                                <div class="testi-avatar"><img src="public/images/testi_jennifer.png" alt="Jennifer">
-                                </div>
-                                <div>
-                                    <div class="testi-stars">★★★★★</div>
-                                    <div class="testi-name">Jennifer, 46</div>
-                                </div>
-                            </div>
-                            <div class="testi-tags">Under Eye · Plumping</div>
-                            <p class="testi-quote">"The hollows under my eyes look fuller. I don't look exhausted
-                                anymore."</p>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Section CTA -->
-                <div class="testimonials-section-cta">
-                    <a href="product.html" class="btn btn-white" style="display:inline-flex;">See Real Results</a>
-                    <p>Join 2,100+ women who already made the switch</p>
-                </div>
 
             </div>
         </section>
 
         <!-- Section 6: Visual Results Timeline -->
         <style>
-            .journey-section {
-                padding: 4rem 0;
+            /* ── ALTERNATING TIMELINE ── */
+            .timeline-section {
+                padding: 6rem 0;
                 background: var(--bg-page);
-                overflow: hidden;
+                position: relative;
             }
 
-            .journey-eyebrow {
-                text-align: center;
-                font-size: 16px;
-                font-weight: 900;
-                letter-spacing: 0.2em;
-                color: var(--color-black);
-                text-transform: uppercase;
-                font-family: 'Outfit', sans-serif;
-                margin-bottom: 1.5rem;
+            .timeline-container {
+                max-width: 1000px;
+                margin: 0 auto;
+                position: relative;
             }
 
-            .journey-title {
-                text-align: center;
-                font-size: clamp(32px, 6vw, 64px);
-                margin-bottom: 1rem;
-                color: var(--text-main);
-                letter-spacing: -0.05em;
-                font-family: 'Outfit', sans-serif;
-                font-weight: 800;
-                text-transform: uppercase;
-                line-height: 1;
+            /* The central line */
+            .timeline-container::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: var(--border-main);
+                transform: translateX(-50%);
             }
 
-            .journey-subtitle {
-                text-align: center;
-                font-size: 16px;
-                color: var(--text-muted);
-                font-family: 'Outfit', sans-serif;
-                font-weight: 800;
-                margin-bottom: 5rem;
-                max-width: 600px;
-                margin-left: auto;
-                margin-right: auto;
-                line-height: 1.6;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-            }
-
-            /* ── Timeline track ── */
-            .journey-track {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            @media (min-width: 992px) {
-                .journey-track {
-                    grid-template-columns: repeat(3, 1fr);
+            @media (max-width: 768px) {
+                .timeline-container::before {
+                    left: 20px;
                 }
             }
 
-            .journey-card {
-                background: #fff;
+            .timeline-item {
+                position: relative;
+                margin-bottom: 4rem;
+                width: 50%;
+                padding: 0 40px;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                text-align: right;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 50%;
+                text-align: left;
+            }
+
+            @media (max-width: 768px) {
+                .timeline-item {
+                    width: 100%;
+                    left: 0 !important;
+                    padding-left: 60px;
+                    padding-right: 20px;
+                    text-align: left !important;
+                }
+            }
+
+            /* Timeline dots */
+            .timeline-dot {
+                position: absolute;
+                top: 0;
+                width: 16px;
+                height: 16px;
+                background: #08417A;
                 border: 2px solid var(--border-main);
-                overflow: hidden;
-                box-shadow: var(--shadow-brutal);
-                display: flex;
-                flex-direction: column;
-                position: relative;
-            }
-
-            /* ── Image wrapper ── */
-            .journey-img {
-                height: 240px;
-                border-bottom: 2px solid var(--border-main);
-                overflow: hidden;
-            }
-
-            .journey-img img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                filter: contrast(1.1) saturate(1.1);
-            }
-
-            /* Floating time badge */
-            .journey-badge {
-                display: inline-block;
-                background: #fff;
-                color: #08417A;
-                font-family: 'Outfit', sans-serif;
-                font-size: 14px;
-                font-weight: 900;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                padding: 12px 24px;
-                border-bottom: 2px solid var(--border-main);
-                border-right: 2px solid var(--border-main);
-                margin-bottom: -2px;
-                position: relative;
+                border-radius: 50%;
                 z-index: 2;
             }
 
-            /* ── Card body ── */
-            .journey-body {
-                padding: 2rem;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
+            .timeline-item:nth-child(odd) .timeline-dot {
+                right: -8px;
             }
 
-            .journey-card-title {
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -8px;
+            }
+
+            @media (max-width: 768px) {
+                .timeline-dot {
+                    left: 12px !important;
+                }
+            }
+
+            .timeline-card {
+                background: #fff;
+                border: 2px solid var(--border-main);
+                padding: 2rem;
+                box-shadow: var(--shadow-brutal);
+            }
+
+            .timeline-time {
+                display: inline-block;
+                font-family: 'Outfit', sans-serif;
+                font-size: 14px;
+                font-weight: 900;
+                color: #08417A;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                margin-bottom: 0.5rem;
+            }
+
+            .timeline-title {
                 font-family: 'Outfit', sans-serif;
                 font-size: 24px;
                 font-weight: 900;
-                color: var(--text-main);
-                margin-bottom: 12px;
-                text-transform: uppercase;
-                letter-spacing: -0.02em;
-            }
-
-            /* Ingredient pill */
-            .journey-ingredient {
-                align-self: flex-start;
-                font-family: 'Outfit', sans-serif;
-                font-size: 12px;
-                font-weight: 800;
-                letter-spacing: 0.1em;
-                color: #0A0A0A;
-                background: var(--bg-page);
-                border: 2px solid var(--border-main);
-                padding: 6px 14px;
-                margin-bottom: 1.5rem;
+                margin-bottom: 1rem;
                 text-transform: uppercase;
             }
 
-            /* Benefit list */
-            .journey-benefits {
-                list-style: none;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                margin-top: auto;
-            }
-
-            .journey-benefits li {
-                font-family: 'Outfit', sans-serif;
-                font-size: 14px;
+            .timeline-ingredients {
+                font-family: 'Inter', sans-serif;
+                font-size: 15px;
                 font-weight: 600;
                 color: var(--text-main);
-                display: flex;
-                align-items: flex-start;
-                gap: 12px;
+                margin-bottom: 1.5rem;
                 line-height: 1.4;
             }
 
-            .journey-benefits li::before {
-                content: '→';
-                font-weight: 900;
+            .timeline-bullets {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .timeline-bullets li {
+                font-size: 14px;
+                line-height: 1.4;
+                color: var(--text-muted);
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                justify-content: inherit;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-bullets li {
+                flex-direction: row-reverse;
+            }
+            @media (max-width: 768px) {
+                .timeline-item:nth-child(odd) .timeline-bullets li {
+                    flex-direction: row;
+                }
+            }
+
+            .timeline-bullets li::before {
+                content: '•';
                 color: #08417A;
+                font-weight: 900;
+            }
+
+            .timeline-icon {
+                font-size: 24px;
+                margin-bottom: 1rem;
             }
         </style>
 
-        <section class="journey-section">
+        <section class="timeline-section">
             <div class="container">
-                <p class="journey-eyebrow">Your Transformation Journey</p>
-                <h2 class="journey-title">What You Should Expect</h2>
-                <p class="journey-subtitle">Visible improvements start within minutes and build steadily over 30 days.
-                    Here's exactly what happens.</p>
+                <p class="section-eyebrow text-center">Your Transformation</p>
+                <h2 class="section-title text-center">What You Should Expect</h2>
 
-                <div class="journey-track">
-                    <!-- Stage 1: 15 Minutes -->
-                    <div class="journey-card visible">
-                        <div class="journey-badge">15 Minutes</div>
-                        <div class="journey-img">
-                            <img src="https://images.pexels.com/photos/3764013/pexels-photo-3764013.jpeg?auto=compress&w=600"
-                                alt="Applying cream — instant surface tightening">
-                        </div>
-                        <div class="journey-body">
-                            <h3 class="journey-card-title">Instant Surface Tightening</h3>
-                            <span class="journey-ingredient">Tightening Polymers</span>
-                            <ul class="journey-benefits">
+                <div class="timeline-container">
+                    <!-- Step 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-icon">⏱️</div>
+                            <div class="timeline-time">15 Minutes</div>
+                            <h3 class="timeline-title">Instant Surface Tightening</h3>
+                            <p class="timeline-ingredients">Tightening Polymers · Film-forming complex</p>
+                            <ul class="timeline-bullets">
                                 <li>Fine lines appear visibly softened</li>
                                 <li>Jawline looks immediately tighter</li>
+                                <li>Breathable micro-veil effect</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Stage 2: 7–14 Days -->
-                    <div class="journey-card visible static-element">
-                        <div class="journey-badge">7–14 Days</div>
-                        <div class="journey-img">
-                            <img src="https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&w=600"
-                                alt="Hydrated glowing skin">
-                        </div>
-                        <div class="journey-body">
-                            <h3 class="journey-card-title">Deep Hydration Kicks In</h3>
-                            <span class="journey-ingredient">Low MW Hyaluronic Acid</span>
-                            <ul class="journey-benefits">
+                    <!-- Step 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-icon">✨</div>
+                            <div class="timeline-time">7–14 Days</div>
+                            <h3 class="timeline-title">Deep Hydration Kicks In</h3>
+                            <p class="timeline-ingredients">Low MW Hyaluronic Acid · Deep Binding</p>
+                            <ul class="timeline-bullets">
                                 <li>Skin feels plumper all day long</li>
                                 <li>Natural, healthy glow returns</li>
+                                <li>Texture feels significantly smoother</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Stage 3: 30 Days -->
-                    <div class="journey-card visible static-element">
-                        <div class="journey-badge">30 Days</div>
-                        <div class="journey-img">
-                            <img src="https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg?auto=compress&w=600"
-                                alt="Firm confident radiant skin">
-                        </div>
-                        <div class="journey-body">
-                            <h3 class="journey-card-title">COLLAGEN SUPPORT BEGINS</h3>
-                            <span class="journey-ingredient">Signaling Peptides</span>
-                            <ul class="journey-benefits">
+                    <!-- Step 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-icon">🛡️</div>
+                            <div class="timeline-time">30 Days</div>
+                            <h3 class="timeline-title">Collagen Support Begins</h3>
+                            <p class="timeline-ingredients">Signaling Peptides · Structural Support</p>
+                            <ul class="timeline-bullets">
                                 <li>Skin feels noticeably firmer</li>
                                 <li>Deep structure begins supporting itself</li>
+                                <li>Improved elasticity and resilience</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Stage 4: 60 Days -->
-                    <div class="journey-card visible static-element">
-                        <div class="journey-badge">60 Days</div>
-                        <div class="journey-img">
-                            <img src="https://images.pexels.com/photos/3762871/pexels-photo-3762871.jpeg?auto=compress&w=600"
-                                alt="Complete skin rejuvenation">
-                        </div>
-                        <div class="journey-body">
-                            <h3 class="journey-card-title">THE 10-YEAR TRANSFORMATION</h3>
-                            <span class="journey-ingredient">Cumulative Effect</span>
-                            <ul class="journey-benefits">
+                    <!-- Step 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-icon">🌟</div>
+                            <div class="timeline-time">60 Days</div>
+                            <h3 class="timeline-title">Complete Transformation</h3>
+                            <p class="timeline-ingredients">Cumulative Effect · Long-term results</p>
+                            <ul class="timeline-bullets">
                                 <li>Significant reduction in visible deep lines</li>
-                                <li>The '10-year younger' transformation complete</li>
+                                <li>Overall skin tone appears more even</li>
+                                <li>Radiant, youthful-looking complexion</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="text-center" style="margin-top: 5rem;">
+                <div class="text-center" style="margin-top: 4rem;">
                     <a href="product.html" class="btn btn-primary">Start Your Journey — Save Up To 36%</a>
                 </div>
             </div>
         </section>
 
         <script>
-            // Scroll-triggered reveal for journey cards
-            const journeyCards = document.querySelectorAll('.journey-card');
-            const journeyObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
+            document.addEventListener('DOMContentLoaded', () => {
+                const toggles = document.querySelectorAll('.read-toggle');
+                toggles.forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                        const detail = toggle.previousElementSibling;
+                        detail.classList.toggle('expanded');
+                        toggle.textContent = detail.classList.contains('expanded') ? 'Read Less' : 'Read More';
+                    });
                 });
-            }, { threshold: 0.15 });
-            journeyCards.forEach(card => journeyObserver.observe(card));
+            });
         </script>
 
         <!-- Section 7: 3-Layer Skin Science Visual System -->
@@ -1305,10 +1163,10 @@
 
             .science-title {
                 text-align: center;
-                font-size: clamp(32px, 6vw, 64px);
+                font-size: clamp(28px, 4vw, 44px);
                 margin-bottom: 1rem;
                 color: var(--text-main);
-                letter-spacing: -0.05em;
+                letter-spacing: -0.03em;
                 font-family: 'Outfit', sans-serif;
                 font-weight: 800;
                 text-transform: uppercase;
@@ -1606,7 +1464,7 @@
             .guar-title {
                 font-family: 'Outfit', sans-serif;
                 font-weight: 900;
-                font-size: clamp(28px, 4vw, 48px);
+                font-size: clamp(28px, 4vw, 44px);
                 color: #fff;
                 letter-spacing: -0.03em;
                 text-transform: uppercase;
@@ -1671,13 +1529,13 @@
             .stats-title {
                 text-align: center;
                 font-family: 'Outfit', sans-serif;
-                font-size: clamp(40px, 8vw, 84px);
+                font-size: clamp(28px, 4vw, 44px);
                 font-weight: 900;
                 color: var(--color-white);
                 margin-bottom: 6rem;
                 line-height: 1;
                 text-transform: uppercase;
-                letter-spacing: -0.04em;
+                letter-spacing: -0.03em;
             }
 
             .stats-grid {

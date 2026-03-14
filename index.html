@@ -371,12 +371,12 @@
                 font-family: 'Outfit', sans-serif;
                 font-size: 11px;
                 font-weight: 800;
-                letter-spacing: 0.1em;
-                background: #08417A;
-                color: #fff;
-                padding: 6px 12px;
+                letter-spacing: 0.12em;
+                color: #08417A;
                 text-transform: uppercase;
                 margin-bottom: 1.5rem;
+                padding: 0;
+                background: none;
             }
 
             .testi-card-image {
@@ -1068,20 +1068,18 @@
 
             /* Layer badge */
             .science-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
+                display: block;
                 font-family: 'Outfit', sans-serif;
-                font-size: 14px;
+                font-size: 11px;
                 font-weight: 900;
-                letter-spacing: 0.1em;
+                letter-spacing: 0.15em;
                 text-transform: uppercase;
-                background: #08417A;
-                color: var(--color-white);
-                padding: 8px 16px;
-                margin-bottom: 18px;
+                color: #08417A;
+                margin-bottom: 14px;
+                padding: 0;
+                background: none;
+                border: none;
                 width: fit-content;
-                border: 2px solid #08417A;
             }
 
             .science-layer-title {
@@ -1143,18 +1141,21 @@
             }
 
             .trust-pill {
-                display: flex;
-                align-items: center;
                 font-family: 'Outfit', sans-serif;
                 font-size: 12px;
-                font-weight: 800;
+                font-weight: 700;
                 color: var(--text-main);
-                background: var(--bg-surface);
-                border: 2px solid var(--border-main);
-                padding: 10px 20px;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
-                transition: var(--transition-base);
+                padding: 0;
+                background: none;
+                border: none;
+            }
+
+            .trust-pill::before {
+                content: '✓ ';
+                font-weight: 900;
+                color: #08417A;
             }
         </style>
 
@@ -1854,15 +1855,16 @@
             }
 
             .pro-tip-badge {
-                background: #0E5CA5;
-                color: var(--color-white);
+                background: none;
+                color: #08417A;
                 font-family: 'Outfit', sans-serif;
-                font-size: 12px;
+                font-size: 10px;
                 font-weight: 900;
-                letter-spacing: 0.1em;
+                letter-spacing: 0.15em;
                 text-transform: uppercase;
-                padding: 8px 16px;
-                border: 2px solid var(--border-main);
+                padding: 0;
+                border: none;
+                white-space: nowrap;
             }
 
             .pro-tip-text {

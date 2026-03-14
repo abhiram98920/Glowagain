@@ -1447,14 +1447,14 @@ img {
 }
 
 .pro-tip-badge {
-    background: #08417A;
-    color: #fff;
+    background: none;
+    color: #08417A;
     font-family: 'Outfit', sans-serif;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 900;
-    letter-spacing: 0.1em;
-    padding: 4px 8px;
-    border-radius: 4px;
+    letter-spacing: 0.15em;
+    padding: 0;
+    border-radius: 0;
     text-transform: uppercase;
     white-space: nowrap;
     margin-top: 2px;

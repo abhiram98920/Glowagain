@@ -297,6 +297,7 @@ img {
     background: var(--color-white);
     color: #0A0A0A;
     border-color: #08417A;
+    transform: translate(-2px, -2px);
 }
 
 .btn-white {
@@ -310,6 +311,7 @@ img {
     background: #08417A;
     color: var(--color-white);
     border-color: #08417A;
+    transform: translate(-2px, -2px);
 }
 
 .btn-outline {

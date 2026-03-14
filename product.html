@@ -452,10 +452,10 @@
             font-size: 13px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.1em;
             border: none;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
             text-align: center;
             position: relative;
             color: #0A0A0A;
@@ -539,28 +539,29 @@
             width: 100%;
             padding: 20px;
             background: #08417A;
-            color: #fff;
+            color: #f7f7f5;
             font-family: 'Outfit', sans-serif;
             font-size: 18px;
             font-weight: 900;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             border: 2px solid #08417A;
             box-shadow: 4px 4px 0 #08417A;
             cursor: pointer;
-            transition: all 0.25s;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
             margin-bottom: 20px;
         }
 
         .atc-btn:hover {
-            transform: translate(-3px, -3px);
+            background: #f7f7f5;
+            color: #0A0A0A;
+            border-color: #08417A;
+            transform: translate(-2px, -2px);
             box-shadow: 4px 4px 0 #08417A;
-            background: #0E5CA5;
-            border-color: #0A0A0A;
         }
 
         .atc-btn:active {
-            transform: translate(3px, 3px);
+            transform: translate(4px, 4px);
             box-shadow: 4px 4px 0 #08417A;
         }
 
@@ -2206,17 +2207,19 @@
             font-size: 13px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            background: none;
-            border: 2px solid #08417A;
+            color: #0A0A0A;
+            background: transparent;
+            border: 2px solid #0A0A0A;
             padding: 14px 32px;
             cursor: pointer;
             box-shadow: 4px 4px 0 #08417A;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .ing-full-btn:hover {
             background: #08417A;
-            color: #fff;
+            color: #f7f7f5;
+            border-color: #08417A;
             transform: translate(-2px, -2px);
             box-shadow: 4px 4px 0 #08417A;
         }

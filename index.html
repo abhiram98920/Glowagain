@@ -35,8 +35,8 @@
             </button>
             <!-- Center: Logo -->
             <a href="index.html" class="site-logo">
-                <img src="public/images/logo.png" alt="Glow Again Labs">
-                <span class="logo-text">Glow Again Labs</span>
+                <img src="public/images/logo.png" alt="Login Labs">
+                <span class="logo-text">Login Labs</span>
             </a>
             <!-- Right: Cart -->
             <button class="site-nav-btn" id="cart-toggle">
@@ -206,14 +206,13 @@
         </section>
 
         <!-- Black underline separator -->
-        <div style="height: 2px; background: #000; width: 100%;"></div>
+        <!-- Line removed for flow -->
 
         <!-- Section 4: Credibility Bar -->
         <style>
             .featured-in-section {
-                padding: 2rem 0;
+                padding: 4rem 0;
                 background: #f8f7f5;
-                border-bottom: 2px solid var(--border-main);
                 text-align: center;
             }
 
@@ -339,10 +338,9 @@
             }
 
             .testi-card {
-                flex: 0 0 350px;
-                background: #fff;
-                border: 2px solid var(--border-main);
-                padding: 2.5rem;
+                flex: 0 0 320px;
+                background: transparent;
+                padding: 0;
                 display: flex;
                 flex-direction: column;
                 scroll-snap-align: start;
@@ -364,10 +362,9 @@
 
             .testi-card-image {
                 width: 100%;
-                height: 200px;
+                height: 240px;
                 margin-bottom: 1.5rem;
                 overflow: hidden;
-                border: 2px solid var(--border-main);
             }
 
             .testi-card-image img {
@@ -786,10 +783,7 @@
             }
 
             .timeline-card {
-                background: #fff;
-                border: 2px solid var(--border-main);
-                padding: 2rem;
-                box-shadow: var(--shadow-brutal);
+                padding: 1rem 0;
             }
 
             .timeline-time {
@@ -868,7 +862,9 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <div class="timeline-icon">⏱️</div>
+                            <div class="timeline-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
                             <div class="timeline-time">15 Minutes</div>
                             <h3 class="timeline-title">Instant Surface Tightening</h3>
                             <p class="timeline-ingredients">Tightening Polymers · Film-forming complex</p>
@@ -884,7 +880,9 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <div class="timeline-icon">✨</div>
+                            <div class="timeline-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                            </div>
                             <div class="timeline-time">7–14 Days</div>
                             <h3 class="timeline-title">Deep Hydration Kicks In</h3>
                             <p class="timeline-ingredients">Low MW Hyaluronic Acid · Deep Binding</p>
@@ -900,7 +898,9 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <div class="timeline-icon">🛡️</div>
+                            <div class="timeline-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
                             <div class="timeline-time">30 Days</div>
                             <h3 class="timeline-title">Collagen Support Begins</h3>
                             <p class="timeline-ingredients">Signaling Peptides · Structural Support</p>
@@ -916,7 +916,9 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <div class="timeline-icon">🌟</div>
+                            <div class="timeline-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            </div>
                             <div class="timeline-time">60 Days</div>
                             <h3 class="timeline-title">Complete Transformation</h3>
                             <p class="timeline-ingredients">Cumulative Effect · Long-term results</p>
@@ -1005,9 +1007,9 @@
             .science-layer {
                 display: grid;
                 grid-template-columns: 1fr;
-                border: 2px solid var(--border-main);
-                background: linear-gradient(rgba(247, 247, 245, 0.95), rgba(247, 247, 245, 0.95)), url('public/images/white_marble.jpg') center/cover;
+                background: transparent;
                 position: relative;
+                margin-bottom: 4rem;
             }
 
             @media (min-width: 768px) {
@@ -1027,9 +1029,9 @@
             @media (min-width: 768px) {
                 .science-illus {
                     border-bottom: none;
-                    border-right: 2px solid var(--border-main);
-                    height: auto;
-                }
+                border-right: none;
+                height: auto;
+            }
             }
 
             .science-illus img {
@@ -1064,7 +1066,7 @@
                 padding: 8px 16px;
                 margin-bottom: 18px;
                 width: fit-content;
-                border: 2px solid #08417A;
+                border: none;
             }
 
             .science-layer-title {
@@ -1122,7 +1124,6 @@
                 gap: 16px;
                 margin-top: 5rem;
                 padding-top: 4rem;
-                border-top: 2px solid var(--border-main);
             }
 
             .trust-pill {
@@ -1206,11 +1207,7 @@
 
                 <!-- Upgraded trust badges -->
                 <div class="science-trust">
-                    <span class="trust-pill">Paraben-free</span>
-                    <span class="trust-pill">Cruelty-free</span>
-                    <span class="trust-pill">All skin types</span>
-                    <span class="trust-pill">Sensitive skin safe</span>
-                    <span class="trust-pill">Made in USA</span>
+                    <!-- Incorrect pills removed as per checklist -->
                 </div>
             </div>
         </section>
@@ -1222,7 +1219,6 @@
             .guar-section {
                 padding: 80px 0 30px;
                 background: #08417A;
-                border-top: 2px solid #08417A;
                 text-align: center;
             }
 
@@ -1325,10 +1321,9 @@
         <!-- Section 9: Stats -->
         <style>
             .stats-section {
-                padding: 3rem 0 10rem;
+                padding: 3rem 0;
                 background: #08417A;
                 color: var(--color-white);
-                border-bottom: 2px solid var(--border-main);
             }
 
             .stats-title {
@@ -1483,7 +1478,6 @@
             .purchase-module {
                 padding: 4rem 0;
                 background: var(--bg-surface);
-                border-bottom: 2px solid var(--border-main);
             }
 
             .product-visual {
@@ -1649,57 +1643,56 @@
 
         <section class="purchase-module" id="purchase">
             <div class="container container-wide">
-                <div class="purchase-header text-center">
-                    <p class="purchase-tagline">The Cream That Transformed 2,100+ Women's Skin</p>
-                    <h2 class="section-title">Instant Lift Complex</h2>
-                    <p
-                        style="color: var(--text-main); font-weight: 800; font-size: 16px; margin-top: 12px; font-family: 'Outfit', sans-serif; text-transform: uppercase;">
-                        ⭐ 4.8 from 2,100+ Reviews | Visible Results in 15 Minutes | Women 40–75 Love It
-                    </p>
-                    <p style="font-size:14px;color:var(--text-muted);margin-top:8px;font-family:'Inter',sans-serif;">
-                        Multi-Action Tightening Cream</p>
-                </div>
-
                 <div class="purchase-grid">
-                    <div class="product-visual">
-                        <img src="public/images/product_jar.png" alt="Instant Lift Complex Jar">
+                    <!-- LEFT: Gallery (Synced from PDP) -->
+                    <div class="gallery-col" style="flex: 1;">
+                        <div class="gallery-main" id="gallery-main" style="position:relative; background:#fff; border:1px solid #eee;">
+                            <img src="public/images/product_hero_jar.png" alt="Instant Lift Complex Jar" id="main-img" style="width:100%; height:auto;">
+                            <video id="main-video" style="display:none; width:100%;" controls></video>
+                        </div>
+                        <div class="gallery-thumbnails" style="display:flex; gap:8px; margin-top:12px; overflow-x:auto;">
+                            <div class="thumb-item active" onclick="switchThumb(this,'img','public/images/product_hero_jar.png')"><img src="public/images/product_hero_jar.png" style="width:60px; height:60px; object-fit:cover;"></div>
+                            <div class="thumb-item" onclick="switchThumb(this,'img','public/images/product_jar_open.png')"><img src="public/images/product_jar_open.png" style="width:60px; height:60px; object-fit:cover;"></div>
+                            <div class="thumb-item" onclick="switchThumb(this,'img','public/images/before_after_result.png')"><img src="public/images/before_after_result.png" style="width:60px; height:60px; object-fit:cover;"></div>
+                        </div>
                     </div>
 
-                    <div class="purchase-details-col">
-                        <div class="selection-step">
-                            <p class="step-label">Choose Your Plan</p>
-                            <div class="supply-grid">
-                                <!-- Tier 1: 6 Jars (Best Value) -->
-                                <button class="supply-btn" id="s6" onclick="selectTier(this, 6)" data-jars="6"
-                                    data-price="264" data-plan="subscribe">
-                                    <span class="supply-qty">6 Month Supply</span>
-                                    <span class="supply-price">$44 per jar</span>
-                                    <span class="supply-label">Save 36%</span>
-                                    <span class="supply-save">Best Value</span>
-                                </button>
-                                <!-- Tier 2: 3 Jars (Most Popular) -->
-                                <button class="supply-btn active" id="s3" onclick="selectTier(this, 3)" data-jars="3"
-                                    data-price="159" data-plan="subscribe">
-                                    <span class="supply-qty">3 Month Supply</span>
-                                    <span class="supply-price">$53 per jar</span>
-                                    <span class="supply-label">Save 23%</span>
-                                    <span class="supply-save">Most Popular</span>
-                                </button>
-                                <!-- Tier 3: 1 Jar (Trial) -->
-                                <button class="supply-btn" id="s1" onclick="selectTier(this, 1)" data-jars="1"
-                                    data-price="62" data-plan="subscribe">
-                                    <span class="supply-qty">1 Month Supply</span>
-                                    <span class="supply-price">$62.00</span>
-                                    <span class="supply-label">Save 10%</span>
-                                    <span class="supply-save" style="visibility: hidden;">&nbsp;</span>
-                                </button>
-                            </div>
+                    <!-- RIGHT: Purchase Details (Synced from PDP) -->
+                    <div class="purchase-col" style="flex: 1;">
+                        <h2 class="section-title" style="font-size: clamp(32px, 5vw, 48px); text-align: left; margin-bottom: 1rem;">Created from 2,000 women's skin</h2>
+                        <p style="font-size: 16px; line-height: 1.6; color: #444; margin-bottom: 2rem;">A formula refined by real-world feedback to address the specific concerns of aging skin: loss of firmness, deep lines, and persistent dryness.</p>
+
+                        <div class="step-label-pdp"><span class="step-num">1</span> Step 1 – Choose Your Plan</div>
+                        <div class="plan-toggle" style="margin-bottom: 24px; display: flex; border: 1px solid #ddd;">
+                            <button class="toggle-btn active" id="plan-sub" onclick="setPlanType('subscribe')" style="flex:1; padding:12px;">Subscribe & Save</button>
+                            <button class="toggle-btn" id="plan-one" onclick="setPlanType('onetime')" style="flex:1; padding:12px;">One-Time Purchase</button>
                         </div>
 
-                        <button id="add-to-cart" class="btn btn-primary w-full"
-                            style="width: 100%; font-size: 18px; padding: 24px; margin-top: 1rem;">
-                            ADD TO CART — <span id="display-price">$159.00</span>
+                        <div class="step-label-pdp"><span class="step-num">2</span> Step 2 – Select Supply</div>
+                        <p id="supply-hint" style="font-size:12px; font-weight:800; text-transform:uppercase; color:#666; margin-bottom:12px;">FREE SHIPPING + CANCEL ANYTIME</p>
+                        <div class="supply-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px;">
+                            <button class="supply-btn" onclick="selectTier(this, 6)" data-jars="6" data-price="264" data-plan="subscribe" style="padding:16px; border:1px solid #ddd; background:#fff; display:flex; flex-direction:column; gap:4px;">
+                                <span class="supply-qty" style="font-weight:700; font-size:14px;">6 Jars</span>
+                                <span class="supply-price" style="font-size:12px;">$44 per jar</span>
+                                <span class="supply-label" style="font-size:10px; color:green; font-weight:700;">Save 36%</span>
+                            </button>
+                            <button class="supply-btn active" onclick="selectTier(this, 3)" data-jars="3" data-price="159" data-plan="subscribe" style="padding:16px; border:2px solid #08417A; background:#f0f7ff; display:flex; flex-direction:column; gap:4px;">
+                                <span class="supply-qty" style="font-weight:700; font-size:14px;">3 Jars</span>
+                                <span class="supply-price" style="font-size:12px;">$53 per jar</span>
+                                <span class="supply-label" style="font-size:10px; color:green; font-weight:700;">Save 23%</span>
+                            </button>
+                            <button class="supply-btn" onclick="selectTier(this, 1)" data-jars="1" data-price="62" data-plan="subscribe" style="padding:16px; border:1px solid #ddd; background:#fff; display:flex; flex-direction:column; gap:4px;">
+                                <span class="supply-qty" style="font-weight:700; font-size:14px;">1 Jar</span>
+                                <span class="supply-price" style="font-size:12px;">$62.00</span>
+                                <span class="supply-label" style="font-size:10px; color:green; font-weight:700;">Save 10%</span>
+                            </button>
+                        </div>
+
+                        <button id="add-to-cart" class="btn btn-primary w-full" style="width: 100%; padding: 20px; font-weight: 700; font-size: 18px;">
+                            ADD TO CART — $159.00
                         </button>
+                    </div>
+                </div>
 
                         <div class="text-center mt-4">
                             <div class="payment-trust-strip"
@@ -1747,7 +1740,6 @@
             .how-to-section {
                 padding: 4rem 0;
                 background: var(--bg-surface);
-                border-bottom: 2px solid var(--border-main);
             }
 
             .how-to-header {
@@ -1770,11 +1762,9 @@
             }
 
             .step-card {
-                background: var(--bg-page);
-                border: 2px solid var(--border-main);
-                padding: 4rem 2rem;
+                background: transparent;
+                padding: 2rem 0;
                 text-align: center;
-                box-shadow: var(--shadow-brutal);
                 transition: var(--transition-base);
                 position: relative;
             }
@@ -1926,7 +1916,6 @@
             .why-switch-section {
                 padding: 4rem 0;
                 background: var(--bg-surface);
-                border-bottom: 2px solid var(--border-main);
             }
 
             .why-switch-header {
@@ -1960,11 +1949,9 @@
             }
 
             .tier-card {
-                background: var(--bg-page);
-                border: 2px solid var(--border-main);
-                padding: 3rem 2rem;
+                background: transparent;
+                padding: 3rem 0;
                 position: relative;
-                box-shadow: var(--shadow-brutal);
                 transition: var(--transition-base);
             }
 
@@ -2018,7 +2005,7 @@
         <section class="why-switch-section">
             <div class="container container-wide">
                 <div class="why-switch-header">
-                    <h2 class="section-title" style="font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.03em;">Why Women Are Switching</h2>
+                    <h2 class="section-title" style="font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.03em;">Why Women Are Switching to InstantLiftComplex</h2>
                     <p>Most creams just add temporary moisture. It evaporates, and fine lines return. Instant Lift
                         Complex is scientifically designed to work on three distinct levels of your skin simultaneously.
                     </p>
@@ -2027,7 +2014,9 @@
                 <div class="tier-timeline">
                     <!-- Tier 1 -->
                     <div class="tier-card">
-                        <div class="tier-icon">✨</div>
+                        <div class="tier-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path></svg>
+                        </div>
                         <span class="tier-label">Tier 1</span>
                         <h3 class="tier-title">Surface</h3>
                         <p class="tier-desc">Tightening polymers visibly smooth and lift within 15 minutes. This isn't
@@ -2036,7 +2025,9 @@
 
                     <!-- Tier 2 -->
                     <div class="tier-card">
-                        <div class="tier-icon">💧</div>
+                        <div class="tier-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
                         <span class="tier-label">Tier 2</span>
                         <h3 class="tier-title">Hydration</h3>
                         <p class="tier-desc">Low molecular weight hyaluronic acid penetrates where standard HA cannot,
@@ -2045,7 +2036,9 @@
 
                     <!-- Tier 3 -->
                     <div class="tier-card">
-                        <div class="tier-icon">🧬</div>
+                        <div class="tier-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.5-1.5 3.5 0 5s3.5 1.5 5 0"></path><path d="M10 11l-5.5 5.5"></path><path d="M19 4.5l-9 9"></path></svg>
+                        </div>
                         <span class="tier-label">Tier 3</span>
                         <h3 class="tier-title">Structure</h3>
                         <p class="tier-desc">Collagen-supporting peptides reinforce the structural layer of your skin,
@@ -2060,7 +2053,6 @@
             .ingredients-section {
                 padding: 4rem 0;
                 background: var(--bg-surface);
-                border-bottom: 2px solid var(--border-main);
             }
 
             .ing-hero {
@@ -2178,11 +2170,9 @@
             }
 
             .ing-secondary-card {
-                background: var(--bg-page);
-                border: 2px solid var(--border-main);
-                padding: 3rem 2rem;
+                background: transparent;
+                padding: 2rem 0;
                 transition: var(--transition-base);
-                box-shadow: var(--shadow-brutal);
                 position: relative;
             }
 
@@ -2233,7 +2223,7 @@
                                 style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
                         </div>
                         <h4 class="ing-secondary-title" style="font-size: 18px;">Tightening Polymers (MSM)</h4>
-                        <p class="ing-secondary-scientific">Instant Surface Lift</p>
+                        <p class="ing-secondary-scientific">Instant Visible Tightening</p>
                         <p class="ing-secondary-desc" style="font-size: 14px;">Creates an invisible micro-veil that produces a visible lifting effect within 15 minutes of application.</p>
                     </div>
 
@@ -2244,7 +2234,7 @@
                                 style="width:100%; height:180px; object-fit:cover; margin-bottom:12px; border:1px solid #eee;">
                         </div>
                         <h4 class="ing-secondary-title" style="font-size: 18px;">Low MW Hyaluronic Acid</h4>
-                        <p class="ing-secondary-scientific">Deep Moisture Lock</p>
+                        <p class="ing-secondary-scientific">Deep Hydration and Plumping</p>
                         <p class="ing-secondary-desc" style="font-size: 14px;">Specifically designed to penetrate deeper, pulling moisture deep beneath the surface to plump from within.</p>
                     </div>
 
@@ -2319,7 +2309,6 @@
         .footer-responsive {
             background: #08417A;
             color: var(--color-white);
-            border-top: 4px solid var(--border-main);
             padding: 8rem 0 4rem;
             position: relative;
             overflow: hidden;
@@ -2402,25 +2391,34 @@
             transition: var(--transition-base);
         }
 
-        .footer-newsletter input::placeholder {
+        .footer-newsletter input {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding: 12px 0;
             color: #fff;
-            opacity: 0.8;
-        }
-
-        .footer-newsletter button:hover {
-            background: #08417A;
-            color: var(--color-white);
-        }
-
-        .footer-email {
             font-family: 'Outfit', sans-serif;
-            color: var(--color-white);
             font-size: 16px;
-            font-weight: 700;
+            width: 100%;
+            max-width: 400px;
+            transition: border-color 0.3s;
+        }
+
+        .footer-newsletter input:focus {
+            outline: none;
+            border-bottom-color: #fff;
+        }
+
+        .footer-newsletter button {
+            background: #fff;
+            color: #08417A;
+            border: none;
+            padding: 12px 32px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
             text-transform: uppercase;
-            text-decoration: none;
-            transition: color 0.3s;
-            word-break: break-all;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
         @media (max-width: 768px) {
@@ -2465,25 +2463,19 @@
                         <img src="public/images/logo.png" alt="Glow Again Labs"
                             style="height: 120px; filter: brightness(0) invert(1);">
                         <div style="display: flex; flex-direction: column; align-items: center;">
-                            <h2 class="footer-brand-title" style="margin-bottom: 0;">GLOW AGAIN LABS</h2>
+                            <h2 class="footer-brand-title" style="margin-bottom: 0;">LOGIN LABS</h2>
                             <p class="footer-brand-subtitle" style="color: rgba(255,255,255,0.7); margin-top: 5px;">
-                                Scientifically-backed skincare. Visible results in 15 minutes.</p>
+                                Visible results in 15 minutes.</p>
                         </div>
                     </div>
                     <div class="footer-pay"
-                        style="margin-top:20px; display:flex; gap:12px; align-items:center; justify-content:center;">
-                        <img src="public/images/visa.png" alt="Visa" class="pay-icon-visa"
-                            style="filter:brightness(0) invert(1); opacity:0.8;">
-                        <img src="public/images/mastercard.png" alt="Mastercard" class="pay-icon-mc"
-                            style="filter:brightness(0) invert(1); opacity:0.8;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg"
-                            alt="Amex" class="pay-icon-amex" style="filter:brightness(0) invert(1); opacity:0.8;">
-                        <img src="public/images/paypal.png" alt="PayPal" class="pay-icon-paypal"
-                            style="filter:brightness(0) invert(1); opacity:0.8;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg"
-                            alt="Apple Pay" class="pay-icon-apple" style="filter:brightness(0) invert(1); opacity:0.8;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg"
-                            alt="Google Pay" class="pay-icon-gpay" style="filter:brightness(0) invert(1); opacity:0.8;">
+                        style="margin-top:20px; display:flex; gap:20px; align-items:center; justify-content:center; flex-wrap:wrap;">
+                        <img src="public/images/visa.png" alt="Visa" style="height:24px; width:auto; opacity:1;">
+                        <img src="public/images/mastercard.png" alt="Mastercard" style="height:24px; width:auto; opacity:1;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex" style="height:24px; width:auto; opacity:1;">
+                        <img src="public/images/paypal.png" alt="PayPal" style="height:28px; width:auto; opacity:1;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay" style="height:24px; width:auto; opacity:1;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay" style="height:24px; width:auto; opacity:1;">
                     </div>
                 </div>
 
@@ -2491,58 +2483,22 @@
 
                     <!-- Navigation -->
                     <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
-                        <p
-                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 8px;">
-                            Navigate</p>
                         <a href="index.html"
                             style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Home</a>
                         <a href="product.html"
                             style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Shop</a>
                         <a href="product.html#faq"
                             style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">FAQ</a>
-                        <a href="mailto:support@glowagainlabs.com"
-                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Contact</a>
                         <a href="privacy-policy.html"
-                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Privacy
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 14px; font-weight: 600; text-transform: uppercase; text-decoration: none; opacity: 0.7;">Privacy
                             Policy</a>
                         <a href="terms-of-service.html"
-                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Terms
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 14px; font-weight: 600; text-transform: uppercase; text-decoration: none; opacity: 0.7;">Terms
                             of Service</a>
                     </div>
 
-                    <!-- Contact -->
-                    <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
-                        <p
-                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 12px;">
-                            Contact</p>
-                        <a href="mailto:support@glowagainlabs.com" class="footer-email">support@glowagainlabs.com</a>
+                    <!-- Support Remove Contact Column as per instructions to merge links -->
 
-                        <div class="social-links" style="display: flex; gap: 16px; margin-top: 1rem;">
-                            <a href="#"
-                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; transition: var(--transition-base);">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                                </svg>
-                            </a>
-                            <a href="#"
-                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; transition: var(--transition-base);">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                            </a>
-                            <a href="#"
-                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; transition: var(--transition-base);">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
 
                     <!-- Newsletter -->
                     <div>
@@ -2711,50 +2667,90 @@
         shopNowEmpty && shopNowEmpty.addEventListener('click', closeCartDrawer);
         overlay && overlay.addEventListener('click', closeAll);
 
-        // Pricing Logic
-        const supplyOptions = document.querySelectorAll('.supply-option');
-        const displayPrice = document.getElementById('display-price');
-
-        supplyOptions.forEach(opt => {
-            opt.addEventListener('click', () => {
-                supplyOptions.forEach(o => o.classList.remove('selected'));
-                opt.classList.add('selected');
-                const price = opt.getAttribute('data-price');
-                displayPrice.innerText = `$${price}.00`;
-            });
-        });
-
-
-        // Initialize pricing
-        // The original updatePricing() function is removed as per the new pricing structure.
-        // The initial price should be set by default selection in HTML or by triggering a click on the default option.
-
-        // Add to Cart
-        const addToCartBtn = document.getElementById('add-to-cart');
-        const cartEmptyState = document.getElementById('cart-empty-state');
-        const cartFullState = document.getElementById('cart-full-state');
-        const cartItemDesc = document.getElementById('cart-item-desc');
-        const cartItemPrice = document.getElementById('cart-item-price');
-        const cartTotal = document.getElementById('cart-total');
-
+        // State variables
+        let currentPlan = 'subscribe'; // 'subscribe' or 'onetime'
         let currentQty = 3;
-        let currentPlan = 'subscribe';
 
+        // Plan type toggle (Step 1)
+        function setPlanType(plan) {
+            currentPlan = plan;
+
+            // Update buttons
+            document.getElementById('plan-sub').classList.toggle('active', plan === 'subscribe');
+            document.getElementById('plan-one').classList.toggle('active', plan === 'onetime');
+
+            // Update supply hint
+            const hint = document.getElementById('supply-hint');
+            if (hint) {
+                hint.textContent = plan === 'subscribe' ? 'FREE SHIPPING + CANCEL ANYTIME' : 'STANDARD SHIPPING FOR 1 JAR';
+            }
+
+            // Update pricing on supply grid
+            updateGridPrices();
+
+            // Trigger selection of current quantity to update UI
+            const activeBtn = document.querySelector(`.supply-btn[data-jars="${currentQty}"]`);
+            if (activeBtn) selectTier(activeBtn, currentQty);
+        }
+
+        function updateGridPrices() {
+            // Data for Subscribe
+            const subData = {
+                6: { price: 264, label: 'Save 36%', displayPrice: '$44 per jar' },
+                3: { price: 159, label: 'Save 23%', displayPrice: '$53 per jar' },
+                1: { price: 62, label: 'Save 10%', displayPrice: '$62.00' }
+            };
+            // Data for One-Time
+            const oneData = {
+                6: { price: 294, label: 'Save 29%', displayPrice: '$49 per jar' },
+                3: { price: 177, label: 'Save 14%', displayPrice: '$59 per jar' },
+                1: { price: 69, label: 'Retail Price', displayPrice: '$69.00' }
+            };
+
+            const data = currentPlan === 'subscribe' ? subData : oneData;
+
+            document.querySelectorAll('.supply-btn').forEach(btn => {
+                const qty = parseInt(btn.getAttribute('data-jars'));
+                const info = data[qty];
+                if (info) {
+                    btn.setAttribute('data-price', info.price);
+                    btn.setAttribute('data-plan', currentPlan);
+                    btn.querySelector('.supply-price').textContent = info.displayPrice;
+                    btn.querySelector('.supply-label').textContent = info.label;
+                }
+            });
+        }
+
+        // Purchase tier toggle (Step 2)
         function selectTier(btn, qty) {
             currentQty = qty;
-            const price = btn.getAttribute('data-price');
+            const price = parseFloat(btn.getAttribute('data-price'));
             const plan = btn.getAttribute('data-plan');
 
+            // Update active state
             document.querySelectorAll('.supply-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const displayPrice = document.getElementById('display-price');
-            if (displayPrice) {
-                if (qty == 1) {
-                    displayPrice.textContent = `$${price}.00`;
-                } else {
-                    displayPrice.textContent = `$${price} PER JAR`;
-                }
+            // Update ATC button text
+            const atcBtn = document.getElementById('add-to-cart');
+            if (atcBtn) {
+                const perJarText = btn.querySelector('.supply-price').textContent;
+                atcBtn.textContent = 'ADD TO CART — ' + (perJarText.includes('per jar') ? perJarText : perJarText + ' per jar');
+            }
+        }
+
+        function switchThumb(el, type, value) {
+            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            const mainImg = document.getElementById('main-img');
+            const mainVid = document.getElementById('main-video');
+            if (mainVid) { mainVid.pause(); mainVid.style.display = 'none'; }
+            if (type === 'img') {
+                mainImg.src = value;
+                mainImg.style.display = '';
+            } else if (type === 'video') {
+                mainImg.style.display = 'none';
+                if (mainVid) { mainVid.src = value; mainVid.style.display = ''; mainVid.play().catch(e => { }); }
             }
         }
 
@@ -2807,10 +2803,10 @@
         toggleIng.addEventListener('click', () => {
             if (ingList.style.display === 'none') {
                 ingList.style.display = 'block';
-                toggleIng.textContent = '[Hide Full Ingredients List]';
+                toggleIng.textContent = 'Hide Full Ingredients List';
             } else {
                 ingList.style.display = 'none';
-                toggleIng.textContent = '[View Full Ingredients List]';
+                toggleIng.textContent = 'View Full Ingredients List';
             }
         });
 

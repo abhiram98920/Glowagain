@@ -147,11 +147,8 @@ img {
 }
 
 .title-highlight {
-    background: #dcfce7;
-    padding: 2px 8px;
-    margin: 0 -4px;
-    display: inline-block;
-    color: #08417A;
+    color: #16a34a; /* Professional Success Green */
+    font-weight: 900;
 }
 
 .flex {

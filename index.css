@@ -87,9 +87,10 @@ body {
     color: var(--text-main);
     background-color: var(--bg-page);
     line-height: 1.6;
+    word-spacing: 0.12em;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -103,6 +104,7 @@ h6 {
     line-height: 1.05;
     color: var(--text-main);
     text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 
 a {
@@ -640,7 +642,7 @@ img {
 /* Credibility Bar */
 .credibility-bar {
     background: var(--grad-subtle);
-    padding: 80px 0;
+    padding: 40px 0;
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
 }
@@ -678,7 +680,7 @@ img {
 
 /* Testimonial Carousel */
 .testimonials {
-    padding: 100px 0;
+    padding: 60px 0;
 }
 
 .testimonial-grid {
@@ -751,7 +753,7 @@ img {
 /* Steps / Expectation */
 .expect-section {
     background: var(--grad-subtle);
-    padding: 120px 0;
+    padding: 60px 0;
 }
 
 .expect-grid {
@@ -833,7 +835,7 @@ img {
 
 /* Ingredients Grid */
 .ingredients {
-    padding: 120px 0;
+    padding: 60px 0;
     background: var(--grad-subtle);
 }
 
@@ -900,7 +902,7 @@ img {
 
 /* Purchase Module */
 .purchase-module {
-    padding: 120px 0;
+    padding: 60px 0;
     background: #08417A;
     color: #fff;
     position: relative;
@@ -992,7 +994,7 @@ img {
 .footer {
     background: linear-gradient(160deg, #1a0a2e 0%, #2d0b3e 40%, #1a0a2e 100%);
     color: rgba(255, 255, 255, 0.85);
-    padding: 100px 0 48px;
+    padding: 60px 0 48px;
     font-size: 14px;
     position: relative;
     overflow: hidden;
@@ -1230,7 +1232,7 @@ img {
 
 /* ===== TESTIMONIAL MARQUEE ===== */
 .testi-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background: #f8f7f5;
     overflow: hidden;
 }

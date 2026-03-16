@@ -1441,64 +1441,24 @@
         <!-- Section 10: Purchase Module -->
         <style>
             .purchase-module {
-                padding: 2rem 0;
+                padding: 4rem 0;
                 background: var(--bg-surface);
             }
 
-            .product-visual {
-                background: var(--color-white);
-                border: 2px solid var(--border-main);
-                padding: 4rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: var(--shadow-brutal);
-            }
-
-            .product-visual img {
-                width: 100%;
-                max-width: 400px;
-                transition: transform 0.4s ease;
-            }
-
-            .purchase-header {
+            .purchase-header-box {
                 text-align: center;
-                margin-bottom: 2rem;
+                margin-bottom: 3rem;
             }
 
-            .purchase-tagline {
+            .main-purchase-headline {
                 font-family: 'Outfit', sans-serif;
-                font-size: 14px;
-                font-weight: 800;
-                color: #0A0A0A;
+                font-size: clamp(32px, 5vw, 48px);
+                font-weight: 950;
+                color: #08417A;
                 text-transform: uppercase;
-                letter-spacing: 0.1em;
+                letter-spacing: -0.01em;
+                line-height: 1.1;
                 margin-bottom: 1rem;
-            }
-
-            .section-title {
-                font-family: 'Outfit', sans-serif;
-                font-size: clamp(40px, 6vw, 64px);
-                font-weight: 900;
-                color: var(--text-main);
-                line-height: 1;
-                text-transform: uppercase;
-                margin-bottom: 1.5rem;
-            }
-
-            .urgency-badge {
-                display: inline-block;
-                background: #08417A;
-                color: #0A0A0A;
-                font-family: 'Outfit', sans-serif;
-                font-size: 14px;
-                font-weight: 800;
-                padding: 12px 24px;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                border: 2px solid var(--border-main);
-                box-shadow: 4px 4px 0px var(--border-main);
-                margin-top: 1.5rem;
             }
 
             .purchase-grid {
@@ -1514,95 +1474,201 @@
                 }
             }
 
-            .selection-step {
-                margin-bottom: 3rem;
+            /* LEFT: Image Gallery */
+            .gallery-col {
+                position: relative;
             }
 
-            .step-label {
+            .main-visual {
+                background: #fff;
+                border: 2px solid #08417A;
+                padding: 2rem;
+                text-align: center;
+                box-shadow: 4px 4px 0px #08417A;
+                margin-bottom: 1rem;
+            }
+
+            .main-visual img {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            /* RIGHT: Purchase Module */
+            .purchase-module-inner {
+                background: var(--color-white);
+                border: 2px solid #08417A;
+                padding: 28px;
+                box-sizing: border-box;
+                width: 100%;
+            }
+
+            .step-label-pdp {
                 font-family: 'Outfit', sans-serif;
-                font-size: 16px;
+                font-size: 11px;
                 font-weight: 900;
-                color: var(--text-main);
+                letter-spacing: 0.15em;
                 text-transform: uppercase;
-                letter-spacing: 0.05em;
-                margin-bottom: 1.5rem;
+                color: var(--text-muted);
+                margin-bottom: 12px;
                 display: flex;
                 align-items: center;
-                gap: 12px;
+                gap: 8px;
             }
 
-            .step-label::before {
-                content: '';
-                display: block;
-                width: 24px;
-                height: 2px;
-                background: #0E5CA5;
+            .step-label-pdp .step-num {
+                background: #08417A;
+                color: #fff;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                font-size: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
+            /* Plan toggle */
             .plan-toggle {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
+                display: flex;
+                flex-direction: column;
                 gap: 0;
-                border: 2px solid var(--border-main);
-                background: var(--bg-page);
-                box-shadow: var(--shadow-brutal);
+                border: 2px solid #08417A;
+                overflow: hidden;
+                margin-bottom: 24px;
+                width: 100%;
             }
 
-            .toggle-btn {
+            .plan-btn {
+                width: 100%;
+                padding: 14px 12px;
+                background: #fff;
                 font-family: 'Outfit', sans-serif;
-                font-size: 14px;
+                font-size: 13px;
                 font-weight: 800;
-                padding: 20px;
-                text-align: center;
                 text-transform: uppercase;
-                letter-spacing: 0.05em;
-                color: var(--text-main);
-                cursor: pointer;
-                transition: var(--transition-base);
+                letter-spacing: 0.1em;
                 border: none;
-                background: transparent;
+                cursor: pointer;
+                text-align: center;
+                color: #0A0A0A;
             }
 
-            .toggle-btn:first-child {
-                border-right: 2px solid var(--border-main);
+            .plan-btn:first-child {
+                border-bottom: 2px solid #08417A;
             }
 
-            .toggle-btn.active {
+            .plan-btn.active {
                 background: #08417A;
                 color: #fff;
             }
 
+            .plan-badge {
+                display: inline-block;
+                background: #0E5CA5;
+                color: #fff;
+                font-size: 9px;
+                font-weight: 900;
+                letter-spacing: 0.08em;
+                padding: 2px 6px;
+                margin-left: 6px;
+                vertical-align: middle;
+            }
 
+            /* Supply Grid */
+            .supply-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
 
-            .payment-trust-strip {
+            .supply-btn {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 16px 20px;
+                border: 2px solid #08417A;
+                background: #fff;
+                cursor: pointer;
+                position: relative;
+                text-align: left;
+                font-family: 'Outfit', sans-serif;
+            }
+
+            .supply-btn.active {
+                background: rgba(8, 65, 122, 0.05);
+                border-width: 3px;
+                padding: 15px 19px;
+            }
+
+            .supply-btn.active::after {
+                content: '✓';
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
+                background: #08417A;
+                color: #fff;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 16px;
-                margin-top: 2rem;
+                font-size: 10px;
             }
 
-            .payment-icon {
-                font-size: 28px;
-                background: var(--bg-page);
-                border: 2px solid var(--border-main);
-                padding: 6px 12px;
-                box-shadow: 2px 2px 0px var(--border-main);
+            .supply-qty { font-weight: 900; font-size: 16px; text-transform: uppercase; color: #08417A; }
+            .supply-price { font-weight: 700; font-size: 14px; margin-top: 4px; color: #444; }
+            .supply-label { 
+                position: absolute; top: -10px; right: 20px; background: #0E5CA5; color: #fff;
+                font-size: 10px; font-weight: 900; padding: 2px 8px; text-transform: uppercase;
             }
 
-            .checkout-secure-txt {
+            /* Perks */
+            .sub-perks {
+                background: rgba(14, 92, 165, 0.06);
+                padding: 12px 16px;
+                margin-bottom: 24px;
                 font-family: 'Outfit', sans-serif;
                 font-size: 12px;
-                font-weight: 800;
-                color: var(--text-main);
-                margin-top: 1rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
+                font-weight: 700;
+                line-height: 1.8;
+                color: #0A0A0A;
+                border-top: 1px solid #08417A;
             }
+            .sub-perks span { color: #08417A; margin-right: 6px; }
+
+            /* ATC */
+            .atc-btn {
+                width: 100%;
+                padding: 20px;
+                background: #08417A;
+                color: #fff;
+                font-family: 'Outfit', sans-serif;
+                font-size: 18px;
+                font-weight: 950;
+                text-transform: uppercase;
+                border: none;
+                box-shadow: 4px 4px 0 #0E5CA5;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+            .atc-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #0E5CA5; }
+
+            .atc-sub { text-align: center; font-size: 10px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-top: 12px; letter-spacing: 0.05em; }
+
+            /* Accordion */
+            .accordion { border-top: 2px solid #08417A; margin-top: 2rem; }
+            .accordion-item { border-bottom: 1px solid #eee; }
+            .accordion-trigger {
+                width: 100%; padding: 15px 0; background: none; border: none; cursor: pointer;
+                display: flex; justify-content: space-between; align-items: center;
+                font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase;
+            }
+            .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; font-size: 14px; color: #444; }
+            .accordion-body.open { max-height: 400px; padding-bottom: 15px; }
         </style>
 
         <section class="purchase-module" id="purchase">
@@ -2667,79 +2733,81 @@
         shopNowEmpty && shopNowEmpty.addEventListener('click', closeCartDrawer);
         overlay && overlay.addEventListener('click', closeAll);
 
-        // Pricing Logic
-        const supplyOptions = document.querySelectorAll('.supply-option');
-        const displayPrice = document.getElementById('display-price');
-
-        supplyOptions.forEach(opt => {
-            opt.addEventListener('click', () => {
-                supplyOptions.forEach(o => o.classList.remove('selected'));
-                opt.classList.add('selected');
-                const price = opt.getAttribute('data-price');
-                displayPrice.innerText = `$${price}.00`;
-            });
-        });
-
-
-        // Initialize pricing
-        // The original updatePricing() function is removed as per the new pricing structure.
-        // The initial price should be set by default selection in HTML or by triggering a click on the default option.
-
-        // Add to Cart
-        const addToCartBtn = document.getElementById('add-to-cart');
-        const cartEmptyState = document.getElementById('cart-empty-state');
-        const cartFullState = document.getElementById('cart-full-state');
-        const cartItemDesc = document.getElementById('cart-item-desc');
-        const cartItemPrice = document.getElementById('cart-item-price');
-        const cartTotal = document.getElementById('cart-total');
-
-        let currentQty = 3;
+        // ── Selection State ──
         let currentPlan = 'subscribe';
+        let currentQty = 3;
+
+        function setPlanType(plan) {
+            currentPlan = plan;
+            document.getElementById('plan-sub').classList.toggle('active', plan === 'subscribe');
+            document.getElementById('plan-one').classList.toggle('active', plan === 'onetime');
+            
+            const hint = document.getElementById('supply-hint');
+            if (hint) hint.textContent = plan === 'subscribe' ? 'FREE SHIPPING + CANCEL ANYTIME' : 'STANDARD SHIPPING FOR 1 JAR';
+
+            updateGridPrices();
+            const activeBtn = document.querySelector(`.supply-btn[data-jars="${currentQty}"]`);
+            if (activeBtn) selectTier(activeBtn, currentQty);
+        }
+
+        function updateGridPrices() {
+            const subData = { 6: { p: 264, l: 'Save 36%', dp: '$44 per jar' }, 3: { p: 159, l: 'Save 23%', dp: '$53 per jar' }, 1: { p: 62, l: 'Save 10%', dp: '$62.00' } };
+            const oneData = { 6: { p: 294, l: 'Save 29%', dp: '$49 per jar' }, 3: { p: 177, l: 'Save 14%', dp: '$59 per jar' }, 1: { p: 69, l: 'Retail Price', dp: '$69.00' } };
+            const data = currentPlan === 'subscribe' ? subData : oneData;
+
+            document.querySelectorAll('.supply-btn').forEach(btn => {
+                const qty = btn.getAttribute('data-jars');
+                const info = data[qty];
+                if (info) {
+                    btn.setAttribute('data-price', info.p);
+                    btn.setAttribute('data-plan', currentPlan);
+                    btn.querySelector('.supply-price').textContent = info.dp;
+                    btn.querySelector('.supply-label').textContent = info.l;
+                }
+            });
+        }
 
         function selectTier(btn, qty) {
             currentQty = qty;
-            const price = btn.getAttribute('data-price');
-            const plan = btn.getAttribute('data-plan');
-
             document.querySelectorAll('.supply-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
-            const displayPrice = document.getElementById('display-price');
-            if (displayPrice) {
-                if (qty == 1) {
-                    displayPrice.textContent = `$${price}.00`;
-                } else {
-                    displayPrice.textContent = `$${price} PER JAR`;
-                }
+            
+            const atcBtn = document.getElementById('atc-btn');
+            if (atcBtn) {
+                const priceTxt = btn.querySelector('.supply-price').textContent;
+                atcBtn.textContent = 'ADD TO CART — ' + (priceTxt.includes('per jar') ? priceTxt : priceTxt + ' per jar');
             }
+
+            const perks = document.getElementById('sub-perks');
+            if (perks) perks.style.display = (currentPlan === 'subscribe' || qty > 1) ? 'block' : 'none';
         }
 
-        addToCartBtn.addEventListener('click', () => {
-            const selectedOpt = document.querySelector('.supply-btn.active');
-            if (!selectedOpt) return;
+        function toggleAcc(btn) {
+            const body = btn.nextElementSibling;
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+            if (!isOpen) body.classList.add('open');
+        }
 
-            const jars = selectedOpt.getAttribute('data-jars');
-            const price = selectedOpt.getAttribute('data-price');
-            const plan = selectedOpt.getAttribute('data-plan');
-
-            document.getElementById('cart-count').textContent = `(1)`;
-            document.getElementById('cart-count').style.display = 'inline';
-
-            // Update drawer UI
-            cartEmptyState.style.display = 'none';
-            cartFullState.style.display = 'block';
+        document.getElementById('atc-btn').addEventListener('click', () => {
+            const activeBtn = document.querySelector('.supply-btn.active');
+            const jars = activeBtn.getAttribute('data-jars');
+            const price = activeBtn.getAttribute('data-price');
+            const plan = activeBtn.getAttribute('data-plan');
 
             const planText = plan === 'subscribe' ? 'Subscribe & Save' : 'One-Time Purchase';
-            cartItemDesc.textContent = `${jars}-Month Supply (${planText})`;
+            document.getElementById('cart-item-desc').textContent = jars + "-Month Supply (" + planText + ")";
+            
+            const numPrice = parseFloat(price);
+            const numJars = parseInt(jars);
+            const perJar = Math.round(numPrice / numJars);
 
-            // Correctly show price per jar
-            const numericPrice = parseInt(price);
-            const numericJars = parseInt(jars);
-            const pricePerJar = Math.round(numericPrice / numericJars);
-
-            cartItemPrice.textContent = `$${pricePerJar}.00 / jar`;
-            cartTotal.textContent = `$${numericPrice}.00`;
-
+            document.getElementById('cart-item-price').textContent = `$${perJar}.00 / jar`;
+            document.getElementById('cart-total').textContent = `$${numPrice}.00`;
+            document.getElementById('cart-empty-state').style.display = 'none';
+            document.getElementById('cart-full-state').style.display = 'block';
+            document.getElementById('cart-count').textContent = '(1)';
+            document.getElementById('cart-count').style.display = 'inline';
             openCartDrawer();
         });
 

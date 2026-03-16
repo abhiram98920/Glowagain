@@ -1440,32 +1440,32 @@
 
         <!-- Section 10: Purchase Module -->
         <style>
+            /* ===== S3: HERO PRODUCT SECTION (PDP Parity) ===== */
             .purchase-module {
                 padding: 4rem 0;
-                background: var(--bg-surface);
-            }
-
-            .purchase-header-box {
-                text-align: center;
-                margin-bottom: 3rem;
+                background: #fff;
             }
 
             .main-purchase-headline {
                 font-family: 'Outfit', sans-serif;
-                font-size: clamp(32px, 5vw, 48px);
+                font-size: clamp(32px, 5vw, 42px);
                 font-weight: 950;
                 color: #08417A;
                 text-transform: uppercase;
                 letter-spacing: -0.01em;
                 line-height: 1.1;
-                margin-bottom: 1rem;
+                margin-bottom: 2.5rem;
+                text-align: center;
             }
 
             .purchase-grid {
                 display: grid;
                 grid-template-columns: 1fr;
-                gap: 4rem;
-                align-items: start;
+                gap: 0;
+                border: 2px solid #08417A;
+                max-width: 1200px;
+                margin: 0 auto;
+                background: #fff;
             }
 
             @media (min-width: 992px) {
@@ -1474,33 +1474,101 @@
                 }
             }
 
-            /* LEFT: Image Gallery */
+            /* LEFT: Gallery (PDP Parity) */
             .gallery-col {
-                position: relative;
-            }
-
-            .main-visual {
-                background: #fff;
-                border: 2px solid #08417A;
-                padding: 2rem;
-                text-align: center;
-                box-shadow: 4px 4px 0px #08417A;
-                margin-bottom: 1rem;
-            }
-
-            .main-visual img {
+                min-width: 0;
                 width: 100%;
-                max-width: 400px;
-                height: auto;
-            }
-
-            /* RIGHT: Purchase Module */
-            .purchase-module-inner {
-                background: var(--color-white);
-                border: 2px solid #08417A;
-                padding: 28px;
                 box-sizing: border-box;
-                width: 100%;
+                overflow: hidden;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                position: relative;
+                border-right: 2px solid #08417A;
+            }
+
+            @media (max-width: 991px) {
+                .gallery-col {
+                    border-right: none;
+                    border-bottom: 2px solid #08417A;
+                }
+            }
+
+            .gallery-main {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                background: #fff;
+                position: relative;
+                min-height: 350px;
+                border-bottom: 2px solid #08417A;
+                overflow: hidden;
+            }
+
+            @media (min-width: 992px) {
+                .gallery-main { flex: 1; min-height: 480px; padding: 0; }
+            }
+
+            .gallery-main img {
+                width: 100%; height: auto; max-width: 100%; object-fit: contain;
+                transition: transform 0.5s ease;
+            }
+
+            .gallery-slide {
+                display: none; flex-direction: column; align-items: center; justify-content: center;
+                text-align: center; padding: 32px 24px; position: absolute; inset: 0;
+                background: #f8f7f5; z-index: 2;
+            }
+            .gallery-slide.active { display: flex; }
+            .gallery-slide-icon { font-size: 56px; margin-bottom: 16px; }
+            .gallery-slide-title { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 20px; text-transform: uppercase; color: #0A0A0A; margin-bottom: 14px; }
+            .gallery-slide-body { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.75; color: #555; max-width: 320px; }
+
+            .gallery-badge {
+                position: absolute; top: 15px; left: 15px; background: #0E5CA5; color: #fff;
+                font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 900; text-transform: uppercase;
+                padding: 4px 10px; border: 1px solid #08417A; box-shadow: 2px 2px 0 #08417A; z-index: 10;
+            }
+            .gallery-counter {
+                position: absolute; bottom: 15px; right: 15px; font-family: 'Outfit', sans-serif;
+                font-size: 11px; font-weight: 800; background: rgba(255, 255, 255, 0.9);
+                padding: 2px 8px; border: 1px solid #08417A; z-index: 10;
+            }
+
+            .gallery-arrow {
+                position: absolute; top: 50%; transform: translateY(-50%); z-index: 20;
+                background: rgba(255, 255, 255, 0.9); border: 2px solid #08417A;
+                width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+                cursor: pointer; font-size: 16px; font-weight: 900; color: #08417A; transition: all 0.2s;
+            }
+            .gallery-arrow:hover { background: #08417A; color: #fff; }
+            .gallery-arrow.prev { left: 10px; }
+            .gallery-arrow.next { right: 10px; }
+
+            .gallery-thumbnails {
+                display: flex; overflow-x: auto; gap: 0; scrollbar-width: none; background: #f0eeeb;
+            }
+            .gallery-thumbnails::-webkit-scrollbar { display: none; }
+            .thumb-item {
+                min-width: 60px; height: 60px; border-right: 1px solid #08417A; flex-shrink: 0;
+                cursor: pointer; display: flex; align-items: center; justify-content: center;
+                background: #f0eeeb; position: relative; overflow: hidden;
+            }
+            .thumb-item.active { background: #fff; }
+            .thumb-item.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #0E5CA5; }
+            .thumb-item img { width: 45px; height: 45px; object-fit: contain; }
+            .thumb-item.thumb-icon { font-size: 18px; flex-direction: column; }
+            .thumb-item.thumb-icon span { font-family: 'Outfit', sans-serif; font-size: 8px; font-weight: 800; text-transform: uppercase; margin-top: 2px; }
+
+            /* RIGHT: Purchase Col */
+            .purchase-col {
+                padding: 40px;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
             }
 
             .step-label-pdp {
@@ -1552,16 +1620,11 @@
                 cursor: pointer;
                 text-align: center;
                 color: #0A0A0A;
+                transition: background 0.2s, color 0.2s;
             }
 
-            .plan-btn:first-child {
-                border-bottom: 2px solid #08417A;
-            }
-
-            .plan-btn.active {
-                background: #08417A;
-                color: #fff;
-            }
+            .plan-btn:first-child { border-bottom: 2px solid #08417A; }
+            .plan-btn.active { background: #08417A; color: #fff; }
 
             .plan-badge {
                 display: inline-block;
@@ -1577,68 +1640,49 @@
 
             /* Supply Grid */
             .supply-grid {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                margin-bottom: 24px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0;
+                border: 2px solid #08417A;
+                margin-bottom: 0;
             }
 
             .supply-btn {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 16px 20px;
-                border: 2px solid #08417A;
-                background: #fff;
-                cursor: pointer;
-                position: relative;
-                text-align: left;
-                font-family: 'Outfit', sans-serif;
-            }
-
-            .supply-btn.active {
-                background: rgba(8, 65, 122, 0.05);
-                border-width: 3px;
-                padding: 15px 19px;
-            }
-
-            .supply-btn.active::after {
-                content: '✓';
-                position: absolute;
-                top: 50%;
-                right: 20px;
-                transform: translateY(-50%);
-                background: #08417A;
-                color: #fff;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 10px;
-            }
-
-            .supply-qty { font-weight: 900; font-size: 16px; text-transform: uppercase; color: #08417A; }
-            .supply-price { font-weight: 700; font-size: 14px; margin-top: 4px; color: #444; }
-            .supply-label { 
-                position: absolute; top: -10px; right: 20px; background: #0E5CA5; color: #fff;
-                font-size: 10px; font-weight: 900; padding: 2px 8px; text-transform: uppercase;
-            }
-
-            /* Perks */
-            .sub-perks {
-                background: rgba(14, 92, 165, 0.06);
-                padding: 12px 16px;
-                margin-bottom: 24px;
+                padding: 16px 10px;
+                border: none;
+                border-right: 1px solid #08417A;
+                background: #fff;
+                cursor: pointer;
+                text-align: center;
                 font-family: 'Outfit', sans-serif;
-                font-size: 12px;
-                font-weight: 700;
-                line-height: 1.8;
-                color: #0A0A0A;
-                border-top: 1px solid #08417A;
+                transition: background 0.2s;
             }
-            .sub-perks span { color: #08417A; margin-right: 6px; }
+
+            .supply-btn:last-child { border-right: none; }
+            .supply-btn.active { background: #08417A; color: #fff; }
+
+            .supply-qty { font-weight: 900; font-size: 13px; text-transform: uppercase; margin-bottom: 4px; }
+            .supply-btn.active .supply-qty { color: #fff; }
+            .supply-price { font-weight: 700; font-size: 12px; margin-bottom: 4px; }
+            .supply-label { font-size: 9px; font-weight: 900; text-transform: uppercase; background: #0E5CA5; color: #fff; padding: 2px 6px; }
+
+            .sub-perks {
+                background: #f4fdf8;
+                padding: 16px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 11px;
+                font-weight: 700;
+                line-height: 1.6;
+                color: #0A0A0A;
+                border: 2px solid #08417A;
+                border-top: none;
+                margin-bottom: 24px;
+            }
+            .sub-perks span { color: #16a34a; margin-right: 4px; }
 
             /* ATC */
             .atc-btn {
@@ -1650,119 +1694,159 @@
                 font-size: 18px;
                 font-weight: 950;
                 text-transform: uppercase;
-                border: none;
+                border: 2px solid #08417A;
                 box-shadow: 4px 4px 0 #0E5CA5;
                 cursor: pointer;
                 transition: transform 0.2s, box-shadow 0.2s;
             }
+            .atc-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #0E5CA5; }
             .atc-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #0E5CA5; }
 
             .atc-sub { text-align: center; font-size: 10px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-top: 12px; letter-spacing: 0.05em; }
 
+            /* Guarantee strip on home */
+            .guarantee-strip-home {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-top: 2rem;
+                padding-top: 2rem;
+                border-top: 1px solid #eee;
+            }
+            .guarantee-strip-home img { height: 44px; width: auto; }
+            .guarantee-strip-home p { font-size: 12px; font-family: 'Inter', sans-serif; color: #666; line-height: 1.4; }
+
             /* Accordion */
-            .accordion { border-top: 2px solid #08417A; margin-top: 2rem; }
+            .accordion { border-top: 1px solid #eee; margin-top: 2rem; }
             .accordion-item { border-bottom: 1px solid #eee; }
             .accordion-trigger {
                 width: 100%; padding: 15px 0; background: none; border: none; cursor: pointer;
                 display: flex; justify-content: space-between; align-items: center;
                 font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase;
+                color: #0A0A0A;
             }
-            .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; font-size: 14px; color: #444; }
+            .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; font-size: 14px; color: #444; line-height: 1.6; }
             .accordion-body.open { max-height: 400px; padding-bottom: 15px; }
         </style>
 
         <section class="purchase-module" id="purchase">
             <div class="container container-wide">
-                <div class="purchase-header text-center">
-                    <p class="purchase-tagline">The Cream That Transformed 2,100+ Women's Skin</p>
-                    <h2 class="section-title">Instant Lift Complex</h2>
-                    <p
-                        style="color: var(--text-main); font-weight: 800; font-size: 16px; margin-top: 12px; font-family: 'Outfit', sans-serif; text-transform: uppercase;">
-                        ⭐ 4.8 from 2,100+ Reviews | Visible Results in 15 Minutes | Women 40–75 Love It
-                    </p>
-                    <p style="font-size:14px;color:var(--text-muted);margin-top:8px;font-family:'Inter',sans-serif;">
-                        Multi-Action Tightening Cream</p>
-                </div>
+                <h2 class="main-purchase-headline">Created from 2,000 women's skin</h2>
 
                 <div class="purchase-grid">
-                    <div class="product-visual">
-                        <img src="public/images/product_jar.png" alt="Instant Lift Complex Jar">
+                    <!-- LEFT: Visual Gallery (PDP Parity) -->
+                    <div class="gallery-col">
+                        <div class="gallery-main" id="gallery-main">
+                            <div class="gallery-badge">New Formula</div>
+                            <img src="public/images/product_hero_jar.png" id="main-img" alt="Instant Lift Complex">
+                            <video id="main-video" style="display:none; width:100%; height:100%; object-fit:contain;" controls></video>
+                            <div class="gallery-counter" id="gallery-counter">1 / 11</div>
+                            
+                            <!-- Non-image slides -->
+                            <div class="gallery-slide" id="slide-results">
+                                <div class="gallery-slide-icon">📈</div>
+                                <div class="gallery-slide-title">Expected Results</div>
+                                <p class="gallery-slide-body"><strong>15 min:</strong> Visible tightening<br><strong>7-14 days:</strong> Improved hydration<br><strong>30-60 days:</strong> Firmer, more lifted skin</p>
+                            </div>
+                            <div class="gallery-slide" id="slide-howto">
+                                <div class="gallery-slide-icon">📋</div>
+                                <div class="gallery-slide-title">How To Use</div>
+                                <p class="gallery-slide-body">① Cleanse & dry<br>② Apply thin layer<br>③ Massage until absorbed<br>④ Allow 15 min to set</p>
+                            </div>
+                            <div class="gallery-slide" id="slide-formula">
+                                <div class="gallery-slide-icon">🧪</div>
+                                <div class="gallery-slide-title">The Formula</div>
+                                <p class="gallery-slide-body"><strong>Peptides</strong> — Collagen support<br><strong>Hyaluronic Acid</strong> — Deep hydration<br><strong>Polymers</strong> — Surface tightening</p>
+                            </div>
+
+                            <!-- Arrow Navigation -->
+                            <button class="gallery-arrow prev" id="gallery-prev">&#8592;</button>
+                            <button class="gallery-arrow next" id="gallery-next">&#8594;</button>
+                        </div>
+                        <div class="gallery-thumbnails">
+                            <div class="thumb-item active" onclick="switchThumb(this,'img','public/images/product_hero_jar.png','1 / 11')">
+                                <img src="public/images/product_hero_jar.png" alt="Front">
+                            </div>
+                            <div class="thumb-item" onclick="switchThumb(this,'img','public/images/product_package_back.png','2 / 11')">
+                                <img src="public/images/product_package_back.png" alt="Back">
+                            </div>
+                            <div class="thumb-item" onclick="switchThumb(this,'img','public/images/product_jar_open.png','3 / 11')">
+                                <img src="public/images/product_jar_open.png" alt="Open">
+                            </div>
+                            <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-formula','4 / 11')">
+                                🧪<span>Formula</span></div>
+                            <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-results','5 / 11')">
+                                📈<span>Timeline</span></div>
+                            <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-howto','6 / 11')">
+                                📋<span>How To</span></div>
+                        </div>
                     </div>
 
-                    <div class="purchase-details-col">
-                        <div class="selection-step">
-                            <p class="step-label">Choose Your Plan</p>
-                            <div class="supply-grid">
-                                <!-- Tier 1: 6 Jars (Best Value) -->
-                                <button class="supply-btn" id="s6" onclick="selectTier(this, 6)" data-jars="6"
-                                    data-price="264" data-plan="subscribe">
-                                    <span class="supply-qty">6 Month Supply</span>
-                                    <span class="supply-price">$44 per jar</span>
-                                    <span class="supply-label">Save 36%</span>
-                                    <span class="supply-save">Best Value</span>
-                                </button>
-                                <!-- Tier 2: 3 Jars (Most Popular) -->
-                                <button class="supply-btn active" id="s3" onclick="selectTier(this, 3)" data-jars="3"
-                                    data-price="159" data-plan="subscribe">
-                                    <span class="supply-qty">3 Month Supply</span>
-                                    <span class="supply-price">$53 per jar</span>
-                                    <span class="supply-label">Save 23%</span>
-                                    <span class="supply-save">Most Popular</span>
-                                </button>
-                                <!-- Tier 3: 1 Jar (Trial) -->
-                                <button class="supply-btn" id="s1" onclick="selectTier(this, 1)" data-jars="1"
-                                    data-price="62" data-plan="subscribe">
-                                    <span class="supply-qty">1 Month Supply</span>
-                                    <span class="supply-price">$62.00</span>
-                                    <span class="supply-label">Save 10%</span>
-                                    <span class="supply-save" style="visibility: hidden;">&nbsp;</span>
-                                </button>
-                            </div>
+                    <!-- RIGHT: Purchase Flow -->
+                    <div class="purchase-col">
+                        <div class="step-label-pdp"><span class="step-num">1</span> Step 1 – Choose Your Plan</div>
+                        <div class="plan-toggle">
+                            <button class="plan-btn active" id="plan-sub" onclick="setPlanType('subscribe')">
+                                Subscribe & Save Up to 36%
+                                <span class="plan-badge">Voted Best</span>
+                            </button>
+                            <button class="plan-btn" id="plan-one" onclick="setPlanType('onetime')">
+                                One-Time Purchase
+                            </button>
                         </div>
 
-                        <button id="add-to-cart" class="btn btn-primary w-full"
-                            style="width: 100%; font-size: 18px; padding: 24px; margin-top: 1rem;">
-                            ADD TO CART — <span id="display-price">$159.00</span>
-                        </button>
+                        <div class="step-label-pdp"><span class="step-num">2</span> Step 2 – Select Supply</div>
+                        <p id="supply-hint" style="font-family:'Outfit',sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; letter-spacing:0.04em;">FREE SHIPPING + CANCEL ANYTIME</p>
+                        
+                        <div class="supply-grid">
+                            <button class="supply-btn" id="s6" onclick="selectTier(this, 6)" data-jars="6" data-price="264" data-plan="subscribe">
+                                <span class="supply-qty">6 Month</span>
+                                <span class="supply-price">$44 / jar</span>
+                                <span class="supply-label">Save 36%</span>
+                            </button>
+                            <button class="supply-btn active" id="s3" onclick="selectTier(this, 3)" data-jars="3" data-price="159" data-plan="subscribe">
+                                <span class="supply-qty">3 Month</span>
+                                <span class="supply-price">$53 / jar</span>
+                                <span class="supply-label">Save 23%</span>
+                            </button>
+                            <button class="supply-btn" id="s1" onclick="selectTier(this, 1)" data-jars="1" data-price="62" data-plan="subscribe">
+                                <span class="supply-qty">1 Month</span>
+                                <span class="supply-price">$62.00</span>
+                                <span class="supply-label">Save 10%</span>
+                            </button>
+                        </div>
 
-                        <div class="text-center mt-4">
-                            <div class="payment-trust-strip"
-                                style="display: flex; gap: 12px; justify-content: center; margin-top: 1rem;">
-                                <div class="pay-badge"><img src="public/images/visa.png" alt="Visa"
-                                        class="pay-icon-visa"></div>
-                                <div class="pay-badge"><img src="public/images/mastercard.png" alt="Mastercard"
-                                        class="pay-icon-mc"></div>
-                                <div class="pay-badge"><img
-                                        src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg"
-                                        alt="Amex" class="pay-icon-amex"></div>
-                                <div class="pay-badge"><img src="public/images/paypal.png" alt="PayPal"
-                                        class="pay-icon-paypal"></div>
-                                <div class="pay-badge" style="height: 18px; display: flex; align-items: center;">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg"
-                                        alt="Apple Pay" class="pay-icon-apple">
-                                </div>
-                                <div class="pay-badge" style="height: 18px; display: flex; align-items: center;">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg"
-                                        alt="Google Pay" class="pay-icon-gpay">
+                        <div class="sub-perks" id="sub-perks">
+                            <span>✓</span>Free shipping on every order<br>
+                            <span>✓</span>Cancel or change anytime<br>
+                            <span>✓</span>60-Day Money-Back Guarantee
+                        </div>
+
+                        <div class="step-label-pdp" style="margin-top: 1rem;"><span class="step-num">3</span> Step 3 – Add to Cart</div>
+                        <button class="atc-btn" id="atc-btn">ADD TO CART — $53 / jar</button>
+                        <div class="atc-sub">Price updates based on selection</div>
+
+                        <div class="guarantee-strip-home">
+                            <img src="public/images/guarantee-badge.svg" alt="Guarantee">
+                            <p><strong>60-Day Money-Back Guarantee.</strong> If you don't love it, we'll refund you every penny. No hassle.</p>
+                        </div>
+
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-trigger" onclick="toggleAcc(this)">How to Use <span>+</span></button>
+                                <div class="accordion-body">
+                                    <p>Apply 2-3 times daily to cleansed skin. Massage gently until absorbed. Allow 15 minutes for full tightening effect.</p>
                                 </div>
                             </div>
-                            <div class="checkout-secure-txt">
-                                Bank-Grade 256-Bit Encrypted Checkout
-                            </div>
-                            <div class="guarantee-strip"
-                                style="margin-top: 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem;">
-                                <img src="public/images/guarantee-badge.svg" alt="Real Money Back Guarantee"
-                                    style="height: 60px; width: auto; flex-shrink: 0;">
-                                <div class="guarantee-text">
-                                    100% Money-Back Guarantee
-                                    <small style="display: block; margin-top: 0.5rem;">Try it risk-free for 60 days.
-                                        Don't love it? Get a full refund.</small>
+                            <div class="accordion-item">
+                                <button class="accordion-trigger" onclick="toggleAcc(this)">Ingredients <span>+</span></button>
+                                <div class="accordion-body">
+                                    <p>Sodium Hyaluronate, Peptides, Aloe Barbadensis, Glycerin, Ginger Root Extract, Hibiscus Flower Extract.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section>
 
@@ -2733,7 +2817,61 @@
         shopNowEmpty && shopNowEmpty.addEventListener('click', closeCartDrawer);
         overlay && overlay.addEventListener('click', closeAll);
 
-        // ── Selection State ──
+        // ── Gallery Carousel ──
+        (function initGallery() {
+            const thumbs = Array.from(document.querySelectorAll('.thumb-item'));
+            let currentIdx = 0;
+
+            function activateThumb(idx) {
+                currentIdx = ((idx % thumbs.length) + thumbs.length) % thumbs.length;
+                thumbs[currentIdx].click();
+                thumbs[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+
+            const prevBtn = document.getElementById('gallery-prev');
+            const nextBtn = document.getElementById('gallery-next');
+            if (prevBtn) prevBtn.addEventListener('click', () => activateThumb(currentIdx - 1));
+            if (nextBtn) nextBtn.addEventListener('click', () => activateThumb(currentIdx + 1));
+
+            thumbs.forEach((th, i) => th.addEventListener('click', () => { currentIdx = i; }));
+
+            let touchStartX = 0;
+            const galleryEl = document.getElementById('gallery-main');
+            if (galleryEl) {
+                galleryEl.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+                galleryEl.addEventListener('touchend', e => {
+                    const diff = touchStartX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 40) activateThumb(diff > 0 ? currentIdx + 1 : currentIdx - 1);
+                }, { passive: true });
+            }
+        })();
+
+        function switchThumb(el, type, value, counter) {
+            document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            const ctr = document.getElementById('gallery-counter');
+            if (ctr && counter) ctr.textContent = counter;
+            const mainImg = document.getElementById('main-img');
+            const mainVid = document.getElementById('main-video');
+            const allSlides = document.querySelectorAll('.gallery-slide');
+            if (mainVid) { mainVid.pause(); mainVid.style.display = 'none'; }
+            if (type === 'img') {
+                mainImg.src = value;
+                mainImg.style.display = '';
+                allSlides.forEach(s => s.classList.remove('active'));
+            } else if (type === 'video') {
+                mainImg.style.display = 'none';
+                allSlides.forEach(s => s.classList.remove('active'));
+                if (mainVid) { mainVid.src = value; mainVid.style.display = ''; mainVid.play().catch(e => { }); }
+            } else if (type === 'slide') {
+                mainImg.style.display = 'none';
+                allSlides.forEach(s => s.classList.remove('active'));
+                const target = document.getElementById(value);
+                if (target) target.classList.add('active');
+            }
+        }
+
+        // ── Purchase Module State ──
         let currentPlan = 'subscribe';
         let currentQty = 3;
 
@@ -2741,28 +2879,25 @@
             currentPlan = plan;
             document.getElementById('plan-sub').classList.toggle('active', plan === 'subscribe');
             document.getElementById('plan-one').classList.toggle('active', plan === 'onetime');
-            
             const hint = document.getElementById('supply-hint');
             if (hint) hint.textContent = plan === 'subscribe' ? 'FREE SHIPPING + CANCEL ANYTIME' : 'STANDARD SHIPPING FOR 1 JAR';
-
             updateGridPrices();
             const activeBtn = document.querySelector(`.supply-btn[data-jars="${currentQty}"]`);
             if (activeBtn) selectTier(activeBtn, currentQty);
         }
 
         function updateGridPrices() {
-            const subData = { 6: { p: 264, l: 'Save 36%', dp: '$44 per jar' }, 3: { p: 159, l: 'Save 23%', dp: '$53 per jar' }, 1: { p: 62, l: 'Save 10%', dp: '$62.00' } };
-            const oneData = { 6: { p: 294, l: 'Save 29%', dp: '$49 per jar' }, 3: { p: 177, l: 'Save 14%', dp: '$59 per jar' }, 1: { p: 69, l: 'Retail Price', dp: '$69.00' } };
+            const subData = { 6: { price: 264, label: 'Save 36%', displayPrice: '$44 / jar' }, 3: { price: 159, label: 'Save 23%', displayPrice: '$53 / jar' }, 1: { price: 62, label: 'Save 10%', displayPrice: '$62.00' } };
+            const oneData = { 6: { price: 294, label: 'Save 29%', displayPrice: '$49 / jar' }, 3: { price: 177, label: 'Save 14%', displayPrice: '$59 / jar' }, 1: { price: 69, label: 'Retail Price', displayPrice: '$69.00' } };
             const data = currentPlan === 'subscribe' ? subData : oneData;
-
             document.querySelectorAll('.supply-btn').forEach(btn => {
                 const qty = btn.getAttribute('data-jars');
                 const info = data[qty];
                 if (info) {
-                    btn.setAttribute('data-price', info.p);
+                    btn.setAttribute('data-price', info.price);
                     btn.setAttribute('data-plan', currentPlan);
-                    btn.querySelector('.supply-price').textContent = info.dp;
-                    btn.querySelector('.supply-label').textContent = info.l;
+                    btn.querySelector('.supply-price').textContent = info.displayPrice;
+                    btn.querySelector('.supply-label').textContent = info.label;
                 }
             });
         }
@@ -2771,22 +2906,22 @@
             currentQty = qty;
             document.querySelectorAll('.supply-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
             const atcBtn = document.getElementById('atc-btn');
             if (atcBtn) {
                 const priceTxt = btn.querySelector('.supply-price').textContent;
-                atcBtn.textContent = 'ADD TO CART — ' + (priceTxt.includes('per jar') ? priceTxt : priceTxt + ' per jar');
+                atcBtn.textContent = 'ADD TO CART — ' + (priceTxt.includes('jar') ? priceTxt : priceTxt + ' / jar');
             }
-
             const perks = document.getElementById('sub-perks');
             if (perks) perks.style.display = (currentPlan === 'subscribe' || qty > 1) ? 'block' : 'none';
         }
 
         function toggleAcc(btn) {
             const body = btn.nextElementSibling;
+            const span = btn.querySelector('span');
             const isOpen = body.classList.contains('open');
             document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
-            if (!isOpen) body.classList.add('open');
+            document.querySelectorAll('.accordion-trigger span').forEach(s => s.textContent = '+');
+            if (!isOpen) { body.classList.add('open'); span.textContent = '−'; }
         }
 
         document.getElementById('atc-btn').addEventListener('click', () => {
@@ -2794,14 +2929,12 @@
             const jars = activeBtn.getAttribute('data-jars');
             const price = activeBtn.getAttribute('data-price');
             const plan = activeBtn.getAttribute('data-plan');
-
             const planText = plan === 'subscribe' ? 'Subscribe & Save' : 'One-Time Purchase';
-            document.getElementById('cart-item-desc').textContent = jars + "-Month Supply (" + planText + ")";
             
+            document.getElementById('cart-item-desc').textContent = jars + "-Month Supply (" + planText + ")";
             const numPrice = parseFloat(price);
             const numJars = parseInt(jars);
             const perJar = Math.round(numPrice / numJars);
-
             document.getElementById('cart-item-price').textContent = `$${perJar}.00 / jar`;
             document.getElementById('cart-total').textContent = `$${numPrice}.00`;
             document.getElementById('cart-empty-state').style.display = 'none';

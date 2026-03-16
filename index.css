@@ -146,11 +146,6 @@ img {
     text-align: center;
 }
 
-.title-highlight {
-    color: #08417A; /* Brand Theme Blue */
-    font-weight: 950;
-}
-
 .flex {
     display: flex;
 }

@@ -3409,47 +3409,97 @@
             color: rgba(255, 255, 255, 0.6);
         }
     </style>
-    <footer class="pdp-footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+    <footer class="footer-responsive">
+        <div class="container container-wide relative z-10">
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 4rem; margin-bottom: 6rem;">
+                <!-- Brand Pillar -->
+                <div style="text-align: center;">
+                    <div
+                        style="display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 2rem; flex-wrap: wrap;">
                         <img src="public/images/logo.png" alt="Glow Again Labs"
-                            style="height: 80px; filter: brightness(0) invert(1); display: block !important;">
-                        <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                            <h2 class="footer-brand-title" style="margin-bottom: 0; color: #fff;">GLOW AGAIN</h2>
-                            <p
-                                style="font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-top: 5px; max-width: 300px;">
-                                Scientifically-backed skincare. Visible transformation.</p>
+                            style="height: 120px;">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <h2 class="footer-brand-title" style="margin-bottom: 0;">GLOW AGAIN LABS</h2>
+                            <p class="footer-brand-subtitle" style="color: rgba(255,255,255,0.7); margin-top: 5px;">
+                                Scientifically-backed skincare. Visible results in 15 minutes.</p>
                         </div>
                     </div>
-                    <p style="opacity: 0.8; font-size: 13px; line-height: 1.6; max-width: 320px;">Premium multi-action
-                        skincare formulated for women who want visible results — not promises.</p>
-                    <div class="footer-pay" style="margin-top:20px; display:flex; gap:12px; align-items:center; justify-content:center;">
-                        <img src="public/images/payment icons single.png" alt="Accepted Payment Methods" style="height: 28px; width: auto; object-fit: contain; filter:brightness(0) invert(1); opacity:0.8;">
+                    <div class="footer-pay"
+                        style="margin-top:20px; display:flex; gap:12px; align-items:center; justify-content:center;">
+                        <img src="public/images/payment icons single.png" alt="Accepted Payment Methods" style="height: 28px; width: auto; object-fit: contain;">
                     </div>
                 </div>
-                <div class="footer-col">
-                    <div class="footer-col-title">Navigate</div>
-                    <a href="index.html">Home</a>
-                    <a href="product.html">Shop</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="mailto:support@glowagainlabs.com">Contact</a>
-                    <a href="#guarantee">Guarantee</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="terms-of-service.html">Terms of Service</a>
-                </div>
-                <div class="footer-col">
-                    <div class="footer-col-title">Social</div>
-                    <a href="#">Instagram</a>
-                    <a href="#">Facebook</a>
+
+                <div class="footer-grid">
+
+                    <!-- Navigation -->
+                    <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
+                        <p
+                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 8px;">
+                            Navigate</p>
+                        <a href="index.html"
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Home</a>
+                        <a href="product.html"
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Shop</a>
+                        <a href="product.html#faq"
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">FAQ</a>
+                        <a href="privacy-policy.html"
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Privacy
+                            Policy</a>
+                        <a href="terms-of-service.html"
+                            style="font-family: 'Outfit', sans-serif; color: var(--color-white); font-size: 16px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: color 0.3s;">Terms
+                            of Service</a>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
+                        <p
+                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 12px;">
+                            Contact</p>
+                        <a href="mailto:support@glowagainlabs.com" class="footer-email">support@glowagainlabs.com</a>
+
+                        <div class="social-links" style="display: flex; gap: 16px; margin-top: 1rem;">
+                            <a href="#"
+                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; transition: var(--transition-base);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </a>
+                            <a href="#"
+                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; transition: var(--transition-base);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
+                        <p
+                            style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 12px;">
+                            Tips & Exclusive Offers</p>
+                        <form style="display: flex; max-width: 400px; width: 100%;">
+                            <input type="email" placeholder="ENTER YOUR EMAIL"
+                                style="flex: 1; padding: 14px 16px; background: transparent; border: 2px solid var(--border-main); border-right: none; color: var(--color-white); font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; min-width: 0;"
+                                required>
+                            <button type="submit"
+                                style="padding: 14px 24px; background: #E0F2FE; color: #08417A; border: 2px solid var(--border-main); font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: all 0.3s; white-space: nowrap;">Subscribe</button>
+                        </form>
+                    </div>
+
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p class="footer-disclaimer">* Customer experience reports the appearance of smoother, firmer-looking
-                    skin. Individual results may vary. Results described reflect the experience of individual users and
-                    are not guaranteed. This product is not intended to diagnose, treat, cure, or prevent any disease.
-                </p>
+                <p class="footer-disclaimer">* Based on ingredient research at effective concentrations and user
+                    satisfaction tracking. Individual results may vary. If dissatisfied with results, contact us within
+                    60 days of purchase for a full, no-questions-asked refund.</p>
                 <div class="footer-copy">© 2026 Glow Again Labs. All rights reserved.</div>
             </div>
         </div>

@@ -3529,31 +3529,45 @@
                                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                                 </svg>
                             </a>
+                            <a href="#"
+                                style="width: 48px; height: 48px; border: 2px solid var(--border-main); background: transparent; display: flex; align-items: center; justify-content: center; color: var(--color-white); text-decoration: none; transition: var(--transition-base);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                                </svg>
+                            </a>
                         </div>
                     </div>
 
                     <!-- Newsletter -->
-                    <div class="footer-links" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div>
                         <p
                             style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 12px;">
                             Tips & Exclusive Offers</p>
-                        <form style="display: flex; max-width: 400px; width: 100%;">
-                            <input type="email" placeholder="ENTER YOUR EMAIL"
-                                style="flex: 1; padding: 14px 16px; background: transparent; border: 2px solid var(--border-main); border-right: none; color: var(--color-white); font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; min-width: 0;"
+                        <p style="font-family: 'Outfit', sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 16px; line-height: 1.5;">Get skincare tips, deals & early access — straight to your inbox.</p>
+                        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 400px; width: 100%;">
+                            <input type="email" placeholder="Enter your email address" class="footer-email-input"
+                                style="width: 100%; padding: 14px 18px; background: rgba(0,0,0,0.25); border: 2px solid rgba(255,255,255,0.4); color: #fff; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 500; outline: none; box-sizing: border-box; border-radius: 2px;"
                                 required>
+                            <style>.footer-email-input::placeholder { color: rgba(255,255,255,0.75) !important; }</style>
                             <button type="submit"
-                                style="padding: 14px 24px; background: #E0F2FE; color: #08417A; border: 2px solid var(--border-main); font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: all 0.3s; white-space: nowrap;">Subscribe</button>
-                        </form>
+                                style="width: 100%; padding: 14px; background: #E0F2FE; color: #08417A; border: none; font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; border-radius: 2px;">SUBSCRIBE</button>
+                        </div>
                     </div>
-
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p class="footer-disclaimer">* Based on ingredient research at effective concentrations and user
-                    satisfaction tracking. Individual results may vary. If dissatisfied with results, contact us within
-                    60 days of purchase for a full, no-questions-asked refund.</p>
-                <div class="footer-copy">© 2026 Glow Again Labs. All rights reserved.</div>
+            <div
+                style="padding-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;">
+                <p
+                    style="font-family: 'Outfit', sans-serif; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">
+                    © 2026 Glow Again Labs. All rights reserved.</p>
+                <p
+                    style="font-family: 'Outfit', sans-serif; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 600; line-height: 1.6; max-width: 800px; text-transform: uppercase;">
+                    Disclaimer: Customer experience reports the appearance of smoother, firmer-looking skin. Individual
+                    results may vary. Results described reflect the experience of individual users and are not
+                    guaranteed. This product is not intended to diagnose, treat, cure, or prevent any disease.
+                </p>
             </div>
         </div>
     </footer>

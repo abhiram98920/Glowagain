@@ -1534,7 +1534,15 @@
                         <h2 class="pdp-product-subtitle">Multi-Action Tightening Cream</h2>
                         <p class="pdp-product-desc">A multi-level tightening cream that smooths fine lines for an immediate visible lift, locks moisture beneath the surface for all-day hydration, and supports your skin's own collagen for lasting firmness. One product. Three layers of visible improvement.</p>
 
-                        <!-- Benefit Pills Removed as per request -->
+                        <!-- Benefit Pills (restored per client copy) -->
+                        <div class="benefit-pills">
+                            <div class="benefit-pill"><span class="pill-icon">↑</span> Visibly Tighten &amp; Lift</div>
+                            <div class="benefit-pill"><span class="pill-icon">↑</span> Deep Hydration</div>
+                            <div class="benefit-pill"><span class="pill-icon">↑</span> Support Collagen</div>
+                            <div class="benefit-pill"><span class="pill-icon">↑</span> Smooth Fine Lines</div>
+                            <div class="benefit-pill"><span class="pill-icon">↑</span> Plump &amp; Firm</div>
+                            <div class="benefit-pill"><span class="pill-icon">↑</span> Restore Natural Glow</div>
+                        </div>
 
                         <div class="step-label-pdp"><span class="step-num">1</span> Step 1 – Choose Your Plan</div>
                         <div class="plan-toggle" style="margin-bottom: 24px;">
@@ -1579,48 +1587,57 @@
                         <button class="atc-btn" id="atc-btn">ADD TO CART — $53 per jar</button>
                         <div class="atc-sub">Price updates based on plan &amp; supply selection</div>
 
-                        <div class="guarantee-strip" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; padding: 24px; margin: 20px auto; max-width: 500px;">
-                            <img src="public/images/guarantee-badge.svg" alt="Guarantee" style="height: 60px; width: auto; flex-shrink: 0;">
-                            <div class="guarantee-text" style="font-family:'Outfit',sans-serif; color:#0A0A0A; font-weight:800; font-size:14px;">
+                        <!-- Guarantee strip -->
+                        <div class="guarantee-strip" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; border: 1px solid #bbf7d0; padding: 24px; background: #f4fdf8; border-radius: 12px; margin: 20px auto; max-width: 500px;">
+                            <img src="public/images/guarantee-badge.svg" alt="Real Money Back Guarantee" style="height: 60px; width: auto; flex-shrink: 0;">
+                            <div class="guarantee-text">
                                 100% Money-Back Guarantee
-                                <small style="display: block; margin-top: 0.5rem; color:var(--text-muted); font-weight:600; font-size:12px;">Try it risk-free for 60 days. Don't love it? Get a full refund.</small>
+                                <small style="display: block; margin-top: 0.5rem;">If you don't see a visible difference, we'll refund every penny. No questions. No hassle.</small>
                             </div>
                         </div>
 
-                        <!-- Payment methods -->
-                        <div class="payment-trust-strip" style="display: flex; gap: 12px; margin-top: 1rem; flex-wrap: wrap; justify-content: center;">
-                            <div class="pay-badge"><img src="public/images/visa.png" alt="Visa" style="height:18px;"></div>
-                            <div class="pay-badge"><img src="public/images/mastercard.png" alt="Mastercard" style="height:18px;"></div>
-                            <div class="pay-badge"><img src="public/images/amex.png" alt="Amex" style="height:18px;"></div>
-                            <div class="pay-badge"><img src="public/images/paypal.png" alt="PayPal" style="height:18px;"></div>
-                            <div class="pay-badge" style="display: flex; align-items: center;">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay" style="height:18px;">
+                        <!-- Payment methods — no background box, uniform size -->
+                        <div class="payment-trust-strip" style="display: flex; gap: 12px; margin-top: 1rem; flex-wrap: wrap;">
+                            <div class="pay-badge"><img src="public/images/visa.png" alt="Visa" class="pay-icon-visa"></div>
+                            <div class="pay-badge"><img src="public/images/mastercard.png" alt="Mastercard" class="pay-icon-mc"></div>
+                            <div class="pay-badge"><img src="public/images/amex.png" alt="Amex" class="pay-icon-amex"></div>
+                            <div class="pay-badge"><img src="public/images/paypal.png" alt="PayPal" class="pay-icon-paypal"></div>
+                            <div class="pay-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay" class="pay-icon-apple"></div>
+                            <div class="pay-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay" class="pay-icon-gpay"></div>
+                        </div>
+
+                        <!-- Trust badges -->
+                        <div class="trust-badges" style="margin-top: 1rem;">
+                            <div class="trust-badge">
+                                <span class="trust-icon" style="display: flex; justify-content: center; margin-bottom: 8px; color: #08417A;">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.2A7 7 0 0 1 11 20z" />
+                                        <path d="M19 2c-2.4 2.4-5.2 3.6-8 4.8" />
+                                    </svg>
+                                </span>
+                                <span class="trust-label">Gentle Formula<br>All Skin Types</span>
                             </div>
-                            <div class="pay-badge" style="display: flex; align-items: center;">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay" style="height:18px;">
+                            <div class="trust-badge">
+                                <span class="trust-icon">🛡️</span>
+                                <span class="trust-label">60-Day<br>Guarantee</span>
+                            </div>
+                            <div class="trust-badge">
+                                <span class="trust-icon">🚚</span>
+                                <span class="trust-label">Free Shipping<br>on Subscriptions</span>
                             </div>
                         </div>
 
-                        <div class="accordion">
-                            <div class="accordion-item">
-                                <button class="accordion-trigger" onclick="toggleAcc(this)">How to Use <span>+</span></button>
-                                <div class="accordion-body">
-                                    <p>Apply 2-3 times daily to cleansed skin. Massage gently until absorbed. Allow 15 minutes for full tightening effect.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <button class="accordion-trigger" onclick="toggleAcc(this)">Ingredients <span>+</span></button>
-                                <div class="accordion-body">
-                                    <p>Sodium Hyaluronate, Peptides, Aloe Barbadensis, Glycerin, Ginger Root Extract, Hibiscus Flower Extract.</p>
-                                </div>
-                            </div>
+                        <!-- Pro Tip -->
+                        <div class="pro-tip-pill" style="margin: 40px auto 20px;">
+                            <span class="pro-tip-badge">PRO TIP</span>
+                            <span class="pro-tip-text">Take a "before" photo on Day 1. You'll want it when people start asking what you're doing differently.</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
         <!-- Section 11: Beautifully Simple (How to Use) -->
+
         <style>
             .how-to-section {
                 padding: 2rem 0;
@@ -2937,13 +2954,35 @@
         #purchase .atc-btn:active { transform: translate(2px, 2px); box-shadow: 4px 4px 0 #0E5CA5; }
         #purchase .atc-sub { text-align: center; font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; color: #888; text-transform: uppercase; margin-top: 16px; letter-spacing: 0.05em; }
 
-        /* Pay Badges */
-        .pay-badge { background: #fff; border: 1px solid #eee; padding: 4px 8px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
-        .pay-badge img { height: 16px; width: auto; }
+        /* Pay Badges — no background, uniform size */
+        .pay-badge { display: flex; align-items: center; justify-content: center; padding: 4px; opacity: 0.85; transition: opacity 0.2s; background: none; border: none; }
+        .pay-badge:hover { opacity: 1; }
+        .pay-badge img, .pay-badge .pay-icon-visa, .pay-badge .pay-icon-mc, .pay-badge .pay-icon-amex,
+        .pay-badge .pay-icon-paypal, .pay-badge .pay-icon-apple, .pay-badge .pay-icon-gpay { height: 22px; width: auto; object-fit: contain; }
+
+        /* Trust Badges */
+        #purchase .trust-badges { display: flex; gap: 0; border: 2px solid #08417A; overflow: hidden; }
+        #purchase .trust-badge { flex: 1; padding: 14px 10px; text-align: center; border-right: 1px solid #08417A; font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+        #purchase .trust-badge:last-child { border-right: none; }
+        #purchase .trust-badge .trust-icon { font-size: 20px; display: block; margin-bottom: 6px; }
+        #purchase .trust-badge .trust-label { display: block; }
+
+        /* Pro Tip Pill */
+        #purchase .pro-tip-pill { display: flex; align-items: flex-start; gap: 14px; padding: 16px 20px; border: 1px solid #0E5CA5; background: #f0f5ff; }
+        #purchase .pro-tip-badge { font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: #0E5CA5; padding: 4px 10px; white-space: nowrap; flex-shrink: 0; }
+        #purchase .pro-tip-text { font-family: 'Inter', sans-serif; font-size: 13px; font-style: italic; color: #333; line-height: 1.6; }
+
+        /* Benefit Pills (in home purchase section) */
+        #purchase .benefit-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+        #purchase .benefit-pill { display: flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1.5px solid #08417A; font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #08417A; background: #fff; }
+        #purchase .benefit-pill .pill-icon { font-size: 14px; font-weight: 900; color: #0E5CA5; }
 
         /* Guarantee Strip */
-        #purchase .guarantee-strip { border: 1.5px solid #bbf7d0 !important; background: #f4fdf8 !important; }
+        #purchase .guarantee-strip { border: 1px solid #bbf7d0 !important; background: #f4fdf8 !important; border-radius: 12px !important; }
+        #purchase .guarantee-text { font-family: 'Outfit', sans-serif; color: #0A0A0A; font-weight: 800; font-size: 14px; }
+        #purchase .guarantee-text small { display: block; margin-top: 0.5rem; color: var(--text-muted); font-weight: 600; font-size: 11px; }
     </style>
+
 </body>
 
 </html>

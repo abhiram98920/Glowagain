@@ -1562,47 +1562,27 @@ img {
     }
 }
 
-/* Payment Icons Standardized visually */
-.pay-icon-visa {
-    height: 13px;
-    width: auto;
-    object-fit: contain;
-}
-
-.pay-icon-mc {
-    height: 22px;
-    width: auto;
-    object-fit: contain;
-}
-
-.pay-icon-amex {
-    height: 22px;
-    width: auto;
-    object-fit: contain;
-}
-
-.pay-icon-paypal {
-    height: 18px;
-    width: auto;
-    object-fit: contain;
-}
-
-.pay-icon-apple {
-    height: 14px;
-    width: auto;
-    object-fit: contain;
-}
-
-.pay-icon-gpay {
-    height: 14px;
-    width: auto;
-    object-fit: contain;
-}
-
-.pay-icon-box {
-    height: 18px;
-    padding: 0 8px;
-    border-radius: 4px;
+/* Payment Icons — Uniform 22px, no background box */
+.pay-badge {
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 4px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+    background: none;
+    border: none;
+}
+
+.pay-badge:hover { opacity: 1; }
+
+.pay-icon-visa,
+.pay-icon-mc,
+.pay-icon-amex,
+.pay-icon-paypal,
+.pay-icon-apple,
+.pay-icon-gpay {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
 }

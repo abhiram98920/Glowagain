@@ -1425,14 +1425,14 @@ img {
 }
 
 .pro-tip-badge {
-    background: none;
-    color: #08417A;
+    background: #08417A;
+    color: #fff;
     font-family: 'Outfit', sans-serif;
     font-size: 10px;
     font-weight: 900;
     letter-spacing: 0.15em;
-    padding: 0;
-    border-radius: 0;
+    padding: 4px 8px;
+    border-radius: 2px;
     text-transform: uppercase;
     white-space: nowrap;
     margin-top: 2px;

@@ -1447,15 +1447,40 @@
                 <div class="purchase-grid">
                     <!-- LEFT: Visual Gallery (PDP Parity) -->
                     <div class="gallery-col">
-                        <div class="gallery-main" id="gallery-main">
+                        <div class="gallery-main" id="gallery-main" style="position:relative;">
                             <div class="gallery-badge">New Formula</div>
-                            <img src="public/images/product_hero_jar.png" id="main-img" alt="Instant Lift Complex">
-                            <video id="main-video" style="display:none; width:100%; height:100%; object-fit:contain;" controls></video>
+                            <img src="public/images/product_hero_jar.png" id="main-img" alt="Instant Lift Complex" style="position:relative;">
+                            <video id="main-video" style="display:none; width:100%; height:100%; max-height:480px; object-fit:contain;" controls></video>
                             <div class="gallery-counter" id="gallery-counter">1 / 13</div>
-                            
+                            <!-- Non-image slides -->
+                            <div class="gallery-slide" id="slide-results">
+                                <div class="gallery-slide-icon">📈</div>
+                                <div class="gallery-slide-title">Expected Results</div>
+                                <p class="gallery-slide-body"><strong>15 min:</strong> Visible tightening &amp; smoothing<br><strong>7–14 days:</strong> Improved hydration &amp; plumpness<br><strong>30–60 days:</strong> Firmer, more lifted skin<br><br><em style="color:#0A0A0A;font-weight:700;">94% reported firmer skin in 30 days.*</em></p>
+                            </div>
+                            <div class="gallery-slide" id="slide-howto">
+                                <div class="gallery-slide-icon">📋</div>
+                                <div class="gallery-slide-title">How To Use</div>
+                                <p class="gallery-slide-body">① Cleanse &amp; pat dry<br>② Apply a thin layer to face, neck, jawline<br>③ Gently massage until absorbed<br>④ Allow 15 min to set<br>⑤ Use 2–3× daily for best results</p>
+                            </div>
+                            <div class="gallery-slide" id="slide-formula">
+                                <div class="gallery-slide-icon">🧪</div>
+                                <div class="gallery-slide-title">3-Tier Mechanism</div>
+                                <p class="gallery-slide-body"><strong>Tightening Polymers</strong> — surface tightening<br><strong>Low MW Hyaluronic Acid</strong> — deep hydration<br><strong>Palmitoyl Tripeptide-5</strong> — collagen support</p>
+                            </div>
+                            <div class="gallery-slide" id="slide-ingredients">
+                                <div class="gallery-slide-icon">🌿</div>
+                                <div class="gallery-slide-title">Full Ingredients</div>
+                                <p class="gallery-slide-body" style="font-size:11px;line-height:1.4;">Water, Dimethyl Sulfone, Sodium Acrylate/Sodium Acrylol Dimethyl Taurate Copolymer, Cetyl Alcohol, Glycol Stearate, Glyceryl Stearate, Caprylic/Capric Triglyceride, Citrus Aurantifolia Fruit Extract, Ruscus Aculeatus Root Extract, Zingiber Officinale Root Extract, Hibiscus Sabdariffa Flower Extract, Sodium Hyaluronate, Dimethicone, Aloe Barbadensis Leaf Juice, Phenoxyethanol, Sodium Ascorbyl Phosphate, Tocopheryl Acetate, Glycerin, Peptides, Panthenol, Butylene Glycol.</p>
+                            </div>
+                            <div class="gallery-slide" id="slide-guarantee">
+                                <div class="gallery-slide-icon">🛡️</div>
+                                <div class="gallery-slide-title">60-Day Guarantee</div>
+                                <p class="gallery-slide-body">Use it daily for 60 days. If you don't see a visible difference in your skin, we'll refund every penny.<br><br><strong>No questions. No hassle. No fine print.</strong></p>
+                            </div>
                             <!-- Arrow Navigation -->
-                            <button class="gallery-arrow prev" id="gallery-prev">&#8592;</button>
-                            <button class="gallery-arrow next" id="gallery-next">&#8594;</button>
+                            <button class="gallery-arrow prev" id="gallery-prev" aria-label="Previous image">&#8592;</button>
+                            <button class="gallery-arrow next" id="gallery-next" aria-label="Next image">&#8594;</button>
                         </div>
                         <div class="gallery-thumbnails">
                             <div class="thumb-item active" onclick="switchThumb(this,'img','public/images/product_hero_jar.png','1 / 13')">
@@ -1465,14 +1490,26 @@
                                 <img src="public/images/product_package_back.png" alt="Back">
                             </div>
                             <div class="thumb-item" onclick="switchThumb(this,'img','public/images/product_jar_open.png','3 / 13')">
-                                <img src="public/images/product_jar_open.png" alt="Open">
+                                <img src="public/images/product_jar_open.png" alt="Open Jar">
                             </div>
-                            <div class="thumb-item"
-                                onclick="switchThumb(this,'img','public/images/lifestyle_woman_smiling.png','12 / 13')">
+                            <div class="thumb-item" onclick="switchThumb(this,'img','public/images/step2_apply.png','4 / 13')">
+                                <img src="public/images/step2_apply.png" alt="Applying">
+                            </div>
+                            <div class="thumb-item" onclick="switchThumb(this,'img','public/images/before_after_result.png','5 / 13')">
+                                <img src="public/images/before_after_result.png" alt="Before/After">
+                            </div>
+                            <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-formula','6 / 13')">🧪<span>Mechanism</span></div>
+                            <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-results','7 / 13')">📈<span>Timeline</span></div>
+                            <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-howto','8 / 13')">📋<span>How To</span></div>
+                            <div class="thumb-item" onclick="switchThumb(this,'video','public/videos/317227_tiny.mp4','9 / 13')">
+                                <img src="public/images/video_testimonial_thumb.png" alt="Video">
+                            </div>
+                            <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-ingredients','10 / 13')">🌿<span>Ingredients</span></div>
+                            <div class="thumb-item thumb-icon" onclick="switchThumb(this,'slide','slide-guarantee','11 / 13')">🛡️<span>Guarantee</span></div>
+                            <div class="thumb-item" onclick="switchThumb(this,'img','public/images/lifestyle_woman_smiling.png','12 / 13')">
                                 <img src="public/images/lifestyle_woman_smiling.png" alt="Lifestyle">
                             </div>
-                            <div class="thumb-item"
-                                onclick="switchThumb(this,'img','public/images/customer_results_grid.png','13 / 13')">
+                            <div class="thumb-item" onclick="switchThumb(this,'img','public/images/customer_results_grid.png','13 / 13')">
                                 <img src="public/images/customer_results_grid.png" alt="Results">
                             </div>
                         </div>
@@ -1482,27 +1519,27 @@
                     <div class="purchase-col">
                         <!-- Best Seller Badge & Tagline -->
                         <div style="margin-bottom: 24px; display: flex; align-items: center; gap: 12px; position: relative;">
-                            <span style="background:#08417A; color:#fff; font-size:10px; font-weight:900; padding:4px 10px; text-transform:uppercase; letter-spacing:0.1em; border:1px solid #000;">BEST SELLER</span>
+                            <span style="background:#08417A; color:#fff; font-size:10px; font-weight:900; padding:4px 10px; text-transform:uppercase; letter-spacing:0.1em; border:1px solid var(--color-black);">BEST SELLER</span>
                             <span style="font-family:'Outfit',sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted);">Trending #1 in Clinical Skincare</span>
                         </div>
-                        <div class="social-proof-bar" style="display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 20px !important; font-family: 'Outfit', sans-serif !important; font-size: 11px !important; font-weight: 800 !important; text-transform: none !important; color: #000 !important;">
-                            <span style="text-transform: none !important; color: #000 !important;">⭐ 4.8 from 2,100+ Reviews</span>
-                            <span class="social-proof-sep" style="width: 4px; height: 4px; background: #0E5CA5; border-radius: 50%;"></span>
-                            <span style="text-transform: none !important; color: #000 !important;">Visible Results in 15 Minutes</span>
-                            <span class="social-proof-sep" style="width: 4px; height: 4px; background: #0E5CA5; border-radius: 50%;"></span>
-                            <span style="text-transform: none !important; color: #000 !important;">Women 40–75 Love It</span>
+                        <div class="social-proof-bar">
+                            <span>⭐ 4.8 from 2,100+ reviews</span>
+                            <span class="social-proof-sep"></span>
+                            <span>Visible results in 15 minutes</span>
+                            <span class="social-proof-sep"></span>
+                            <span>Women 40–75 love it</span>
                         </div>
 
-                        <h1 class="pdp-product-title" style="text-transform: none !important;">Instant Lift Complex</h1>
-                        <h2 class="pdp-product-subtitle" style="font-family:'Outfit',sans-serif; font-size:18px; font-weight:800; color:#08417A; margin-top:-8px; margin-bottom:16px; text-transform:none !important;">Multi-Action Tightening Cream</h2>
+                        <h1 class="pdp-product-title">Instant Lift Complex</h1>
+                        <h2 class="pdp-product-subtitle">Multi-Action Tightening Cream</h2>
                         <p class="pdp-product-desc">A multi-level tightening cream that smooths fine lines for an immediate visible lift, locks moisture beneath the surface for all-day hydration, and supports your skin's own collagen for lasting firmness. One product. Three layers of visible improvement.</p>
 
                         <!-- Benefit Pills Removed as per request -->
 
-                        <div class="step-label-pdp"><span class="step-num">1</span> Step 1: Choose your plan</div>
+                        <div class="step-label-pdp"><span class="step-num">1</span> Step 1 – Choose Your Plan</div>
                         <div class="plan-toggle" style="margin-bottom: 24px;">
                             <button class="plan-btn active" id="plan-sub" onclick="setPlanType('subscribe')">
-                                Subscribe & Save Up to 36%
+                                Subscribe &amp; Save Up to 36%
                                 <span class="plan-badge">Voted Best</span>
                             </button>
                             <button class="plan-btn" id="plan-one" onclick="setPlanType('onetime')">
@@ -1510,23 +1547,20 @@
                             </button>
                         </div>
 
-                        <div class="step-label-pdp"><span class="step-num">2</span> Step 2 : Subscribe & Save</div>
+                        <div class="step-label-pdp"><span class="step-num">2</span> Step 2 – Select Supply</div>
                         <p id="supply-hint" style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:16px;">FREE SHIPPING + CANCEL ANYTIME</p>
-                        
+
                         <div class="supply-grid">
-                            <!-- Tier 1: 6 Jars (Best Value) -->
                             <button class="supply-btn" id="s6" onclick="selectTier(this, 6)" data-jars="6" data-price="264" data-plan="subscribe">
                                 <span class="supply-qty">6 Month Supply</span>
                                 <span class="supply-price">$44 per jar</span>
                                 <span class="supply-label">Save 36%</span>
                             </button>
-                            <!-- Tier 2: 3 Jars (Most Popular) -->
                             <button class="supply-btn active" id="s3" onclick="selectTier(this, 3)" data-jars="3" data-price="159" data-plan="subscribe">
                                 <span class="supply-qty">3 Month Supply</span>
                                 <span class="supply-price">$53 per jar</span>
                                 <span class="supply-label">Save 23%</span>
                             </button>
-                            <!-- Tier 3: 1 Jar (Trial) -->
                             <button class="supply-btn" id="s1" onclick="selectTier(this, 1)" data-jars="1" data-price="62" data-plan="subscribe">
                                 <span class="supply-qty">1 Month Supply</span>
                                 <span class="supply-price">$62.00</span>
@@ -1537,14 +1571,15 @@
                         <div class="sub-perks" id="sub-perks">
                             <span>✓</span>Free shipping on every order<br>
                             <span>✓</span>Cancel or change anytime<br>
+                            <span>✓</span>Automatic delivery so you never run out<br>
                             <span>✓</span>60-Day Money-Back Guarantee
                         </div>
 
-                        <div class="step-label-pdp" style="margin-top: 2rem;"><span class="step-num">3</span> Step 3 : One-time purchase</div>
-                        <button class="atc-btn" id="atc-btn">ADD TO CART — $53 / jar</button>
-                        <div class="atc-sub">Price updates based on selection</div>
+                        <div class="step-label-pdp" style="margin-top: 2rem;"><span class="step-num">3</span> Step 3 – Add to Cart</div>
+                        <button class="atc-btn" id="atc-btn">ADD TO CART — $53 per jar</button>
+                        <div class="atc-sub">Price updates based on plan &amp; supply selection</div>
 
-                        <div class="guarantee-strip" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; border: 1px solid #bbf7d0; padding: 24px; background: #f4fdf8; border-radius: 12px; margin: 20px auto; max-width: 500px;">
+                        <div class="guarantee-strip" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; padding: 24px; margin: 20px auto; max-width: 500px;">
                             <img src="public/images/guarantee-badge.svg" alt="Guarantee" style="height: 60px; width: auto; flex-shrink: 0;">
                             <div class="guarantee-text" style="font-family:'Outfit',sans-serif; color:#0A0A0A; font-weight:800; font-size:14px;">
                                 100% Money-Back Guarantee
@@ -1558,10 +1593,10 @@
                             <div class="pay-badge"><img src="public/images/mastercard.png" alt="Mastercard" style="height:18px;"></div>
                             <div class="pay-badge"><img src="public/images/amex.png" alt="Amex" style="height:18px;"></div>
                             <div class="pay-badge"><img src="public/images/paypal.png" alt="PayPal" style="height:18px;"></div>
-                            <div class="pay-badge" style="height: 18px; display: flex; align-items: center;">
+                            <div class="pay-badge" style="display: flex; align-items: center;">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay" style="height:18px;">
                             </div>
-                            <div class="pay-badge" style="height: 18px; display: flex; align-items: center;">
+                            <div class="pay-badge" style="display: flex; align-items: center;">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay" style="height:18px;">
                             </div>
                         </div>
@@ -2745,10 +2780,10 @@
 
         #purchase .main-purchase-headline {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(32px, 5vw, 42px);
-            font-weight: 950;
-            color: #08417A !important;
-            letter-spacing: -0.01em;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 900;
+            color: #0A0A0A !important;
+            letter-spacing: -0.03em;
             line-height: 1.1;
             margin-bottom: 3.5rem;
             text-align: center;
@@ -2760,15 +2795,15 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 0;
-            border: 2px solid #08417A;
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             background: #fff;
-            align-items: start; /* Essential for sticky to work */
+            align-items: start;
+            border: none; /* Removed outer border for parity */
         }
 
         @media (min-width: 992px) {
-            #purchase .purchase-grid { grid-template-columns: 1fr 1fr; }
+            #purchase .purchase-grid { grid-template-columns: 1fr 1fr; border: 2px solid #08417A; }
         }
 
         /* GALLERY STYLES */
@@ -2776,20 +2811,22 @@
             min-width: 0; width: 100%; box-sizing: border-box; overflow: hidden;
             background: #fff; display: flex; flex-direction: column; gap: 0;
             position: relative; border-right: 2px solid #08417A;
+            border-bottom: 2px solid #08417A;
         }
 
         @media (min-width: 992px) {
             #purchase .gallery-col {
                 position: sticky;
-                top: 92px; /* Header offset */
+                top: 92px;
                 height: auto;
                 max-height: calc(100vh - 92px);
                 z-index: 10;
+                border-bottom: none;
             }
         }
 
         @media (max-width: 991px) {
-            #purchase .gallery-col { border-right: none; border-bottom: 2px solid #08417A; position: relative !important; top: 0 !important; }
+            #purchase .gallery-col { border-right: none; position: relative !important; top: 0 !important; }
         }
 
         #purchase .gallery-main {
@@ -2807,18 +2844,39 @@
         }
         #purchase .gallery-slide.active { display: flex; }
         
-        #purchase .gallery-thumbnails { display: flex; overflow-x: auto; gap: 0; scrollbar-width: none; background: #f0eeeb; border-top: 1px solid #08417A; }
+        #purchase .gallery-thumbnails { display: flex; justify-content: center; overflow-x: auto; gap: 0; scrollbar-width: none; background: #f0eeeb; border-top: 1px solid #08417A; }
         #purchase .thumb-item {
-            min-width: 70px; height: 70px; border-right: 1px solid #08417A; flex-shrink: 0;
+            min-width: 80px; height: 80px; border-right: 1px solid #08417A; border-left: 1px solid #08417A; margin-left: -1px; flex-shrink: 0;
             cursor: pointer; display: flex; align-items: center; justify-content: center;
             background: #f0eeeb; position: relative; overflow: hidden; transition: all 0.2s;
         }
         #purchase .thumb-item.active { background: #fff; }
+        #purchase .thumb-item:hover { background: #fff; }
         #purchase .thumb-item.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #0E5CA5; }
-        #purchase .thumb-item img { width: 50px; height: 50px; object-fit: contain; }
+        #purchase .thumb-item img { width: 60px; height: 60px; object-fit: contain; }
+        #purchase .thumb-item.thumb-icon {
+            flex-direction: column; font-size: 20px; gap: 2px;
+            font-family: 'Outfit', sans-serif;
+        }
+        #purchase .thumb-item.thumb-icon span {
+            font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; 
+            color: #444; line-height: 1;
+        }
+
+        /* Gallery slide content */
+        #purchase .gallery-slide-icon { font-size: 56px; margin-bottom: 16px; line-height: 1; }
+        #purchase .gallery-slide-title {
+            font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 20px;
+            text-transform: uppercase; letter-spacing: -0.02em; color: #0A0A0A; margin-bottom: 14px;
+        }
+        #purchase .gallery-slide-body {
+            font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.75; color: #555; max-width: 320px;
+        }
+
 
         /* PURCHASE COL STYLES */
-        #purchase .purchase-col { padding: 40px; background: #fff; display: flex; flex-direction: column; gap: 0; min-width: 0; }
+        #purchase .purchase-col { padding: 40px; background: #fff; display: flex; flex-direction: column; gap: 0; min-width: 0; border-left: 2px solid #08417A; margin-left: -2px; }
+        @media (max-width: 991px) { #purchase .purchase-col { border-left: none; margin-left: 0; } }
         
         #purchase .social-proof-bar { 
             display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 20px !important; 

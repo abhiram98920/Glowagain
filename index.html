@@ -1091,15 +1091,18 @@
                 font-weight: 700;
                 color: var(--text-main);
                 text-transform: uppercase;
-                letter-spacing: 0.1em;
-                padding: 0;
-                background: none;
-                border: none;
+                letter-spacing: 0.08em;
+                padding: 8px 16px;
+                background: #fff;
+                border: 1.5px solid #e0e0e0;
+                border-radius: 100px;
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.07);
             }
-
-            .trust-pill::before {
-                content: '✓ ';
-                font-weight: 900;
+            .trust-pill svg {
+                flex-shrink: 0;
                 color: #08417A;
             }
         </style>
@@ -1169,11 +1172,26 @@
 
                 <!-- Upgraded trust badges -->
                 <div class="science-trust">
-                    <span class="trust-pill">Paraben-free</span>
-                    <span class="trust-pill">Cruelty-free</span>
-                    <span class="trust-pill">All skin types</span>
-                    <span class="trust-pill">Sensitive skin safe</span>
-                    <span class="trust-pill">Made in USA</span>
+                    <span class="trust-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Paraben-free
+                    </span>
+                    <span class="trust-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        Cruelty-free
+                    </span>
+                    <span class="trust-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+                        All skin types
+                    </span>
+                    <span class="trust-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        Sensitive skin safe
+                    </span>
+                    <span class="trust-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                        Made in USA
+                    </span>
                 </div>
             </div>
         </section>
@@ -2300,11 +2318,11 @@
         }
 
         .footer-newsletter button {
-            padding: 0 24px;
-            background: var(--color-white);
+            padding: 0 28px;
+            background: #E0F2FE;
             border: none;
             border-left: 2px solid var(--border-main);
-            color: var(--color-black);
+            color: #08417A;
             font-size: 14px;
             font-weight: 900;
             text-transform: uppercase;
@@ -2448,7 +2466,8 @@
                         <p
                             style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #E0F2FE; margin-bottom: 12px;">
                             Tips & Exclusive Offers</p>
-                        <div class="footer-newsletter">
+                        <p style="font-family: 'Outfit', sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 16px; line-height: 1.5;">Get skincare tips, deals & early access — straight to your inbox.</p>
+                        <div class="footer-newsletter" style="max-width: 480px; width: 100%;">
                             <input type="email" placeholder="ENTER YOUR EMAIL">
                             <button>Subscribe</button>
                         </div>

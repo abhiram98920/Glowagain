@@ -903,24 +903,9 @@ img {
 /* Purchase Module */
 .purchase-module {
     padding: 60px 0;
-    background: #08417A;
-    color: #fff;
+    background: #f8f7f5;
     position: relative;
     overflow: hidden;
-}
-
-.purchase-module::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse at 30% 50%,
-            rgba(255, 107, 157, 0.15) 0%,
-            transparent 70%),
-        radial-gradient(ellipse at 80% 30%,
-            rgba(123, 47, 247, 0.1) 0%,
-            transparent 60%);
-    pointer-events: none;
 }
 
 .purchase-header {

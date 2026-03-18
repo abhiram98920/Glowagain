@@ -1660,9 +1660,7 @@
                 <div class="purchase-col">
                     <div class="social-proof-bar" style="margin-top: 0; padding-top: 0;">
                         <span>⭐ 4.8 from 2,100+ reviews</span>
-                        <span class="social-proof-sep"></span>
                         <span>Visible results in 15 minutes</span>
-                        <span class="social-proof-sep"></span>
                         <span>Women 40–75 love it</span>
                     </div>
 
@@ -3190,11 +3188,16 @@
             padding-top: 20px;
         }
 
-        #purchase .social-proof-sep {
-            width: 4px;
-            height: 4px;
-            background: #0E5CA5;
-            border-radius: 50%;
+        #purchase .social-proof-bar span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        #purchase .social-proof-bar span + span::before {
+            content: "•";
+            margin-right: 10px;
+            opacity: 0.5;
+            font-size: 16px;
         }
 
         /* Product title */
@@ -3522,17 +3525,22 @@
             /* Social proof bar: tight on mobile */
             #purchase .social-proof-bar {
                 font-size: 9px !important;
-                gap: 6px !important;
+                gap: 8px !important;
                 justify-content: center !important;
+                flex-wrap: wrap !important;
             }
             #purchase .social-proof-bar span {
                 white-space: nowrap !important;
+                display: inline-flex !important;
+                align-items: center !important;
+            }
+            #purchase .social-proof-bar span + span::before {
+                content: "•" !important;
+                margin-right: 8px !important;
+                opacity: 0.6 !important;
             }
             #purchase .social-proof-sep {
-                display: block !important;
-                width: 3px !important;
-                height: 3px !important;
-                opacity: 0.5 !important;
+                display: none !important;
             }
         }
     </style>

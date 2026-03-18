@@ -1576,16 +1576,17 @@ img {
     font-size: 14px;
     font-weight: 900;
     display: block;
-    background: #08417A;
-    color: #fff;
+    background: #f0f4f8;
+    color: #08417A;
     padding: 8px 4px;
     margin: -16px -8px 12px -8px;
     letter-spacing: 0.02em;
 }
 
 .supply-btn.active .supply-qty {
-    background: #fff;
-    color: #08417A;
+    background: #08417A;
+    color: #fff;
+    border-bottom: 2px solid #fff;
 }
 
 .supply-btn .supply-label {
